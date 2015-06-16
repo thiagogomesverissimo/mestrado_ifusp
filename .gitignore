@@ -1,5 +1,6 @@
-# Não versionar arquivos que são gerados internamente:
+# Não versionar arquivos que podem ser recriados no projeto:
 outputs/*
+!outputs/README.md
 
 # Arquivos temporários do linux:
 *~
@@ -45,3 +46,6 @@ outputs/*
 *.png
 *.pdf
 *.nls
+
+# A dissertação em si:
+!latex/mestrado.pdf
