@@ -1,0 +1,47 @@
+# Não versionar arquivos que são gerados internamente:
+outputs/*
+
+# Arquivos temporários do linux:
+*~
+
+# Arquivos gerados pelo R:
+.RData*
+.Rhistory*
+.Rproj.user
+
+# Arquivos gerados pelo latex:
+*.acn
+*.acr
+*.alg
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.ps
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdy
+*.tdo
+*.png
+*.pdf
+*.nls
