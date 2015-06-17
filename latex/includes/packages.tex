@@ -98,6 +98,32 @@
 % Formatar as citações no texto e a lista de referências
 \usepackage{natbib}
 
+% Lista de Abreviaturas
+\usepackage[notintoc,portuguese]{nomencl}
+\makenomenclature
+\renewcommand{\nomname}{Lista de Abreviaturas}
+
+% Links do sumário para caṕítulos, referências e figuras
+\usepackage{hyperref}
+
+% Configurações dos links e metadados do PDF a ser gerado
+\hypersetup{colorlinks=true, 
+            linkcolor=blue, 
+            citecolor=blue, 
+            filecolor=blue, 
+            urlcolor=green,
+            pdfauthor={Thiago Gomes Verissimo},
+            pdftitle={Projeto de Mestrado IFUSP 2015},
+            pdfsubject={Estudo da poluição do rr em Acra (Capital de Gana)},
+            pdfkeywords={Gana, Poluição do Ar, África, Material Particulado},
+            pdfproducer={LaTeX},
+            pdfcreator={pdfTeX}}
+
+% Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
+% Não inclui lista de tabelas: notlot
+% Não incluir lista de figuras: notlof
+\usepackage[nottoc]{tocbibind}
+
 %%%%%%%%%%% Remover linhas abaixo:
 
 % Criar figura dividida em subfiguras
@@ -129,10 +155,6 @@
 % adicionar tabelas e figuras como landscape
 %\usepackage{lscape}
 
-%% Lista de Abreviações
-%\usepackage[notintoc,portuguese]{nomencl}
-%\renewcommand{\nomname}{Lista de Abreviaturas}
-%\makenomenclature
 
 
 % Notas criadas nas tabelas ficam no fim das tabelas
@@ -141,9 +163,6 @@
 % Conta o número de páginas
 %\usepackage{lastpage}
 
-% Adicionar bibliografia, índice e conteúdo na Tabela de conteúdo
-% Não inclui lista de tabelas e figuras no índice
-%\usepackage[nottoc,notlof,notlot]{tocbibind}
 
 %% Pontuação e unidades
 % Posicionar inteligentemente a vírgula como separador decimal
@@ -180,18 +199,6 @@
 % Dados do projeto
 %\newcommand{\nomedoaluno}{Nome Completo do Aluno}
 %\newcommand{\titulo}{Título original do projeto}
-
-%% Links dinâmicos
-% Suporte para hipertexto, links para referências e figuras
-%\usepackage{hyperref}
-% Configurações dos links e metatags do PDF a ser gerado
-%\hypersetup{colorlinks=true, linkcolor=blue, citecolor=blue, filecolor=blue, urlcolor=green,
-%            pdfauthor={\nomedoaluno},
-%            pdftitle={\titulo},
-%            pdfsubject={Assunto do Projeto},
-%            pdfkeywords={palavra-chave, palavra-chave, palavra-chave},
-%            pdfproducer={LaTeX},
-%            pdfcreator={pdfTeX}}
 
 %% Inserir comentários no texto
 % Marcar mudanças e fazer comentários
