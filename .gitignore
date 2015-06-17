@@ -44,8 +44,4 @@ outputs/*
 *.xdy
 *.tdo
 *.png
-*.pdf
 *.nls
-
-# A dissertação em si:
-!latex/mestrado.pdf
