@@ -1,0 +1,29 @@
+\pagenumbering{roman}
+
+\input{geral/capa}
+%\input{geral/ficha} COM PROBLEMAS
+\input{geral/dedicatoria}
+
+\pagenumbering{arabic}
+
+\input{geral/resumo}
+\input{geral/abstract}
+
+% Desabilitar protrusão para listas e índice
+\microtypesetup{protrusion=false}
+
+% Lista de figuras
+\listoffigures
+
+% Lista de tabelas
+\listoftables
+
+% Abreviações - COM PROBLEMAS (FALTA ENTENDER COMO USA)
+%\input{geral/siglas}
+%\printnomenclature
+
+% Índice
+\tableofcontents
+
+% Re-habilita protrusão novamente
+\microtypesetup{protrusion=true}
