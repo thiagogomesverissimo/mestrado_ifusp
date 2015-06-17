@@ -4,7 +4,6 @@ main.pdf: main.tex slides1.tex
 	pdflatex main.tex
 	pdflatex main.tex
 	pdflatex main.tex
-	pdflatex main.tex
 	make clean
 
 clean:
