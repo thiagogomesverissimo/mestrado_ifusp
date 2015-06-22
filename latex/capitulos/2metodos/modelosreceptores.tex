@@ -1,16 +1,32 @@
+\section{Modelos Receptores}
 
-Modelo receptor é uma abordagem matemática para quantificar o efeito das fontes nas amostras. 
-Análise multivariada reduz as dimensões (variáveis) de um conjunto de dados em um conjunto de dados analítico complexo que poderão ser interpretados como tipo de fontes. \citep{Rizzo2007}
-(outlier é um desafio para modelos multivariados porque ele são de infrequentes e de curta duração e com alta concnetrações.)
-O processo de identificação das fontes principais de poluição do ar é complexo, havendo diversos caminhos, os quais as técnicas estatísticas multivariadas são historicamente usadas.
+Modelo receptor é uma abordagem matemática para quantificar o efeito das fontes 
+nas amostras. Determinar as fontes a partir do receptor. 
+(no site da cetesb tem um esquema legal.).
 
-Tentam identificar e quantificar as fontes de poluição baseados em medidas de poluentes no receptor. 
- o numero de fatores dependera do conheciemto do usuario sobre as fontes, numero de amostras, resolucao da amostragem, e especies medidas.
-Modelos receptores: Regressão linear múltipla, redes neurais, cluster, edge detection, Fator de enriquecimento, BQM, análises multivariadas. Quais são os mais usados em poluição do ar?
+Análise multivariada reduz as dimensões (variáveis) de um conjunto de dados 
+em um conjunto de dados analítico complexo que poderão ser interpretados como 
+tipo de fontes.
+Outlier é um desafio para modelos multivariados porque ele são de infrequentes 
+e de curta duração e com alta concnetrações.
+O processo de identificação das fontes principais de poluição do ar é complexo,
+havendo diversos caminhos, os quais as técnicas estatísticas multivariadas 
+são historicamente usadas.
+
+Tentam identificar e quantificar as fontes de poluição baseados em medidas de 
+poluentes no receptor. 
+O número de fatores dependera do conhecimento do usuário sobre as fontes, 
+número de amostras, resolução da amostragem, e espécies medidas.
+Modelos receptores: Regressão linear múltipla, redes neurais, cluster, 
+edge detection, fator de enriquecimento, BQM, análises multivariadas. 
+Quais são os mais usados em poluição do ar?
+
 O Balanço químico de massa necessita dos perfis das fontes.
 
-modelo de dispersão: determinar o poluente no receptor a partir de fontes conhecidas, exemplo: determinar a poluição em um ponto receptor usando um inventário mais condições atmosféricas. O mais usado pelos governos é o da hipótese que a distribuição espacial dos poluentes dentro da pluma é gaussiana.  
-modelo receptor: determinar as fontes a partir do receptor. (no site da cetesb tem um esquema legal.).
+modelo de dispersão: determinar o poluente no receptor a partir de fontes 
+conhecidas, exemplo: determinar a poluição em um ponto receptor usando um 
+inventário mais condições atmosféricas. O mais usado pelos governos é o da 
+hipótese que a distribuição espacial dos poluentes dentro da pluma é gaussiana.  
 
 Os dois se complementam.
 
@@ -300,7 +316,7 @@ O \textit{PMF EPA 5.0} nos fornece os seguintes recursos para a reprodutibilidad
 
 Alguns trabalhamos mostram que PMF e CMB se correlacionam. E melhor: os perfis de fontes calculado pelo PMF são similares aos medidos de fato para usp no CMB. 
 
-Artigo que mostra um caso de não correlação entre os fatores extraídos pelo CMB e PMF: %\citep{Jaeckels2007}.
+Artigo que mostra um caso de não correlação entre os fatores extraídos pelo CMB e PMF.
 
 \subsection{Desenvolvimento Teórico} 
 
@@ -342,7 +358,7 @@ Uma função objeto, em matemática, é uma função que precisa ser minimizada 
 O \textit{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ mínimo local ou global. 
 Para verificar se a solução gerou um $Q$ mínimo local ou global, rodar com diferentes valores de \textit{Random Seed} e verificar a estabilidade de $Q$.
 
-A equação \ref{equation:pmf:object} foi inicialmente implementada usando o método de Gauss-Newton \citep{wiki:gaussnewton} (citar fonte 1997 Paatero Tapper), mas na versão atual do software \textit{PMF EPA 5.0} é usado o método do \textit{Gradiente Conjugado} \citep{wiki:gradienteconjugado}, que necessita de menos recursos computacionais. 
+A equação \ref{equation:pmf:object} foi inicialmente implementada usando o método de Gauss-Newton  (citar fonte 1997 Paatero Tapper), mas na versão atual do software \textit{PMF EPA 5.0} é usado o método do \textit{Gradiente Conjugado}, que necessita de menos recursos computacionais. 
 Os valores de $g_{ik}$ e $f_{kj}$ são ajustados até encontrar menor $Q$. O \textit{PMF EPA 5.0} nos oferece dois valores para $Q$: $Q_{verdadeiro}$ e $Q_{robusto}$, onde o primeiro foi calculado considerando todos os valores de concentração e no segundo remove-se os \textit{outliers}. Assim quando há poucos \textit{outliers}, $Q_{verdadeiro}$ e $Q_{robusto}$ são próximos. Incertezas muitos altas também causam $Q_{verdadeiro}$ e $Q_{robusto}$ similares.
 
 O \textit{PMF EPA 5.0} começa com os valores da matriz $f_{kj}$ randômicos, que são então modificados, até a encontrar a melhor solução, ou seja, a do menor $Q_{robusto}$. Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim mais esperança de encontrarmos um $Q$ mínimo global e não local.
