@@ -8,7 +8,7 @@ Análise multivariada reduz as dimensões (variáveis) de um conjunto de dados
 em um conjunto de dados analítico complexo que poderão ser interpretados como 
 tipo de fontes.
 Outlier é um desafio para modelos multivariados porque ele são de infrequentes 
-e de curta duração e com alta concnetrações.
+e de curta duração e com alta concentrações.
 O processo de identificação das fontes principais de poluição do ar é complexo,
 havendo diversos caminhos, os quais as técnicas estatísticas multivariadas 
 são historicamente usadas.
@@ -298,15 +298,32 @@ Jolliffe (2002) discusses why the interpretation of rotated components is compli
 \section{\textit{PMF} - Positive Matrix Factorizarion}
 
 \subsection{Introdução}
-O \textit{Positive Matrix Factorizarion (PMF)} é mais um método multivariado usado em modelos receptores para resolver a equação da conservação da massa (citar equação). O \textit{PMF} também é um tipo de Análise Fatorial (linkar para capitulo de analise fatorial), mas ao invés de fazer redução da dimensão dos dados decompondo a matriz de correlação em auto-valores e auto-vetores, resolve a equação de conservação usando (citar equação) a resolução por mínimos quadrados. Em pesquisas de poluição atmosférica o método \textit{PMF} tem ganhado espaço nos últimos anos, devido principalmente há 3 motivos:
+O \textit{Positive Matrix Factorizarion (PMF)} é outro método multivariado usado
+em modelos receptores para resolver a equação da conservação da massa 
+(citar equação). 
+
+O \textit{PMF} também é um tipo de Análise Fatorial (lincar para capitulo de analise fatorial)
+mas ao invés de fazer redução da dimensão dos dados decompondo a matriz de 
+correlação em autovalores e autovetores, resolve a equação de conservação 
+usando a resolução por mínimos quadrados. Em pesquisas de poluição atmosférica 
+o método \textit{PMF} tem ganhado espaço nos últimos anos, devido 3 motivos 
+principais:
 
 \begin{itemize}
-  \item Disponibilização de uma versão gratuita do software que implementa o método \textit{PMF} pela \textit{EPA} \citep{Norris:2014}. Ainda existe a versão proprietária e comercial, com mais recursos.   
-  \item Incorporação de um algoritmo robusto desenvolvido por (citar paatero e tapper) que impede o aparecimento de valores negativos no perfil e contribuição de fontes.
-  \item Ponderação pelas incertezas das concentrações, diminuído assim o peso de espécies com incertezas altas.
+  \item Disponibilização de uma versão gratuita do software que implementa 
+        o método \textit{PMF} pela \textit{EPA}, o \textit{PMF EPA 5.0} 
+        \citep{Norris:2014}. 
+        Ainda existe a versão proprietária e comercial, com mais recursos.   
+  \item Incorporação de um algoritmo robusto desenvolvido por (citar paatero e tapper) 
+        que impede o aparecimento de valores negativos no perfil e 
+        contribuição de fontes.
+  \item Ponderação pelas incertezas das concentrações, diminuído assim o peso 
+        de espécies com incertezas altas.
 \end{itemize}  
 
-O \textit{PMF EPA 5.0} nos fornece os seguintes recursos para a reprodutibilidade de pesquisa:
+Em termos de reprodutibilidade da pesquisa científica o \textit{PMF EPA 5.0} 
+nos fornece os seguintes recursos:
+
 \begin{itemize}
   \item Fixação de \textit{Random Seed}.
   \item Arquivo \textit{XML} com as configurações usadas na rodada. 
@@ -314,105 +331,214 @@ O \textit{PMF EPA 5.0} nos fornece os seguintes recursos para a reprodutibilidad
 
 \subsection{\textit{PMF}, CMB e FA}
 
-Alguns trabalhamos mostram que PMF e CMB se correlacionam. E melhor: os perfis de fontes calculado pelo PMF são similares aos medidos de fato para usp no CMB. 
+Alguns trabalhamos mostram que PMF e CMB se correlacionam. 
+Os perfis de fontes calculado pelo PMF são similares aos medidos de fato para 
+USP no CMB (citar trabalho do Luis?). 
 
-Artigo que mostra um caso de não correlação entre os fatores extraídos pelo CMB e PMF.
+Artigo que mostra um caso de não correlação entre os fatores extraídos pelo 
+CMB e PMF (buscar artigo).
 
 \subsection{Desenvolvimento Teórico} 
 
 \subsubsection{Conservação da massa}
-Partimos da matriz de concentração, $c_{ij}$, e de sua respectiva matriz das incertezas, $u_{ij}$, onde:
-\begin{itemize}
-  \item $i$ representa as amostras válidas
-  \item $j$ representa as espécies medidas
-\end{itemize}
-$u_{ij}$ deve englobar as incertezas experimentais e analíticas.
 
-Equação da conservação da massa no contexto do \textit{PMF} \ref{equation:pmf}: 
+Seja,
+
+\begin{itemize}
+  \item $c_{ij}$ matriz de concentração
+  \item $u_{ij}$ matriz de incertezas (experimentais e analíticas)
+  \item $i$ as amostras válidas
+  \item $j$ as espécies medidas
+\end{itemize}
+
+Pode-se escrever a equação da conservação da massa (citar equação) no 
+contexto do \textit{PMF} \ref{equation:pmf}: 
+
 \begin{equation}
   c_{ij} = \sum_{k=i}^p g_{ik}f_{kj} + e_{ij}
   \label{equation:pmf}
 \end{equation}
 
 Onde,
+
 \begin{itemize}
-  \item $p$: O numero de fatores informado pelo usuário.
-  \item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Scores}).
-  \item $f_{kj}$: Perfil da fonte ou assinatura da fonte, ou seja, a distribuição das espécies nos fatores. (\textit{Factor Loadings}).
+  \item $p$: O número de fatores informado pelo usuário.
+  \item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Score}).
+  \item $f_{kj}$: Perfil da fonte ou assinatura da fonte, ou seja, 
+        a distribuição das espécies nos fatores. (\textit{Factor Loadings}).
   \item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas.
 \end{itemize}
 
-O objetivo do \textit{PMF} é encontrar $g_{ik}$ e $f_{kj}$ ($k$ é um fator genérico), pois a matriz $c_{ij}$ é decomposta nestas duas matrizes. Assim, a pergunta que temos que fazer ao trabalha com o \textit{PMF} é: 
+O objetivo do \textit{PMF} é encontrar $g_{ik}$ e $f_{kj}$. 
+($k$ é um fator genérico), pois a matriz $c_{ij}$ é decomposta em 
+$g_{ik}$ e $f_{kj}$. Assim, a pergunta que temos que fazer ao trabalha com 
+o \textit{PMF} é: 
+
 \textit{Quais $g_{ik}$ e $f_{kj}$ melhor reproduzem $c_{ij}$?}
 
-O usuário informa a quantidade de fatores desejados $p$ e o método \textit{PMF} sempre encontrará uma solução para essa quantidade de fatores. Entretanto, é necessário avaliar a qualidade do ajuste, seguindo os passos apresentados logo a seguir, assim como o significado físico dos fatores. 
+O usuário informa a quantidade de fatores desejados $p$ e o \textit{PMF} 
+sempre encontrará uma solução para essa quantidade de fatores. 
+Entretanto, é necessário avaliar a qualidade do ajuste, seguindo os passos 
+que serão apresentados logo a seguir, assim como interpretar o significado 
+físico dos fatores. 
 
 \subsubsection{Função Objeto}
-Uma função objeto, em matemática, é uma função que precisa ser minimizada ou maximizada usando métodos numéricos para equações não-lineares, pois não tem solução analítica. No \textit{PMF} a função objeto $Q$ e calculada conforme a equação \ref{equation:pmf:object}, onde ${u_{ij}}$ é encontrado isolando-o na equação \ref{equation:pmf}.
+
+Uma função objeto, em matemática, é uma função que precisa ser minimizada 
+ou maximizada usando métodos numéricos para equações não lineares, pois não 
+tem solução analítica. 
+
+No \textit{PMF} a função objeto $Q$ é calculada conforme a equação 
+\ref{equation:pmf:object}, onde ${u_{ij}}$ é encontrado isolando-o na 
+equação \ref{equation:pmf}.
 
 \begin{equation}
   Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{e_{ij}} {u_{ij}} \right] ^2
   \label{equation:pmf:object}
 \end{equation}
 
-O \textit{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ mínimo local ou global. 
-Para verificar se a solução gerou um $Q$ mínimo local ou global, rodar com diferentes valores de \textit{Random Seed} e verificar a estabilidade de $Q$.
+O \textit{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ 
+mínimo local ou global. 
 
-A equação \ref{equation:pmf:object} foi inicialmente implementada usando o método de Gauss-Newton  (citar fonte 1997 Paatero Tapper), mas na versão atual do software \textit{PMF EPA 5.0} é usado o método do \textit{Gradiente Conjugado}, que necessita de menos recursos computacionais. 
-Os valores de $g_{ik}$ e $f_{kj}$ são ajustados até encontrar menor $Q$. O \textit{PMF EPA 5.0} nos oferece dois valores para $Q$: $Q_{verdadeiro}$ e $Q_{robusto}$, onde o primeiro foi calculado considerando todos os valores de concentração e no segundo remove-se os \textit{outliers}. Assim quando há poucos \textit{outliers}, $Q_{verdadeiro}$ e $Q_{robusto}$ são próximos. Incertezas muitos altas também causam $Q_{verdadeiro}$ e $Q_{robusto}$ similares.
+Como sempre estamos interessados no mínimo global, precisa-se verificar se a 
+solução gerou um $Q$ mínimo local ou global. A estratégica para identificar
+o tipo de mínimo é rodar o \textit{PMF} para diferentes valores de 
+\textit{Random Seed} e acompanhar a estabilidade de $Q$.
 
-O \textit{PMF EPA 5.0} começa com os valores da matriz $f_{kj}$ randômicos, que são então modificados, até a encontrar a melhor solução, ou seja, a do menor $Q_{robusto}$. Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim mais esperança de encontrarmos um $Q$ mínimo global e não local.
+A equação \ref{equation:pmf:object} foi inicialmente implementada usando 
+o \textit{método de Gauss-Newton}  (citar fonte 1997 Paatero Tapper), mas na 
+versão atual do software \textit{PMF EPA 5.0} é usado o 
+\textit{Método do Gradiente Conjugado}, que necessita de menos recursos 
+computacionais. 
+
+Os valores de $g_{ik}$ e $f_{kj}$ são ajustados até encontrar menor $Q$. 
+O \textit{PMF EPA 5.0} nos oferece dois valores para $Q$: $Q_{verdadeiro}$ e 
+$Q_{robusto}$, onde o primeiro foi calculado considerando todos os valores 
+de concentração e no segundo remove-se os \textit{outliers}.
+Assim quando há poucos \textit{outliers}, $Q_{verdadeiro}$ e $Q_{robusto}$ 
+são próximos. Incertezas muitos altas também causam $Q_{verdadeiro}$ e 
+$Q_{robusto}$ similares.
+
+O \textit{PMF EPA 5.0} começa com os valores da matriz $f_{kj}$ randômicos, 
+que são então modificados, até a encontrar a melhor solução, ou seja, 
+a do menor $Q_{robusto}$. 
+Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações 
+como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim 
+mais esperança de encontrarmos um $Q$ mínimo global e não local.
 
 \subsection{Pré-processamento do ajuste}
 Requisitos conceituais e técnicos para realização do ajuste.
 
 \subsubsection{\textit{Signal Noise (S/N)}}
-Dependendo do método de medida, conhecimento de dos processos químicos nas atmosfera e limite de detecção é necessário diminuir o peso de algumas espécies no modelo, diminuindo as incertezas. Atém do conhecimento da espécie, o ruído, ou \textit{Signal Noise (S/N)} é um bom indicador de quais amostra deve-se aumentar as incerteza:
+Dependendo do método de medida, conhecimento dos processos químicos 
+atmosféricos e limite de detecção é necessário diminuir o peso de algumas 
+espécies no modelo, diminuindo as incertezas. 
+Além do conhecimento da espécie, o \textit{Signal Noise (S/N)} é um bom 
+indicador de quais amostra deve-se aumentar as incerteza.
+
 \begin{itemize}
   \item Se, $c_{ij} >  u_{ij}$, então $ S/N = (c_{ij} - u_{ij})/u_{ij}$.
   \item Se, $c_{ij} <  u_{ij}$, então $S/N = 0 $.
 \end{itemize}
-O \textit{S/N} indica se a variabilidade nas medidas é real ou faz parte do ruído dos dados. Espécie com a concentração menor que a incerteza, não apresentam ruído, e devem ser removidas da análise. Espécies com valores muito próximos da incerteza, portanto com $S/N$ próximo de zero (< 0,5) também devem ser removidas da análise. Espécie nas quais a concentração é pelo menos duas vezes o valor da incerteza, isto é, $S/N$ é maior ou igual à 1, são as ideais para análise, e não altera-se as incertezas. Quando $S/N$ está entre 0,5 e 1, diminuímos o peso da espécie aumentando a incerteza em um fator 3.  
+
+O \textit{S/N} indica se a variabilidade nas medidas é real ou faz parte do 
+ruído dos dados. 
+Espécie com a concentração menor que a incerteza, não apresentam ruído, e devem 
+ser removidas da análise. Espécies com valores muito próximos da incerteza, 
+portanto com $S/N$ próximo de zero (< 0,5) também devem ser removidas da 
+análise. 
+Espécie nas quais a concentração é pelo menos duas vezes o valor da incerteza, 
+isto é, $S/N$ é maior ou igual à 1, são as ideais para análise, 
+e não altera-se as incertezas. 
+
+Quando $S/N$ está entre 0,5 e 1, diminuímos o peso da espécie aumentando a 
+incerteza em um fator 3.  
 
 \subsubsection{Pré-requisitos do \textit{Software}}
-Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir alguns pré-requisitos antes do ajuste:
+
+Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir 
+alguns pré-requisitos antes da realização do ajuste:
+
 \begin{itemize}
   \item Não é permitido concentrações negativas em $c_{ij}$ ou em $u_{ij}$.
   \item células vazias não são aceitas.
   \item nomes das colunas(espécies) e linhas(amostras) devem ser únicos.
-  \item é ideal (não obrigatório) que os dados já estejam classificados pela data em ordem crescente.
+  \item é ideal (não obrigatório) que os dados já estejam classificados 
+        pela data em ordem crescente.
 \end{itemize}
 
 \subsubsection{Inspeção dos dados de entrada}
-É necessário fazer ainda inspeções ou alterações antes de fazer o ajuste no \textit{PMF EPA 5.0}, usando a própria interface do \textit{PMF EPA 5.0} ou outro software de estatística: 
+
+É necessário fazer ainda inspeções ou alterações antes de fazer o ajuste.
+
 \begin{itemize}
-  \item Espera-se uma relação tipicamente linear entre \textbf{Concentração} $\times$ \textbf{Incerteza}, investigar causa caso isso não ocorra. 
-  \item Adequação das incertezas baseado no \textit{Signal Noise (S/N)} e conhecimento da espécie. 
+  \item Espera-se uma relação tipicamente linear entre 
+        \textbf{Concentração} $\times$ \textbf{Incerteza}.  
+        Investigar o motivo caso isso não ocorra. 
+  \item Adequação das incertezas baseado no \textit{Signal Noise (S/N)} e 
+        conhecimento da espécie. 
   \item Marcar a Massa Total como \textit{Total Variable}
-  \item Inspecionar gráficos de dispersão entre espécies nas quais se espera correlação, anti-correlação ou não correlação. 
+  \item Inspecionar gráficos de dispersão entre espécies nas quais se espera 
+        correlação, anti-correlação ou não correlação. 
   \item Inspecionar gráficos de séries temporais, para:
-  \begin{itemize}
-    \item Identificar padrões temporais, em espécies individuais ou em grupo de espécies.
-    \item Remover \textit{outliers} 
-  \end{itemize}
+    \begin{itemize}
+      \item Identificar padrões temporais em espécies individuais ou em grupo 
+            de espécies.
+      \item Remover \textit{outliers} 
+    \end{itemize}
 \end{itemize}
 
 \subsection{Fazendo o ajuste}
-Segue-se uma séries de conceitos que deverão ser entendido antes de realização do ajuste no \textit{PMF}. Uma vez apresentado os conceitos um \textit{checklist} com os passo-a-passo para realização do ajuste é disponibilizado. 
- 
-\subsubsection{Ambiguidade Rotacional}
-A comparação fator por fator da contribuição dos fatores, $g_{ik}$, pode ser plotada em um tipo de gráfico chamado \textit{G-Space}. O gráfico \textit{G-Space} auxilia na verificação da existência de \textit{Ambiguidade Rotacional} na solução. Dada a natureza da \textit{Análise Fatorial}, onde os fatores não devem estar correlacionados, no gráfico \textit{G-Space} fatores com pontos fora da proximidades dos eixos tem maior \textit{Ambiguidade Rotacional}. Amostras com contribuição zero em ambos os eixos proporcionam maior estabilidade na solução e portanto menor \textit{Ambiguidade Rotacional}. 
 
-\subsubsection{Checklist}
-Nesta pesquisa seguimos a sequência abaixo para fazer o ajuste:
+Segue-se uma séries de conceitos que deverão ser entendido antes da realização 
+do ajuste. 
+
+\subsubsection{Ambiguidade Rotacional}
+
+A comparação fator por fator da contribuição dos fatores, $g_{ik}$, 
+pode ser plotada em um tipo de gráfico chamado \textit{G-Space}. 
+O gráfico \textit{G-Space} auxilia na verificação da existência de 
+\textit{Ambiguidade Rotacional} na solução. 
+Dada a natureza da \textit{Análise Fatorial}, onde os fatores não devem estar 
+correlacionados, no gráfico \textit{G-Space} fatores com pontos fora da 
+proximidades dos eixos tem maior \textit{Ambiguidade Rotacional}. 
+
+Amostras com contribuição zero em ambos os eixos proporcionam maior 
+estabilidade na solução e portanto menor \textit{Ambiguidade Rotacional}. 
+
+ \subsubsection{Checklist}
+
+Uma vez que apresentamos os conceitos necessários o entendimento do jargão 
+usado no método \textit{PMF}, apresentamos as etapas escolhidas para realização 
+do ajuste.
+
 \begin{enumerate}
-  \item Rodar o \textit{base run} com 20 iterações, encolhendo o número de fatores variando de 3 até 10. Verificar a quantidade de fatores com melhor significado físico. As matrizes soluções $g_{ik}$ e $f_{kj}$ sairão nos arquivos: \textit{profiles.csv} e \textit{contributions.csv}.
-  \item Verificar a estabilidade do $Q_{verdadeiro}$ e $Q_{robusto}$ que convergiram, se $Q$ não for estável, então não foi um bom ajuste.
-  \item Regressão linear simples das concentrações das espécies ajustadas versus medidas, que devem estar correlacionas. Remover ou aumentar a incerteza das amostras não bem ajustadas (fora da curva de regressão) e rodar novamente o \textit{base run}.  
-  \item Série temporal das concentrações das espécies ajustadas versus medidas. Identificar pontos não bem ajustados, devido a fontes infrequentes, por exemplo. Removê-los ou aumentar a incerteza. Rodar novamente o \textit{base run}.
-  \item Análise residual. Verificar se a distribuição do resíduo é normal (usando o teste de Kolmogorov–Smirnov). Quando não é normal há a indicação que o ajusto foi pobre para essa espécie. Pode-se diminuir o peso da espécie na análise aumentando sua incerteza, ou até mesmo remover a espécie da análise.
-  \item Verificação se $Q$ é mínimo Global ou Local usando 10 valores diferentes de \textit{Random Seed}.
-  \item Avaliação da \textit{Ambiguidade Rotacional} usando os gráficos \textit{G-Space}.
+  \item Rodar o \textit{base run} com 20 iterações, encolhendo o número de 
+        fatores variando de 3 até 10. 
+        Verificar a quantidade de fatores com melhor significado físico. 
+        As matrizes soluções $g_{ik}$ e $f_{kj}$ sairão nos arquivos: 
+        \textit{profiles.csv} e \textit{contributions.csv}.
+  \item Verificar a estabilidade do $Q_{verdadeiro}$ e $Q_{robusto}$ que 
+        convergiram, se $Q$ não for estável, então não foi um bom ajuste.
+  \item Regressão linear simples das concentrações das espécies ajustadas 
+        versus medidas, que devem estar correlacionas. 
+        Remover amostras ou aumentar as incertezas das amostras que não foram 
+        bem ajustadas. Rodar novamente o \textit{base run}.  
+  \item Série temporal das concentrações das espécies ajustadas sobreposta
+        as medidas. 
+        Identificar pontos não bem ajustados, devido a fontes infrequentes, 
+        por exemplo.
+        Removê-los ou aumentar a incerteza. Rodar novamente o \textit{base run}.
+  \item Análise residual. Verificar se a distribuição do resíduo é normal 
+        (usando o \textit{Teste de Kolmogorov–Smirnov}). 
+        Quando não é normal há a indicação que o ajusto foi pobre para essa 
+        espécie. 
+        Pode-se diminuir o peso da espécie na análise aumentando sua incerteza, 
+        ou até mesmo remover a espécie da análise.
+  \item Verificação se $Q$ é mínimo global ou Local usando 10 valores 
+        diferentes de \textit{Random Seed}.
+  \item Avaliação da \textit{Ambiguidade Rotacional} usando os 
+        gráficos \textit{G-Space}.
   \item Série temporal de $g_{ik}$. Avaliação do significado físico.
 \end{enumerate}
 
