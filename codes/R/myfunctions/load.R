@@ -45,6 +45,7 @@ load<-function()
   source("myfunctions/subElement.R")
   source("myfunctions/duplicates.R")
   source("myfunctions/windFrequency.R")
+  source("myfunctions/pmf.R")
 }
 
 #Call the load function
