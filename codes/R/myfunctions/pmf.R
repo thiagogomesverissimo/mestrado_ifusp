@@ -3,7 +3,10 @@
 pmf_diagnostics <- function(pathfile){
   
   ### Leitura do arquivo diagnostics.csv ###
-  # Ordem do retorno: 1-data_stat 2-Q 3-d 4-D 5-regression
+  
+  # tests:
+  # pathfile = '../../inputs/pmf/JIcH_contributions.csv'
+  
   diagnostics=readLines(pathfile)
   linhas_em_branco = which(diagnostics=="")
 
