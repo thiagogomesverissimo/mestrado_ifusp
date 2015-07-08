@@ -2,7 +2,7 @@ rm(list=ls())
 setwd("~/remota/repos/mestrado_ifusp/codes/R")
 source("myfunctions/load.R")
 
-base<-read.csv("../../outputs/concentrations/JFcH.csv",header=TRUE,dec=".")
+base<-read.csv("../../outputs/concentrations/JFsH.csv",header=TRUE,dec=".")
 
 #Datas: serão usadas no gráfico dos factor scores
 datas<-base$Date
@@ -32,6 +32,7 @@ base = base[,!(colnames(base) %in% removidos)]
 fa.parallel(base)
 
 #PCA
+base.principal<-principal(base,nfactors=6)
 base.principal<-principal(base,nfactors=6,rotate="varimax")
 
 #Classifica elementos pelos loadings

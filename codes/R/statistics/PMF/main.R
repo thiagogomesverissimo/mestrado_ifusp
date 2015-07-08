@@ -4,11 +4,14 @@ source("myfunctions/load.R")
 
 # Fontes encontradas em Harvard:
 #   Solid waste burning: Br. 
-#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.
+#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
+#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
 #   Aged biomass particles: K, Cl, S, BC
 #   Fresh biomass burning: K, Cl, S, BC
 #   Sea salt: Na, Cl, S
-#   Crustal: Al, Si, Mg, Ti, Mn, Fe
+
+# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
+# Zn: Freio, pneu, peças.
 
 # profiles
 profiles <-  pmf_profiles('../../inputs/pmf/JFcH_profiles.csv')
