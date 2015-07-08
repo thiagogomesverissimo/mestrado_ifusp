@@ -117,6 +117,8 @@ pmf_profiles <- function(pathfile){
   fp_conc_species = profiles[inicio:fim]
   write(fp_conc_species,file='/tmp/fp_conc_species.csv')
   fp_conc_species = read.csv('/tmp/fp_conc_species.csv',skip=2)
+  row.names(fp_conc_species) = fp_conc_species[,2]
+  fp_conc_species = fp_conc_species[,c(-1,-2)]
   
   # Factor Profiles (% of species sum) from Base Run
   inicio = grep('Factor Profiles',profiles)[2]
@@ -125,6 +127,8 @@ pmf_profiles <- function(pathfile){
   fp_percent_species = profiles[inicio:fim]
   write(fp_percent_species,file='/tmp/fp_percent_species.csv')
   fp_percent_species = read.csv('/tmp/fp_percent_species.csv',skip=2)
+  row.names(fp_percent_species) = fp_percent_species[,2]
+  fp_percent_species = fp_percent_species[,c(-1,-2)]
   
   # Factor Profiles (% of total variable) from Base Run
   inicio = grep('Factor Profiles',profiles)[3]
@@ -132,6 +136,8 @@ pmf_profiles <- function(pathfile){
   fp_percent_total = profiles[inicio:fim]
   write(fp_percent_total,file='/tmp/fp_percent_total.csv')
   fp_percent_total = read.csv('/tmp/fp_percent_total.csv',skip=2)
+  row.names(fp_percent_total) = fp_percent_total[,2]
+  fp_percent_total = fp_percent_total[,c(-1,-2)]
   
   return(list(fp_conc_species    =fp_conc_species,
               fp_percent_species =fp_percent_species,

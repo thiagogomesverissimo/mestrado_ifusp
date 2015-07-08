@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("~/repos/mymaster_physics/codes/R")
+setwd("~/remota/repos/mestrado_ifusp/codes/R")
 source("myfunctions/load.R")
 
 base<-read.csv("../../outputs/concentrations/JFcH.csv",header=TRUE,dec=".")
@@ -11,7 +11,8 @@ datas<-base$Date
 colnames(base)
 
 #Colunas removidas
-removidos<-c('SampleID','Date','Cr','Br','Rb','Sr','Zr','Cu','Zn')
+#removidos<-c('SampleID','Date','Cr','Br','Rb','Sr','Zr','Cu','Zn')
+removidos<-c('SampleID','Date','Rb')
 
 base = base[,!(colnames(base) %in% removidos)]
 
@@ -31,13 +32,14 @@ base = base[,!(colnames(base) %in% removidos)]
 fa.parallel(base)
 
 #PCA
-base.principal<-principal(base,nfactors=3,rotate="varimax")
-
-base.principal$factors
+base.principal<-principal(base,nfactors=6,rotate="varimax")
 
 #Classifica elementos pelos loadings
 base.principal = fa.sort(base.principal)
+print(loadings(base.principal),cutoff=2e-1)
+data.frame(unclass(base.principal$loadings))
 base.principal
+
 #Scree plot
 png(file='../../outputs/AFCH_scree_plot.png')
 plot(base.principal$values,type='b',
@@ -74,9 +76,6 @@ print(fa2latex(base.principal),
       sanitize.text.function = identity,
       file="../../outputs/AFCH_loadings.tex")
 
-print(loadings(base.principal),cutoff=2e-1)
-
-data.frame(unclass(base.principal))
 
 # Os factor loading são diferentes do SPSS, pois o SPSS usa kaiser normalization
 kaiser(base.fa,rotate="varimax")
