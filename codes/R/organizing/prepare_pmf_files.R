@@ -16,7 +16,8 @@ for (i in conditions){
 }
 
 #Eliminando coluna SampleID e colunnas dos elementos removidos da análise:
-removidos<-'c("SampleID","Cr","Br","Rb","Sr","Zr","Cu","Zn")'
+#removidos<-'c("SampleID","Cr","Br","Rb","Sr","Zr","Cu","Zn")'
+removidos<-'c("SampleID","Rb")'
 for(i in conditions){
  code=paste(i,"<-",i,"[,!names(",i,") %in% ", removidos, "]",sep="")
  code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% ", removidos ,"]",sep="")

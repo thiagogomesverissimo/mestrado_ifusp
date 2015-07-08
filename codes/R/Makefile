@@ -9,7 +9,7 @@ all:
 	Rscript organizing/main.R
 	Rscript organizing/deleteColumns.R
 	Rscript organizing/duplicatesMedia.R
-	Rscript organizing/pmf.R 
+	Rscript organizing/prepare_pmf_files.R 
 	#Rscript organizing/grosso.R 
 	
 	#Sequência de código para meteorologia
