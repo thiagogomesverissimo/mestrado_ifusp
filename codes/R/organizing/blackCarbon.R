@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("~/remota/repos/mestrado_ifusp/codes/R")
+
 source("myfunctions/load.R")
 
 #Há dados para BlackCarbon apenas para PM2.5

@@ -1,5 +1,5 @@
 rm(list=ls()) # limpa tudo na memória
-setwd("~/remota/repos/mestrado_ifusp/codes/R")
+
 
 #Inspecionado os dados
 dados<-read.csv("../../inputs/meteorology/noaaMeteorology.csv",sep=",",colClasses="character")

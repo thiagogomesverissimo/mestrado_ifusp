@@ -3,9 +3,6 @@
 
 #i: elementos; j: fatores; F: loading do fator 
 
-#Indicar para o R o diretório onde estão os arquivos
-setwd("~/repos/mymaster_physics/codes/R")
-
 #Ler o arquivo de concentraçõese atribui para rio.
 rio = read.csv("../../inputs/thirds/RioLuis.csv",dec=".")
 

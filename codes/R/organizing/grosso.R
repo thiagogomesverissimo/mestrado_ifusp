@@ -1,5 +1,4 @@
 rm(list=ls())
-setwd("~/remota/repos/mestrado_ifusp/codes/R")
 source("myfunctions/load.R")
 
 conditions<-c('JFcH','RFcH','TFcH','JFsH','RFsH','TFsH','JFeH',

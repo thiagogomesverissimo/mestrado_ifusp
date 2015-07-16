@@ -1,5 +1,5 @@
 rm(list=ls())
-setwd("~/Dropbox/pesquisa/ghana/git/mestradoif/R")
+
 library("psych")
 library("lattice")
 

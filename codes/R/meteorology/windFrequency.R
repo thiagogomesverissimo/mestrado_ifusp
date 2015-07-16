@@ -1,5 +1,5 @@
-rm(list=ls())
-setwd("~/remota/repos/mestrado_ifusp/codes/R")
+
+
 source("myfunctions/load.R")
 
 noaa_harvard<-read.csv("../../outputs/noaa_from_harvard.csv")

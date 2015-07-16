@@ -1,4 +1,4 @@
-setwd("~/repos/mymaster_physics/codes/R")
+
 
 #Thanks to Paul L. Delamater, Andrew O. Finley and Chad Babcock.
 #A big part of this material was took from: 

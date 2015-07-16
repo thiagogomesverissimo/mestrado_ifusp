@@ -1,5 +1,4 @@
-rm(list=ls())
-setwd("~/remota/repos/mestrado_ifusp/codes/R")
+
 source("myfunctions/load.R")
 
 samples<-read.csv("../../outputs/samples.csv",check.names=F)

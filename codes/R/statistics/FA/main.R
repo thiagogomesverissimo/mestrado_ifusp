@@ -1,5 +1,3 @@
-rm(list=ls())
-setwd("~/remota/repos/mestrado_ifusp/codes/R")
 source("myfunctions/load.R")
 
 base<-read.csv("../../outputs/concentrations/JFsH.csv",header=TRUE,dec=".")
