@@ -1,3 +1,5 @@
+# Encontrar o grosso subtraindo o fino do inalável.
+
 rm(list=ls())
 source("myfunctions/load.R")
 
@@ -14,9 +16,32 @@ for (i in conditions){
   eval(parse(text=code_unc))
 }
 
-# Dias que estão em RFcH e não estão em RIcH:
-setdiff(RFcH$Date,RIcH$Date)
 
-setdiff(RIcH$Date,RFcH$Date)
+## Traffic
+# Cria a coluna StringDate no formato dia/mês/ano
+TFcH = cbind(TFcH,StringDate=strftime(TFcH$Date,format="%d/%m/%Y"))
+TFcHunc = cbind(TFcHunc,StringDate=strftime(TFcHunc$Date,format="%d/%m/%Y"))
+TIcH = cbind(TIcH,StringDate=strftime(TIcH$Date,format="%d/%m/%Y"))
+TIcHunc = cbind(TIcHunc,StringDate=strftime(TIcHunc$Date,format="%d/%m/%Y"))
+
+# mantem dias que estão em RFcH e RIcH:
+t1remove = intersect(TIcH$StringDate,TFcH$StringDate)
+t2remove = intersect(TFcH$StringDate,TFcH$StringDate)
+tremove = intersect(t1remove,t2remove)
+TFcH = subset(TFcH, TFcH$StringDate %in% tremove)
+TFcHunc = subset(TFcHunc, TFcHunc$StringDate %in% tremove)
+TIcH = subset(TIcH, TIcH$StringDate %in% tremove)
+TIcHunc = subset(TIcHunc, TIcHunc$StringDate %in% tremove)
+
+nrow(TFcH)
+nrow(TIcH)
 
 
+## Residential
+# Cria a coluna StringDate no formato dia/mês/ano
+RFcH = cbind(RFcH,StringDate=strftime(RFcH$Date,format="%d/%m/%Y"))
+RIcH = cbind(RIcH,StringDate=strftime(RIcH$Date,format="%d/%m/%Y"))
+
+# mantem dias que estão em RFcH e RIcH:
+RFcH = subset(RFcH, RFcH$StringDate %in% intersect(RIcH$StringDate,RFcH$StringDate))
+RIcH = subset(RIcH, RIcH$StringDate %in% intersect(RIcH$StringDate,RFcH$StringDate))

@@ -83,6 +83,9 @@ names(pmError)[-1] <- subElement(names(pmError)[-1])
 #Lista de Elementos analisados pelo EDXRF
 pmElementos<-names(pmConc)[2:length(names(pmConc))]
 
+#Remove duplicas (depois achar outra solução, média?)
+infoNima = subset(infoNima, infoNima$Duplicate == 0)
+
 #Juntando informacoes de Nima, infoNima, com tabela de concentrações EDXRF, pm_conc.
 pmConc<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate','MassConc')],
               pmConc,by="SampleID")
@@ -147,12 +150,6 @@ names(pmFinoError)[names(pmFinoError)=='BCerror']='BC'
 area = 7.069
 pmFino$BC<-(pmFino$BC*area)/pmFino$volumem3
 pmFinoError$BC<-(pmFinoError$BC*area)/pmFinoError$volumem3
-
-########################
-#TODO: O Grosso considerado aqui eh na verdade inalável. Encontrar o grosso subtraindo o fino do inalável.
-
-#Convert colunm for string again, to use in graphs, PRECISA?
-#infoNima$DiaMesAno <- strftime(infoNima$Date,format="%d/%m/%Y")
 
 #TODO: fazer análises por estação do ano: primavera, verão, outono e inverno. 
 
