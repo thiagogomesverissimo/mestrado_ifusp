@@ -6,7 +6,8 @@ all:
 	#Sequência de códigos para cálculo da concentração elementar
 	Rscript organizing/detectionLimit.R
 	Rscript organizing/blackCarbon.R
-	Rscript organizing/main.R
+	Rscript organizing/edxResults.R
+	Rscript organizing/pmSplit.R
 	Rscript organizing/deleteColumns.R
 	Rscript organizing/duplicatesMedia.R
 	Rscript organizing/prepare_pmf_files.R 

@@ -1,6 +1,13 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
+#Verificando faltantes:
+#describe(pmConc[,pmElementos]) # ../../outputs/edxStatistics.csv
+#TODO: Reportar período da amostragem
+#min(pmFino$Date)
+#max(pmFino$Date)
+
+
 CFSH<-read.csv("../../outputs/CFCH.csv",header=TRUE)
 base = CFSH
 

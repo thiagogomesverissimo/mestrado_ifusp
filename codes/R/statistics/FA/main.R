@@ -1,43 +1,50 @@
 source("myfunctions/load.R")
 
 base<-read.csv("../../outputs/concentrations/JFsH.csv",header=TRUE,dec=".")
+base<-read.csv("../../outputs/concentrations/JIsH.csv",header=TRUE,dec=".")
 
 #Datas: serão usadas no gráfico dos factor scores
 datas<-base$Date
 
-#ver elementos
-colnames(base)
-
 #Colunas removidas
 #removidos<-c('SampleID','Date','Cr','Br','Rb','Sr','Zr','Cu','Zn')
-removidos<-c('SampleID','Date','Rb')
-
+removidos<-c('SampleID','Date','Rb','Zr','Mg')
 base = base[,!(colnames(base) %in% removidos)]
-
-#Não sei se eu incluirei essa análise mais detalhada!
-#Correlation Matrix
-#base.cor<-round(cor(base),2) 
-#corrplot(base.cor, type = "lower",method="circle")
-
-#Bartlet Test: p.value pequeno rejeitamos a hipotese de correlaçao nula (matriz identidade)
-#cortest.bartlett(base,nrow(base))
-
-#determinante: but can do the determinant need it to be above 0.00001
-#det(base.cor) ###PROBLEMA
-
 
 #Estima quantidade de Fatores
 fa.parallel(base)
 
 #PCA
-base.principal<-principal(base,nfactors=6)
-base.principal<-principal(base,nfactors=6,rotate="varimax")
+base.principal<-principal(base,nfactors=6,rotate="none")
+base.principal<-principal(base,nfactors=4,rotate="varimax")
 
 #Classifica elementos pelos loadings
 base.principal = fa.sort(base.principal)
 print(loadings(base.principal),cutoff=2e-1)
 data.frame(unclass(base.principal$loadings))
-base.principal
+
+base.principal$loadings
+base.principal$communality
+base.principal$uniquenesses
+base.principal$values
+base.principal$fit
+base.principal$fit.off
+base.principal$complexity
+base.principal$chi
+base.principal$EPVAL
+base.principal$objective
+base.principal$residual
+base.principal$rms
+base.principal$dof
+base.principal$null.model
+base.principal$criteria
+base.principal$STATISTIC
+base.principal$PVAL
+base.principal$weights
+base.principal$r.scores
+base.principal$Structure
+base.principal$scores
+base.principal$order
 
 #Scree plot
 png(file='../../outputs/AFCH_scree_plot.png')
@@ -157,21 +164,13 @@ plotnScree(nS)
 
 omega(base)
 
+#Não sei se eu incluirei essa análise mais detalhada!
+#Correlation Matrix
+#base.cor<-round(cor(base),2) 
+#corrplot(base.cor, type = "lower",method="circle")
 
+#Bartlet Test: p.value pequeno rejeitamos a hipotese de correlaçao nula (matriz identidade)
+#cortest.bartlett(base,nrow(base))
 
-
-
-
-CICH<-read.csv("../../outputs/CICH.csv",header=TRUE)
-CFSH<-read.csv("../../outputs/CFSH.csv",header=TRUE)
-CISH<-read.csv("../../outputs/CISH.csv",header=TRUE)
-AFCH<-read.csv("../../outputs/AFCH.csv",header=TRUE)
-TFCH<-read.csv("../../outputs/TFCH.csv",header=TRUE)
-AICH<-read.csv("../../outputs/AICH.csv",header=TRUE)
-TICH<-read.csv("../../outputs/TICH.csv",header=TRUE)
-AFSH<-read.csv("../../outputs/AFSH.csv",header=TRUE)
-TFSH<-read.csv("../../outputs/TFSH.csv",header=TRUE)
-AISH<-read.csv("../../outputs/AISH.csv",header=TRUE)
-TISH<-read.csv("../../outputs/TISH.csv",header=TRUE)
-CFH<-read.csv("../../outputs/CFH.csv",header=TRUE)
-CIH<-read.csv("../../outputs/CIH.csv",header=TRUE)
+#determinante: but can do the determinant need it to be above 0.00001
+#det(base.cor) ###PROBLEMA
