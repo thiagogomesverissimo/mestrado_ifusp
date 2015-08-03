@@ -1,14 +1,20 @@
 source("myfunctions/load.R")
 
-base<-read.csv("../../outputs/concentrations/JFsH.csv",header=TRUE,dec=".")
-base<-read.csv("../../outputs/concentrations/JIsH.csv",header=TRUE,dec=".")
+# Tabela periódica
+periodicTable<-read.csv("../../inputs/constants/periodic_table.csv",header=TRUE)
 
-#Datas: serão usadas no gráfico dos factor scores
-datas<-base$Date
+base<-read.csv("../../outputs/concentrations/RGcH.csv",header=TRUE)
+
+# Remove colunas desnecessárias
+elementos = intersect(periodicTable$code,colnames(base))
+base = base[,c('mass',elementos)]
+
+# Datas serão usadas no gráfico dos factor scores
+#datas<-base$Date
 
 #Colunas removidas
-#removidos<-c('SampleID','Date','Cr','Br','Rb','Sr','Zr','Cu','Zn')
-removidos<-c('SampleID','Date','Rb','Zr','Mg')
+#removidos<-c('Cr','Br','Rb','Sr','Zr','Cu','Zn')
+removidos<-c('Rb','Zr','Mg')
 base = base[,!(colnames(base) %in% removidos)]
 
 #Estima quantidade de Fatores

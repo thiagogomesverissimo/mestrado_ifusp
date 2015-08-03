@@ -15,6 +15,8 @@ pmFinoError$Date<-as.POSIXct(strptime(pmFinoError$Date,format="%Y-%m-%d %H:%M:%S
 pmInalavel$Date<-as.POSIXct(strptime(pmInalavel$Date,format="%Y-%m-%d %H:%M:%S",tz="GMT"))
 pmInalavelError$Date<-as.POSIXct(strptime(pmInalavelError$Date,format="%Y-%m-%d %H:%M:%S",tz="GMT"))
 
+# Classifica data.frame pela data
+
 
 ## Critérios para a separação
 #  NMA: área residencial, ruas não pavimentadas (R) 

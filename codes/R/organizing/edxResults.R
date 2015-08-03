@@ -47,8 +47,10 @@ pm<-merge(pm,gha,all=TRUE)
 write.csv(pm,'../../outputs/pm.csv',row.names = F)
 
 # Remover danificas
-infoNima <- subset(infoNima,infoNima$QCFlag==0) #Remover danificadas
-infoNima <- subset(infoNima,!is.na(infoNima$MassConc)) #Remover danificadas
+infoNima <- subset(infoNima,infoNima$QCFlag==0)
+
+# Remove as que não tem massa.
+infoNima <- subset(infoNima,!is.na(infoNima$MassConc)) 
 
 # Uniformizando os identificadores das amostras (IDs)
 pm<-TrataID(pm,1)
@@ -68,19 +70,26 @@ names(pmError)[-1] <- subElement(names(pmError)[-1])
 # Lista de Elementos analisados pelo EDXRF
 pmElementos<-names(pmConc)[2:length(names(pmConc))]
 
-# Remove duplicadas (depois achar outra solução, média?) !!!!
+# !!! Remove duplicadas (depois achar outra solução, média?) !!!!
 infoNima = subset(infoNima, infoNima$Duplicate == 0)
 
 # Juntando informações de Nima e infoNima com tabela de concentrações pmConc.
 pmConc<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate','MassConc')],
               pmConc,by="SampleID")
 names(pmConc)[names(pmConc)=='MassConc'] <- 'mass'
-write.csv(pmConc,file="../../outputs/pmConc.csv",row.names=F) # Para latex
+
+# Ordena tabela pmConc pela data e salva csv
+pmConc = pmConc[order(pmConc$Date),]
+write.csv(pmConc,file="../../outputs/pmConc.csv",row.names=F)
 
 # Juntando erro da massa em infoNima com tabela de erro EDXRF, pmError.
 pmError<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate','MassError')],
                pmError,by="SampleID")
 names(pmError)[names(pmError)=='MassError'] <- 'mass'
+
+# Ordena tabela pmError pela data e salva csv
+pmError = pmError[order(pmError$Date),]
+write.csv(pmError,file="../../outputs/pmError.csv",row.names=F)
 
 # Converte as concentrações e erro de ng para ug/m3
 pmConc[,pmElementos]<-pmConc[,pmElementos]/(1000*pmConc$volumem3)

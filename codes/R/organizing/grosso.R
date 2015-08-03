@@ -3,18 +3,66 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
-conditions<-c('JFcH','RFcH','TFcH','JFsH','RFsH','TFsH','JFeH',
-              'JIcH','RIcH','TIcH','JIsH','RIsH','TIsH','JIeH')
+# Tabela periódica
+periodicTable<-read.csv("../../inputs/constants/periodic_table.csv",header=TRUE)
 
-#Lendo arquivos de concentrações
-for (i in conditions){
-  code=paste(i,"<-","read.csv('","../../outputs/concentrations/",i,".csv')",sep="")
-  code_unc=paste(i,"unc","<-","read.csv('","../../outputs/concentrations/",i,"unc.csv')",sep="")
-  if(debug) print(code)
-  if(debug) print(code_unc)
-  eval(parse(text=code))
-  eval(parse(text=code_unc))
+# leitura dos arquivos gerados por: pmSplit.R
+RIcH = read.csv('../../outputs/concentrations/RIcH.csv')
+RIcHunc = read.csv('../../outputs/concentrations/RIcHunc.csv')
+RFcH = read.csv('../../outputs/concentrations/RFcH.csv')
+RFcHunc = read.csv('../../outputs/concentrations/RFcHunc.csv')
+
+# Classifica os data.frame pela data
+RIcH = RIcH[order(RIcH$Date),]
+RIcHunc = RIcHunc[order(RIcHunc$Date),]
+RFcH = RFcH[order(RFcH$Date),]
+RFcHunc = RFcHunc[order(RFcHunc$Date),]
+
+## Residential
+# Cria a coluna StringDate no formato dia/mês/ano
+RFcH = cbind(RFcH,StringDate=strftime(RFcH$Date,format="%d/%m/%Y"))
+RFcHunc = cbind(RFcHunc,StringDate=strftime(RFcHunc$Date,format="%d/%m/%Y"))
+RIcH = cbind(RIcH,StringDate=strftime(RIcH$Date,format="%d/%m/%Y"))
+RIcHunc = cbind(RIcHunc,StringDate=strftime(RIcHunc$Date,format="%d/%m/%Y"))
+
+# Removendo duplicado. ### Investigar depois com calma porque tá duplicado.
+RIcH = subset(RIcH,!duplicated(RIcH$StringDate))
+RIcHunc = subset(RIcHunc,!duplicated(RIcHunc$StringDate))
+
+# mantém dias que estão em RFcH e RIcH:
+datas_comuns = intersect(RFcH$StringDate,RIcH$StringDate)
+RFcH = subset(RFcH, RFcH$StringDate %in% datas_comuns)
+RFcHunc = subset(RFcHunc, RFcHunc$StringDate %in% datas_comuns)
+RIcH = subset(RIcH, RIcH$StringDate %in% datas_comuns)
+RIcHunc = subset(RIcHunc, RIcHunc$StringDate %in% datas_comuns)
+
+# Elementos comuns
+elementos = intersect(colnames(RFcH),colnames(RIcH))
+elementos = intersect(periodicTable$code,elementos)
+
+# Calcula concentração do grosso
+RGcH = RIcH[,c('mass',elementos)] - RFcH[,c('mass',elementos)]
+RGcHunc = sqrt(RIcHunc[,c('mass',elementos)]**2 + RFcHunc[,c('mass',elementos)]**2)
+
+# !!! Subtitui os negativos TEMPORARIAMENTE pelo limite de detecção
+RGcH[RGcH<0.000001] = NA
+for(i in elementos){
+  Zi = periodicTable[periodicTable$code==i,1]
+  RGcH[,i]<-na2LD(Zi,RGcH[,i])
+  RGcHunc[,i]<-na2LD(Zi,RGcHunc[,i],erro=T)
 }
+
+# Adiciona as colunas iniciais
+colunas_iniciais = RIcH[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate')]
+RGcH = cbind(colunas_iniciais,RGcH)
+RGcHunc = cbind(colunas_iniciais,RGcHunc)
+
+# !!!  APAGA TEMPORARIAMENTE OS QUE TEM A MASSA NEGATIVA
+removidos = subset(RGcH,is.na(RGcH$mass))$SampleID
+RGcH = subset(RGcH,!(RGcH$SampleID %in% removidos))
+RGcHunc = subset(RGcHunc,!(RGcHunc$SampleID %in% removidos))
+
+write.csv(RGcH,'../../outputs/concentrations/RGcH.csv',row.names=F)
 
 ## Traffic: TIcH - TFcH 
 
@@ -33,27 +81,3 @@ TIcHunc = subset(TIcHunc, TIcHunc$StringDate %in% datas_comuns)
 
 nrow(TFcH)
 nrow(TIcH)
-
-
-# Lista de Elementos analisados pelo EDXRF
-pmElementos<-names(pmConc)[2:length(names(pmConc))]
-
-## Residential
-# Cria a coluna StringDate no formato dia/mês/ano
-RFcH = cbind(RFcH,StringDate=strftime(RFcH$Date,format="%d/%m/%Y"))
-RFcHunc = cbind(RFcHunc,StringDate=strftime(RFcHunc$Date,format="%d/%m/%Y"))
-RIcH = cbind(RIcH,StringDate=strftime(RIcH$Date,format="%d/%m/%Y"))
-RIcHunc = cbind(RIcHunc,StringDate=strftime(RIcHunc$Date,format="%d/%m/%Y"))
-
-# mantém dias que estão em RFcH e RIcH:
-datas_comuns = intersect(RIcH$StringDate,RFcH$StringDate)
-RFcH = subset(RFcH, RFcH$StringDate %in% datas_comuns)
-RFcHunc = subset(RFcHunc, RFcHunc$StringDate %in% datas_comuns)
-RIcH = subset(RIcH, RIcH$StringDate %in% datas_comuns)
-RIcHunc = subset(RIcHunc, RIcHunc$StringDate %in% datas_comuns)
-
-unique(RIcH$StringDate)
-
-setdiff(RFcH$StringDate,RIcH$StringDate)
-setdiff(RIcH$StringDate,RFcH$StringDate)
-
