@@ -16,8 +16,8 @@ debug = FALSE
 instalarPacotes = FALSE
 
 if(instalarPacotes){
-  install.packages("psych")
   install.packages("GPArotation")
+  install.packages("psych")
   install.packages("xtable")
   install.packages("MASS")
   install.packages("lattice")

@@ -19,22 +19,22 @@ RFcH = RFcH[order(RFcH$Date),]
 RFcHunc = RFcHunc[order(RFcHunc$Date),]
 
 ## Residential
-# Cria a coluna StringDate no formato dia/mês/ano
-RFcH = cbind(RFcH,StringDate=strftime(RFcH$Date,format="%d/%m/%Y"))
-RFcHunc = cbind(RFcHunc,StringDate=strftime(RFcHunc$Date,format="%d/%m/%Y"))
-RIcH = cbind(RIcH,StringDate=strftime(RIcH$Date,format="%d/%m/%Y"))
-RIcHunc = cbind(RIcHunc,StringDate=strftime(RIcHunc$Date,format="%d/%m/%Y"))
+# # Cria a coluna diamesano no formato dia/mês/ano
+# RFcH = cbind(RFcH,diamesano=strftime(RFcH$Date,format="%d/%m/%Y"))
+# RFcHunc = cbind(RFcHunc,diamesano=strftime(RFcHunc$Date,format="%d/%m/%Y"))
+# RIcH = cbind(RIcH,diamesano=strftime(RIcH$Date,format="%d/%m/%Y"))
+# RIcHunc = cbind(RIcHunc,diamesano=strftime(RIcHunc$Date,format="%d/%m/%Y"))
 
 # Removendo duplicado. ### Investigar depois com calma porque tá duplicado.
-RIcH = subset(RIcH,!duplicated(RIcH$StringDate))
-RIcHunc = subset(RIcHunc,!duplicated(RIcHunc$StringDate))
+RIcH = subset(RIcH,!duplicated(RIcH$diamesano))
+RIcHunc = subset(RIcHunc,!duplicated(RIcHunc$diamesano))
 
 # mantém dias que estão em RFcH e RIcH:
-datas_comuns = intersect(RFcH$StringDate,RIcH$StringDate)
-RFcH = subset(RFcH, RFcH$StringDate %in% datas_comuns)
-RFcHunc = subset(RFcHunc, RFcHunc$StringDate %in% datas_comuns)
-RIcH = subset(RIcH, RIcH$StringDate %in% datas_comuns)
-RIcHunc = subset(RIcHunc, RIcHunc$StringDate %in% datas_comuns)
+datas_comuns = intersect(RFcH$diamesano,RIcH$diamesano)
+RFcH = subset(RFcH, RFcH$diamesano %in% datas_comuns)
+RFcHunc = subset(RFcHunc, RFcHunc$diamesano %in% datas_comuns)
+RIcH = subset(RIcH, RIcH$diamesano %in% datas_comuns)
+RIcHunc = subset(RIcHunc, RIcHunc$diamesano %in% datas_comuns)
 
 # Elementos comuns
 elementos = intersect(colnames(RFcH),colnames(RIcH))
@@ -66,18 +66,18 @@ write.csv(RGcH,'../../outputs/concentrations/RGcH.csv',row.names=F)
 
 ## Traffic: TIcH - TFcH 
 
-# Cria a coluna StringDate no formato dia/mês/ano
-TFcH = cbind(TFcH,StringDate=strftime(TFcH$Date,format="%d/%m/%Y"))
-TFcHunc = cbind(TFcHunc,StringDate=strftime(TFcHunc$Date,format="%d/%m/%Y"))
-TIcH = cbind(TIcH,StringDate=strftime(TIcH$Date,format="%d/%m/%Y"))
-TIcHunc = cbind(TIcHunc,StringDate=strftime(TIcHunc$Date,format="%d/%m/%Y"))
+# Cria a coluna diamesano no formato dia/mês/ano
+TFcH = cbind(TFcH,diamesano=strftime(TFcH$Date,format="%d/%m/%Y"))
+TFcHunc = cbind(TFcHunc,diamesano=strftime(TFcHunc$Date,format="%d/%m/%Y"))
+TIcH = cbind(TIcH,diamesano=strftime(TIcH$Date,format="%d/%m/%Y"))
+TIcHunc = cbind(TIcHunc,diamesano=strftime(TIcHunc$Date,format="%d/%m/%Y"))
 
 # mantem dias que estão em TFcH e TIcH:
-datas_comuns = intersect(TIcH$StringDate,TFcH$StringDate)
-TFcH = subset(TFcH, TFcH$StringDate %in% datas_comuns)
-TFcHunc = subset(TFcHunc, TFcHunc$StringDate %in% datas_comuns)
-TIcH = subset(TIcH, TIcH$StringDate %in% datas_comuns)
-TIcHunc = subset(TIcHunc, TIcHunc$StringDate %in% datas_comuns)
+datas_comuns = intersect(TIcH$diamesano,TFcH$diamesano)
+TFcH = subset(TFcH, TFcH$diamesano %in% datas_comuns)
+TFcHunc = subset(TFcHunc, TFcHunc$diamesano %in% datas_comuns)
+TIcH = subset(TIcH, TIcH$diamesano %in% datas_comuns)
+TIcHunc = subset(TIcHunc, TIcHunc$diamesano %in% datas_comuns)
 
 nrow(TFcH)
 nrow(TIcH)

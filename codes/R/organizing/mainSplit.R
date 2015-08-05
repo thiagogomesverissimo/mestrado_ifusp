@@ -2,19 +2,10 @@ rm(list=ls())
 source("myfunctions/load.R")
 
 # Siglas
-conditions<-c('JFcH','RFcH','TFcH','JFsH','RFsH','TFsH','JFeH',
-              'JIcH','RIcH','TIcH','JIsH','RIsH','TIsH','JIeH')
-
-'JFcH',
-'JIcH',
-'JFsH',
-'RFsH',
-'TFsH',
-'JFeH',
-'JIsH',
-'RIsH',
-'TIsH',
-'JIeH')
+conditions<-c('RFcH',
+              'RIcH',
+              'TFcH',
+              'TIcH')
 
 # Leitura dos arquivos do Fino
 pmFino = read.csv('../../outputs/pmFino.csv')
@@ -39,45 +30,23 @@ pmInalavelError$Date<-as.POSIXct(strptime(pmInalavelError$Date,format="%Y-%m-%d 
 #  - Fino, Grosso ou Inalável (F, G, I) 
 #  - Com/Sem/Exclusivamente Harmathan (cH / sH / eH)
 
-
-# Harmathan: dez, Jan, Fev, Março
-harmathan<-c('December','January','February','March')
-
-#Divisões do MP Fino
-JFcH <- pmFino
+# Data.frame do Fino
 RFcH <- subset(pmFino,pmFino$SiteName=="NMA")
 TFcH <- subset(pmFino,pmFino$SiteName=="NMT")
-JFsH <- pmFino[ !(months(pmFino$Date) %in% harmathan),]
-RFsH <- pmFino[ !(months(pmFino$Date) %in% harmathan) & pmFino$SiteName=="NMA",]
-TFsH <- pmFino[ !(months(pmFino$Date) %in% harmathan) & pmFino$SiteName=="NMT",]
-JFeH <- pmFino[months(pmFino$Date) %in% harmathan,]
 
-#Data.frame das incertezas MP Fino
-JFcHunc <- pmFinoError
+# Data.frame das incertezas MP Fino
 RFcHunc <- subset(pmFinoError,pmFinoError$SiteName=="NMA")
 TFcHunc <- subset(pmFinoError,pmFinoError$SiteName=="NMT")
-JFsHunc <- pmFinoError[ !(months(pmFinoError$Date) %in% harmathan),]
-RFsHunc <- pmFinoError[ !(months(pmFinoError$Date) %in% harmathan) & pmFinoError$SiteName=="NMA",]
-TFsHunc <- pmFinoError[ !(months(pmFinoError$Date) %in% harmathan) & pmFinoError$SiteName=="NMT",]
-JFeHunc <- pmFinoError[months(pmFinoError$Date) %in% harmathan,]
 
-#Divisões do MP Inalável
-JIcH <- pmInalavel
+# Divisões do MP Inalável
 RIcH <- subset(pmInalavel,pmInalavel$SiteName=="NMA")
 TIcH <- subset(pmInalavel,pmInalavel$SiteName=="NMT")
-JIsH <- pmInalavel[ !(months(pmInalavel$Date) %in% harmathan),]
-RIsH <- pmInalavel[ !(months(pmInalavel$Date) %in% harmathan) & pmInalavel$SiteName=="NMA",]
-TIsH <- pmInalavel[ !(months(pmInalavel$Date) %in% harmathan) & pmInalavel$SiteName=="NMT",]
-JIeH <- pmInalavel[months(pmInalavel$Date) %in% harmathan,]
 
-#Data.frame das incertezas MP Inalável
-JIcHunc <- pmInalavelError
+
+# Data.frame das incertezas MP Inalável
 RIcHunc <- subset(pmInalavelError,pmInalavelError$SiteName=="NMA")
 TIcHunc <- subset(pmInalavelError,pmInalavelError$SiteName=="NMT")
-JIsHunc <- pmInalavelError[ !(months(pmInalavelError$Date) %in% harmathan),]
-RIsHunc <- pmInalavelError[ !(months(pmInalavelError$Date) %in% harmathan) & pmInalavelError$SiteName=="NMA",]
-TIsHunc <- pmInalavelError[ !(months(pmInalavelError$Date) %in% harmathan) & pmInalavelError$SiteName=="NMT",]
-JIeHunc <- pmInalavelError[months(pmInalavelError$Date) %in% harmathan,]
+
 
 #Verifica se existe diretório 'concentrations', se não, criar uma. 
 if(!('concentrations' %in% list.files("../../outputs/"))) dir.create("../../outputs/concentrations")
@@ -91,4 +60,3 @@ for (i in conditions){
   eval(parse(text=code))
   eval(parse(text=code_unc))
 }
-

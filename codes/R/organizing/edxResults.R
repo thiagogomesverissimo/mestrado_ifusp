@@ -36,6 +36,9 @@ for(row in 1:nrow(infoNima))
 }
 infoNima<-cbind(infoNima,Date=time)
 
+# Adiciona coluna 'diamesano'
+infoNima = cbind(infoNima,diamesano=strftime(infoNima$Date,format="%d/%m/%Y"))
+
 # Adicionar uma coluna do erro da massa, vamos supor de 5%
 infoNima<-cbind(infoNima,MassError=infoNima$MassConc*0.05)
 
@@ -46,15 +49,22 @@ pm<-merge(pm,gpe,all=TRUE)
 pm<-merge(pm,gha,all=TRUE)
 write.csv(pm,'../../outputs/pm.csv',row.names = F)
 
-# Remover danificas
-infoNima <- subset(infoNima,infoNima$QCFlag==0)
-
-# Remove as que não tem massa.
-infoNima <- subset(infoNima,!is.na(infoNima$MassConc)) 
-
 # Uniformizando os identificadores das amostras (IDs)
 pm<-TrataID(pm,1)
 infoNima<-TrataID(infoNima,4)
+
+# Remover danificas
+danificadas = cbind(SampleID=subset(infoNima,infoNima$QCFlag==1)$SampleID,
+                    motivo="Danificada na manipulação")
+write.csv(danificadas,file="../../outputs/amostras_removidas_da_analise.csv",row.names=F)
+infoNima <- subset(infoNima,infoNima$QCFlag==0)
+
+# Remove as que não tem massa.
+amostras_sem_massa = cbind(subset(infoNima,is.na(infoNima$MassConc))$SampleID,
+                    motivo="Não tem medição da massa gravimétrica")
+write.table(amostras_sem_massa,file="../../outputs/amostras_removidas_da_analise.csv",
+            row.names=F,sep=",",dec=".",append=T,col.names = F)
+infoNima <- subset(infoNima,!is.na(infoNima$MassConc)) 
 
 # Troca zeros ou muito pequenos por NA
 pm[pm<0.0000001]<-NA
@@ -71,10 +81,11 @@ names(pmError)[-1] <- subElement(names(pmError)[-1])
 pmElementos<-names(pmConc)[2:length(names(pmConc))]
 
 # !!! Remove duplicadas (depois achar outra solução, média?) !!!!
-infoNima = subset(infoNima, infoNima$Duplicate == 0)
+# infoNima = subset(infoNima, infoNima$Duplicate == 0)
 
 # Juntando informações de Nima e infoNima com tabela de concentrações pmConc.
-pmConc<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate','MassConc')],
+pmConc<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','diamesano',
+                          'volumem3','Duplicate','MassConc')],
               pmConc,by="SampleID")
 names(pmConc)[names(pmConc)=='MassConc'] <- 'mass'
 
@@ -83,7 +94,8 @@ pmConc = pmConc[order(pmConc$Date),]
 write.csv(pmConc,file="../../outputs/pmConc.csv",row.names=F)
 
 # Juntando erro da massa em infoNima com tabela de erro EDXRF, pmError.
-pmError<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate','MassError')],
+pmError<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','diamesano',
+                           'volumem3','Duplicate','MassError')],
                pmError,by="SampleID")
 names(pmError)[names(pmError)=='MassError'] <- 'mass'
 
@@ -111,14 +123,16 @@ for(i in pmElementos){
   pmError[,i]<-na2LD(Zi,pmError[,i],erro=TRUE)
 }
 
-# Amostras que não foram analisadas pelo EDX, reportar!
-if(debug) setdiff(infoNima$SampleID,pmConc$SampleID)
+# Amostras que não foram analisadas pelo EDX
+amostras_sem_edx = cbind(setdiff(infoNima$SampleID,pmConc$SampleID),motivo="Não tem análise EDX")
+write.table(amostras_sem_edx,file="../../outputs/amostras_removidas_da_analise.csv",
+            row.names=F,sep=",",dec=".",append=T,col.names = F)
 
 # Divisão entre Fino e Inalável
 amostrasInalaveis <- subset(pmConc,pmConc$SampleType=="PM10")$SampleID
 amostrasFinas <- subset(pmConc,pmConc$SampleType=="PM2.5")$SampleID
 
-# Concentrações por mpda
+# Concentrações por moda
 pmInalavel <- pmConc[pmConc$SampleID %in% amostrasInalaveis,]
 pmFino <- pmConc[pmConc$SampleID %in% amostrasFinas,]
 
@@ -129,8 +143,10 @@ pmFinoError <- pmError[pmError$SampleID %in% amostrasFinas,]
 # BlackCarbon de Nima
 BlackCarbon <- BlackCarbon[BlackCarbon$SampleID %in% amostrasFinas, ]
 
-# TODO: reportar Amostras de Nima que não há análise de BlackCarbon
-if(debug) setdiff(pmFino$SampleID,BlackCarbon$SampleID)
+# Amostras de Nima que não há análise de BlackCarbon
+amostras_sem_BC = cbind(setdiff(pmFino$SampleID,BlackCarbon$SampleID),motivo="Não tem análise de Black Carbon")
+write.table(amostras_sem_BC,file="../../outputs/amostras_removidas_da_analise.csv",
+            row.names=F,sep=",",dec=".",append=T,col.names = F)
 
 # Junta BC com fino
 pmFino<-merge(pmFino,BlackCarbon[,c(1,2)],by="SampleID")
