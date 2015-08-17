@@ -2,11 +2,11 @@ rm(list=ls())
 
 source("myfunctions/load.R")
 
-debug=T
-
 # Sigla
-conditions<-c('JFcH','RFcH','TFcH','JFsH','RFsH','TFsH','JFeH',
-              'JIcH','RIcH','TIcH','JIsH','RIsH','TIsH','JIeH')
+conditions<-c('RFcH',
+              'RIcH',
+              'TFcH',
+              'TIcH')
 
 # Lendo arquivos de concentrações e erros.
 for (i in conditions){
@@ -35,5 +35,3 @@ for (i in conditions){
   eval(parse(text=code))
   eval(parse(text=code_unc))
 }
-
-# TODO: Estatística quantitativa depois da eliminação das duplicadas.

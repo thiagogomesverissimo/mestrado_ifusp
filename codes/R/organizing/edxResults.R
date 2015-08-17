@@ -80,9 +80,6 @@ names(pmError)[-1] <- subElement(names(pmError)[-1])
 # Lista de Elementos analisados pelo EDXRF
 pmElementos<-names(pmConc)[2:length(names(pmConc))]
 
-# !!! Remove duplicadas (depois achar outra solução, média?) !!!!
-# infoNima = subset(infoNima, infoNima$Duplicate == 0)
-
 # Juntando informações de Nima e infoNima com tabela de concentrações pmConc.
 pmConc<-merge(infoNima[,c('SampleID','SiteName','SampleType','Date','diamesano',
                           'volumem3','Duplicate','MassConc')],

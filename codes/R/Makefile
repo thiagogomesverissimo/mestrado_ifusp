@@ -1,17 +1,18 @@
-#Makefile para criar outputs
+# Makefile para scripts R
 
 .PLONY: clean all
 
 all:
-	#Sequência de códigos para cálculo da concentração elementar
+	# Sequência de códigos para cálculo da concentração elementar
 	Rscript organizing/detectionLimit.R
 	Rscript organizing/blackCarbon.R
 	Rscript organizing/edxResults.R
-	Rscript organizing/pmSplit.R
-	Rscript organizing/deleteColumns.R
-	Rscript organizing/duplicatesMedia.R
+	Rscript organizing/mainSplit.R
+	Rscript organizing/duplicates.R
+	Rscript organizing/grosso.R 
+	Rscript organizing/extraSplit.R
 	Rscript organizing/preparePMF.R 
-	#Rscript organizing/grosso.R 
+	Rscript organizing/prepareFA.R 
 	
 	#Sequência de código para meteorologia
 	Rscript meteorology/noaa_from_harvard.R
