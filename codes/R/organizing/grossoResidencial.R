@@ -12,24 +12,14 @@ RIcHunc = read.csv('../../outputs/concentrations/RIcHunc.csv')
 RFcH = read.csv('../../outputs/concentrations/RFcH.csv')
 RFcHunc = read.csv('../../outputs/concentrations/RFcHunc.csv')
 
-# Classifica os data.frame pela data
-RIcH = RIcH[order(RIcH$Date),]
-RIcHunc = RIcHunc[order(RIcHunc$Date),]
-RFcH = RFcH[order(RFcH$Date),]
-RFcHunc = RFcHunc[order(RFcHunc$Date),]
-
-## Residential
-# # Cria a coluna diamesano no formato dia/mês/ano
-# RFcH = cbind(RFcH,diamesano=strftime(RFcH$Date,format="%d/%m/%Y"))
-# RFcHunc = cbind(RFcHunc,diamesano=strftime(RFcHunc$Date,format="%d/%m/%Y"))
-# RIcH = cbind(RIcH,diamesano=strftime(RIcH$Date,format="%d/%m/%Y"))
-# RIcHunc = cbind(RIcHunc,diamesano=strftime(RIcHunc$Date,format="%d/%m/%Y"))
-
-# Removendo duplicado. ### Investigar depois com calma porque tá duplicado.
+# Removendo duplicado. 
+# !!! Investigar depois com calma porque ainda está duplicado.
 RIcH = subset(RIcH,!duplicated(RIcH$diamesano))
 RIcHunc = subset(RIcHunc,!duplicated(RIcHunc$diamesano))
+RFcH = subset(RFcH,!duplicated(RFcH$diamesano))
+RFcHunc = subset(RFcHunc,!duplicated(RFcHunc$diamesano))
 
-# mantém dias que estão em RFcH e RIcH:
+# mantém dias que estão em RFcH e em RIcH:
 datas_comuns = intersect(RFcH$diamesano,RIcH$diamesano)
 RFcH = subset(RFcH, RFcH$diamesano %in% datas_comuns)
 RFcHunc = subset(RFcHunc, RFcHunc$diamesano %in% datas_comuns)
@@ -40,9 +30,16 @@ RIcHunc = subset(RIcHunc, RIcHunc$diamesano %in% datas_comuns)
 elementos = intersect(colnames(RFcH),colnames(RIcH))
 elementos = intersect(periodicTable$code,elementos)
 
+# Classifica os data.frame pela data
+RIcH = RIcH[order(RIcH$Date),]
+RIcHunc = RIcHunc[order(RIcHunc$Date),]
+RFcH = RFcH[order(RFcH$Date),]
+RFcHunc = RFcHunc[order(RFcHunc$Date),]
+
 # Calcula concentração do grosso
 RGcH = RIcH[,c('mass',elementos)] - RFcH[,c('mass',elementos)]
 RGcHunc = sqrt(RIcHunc[,c('mass',elementos)]**2 + RFcHunc[,c('mass',elementos)]**2)
+RGcHunc = as.data.frame(RGcHunc)
 
 # !!! Subtitui os negativos TEMPORARIAMENTE pelo limite de detecção
 RGcH[RGcH<0.000001] = NA
@@ -53,31 +50,17 @@ for(i in elementos){
 }
 
 # Adiciona as colunas iniciais
-colunas_iniciais = RIcH[,c('SampleID','SiteName','SampleType','Date','volumem3','Duplicate')]
+colunas_iniciais = RIcH[,c('SiteName','SampleType','Date','diamesano','volumem3')]
 RGcH = cbind(colunas_iniciais,RGcH)
 RGcHunc = cbind(colunas_iniciais,RGcHunc)
 
 # !!!  APAGA TEMPORARIAMENTE OS QUE TEM A MASSA NEGATIVA
-removidos = subset(RGcH,is.na(RGcH$mass))$SampleID
-RGcH = subset(RGcH,!(RGcH$SampleID %in% removidos))
-RGcHunc = subset(RGcHunc,!(RGcHunc$SampleID %in% removidos))
+removidos = subset(RGcH,is.na(RGcH$mass))$diamesano
+RGcH = subset(RGcH,!(RGcH$diamesano %in% removidos))
+RGcHunc = subset(RGcHunc,!(RGcHunc$diamesano %in% removidos))
 
 write.csv(RGcH,'../../outputs/concentrations/RGcH.csv',row.names=F)
+write.csv(RGcHunc,'../../outputs/concentrations/RGcHunc.csv',row.names=F)
 
 ## Traffic: TIcH - TFcH 
 
-# Cria a coluna diamesano no formato dia/mês/ano
-TFcH = cbind(TFcH,diamesano=strftime(TFcH$Date,format="%d/%m/%Y"))
-TFcHunc = cbind(TFcHunc,diamesano=strftime(TFcHunc$Date,format="%d/%m/%Y"))
-TIcH = cbind(TIcH,diamesano=strftime(TIcH$Date,format="%d/%m/%Y"))
-TIcHunc = cbind(TIcHunc,diamesano=strftime(TIcHunc$Date,format="%d/%m/%Y"))
-
-# mantem dias que estão em TFcH e TIcH:
-datas_comuns = intersect(TIcH$diamesano,TFcH$diamesano)
-TFcH = subset(TFcH, TFcH$diamesano %in% datas_comuns)
-TFcHunc = subset(TFcHunc, TFcHunc$diamesano %in% datas_comuns)
-TIcH = subset(TIcH, TIcH$diamesano %in% datas_comuns)
-TIcHunc = subset(TIcHunc, TIcHunc$diamesano %in% datas_comuns)
-
-nrow(TFcH)
-nrow(TIcH)

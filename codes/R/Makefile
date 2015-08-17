@@ -9,8 +9,9 @@ all:
 	Rscript organizing/edxResults.R
 	Rscript organizing/mainSplit.R
 	Rscript organizing/duplicates.R
-	Rscript organizing/grosso.R 
-	Rscript organizing/extraSplit.R
+	Rscript organizing/grossoResidencial.R 
+	Rscript organizing/grossoTraffic.R 
+	#Rscript organizing/extraSplit.R
 	Rscript organizing/preparePMF.R 
 	Rscript organizing/prepareFA.R 
 	

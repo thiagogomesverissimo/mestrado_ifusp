@@ -1,38 +1,77 @@
 rm(list=ls())
-
 source("myfunctions/load.R")
 
-conditions<-c('JFcH','RFcH','TFcH','JFsH','RFsH','TFsH','JFeH',
-              'JIcH','RIcH','TIcH','JIsH','RIsH','TIsH','JIeH')
+residencial = c('RFcH','RGcH','RIcH')   
+traffic = c('TFcH','TGcH','TIcH') 
 
-#Lendo arquivos de concentrações
+# All conditions
+conditions<-c(residencial,traffic)
+
+# Lendo arquivos de concentrações
 for (i in conditions){
   code=paste(i,"<-","read.csv('","../../outputs/concentrations/",i,".csv')",sep="")
   code_unc=paste(i,"unc","<-","read.csv('","../../outputs/concentrations/",i,"unc.csv')",sep="")
-  print(code); print(code_unc)
+  if(debug) print(code)
+  if(debug) print(code_unc)
   eval(parse(text=code))
   eval(parse(text=code_unc))
 }
 
-#Eliminando colunas desnecessárias:
+# Eliminando colunas desnecessárias
+# elementos para retirar?: "Cr","Br","Rb","Sr","Zr","Cu","Zn"
+removidos = 'c("SampleID","SiteName","SampleType","diamesano","volumem3","Duplicate","Rb")'
 for(i in conditions){
-  code=paste(i,"<-",i,"[,!names(",i,") %in% c('SiteName','SampleType','volumem3')]",sep="")
-  code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% c('SiteName','SampleType','volumem3')]",sep="")
-  #print(code); print(code_unc)
+  code=paste(i,"<-",i,"[,!names(",i,") %in% ", removidos, "]",sep="")
+  code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% ", removidos ,"]",sep="")
+  if(debug) print(code)
+  if(debug) print(code_unc)
   eval(parse(text=code))
   eval(parse(text=code_unc))
 }
 
+# Transformando as colunas Date para tipo R-Date. 
+for(i in conditions){
+  #Formatando a coluna dates com formato de data
+  code=paste(i,"$Date","<-","as.POSIXct(strptime(",i,"$Date",",format='%Y-%m-%d %H:%M:%S',tz='GMT'))",sep="")
+  code_unc=paste(i,"unc","$Date","<-","as.POSIXct(strptime(",i,"unc","$Date",",format='%Y-%m-%d %H:%M:%S',tz='GMT'))",sep="")
+  if(debug) print(code)
+  if(debug) print(code_unc)
+  eval(parse(text=code))
+  eval(parse(text=code_unc))
+}
 
-#Cria diretório concentrations
-if(!('concentrations' %in% list.files("../../outputs/"))) dir.create("../../outputs/concentrations")
+# Ordenando pela coluna Date.
+for(i in conditions){
+  #Formatando a coluna dates com formato de data
+  code=paste(i,"<-",i,"[order(",i,"$Date),]",sep="")
+  code_unc=paste(i,"unc<-",i,"unc[order(",i,"unc$Date),]",sep="")
+  if(debug) print(code)
+  if(debug) print(code_unc)
+  eval(parse(text=code))
+  eval(parse(text=code_unc))
+}
 
-#Salvar os arquivos para análise PMF
+# Eliminando coluna Date
+removidos = 'c("Date")'
+for(i in conditions){
+  code=paste(i,"<-",i,"[,!names(",i,") %in% ", removidos, "]",sep="")
+  code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% ", removidos ,"]",sep="")
+  if(debug) print(code)
+  if(debug) print(code_unc)
+  eval(parse(text=code))
+  eval(parse(text=code_unc))
+}
+
+# Cria diretório PCA
+if(!('pca' %in% list.files("../../outputs/"))) dir.create("../../outputs/pca")
+
+# Salvar os arquivos para análise pca, não pode ter aspas
 for (i in conditions){
-  code=paste("write.csv(",i,",'../../outputs/concentrations/",i,".csv',","row.names=FALSE,quote=F)",sep="")
-  code_unc=paste("write.csv(",i,"unc",",'../../outputs/concentrations/",i,"unc.csv',","row.names=FALSE,quote=F)",sep="")
-    if(debug) print(code) 
-    if(debug) print(code_unc)
+  code=paste("write.csv(",i,",'../../outputs/pca/",i,".csv',","row.names=FALSE,quote=F)",sep="")
+  code_unc=paste("write.csv(",i,"unc",",'../../outputs/pca/",i,"unc.csv',","row.names=FALSE,quote=F)",sep="")
+  if(debug) print(code)
+  if(debug) print(code_unc)
   eval(parse(text=code))
   eval(parse(text=code_unc))
 }
+
