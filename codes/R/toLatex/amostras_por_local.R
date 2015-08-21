@@ -13,8 +13,8 @@ amostras_por_local<-data.frame(
     nrow(subset(pmConc,pmConc$SiteName=="NMT")),
     nrow(pmConc))
 )
-residencial<-'Área residencial, com ruas não pavimentadas' #NMA
-trafego<-'Tráfego intenso, avenida pavimentada e região urbana' #NMT
+residencial<-'Área residencial (vias não pavimentadas)' #NMA
+trafego<-'Tráfego intenso (vias pavimentadas)' #NMT
 
 colnames(amostras_por_local)<-c("$PM_{2.5}$","$PM_{10}$","Total")
 rownames(amostras_por_local)<-c(residencial,trafego,'Total')
