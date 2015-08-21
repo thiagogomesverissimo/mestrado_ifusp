@@ -1,11 +1,15 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
+# Siglas
 residencial = c('RFcH','RGcH','RIcH')   
-traffic = c('TFcH','TGcH','TIcH') 
+traffic = c('TFcH','TGcH','TIcH')
 
 # All conditions
 conditions<-c(residencial,traffic)
+
+# Inclui tabelas sem os meses do Harmathan
+conditions = c(conditions,gsub('c','s',conditions))
 
 # Lendo arquivos de concentrações
 for (i in conditions){

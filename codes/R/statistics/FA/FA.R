@@ -1,35 +1,52 @@
 source("myfunctions/load.R")
 
-# Tabela periódica
-periodicTable<-read.csv("../../inputs/constants/periodic_table.csv",header=TRUE)
+residencial = c('RFcH','RGcH','RIcH')   
+traffic = c('TFcH','TGcH','TIcH') 
 
-base<-read.csv("../../outputs/concentrations/RGcH.csv",header=TRUE)
+# Fontes encontradas em Harvard:
+#   Solid waste burning: Br. 
+#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
+#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
+#   Aged biomass particles: K, Cl, S, BC
+#   Fresh biomass burning: K, Cl, S, BC
+#   Sea salt: Na, Cl, S
 
-# Remove colunas desnecessárias
-elementos = intersect(periodicTable$code,colnames(base))
-base = base[,c('mass',elementos)]
+# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
+# Zn: Freio, pneu, peças.
+
+## RFsH
+base<-read.csv("../../outputs/pca/RFsH.csv",header=TRUE)
 
 # Datas serão usadas no gráfico dos factor scores
-#datas<-base$Date
+datas<-base$Date
+base = base[,-1]
 
-#Colunas removidas
-#removidos<-c('Cr','Br','Rb','Sr','Zr','Cu','Zn')
-removidos<-c('Rb','Zr','Mg')
+# Colunas removidas
+removidos<-c('Cr','Br','Rb','Sr','Zr','Cu','Zn','Ni')
 base = base[,!(colnames(base) %in% removidos)]
 
-#Estima quantidade de Fatores
-fa.parallel(base)
+# PCA igual a do SPSS
+base.principal<-principal(base,nfactors=5,rotate="varimax")
 
-#PCA
-base.principal<-principal(base,nfactors=6,rotate="none")
-base.principal<-principal(base,nfactors=4,rotate="varimax")
-
-#Classifica elementos pelos loadings
+# Loadings
 base.principal = fa.sort(base.principal)
 print(loadings(base.principal),cutoff=2e-1)
-data.frame(unclass(base.principal$loadings))
+loaging_latex = fa2latex(base.principal,
+                         font.size = 'tiny',
+                         caption='Loadings RFsH')
+write(loaging_latex,file='../../outputs/loadings_RFsH.tex')
 
-base.principal$loadings
+
+# Scree plot
+png(file='../../outputs/RFsH_scree_plot.png')
+plot(base.principal$values,type='b',
+     ylab='Autovalor',
+     xlab='Componentes',
+     main = 'Scree Plot RFsH')
+dev.off()
+dev.off()
+
+
 base.principal$communality
 base.principal$uniquenesses
 base.principal$values
@@ -52,14 +69,7 @@ base.principal$Structure
 base.principal$scores
 base.principal$order
 
-#Scree plot
-png(file='../../outputs/AFCH_scree_plot.png')
-plot(base.principal$values,type='b',
-     ylab='Autovalor',
-     xlab='Componentes',
-     main = 'AFCH')
-dev.off()
-dev.off()
+
 
 #scores 
 #TODO: Arrumar o eixo x para mostrar os meses
@@ -80,7 +90,7 @@ print(xtable(data.frame(base.principal$communality)),
 
 #Uniquenesses
 base.fa$uniquenesses
-
+fa2latex(base.principal)
 #loadings
 print(fa2latex(base.principal), 
       type="latex", 

@@ -11,7 +11,7 @@ all:
 	Rscript organizing/duplicates.R
 	Rscript organizing/grossoResidencial.R 
 	Rscript organizing/grossoTraffic.R 
-	#Rscript organizing/extraSplit.R
+	Rscript organizing/removeHarmathan.R
 	Rscript organizing/preparePMF.R 
 	Rscript organizing/prepareFA.R 
 	
@@ -21,10 +21,11 @@ all:
 	#Rscript meteorology/noaa_ftp.R
 
 	#Latex
-	Rscript toLatex/concentration_subsets.R
+	Rscript toLatex/tabela_subset_sem_harmatan.R
+	Rscript toLatex/tabela_subset_com_harmatan.R
 	Rscript toLatex/samples.R
 	Rscript toLatex/amostras_por_local.R
-	#Rscript toLatex/descriptive_statistics.R
+	Rscript toLatex/tabela_descritiva_com_harmatan.R
 	
 	#Rscript graphs/graficos.R
 

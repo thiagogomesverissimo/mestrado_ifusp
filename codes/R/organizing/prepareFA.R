@@ -7,6 +7,9 @@ traffic = c('TFcH','TGcH','TIcH')
 # All conditions
 conditions<-c(residencial,traffic)
 
+# Inclui tabelas sem os meses do Harmathan
+conditions = c(conditions,gsub('c','s',conditions))
+
 # Lendo arquivos de concentrações
 for (i in conditions){
   code=paste(i,"<-","read.csv('","../../outputs/concentrations/",i,".csv')",sep="")
@@ -18,8 +21,7 @@ for (i in conditions){
 }
 
 # Eliminando colunas desnecessárias
-# elementos para retirar?: "Cr","Br","Rb","Sr","Zr","Cu","Zn"
-removidos = 'c("SampleID","SiteName","SampleType","diamesano","volumem3","Duplicate","Rb")'
+removidos = 'c("SampleID","SiteName","SampleType","diamesano","volumem3","Duplicate")'
 for(i in conditions){
   code=paste(i,"<-",i,"[,!names(",i,") %in% ", removidos, "]",sep="")
   code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% ", removidos ,"]",sep="")
@@ -45,17 +47,6 @@ for(i in conditions){
   #Formatando a coluna dates com formato de data
   code=paste(i,"<-",i,"[order(",i,"$Date),]",sep="")
   code_unc=paste(i,"unc<-",i,"unc[order(",i,"unc$Date),]",sep="")
-  if(debug) print(code)
-  if(debug) print(code_unc)
-  eval(parse(text=code))
-  eval(parse(text=code_unc))
-}
-
-# Eliminando coluna Date
-removidos = 'c("Date")'
-for(i in conditions){
-  code=paste(i,"<-",i,"[,!names(",i,") %in% ", removidos, "]",sep="")
-  code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% ", removidos ,"]",sep="")
   if(debug) print(code)
   if(debug) print(code_unc)
   eval(parse(text=code))
