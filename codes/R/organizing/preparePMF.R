@@ -22,8 +22,7 @@ for (i in conditions){
 }
 
 # Eliminando colunas desnecessárias
-# elementos para retirar?: "Cr","Br","Rb","Sr","Zr","Cu","Zn"
-removidos = 'c("SampleID","SiteName","SampleType","diamesano","volumem3","Duplicate","Rb")'
+removidos = 'c("SampleID","SiteName","SampleType","diamesano","volumem3","Duplicate","Cr","Rb","Sr","Zr","Cu","Ni")'
 for(i in conditions){
  code=paste(i,"<-",i,"[,!names(",i,") %in% ", removidos, "]",sep="")
  code_unc=paste(i,"unc","<-",i,"unc","[,!names(",i,"unc",") %in% ", removidos ,"]",sep="")
@@ -66,12 +65,12 @@ for(i in conditions){
 }
 
 # Cria diretório PMF
-if(!('pmf' %in% list.files("../../outputs/"))) dir.create("../../outputs/pmf")
+if(!('pmf_fa' %in% list.files("../../outputs/"))) dir.create("../../outputs/pmf_fa")
 
-# Salvar os arquivos para análise PMF, não pode ter aspas
+# Salvar os arquivos para análise PMF/FA, não pode ter aspas
 for (i in conditions){
-  code=paste("write.csv(",i,",'../../outputs/pmf/",i,".csv',","row.names=FALSE,quote=F)",sep="")
-  code_unc=paste("write.csv(",i,"unc",",'../../outputs/pmf/",i,"unc.csv',","row.names=FALSE,quote=F)",sep="")
+  code=paste("write.csv(",i,",'../../outputs/pmf_fa/",i,".csv',","row.names=FALSE,quote=F)",sep="")
+  code_unc=paste("write.csv(",i,"unc",",'../../outputs/pmf_fa/",i,"unc.csv',","row.names=FALSE,quote=F)",sep="")
   if(debug) print(code)
   if(debug) print(code_unc)
   eval(parse(text=code))
