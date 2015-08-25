@@ -46,6 +46,7 @@ load<-function()
   source("myfunctions/duplicates.R")
   source("myfunctions/windFrequency.R")
   source("myfunctions/pmf.R")
+  source("myfunctions/FactorAnalysis.R")
 }
 
 #Call the load function
