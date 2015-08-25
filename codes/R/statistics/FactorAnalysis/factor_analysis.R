@@ -11,7 +11,14 @@ conditions<-c(residencial,traffic)
 conditions = c(conditions,gsub('c','s',conditions))
 
 for(i in conditions){
-  FactorAnalysis(i,6) 
+  FactorAnalysis(i,5) 
 }
 
-
+# As exceções (que não são 6):
+# FactorAnalysis('RFcH',4)
+# FactorAnalysis('RGcH',5)
+ FactorAnalysis('RGsH',4)
+# FactorAnalysis('RIsH',5)
+# FactorAnalysis('TGcH',5)
+# FactorAnalysis('TGsH',5)
+ FactorAnalysis('TFsH',4)

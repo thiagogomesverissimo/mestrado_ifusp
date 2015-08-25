@@ -10,7 +10,7 @@ FactorAnalysis <- function(current_base,nfactors){
   # Loadings, h2 comunalidade e u2 a unicidade (ou singularidade)
   base.principal = fa.sort(base.principal)
   loadings_caption_name = paste("Análise de Fatores: ",current_base,sep="")
-  print(loadings(base.principal),cutoff=2e-1)
+  #print(loadings(base.principal),cutoff=2e-1)
   loading_latex = fa2latex(base.principal,
                          font.size = 'tiny',
                          heading = current_base,
