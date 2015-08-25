@@ -1,7 +1,7 @@
 # Função que: prepara dados para plot distribuição de frequência
 # Nos gráficos, os labels serão a sequência começando de 22.5 até 360 com passo de  
 # 22.5. Porém, para distribuirmos as frequências vamos nos centrar nestes labels +/- 11.25
-windFrequency<-function(inputdados,GraphTitle="Ghana") 
+windFrequency<-function(inputdados,GraphTitle="Ghana",file_name) 
 {
   calmaria<-sum(inputdados$Calmaria)
   inputdados<-inputdados[!is.na(inputdados$DIR),]
@@ -17,7 +17,7 @@ windFrequency<-function(inputdados,GraphTitle="Ghana")
   
   ##Plotando gráficos
   #library(plotrix)  
-  png(file=paste('../../outputs/',GraphTitle,'.png',sep=""))
+  pdf(file=paste('../../outputs/',file_name,'.pdf',sep=""))
   polar.plot(lengths=freq$quantidade,
              polar.pos=freq$centroide,
              labels=freq$centroide,
