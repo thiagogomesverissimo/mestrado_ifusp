@@ -25,14 +25,16 @@ windFrequency<-function(inputdados,GraphTitle="Ghana",file_name)
              clockwise=TRUE,
              start=90,
              rp.type="p", 
-             main=paste('Frequencia de direção do vento (%):',GraphTitle,sep=" "),
+             main=paste('Frequência de direção do vento (%):',GraphTitle,sep=" "),
              label.prop=1.1,
-             line.col=par("fg"),
-             lty=par("lty"),
-             lwd=par("lwd"),
+             line.col= 'red',
+             lty= 20, 
+             lwd= 3,
              mar=c(2,2,3,2),
              show.grid.labels=4,
-             grid.col="gray",grid.bg="transparent"
+             grid.col="gray",
+             point.symbols = 2,
+             grid.bg="transparent"
   )
   text(5,5,'% de ocorrências')
   text(10,-10,paste('Calmaria = ',porcentage_calmaria,'%',sep=""))
