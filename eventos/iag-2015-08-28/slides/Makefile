@@ -1,6 +1,6 @@
 .PLONY: clean images
 
-main.pdf: main.tex projeto.tex metodologia.tex resultados.tex
+main.pdf: main.tex projeto.tex metodologia.tex experimento.tex resultados.tex
 	pdflatex -interaction=nonstopmode -halt-on-error main.tex 
 	pdflatex -interaction=nonstopmode -halt-on-error main.tex 
 	pdflatex -interaction=nonstopmode -halt-on-error main.tex 
