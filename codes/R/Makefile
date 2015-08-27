@@ -38,6 +38,8 @@ all:
 	#Rscript statistics/PMF/main.R
 
 	# shell
-	../shellscript/sedLatex.sh
+	../shellscript/sedLatex_FactorAnalysis.sh
+	../shellscript/sedLatex_pmf.sh
+
 clean:
 	rm -rf *~ 

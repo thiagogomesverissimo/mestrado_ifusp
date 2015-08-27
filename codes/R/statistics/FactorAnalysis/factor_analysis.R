@@ -9,8 +9,4 @@ FactorAnalysis('RFsH',5)
 FactorAnalysis('TFsH',5)
 FactorAnalysis('RGsH',4)
 FactorAnalysis('TGsH',4)
-
-
-
-
-FactorAnalysis('TIcH',5)
+FactorAnalysis('TIcH',4)

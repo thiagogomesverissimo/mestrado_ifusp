@@ -22,6 +22,7 @@ if(instalarPacotes){
   install.packages("nFactors")
   install.packages("corrplot")
   install.packages("plotrix")
+  install.packages("fBasics")
 }
 
 load<-function()
@@ -34,6 +35,7 @@ load<-function()
   library("nFactors")
   library('corrplot') #para matriz de correlações 
   library('plotrix')
+  library('fBasics')
 
   #Load the functions created for this project
   source("myfunctions/TrataID.R")

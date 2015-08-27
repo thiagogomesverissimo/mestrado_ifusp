@@ -1,6 +1,6 @@
 FactorAnalysis <- function(current_base,nfactors){
   
-  #current_base = 'RFsH'; nfactors = 5
+  #current_base = 'TIcH'; nfactors = 5
   path_file = paste('../../outputs/pmf_fa/',current_base,'.csv',sep='')
   base<-read.csv(path_file,header=TRUE,row.names=1)
   datas = as.POSIXct(strptime(rownames(base), format = '%d/%m/%Y %H:%M'))
@@ -48,6 +48,7 @@ FactorAnalysis <- function(current_base,nfactors){
   pdf(file=scores_file_name)
   par(mfrow=c(3,2)) 
   for(i in seq(1:nfactors)){
+    #i=2 # for debug
     factor_graph_name = paste(current_base,': Fator ',i,sep='')
     plot(base.principal$scores[,i] ~ datas,
          xaxt = "n", 
