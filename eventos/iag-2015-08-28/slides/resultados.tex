@@ -1,6 +1,13 @@
 \section{Resultados}
 
-inputs/images/zheng/epa_page1_example.PDF
+\begin{frame}
+  \frametitle{Comparação das análises com a da EPA}
+  \begin{figure}[H]
+   \centering
+    \includegraphics[scale=0.30]{../../../inputs/images/zheng/epa_page1_example.PDF}
+  \end{figure}
+\end{frame}
+
 \begin{frame}
   \frametitle{}
   \begin{table}
@@ -22,15 +29,6 @@ inputs/images/zheng/epa_page1_example.PDF
 
 \begin{frame}
   \frametitle{}
-  \begin{figure}[H]
-   \centering
-    \includegraphics[scale=0.30]{../../../outputs/score_RFsH1.pdf}
-    \includegraphics[scale=0.30]{../../../outputs/score_RFsH2.pdf}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
     \input{../../../outputs/loadings_TFsH.tex}
 \end{frame}
 
@@ -43,3 +41,49 @@ inputs/images/zheng/epa_page1_example.PDF
   \frametitle{}
     \input{../../../outputs/loadings_TGsH.tex}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Impacto do Harmatã}
+  \begin{figure}[H]
+   \centering
+    \includegraphics[scale=0.20]{../../../outputs/score_TIcH1.pdf}
+    \includegraphics[scale=0.20]{../../../outputs/score_TIcH3.pdf}
+    \caption{Score para fator que representa 
+             \textcolor{red}{solo/Harmatã} e \textcolor{red}{Queima de Biomassa}, respectivamente.}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Positive Matrix Factorization: RFsH}
+    \begin{tiny}
+      \input{../../../outputs/RFsH_profiles_percent_species.tex}
+      \input{../../../outputs/RFsH_contribution.tex}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Positive Matrix Factorization: TFsH}
+    \begin{tiny}
+      \input{../../../outputs/TFsH_profiles_percent_species.tex}
+      \input{../../../outputs/TFsH_contribution.tex}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Positive Matrix Factorization: RGsH}
+    \begin{tiny}
+      \input{../../../outputs/RGsH_profiles_percent_species.tex}
+      \input{../../../outputs/RGsH_contribution.tex}
+    \end{tiny}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Positive Matrix Factorization: TGsH}
+    \begin{tiny}
+      \input{../../../outputs/TGsH_profiles_percent_species.tex}
+      \input{../../../outputs/TGsH_contribution.tex}
+    \end{tiny}
+\end{frame}
+
+
+
