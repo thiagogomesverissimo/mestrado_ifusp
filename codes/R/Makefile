@@ -37,5 +37,7 @@ all:
 	#Rscript statistics/descriptive/descriptive_statistics.R
 	#Rscript statistics/PMF/main.R
 
+	# shell
+	../shellscript/sedLatex.sh
 clean:
 	rm -rf *~ 
