@@ -8,6 +8,7 @@
 # Sea salt: Na, Cl, S
 # Sal marinho, solo, emissões veiculares e combustão de biomassa 
 # Loadings, h2 comunalidade e u2 a unicidade (ou singularidade)
+
 cd $(dirname $0)
 
 ### Corrige nomes nas tabelas de loadings.
@@ -19,7 +20,7 @@ sed -i s/PC2/Mar/g $FILE
 sed -i s/PC3/Veículo/g $FILE
 sed -i s/PC4/Biomassa/g $FILE
 sed -i s/PC5/Zn/g $FILE
-sed -i s/RFsH/'$MP_{2.5}$ bairro'/g $FILE
+sed -i s/RFsH/'\\textcolor{red}{$MP_{2.5}$ bairro}'/g $FILE
 
 
 ## TFsH
@@ -29,7 +30,7 @@ sed -i s/PC2/Mar/g  $FILE
 sed -i s/PC3/Biomassa/g  $FILE
 sed -i s/PC4/Veículo/g  $FILE
 sed -i s/PC5/'Lixo Sólido'/g $FILE
-sed -i s/TFsH/'$MP_{2.5}$ avenida'/g $FILE
+sed -i s/TFsH/'\\textcolor{red}{$MP_{2.5}$ avenida}'/g $FILE
 
 ## RGsH
 sed -i s/PC1/Solo/g  ../../outputs/loadings_RGsH.tex
@@ -57,7 +58,7 @@ for i in loadings_RFsH.tex loadings_TFsH.tex loadings_RGsH.tex loadings_TGsH.tex
   sed -i s/Variable/Espécie/g  ../../outputs/$i
   sed -i s/'SS loadings'/'autovalor'/g  ../../outputs/$i
   sed -i s/'Proportion Var'/'variância'/g  ../../outputs/$i
-  sed -i s/'Cumulative Var'/'variância acum.'/g  ../../outputs/$i
+  sed -i s/'Cumulative Var'/'\\textcolor{red}{variância acum.}'/g  ../../outputs/$i
   sed -i s/'Cum. factor Var'/'variância fat.'/g  ../../outputs/$i
   sed -i s/'\\caption{}'//g  ../../outputs/$i
 done

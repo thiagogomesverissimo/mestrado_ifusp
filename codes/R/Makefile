@@ -25,7 +25,8 @@ all:
 	Rscript toLatex/samples.R
 	Rscript toLatex/amostras_por_local.R
 	Rscript toLatex/tabela_descritiva_com_harmatan.R
-	
+	Rscript toLatex/tabelas_pmf.R
+
 	# Gráficos
 	#Rscript graphs/graficos.R
 
@@ -38,9 +39,13 @@ all:
 	#Rscript statistics/PMF/main.R
 
 	# shell
-	../shellscript/sedLatex_FactorAnalysis.sh
-	../shellscript/sedLatex_pmf.sh
-	../shellscript/sedLatex.sh
+	sh ../shellscript/sedLatex_FactorAnalysis.sh
+	sh ../shellscript/sedLatex_pmf.sh
+	sh ../shellscript/sedLatex.sh
+
+	# Python
+	python ../python/edxCalibration_K.py
+	python ../python/edxCalibration_L.py
 
 clean:
 	rm -rf *~ 

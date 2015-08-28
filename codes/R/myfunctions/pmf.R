@@ -177,7 +177,7 @@ pmf_residuals <- function(pathfile){
 
 pmf_profiles_latex <- function(sigla) {
   
-  sigla = 'RFsH'
+  #sigla = 'RFsH'
   pathfile = paste('../../inputs/pmf/',sigla,'/',sigla,'_profiles.csv',sep='')
   profiles = pmf_profiles(pathfile)
   x = profiles$fp_percent_species
