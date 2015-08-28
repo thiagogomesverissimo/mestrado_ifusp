@@ -19,22 +19,37 @@
  
   \begin{itemize}
     \item $x_{ij}$ = concentração na amostra i da espécie j;
-    \item $f_{pj}$ = concentração da espécie j emitida na fonte p 
-                    (ferfil da fonte, assinatura da fonte ou \textit{Factor Loadings}); 
+    \item $f_{pj}$ = fração da espécie j emitida na fonte p 
+                    (perfil da fonte, assinatura da fonte ou \textit{Factor Loadings}); 
     \item $g_{ip}$ = contribuição da fonte p para amostra i (\textit{Factor Score});
-    \item $\epsilon$ = Erro do modelo empregado/resíduo.
+    \item $\epsilon$ = Resíduo, depende do modelo empregado.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Positive Matrix Factorizarion}
-
-  Função objeto - Q -  é uma função que precisa ser minimizada 
-  ou maximizada usando métodos numéricos para equações não lineares, pois não 
-  tem solução analítica. 
-
+  \frametitle{Análise de Fatores}
   \begin{equation}
-    Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{e_{ij}} {u_{ij}} \right] ^2
+    z_{j} = l_{j1}F_1 + l_{j2}F_2 + l_{j3}F_3 + ... + \epsilon_{ij}
   \end{equation}
+  \begin{enumerate}
+    \item $z_{j}$ = concentração da espécie j normalizada;
+    \item Cálculo da matriz de correlação/covariância
+    \item Extração de autovalores e autovetores (ortogonais). 
+    \item Transformada Linear nos novos eixos
+    \item $l_{jk}$ = contribuição da Fonte $F_k$
+  \end{enumerate}
+
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{Positive Matrix Factorizarion}
+
+  Função objeto - Q -  é uma função que precisa ser minimizada. 
+ 
+  \begin{equation}
+    Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{ x_{ij} - \sum_{p=1}^{P} g_{ip}f_{pj}} {u_{ij}} \right] ^2
+  \end{equation}
+
+  Diferente da Análise de Fatores, no PMF, a incerteza ($u_{ij}$) entra na conta.
+\end{frame}

@@ -1,25 +1,18 @@
 \section{Resultados}
 
-\begin{frame}
-  \frametitle{Comparação das análises com a da EPA}
-  \begin{figure}[H]
-   \centering
-    \includegraphics[scale=0.30]{../../../inputs/images/zheng/epa_page1_example.PDF}
-  \end{figure}
-\end{frame}
 
 \begin{frame}
   \frametitle{}
   \begin{table}
     \input{../../../outputs/tabela_descritiva_com_harmatan.tex}
-    \caption{Estatística descritiva e ultrapassagens dos padrões de referência 
-             da Organização Mundial de Saúde (OMS). 
-            25 $ug/m^3$ para $MP_{2.5}$ e 70 $ug/m^3$ para $MP_{10}$.
-           \textbf{R/T}: \textcolor{red}{R}esidêncial ou \textcolor{red}{T}ráfego Intenso; 
-           \textbf{F/G/I}: \textcolor{red}{F}ino, \textcolor{red}{G}rosso ou \textcolor{red}{I}nalável; 
-           \textbf{cH/sH}: \textcolor{red}{c}om \textcolor{red}{H}armatã ou \textcolor{red}{s}em \textcolor{red}{H}armatã.}
   \end{table}
-
+   Diretrizes da Organização Mundial de Saúde (OMS):
+  \begin{itemize}
+    \item Média diária $MP_{2.5}$: só 1\% dos dias pode ultrapassar 25 $ug/m^3$;
+    \item Média anual $MP_{2.5}$: 10 $ug/m^3$;
+    \item Média diária $MP_{10}$: só 1\%  pode ultrapassar 50 $ug/m^3$;
+    \item Média anual $MP_{10}$: 20 $ug/m^3$.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -33,24 +26,14 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-    \input{../../../outputs/loadings_RGsH.tex}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-    \input{../../../outputs/loadings_TGsH.tex}
-\end{frame}
-
-\begin{frame}
   \frametitle{Impacto do Harmatã}
   \begin{figure}[H]
    \centering
-    \includegraphics[scale=0.20]{../../../outputs/score_TIcH1.pdf}
-    \includegraphics[scale=0.20]{../../../outputs/score_TIcH3.pdf}
-    \caption{Score para fator que representa 
-             \textcolor{red}{solo/Harmatã} e \textcolor{red}{Queima de Biomassa}, respectivamente.}
+    \includegraphics[scale=0.30]{../../../outputs/score_TIcH1.pdf}
+    \includegraphics[scale=0.30]{../../../outputs/score_TIcH3.pdf}
   \end{figure}
+   Score para fator que representa \textcolor{red}{solo/Harmatã} 
+   e \textcolor{red}{Queima de Biomassa}, respectivamente.
 \end{frame}
 
 \begin{frame}
@@ -66,22 +49,6 @@
     \begin{tiny}
       \input{../../../outputs/TFsH_profiles_percent_species.tex}
       \input{../../../outputs/TFsH_contribution.tex}
-    \end{tiny}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Positive Matrix Factorization: RGsH}
-    \begin{tiny}
-      \input{../../../outputs/RGsH_profiles_percent_species.tex}
-      \input{../../../outputs/RGsH_contribution.tex}
-    \end{tiny}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Positive Matrix Factorization: TGsH}
-    \begin{tiny}
-      \input{../../../outputs/TGsH_profiles_percent_species.tex}
-      \input{../../../outputs/TGsH_contribution.tex}
     \end{tiny}
 \end{frame}
 

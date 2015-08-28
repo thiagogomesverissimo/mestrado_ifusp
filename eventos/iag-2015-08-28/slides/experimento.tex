@@ -2,40 +2,31 @@
 
 \begin{frame}
   \frametitle{Amostragem}
-  Características dos locais amostrados (2007 e 2008):
-  \begin{itemize}
-	  \item Residencial (\ang{+5;35;2.00} e \ang{-0;11.;58}):
-	  Avenida com pouco tráfego de veículos e não pavimentada
-  \item Tráfego (\ang{+5;34;54} e \ang{-0;11;56.30}):
-	  Avenida pavimentada com tráfego intenso de veículos (com exceção do período noturno).
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Pontos de amostragem em Nima}
+  Pontos de amostragem em Nima.
   \begin{figure}[H]
     \centering
-    \caption{Amostragem Nima}
     \includegraphics[scale=0.35]{../../../inputs/images/zheng/nima_mapa.pdf}
   \end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Meteorologia}
+  Distribuição das frequências de direção dos ventos, dados da NOAA.
   \begin{figure}[H]
     \centering
-      \includegraphics[scale=0.17]{../../../outputs/winter2006_2007.pdf}
-      \includegraphics[scale=0.17]{../../../outputs/spring2007.pdf}
-      \includegraphics[scale=0.17]{../../../outputs/summer2007.pdf}
-  \end{figure}
-
-  \begin{figure}[H]
-    \centering
-      \includegraphics[scale=0.17]{../../../outputs/autumn2007.pdf}
-      \includegraphics[scale=0.17]{../../../outputs/harmattan2007_2008.pdf}
+      \includegraphics[scale=0.3]{../../../outputs/ventos_dir.pdf}
+      \includegraphics[scale=0.3]{../../../outputs/harmattan2007_2008.pdf}
       \includegraphics[width=1cm]{../../../inputs/images/rosa_ventos}
-      \caption{Distribuição das frequência de direção dos ventos, dados da NOAA}
   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Análises}
+  \begin{itemize}
+    \item Gravimétrica (determinação da massa);  
+    \item Refletância (determinação do Black Carbon);
+    \item Fluorescência de Raios X (determinação da composição química inorgânica);
+  \end{itemize}
 \end{frame}
 
 \begin{frame}
@@ -72,42 +63,41 @@
   \end{figure}
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{Limite de Detecção}
-
-%  Y and X were measured
-%   
-%   $[X]A=[Y]$
-%
-%   We will adjust a A for equation above and call it Ã, but before we have to calculate the covariance of the coeficients $V_Ã$:
-%   
-%   $V_Ã = (X^T V_Y^{-1} X)^{-1}$
-%   
-%   and
-%   
-%   $Ã = V_Ã X^T V_Y^{-1} Y$
-%   
-%   Now, we can calculate the new values of Y from $V_Ã$ to all atomic numbers in covered region $X_{adjusted}$:
-%   
-%   $[X_{adjusted}]Ã=[Y_{adjusted}]$
-%   
-%   The error desired is the square roots of diagonal of matrix covariance of Ycalculed $C_{Yadjusted}$.
-   
-%   $C_{Y_{adjusted}} = X_{adjusted} V_Ã X_{adjusted}^T$
-
-%\end{frame}
-
 \begin{frame}
-  \frametitle{Limite de Detecção}
-  \begin{figure}[H]
-  \centering
-    \begin{minipage}[b]{0.40\linewidth}
-      \includegraphics[scale=0.3]{../../../outputs/limitDetectionK}
-    \end{minipage}
-    \quad
-    \begin{minipage}[b]{0.40\linewidth}
-      \includegraphics[scale=0.3]{../../../outputs/limitDetectionL}
-    \end{minipage}
-  \end{figure}
+  \frametitle{Erro no Ajuste - Abordagem matricial mínimos quadrados}
+   \begin{equation}
+     [R] = A[Z]
+   \end{equation}
+   
+   Sendo $\alpha$ o A ajustado, a covariância dos coeficientes $V_{\alpha}$:
+   \begin{equation}
+     V_{\alpha} = (Z^t V_R^{-1} Z)^{-1}
+   \end{equation}
+
+   O ajuste de A fica:
+   \begin{equation}
+     \alpha = V_{\alpha} Z^t V_R^{-1} R
+   \end{equation}
+
+    Calculando-se os novos valores de R a partir de $V_{\alpha}$:
+   \begin{equation}
+     [R_{adjusted}] = \alpha[Z]
+   \end{equation} 
+
+    A incerteza do ajuste é a raiz quadrada da diagonal da matriz de covariância de $R_{adjusted}$:
+   \begin{equation}
+     COV_{R_{adjusted}} = Z V_{\alpha} Z^t
+   \end{equation} 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Comparação das análises com a da \textbf{EPA}}
+  \begin{figure}[H]
+   \centering
+    \includegraphics[scale=0.42]{../../../inputs/images/zheng/epa_short_example.PDF}
+  \end{figure}
+  \begin{tiny}
+    2900 amostras - \textbf{USP}. 
+    95 de controle pela \textbf{EPA} (US Environmental Protection Agency).
+  \end{tiny}
+\end{frame}
