@@ -13,18 +13,23 @@ cd $(dirname $0)
 ### Corrige nomes nas tabelas de loadings.
 
 ## RFsH
-sed -i s/PC1/Solo/g  ../../outputs/loadings_RFsH.tex
-sed -i s/PC2/Mar/g  ../../outputs/loadings_RFsH.tex
-sed -i s/PC3/Veículo/g  ../../outputs/loadings_RFsH.tex
-sed -i s/PC4/Biomassa/g  ../../outputs/loadings_RFsH.tex
-sed -i s/PC5/Zn/g  ../../outputs/loadings_RFsH.tex
+FILE='../../outputs/loadings_RFsH.tex'
+sed -i s/PC1/Solo/g $FILE
+sed -i s/PC2/Mar/g $FILE
+sed -i s/PC3/Veículo/g $FILE
+sed -i s/PC4/Biomassa/g $FILE
+sed -i s/PC5/Zn/g $FILE
+sed -i s/RFsH/'$MP_{2.5}$ bairro'/g $FILE
+
 
 ## TFsH
-sed -i s/PC1/Solo/g  ../../outputs/loadings_TFsH.tex
-sed -i s/PC2/Mar/g  ../../outputs/loadings_TFsH.tex
-sed -i s/PC3/Biomassa/g  ../../outputs/loadings_TFsH.tex
-sed -i s/PC4/Veículo/g  ../../outputs/loadings_TFsH.tex
-sed -i s/PC5/'Lixo Sólido'/g  ../../outputs/loadings_TFsH.tex
+FILE='../../outputs/loadings_TFsH.tex'
+sed -i s/PC1/Solo/g  $FILE
+sed -i s/PC2/Mar/g  $FILE
+sed -i s/PC3/Biomassa/g  $FILE
+sed -i s/PC4/Veículo/g  $FILE
+sed -i s/PC5/'Lixo Sólido'/g $FILE
+sed -i s/TFsH/'$MP_{2.5}$ avenida'/g $FILE
 
 ## RGsH
 sed -i s/PC1/Solo/g  ../../outputs/loadings_RGsH.tex
@@ -50,10 +55,10 @@ for i in loadings_RFsH.tex loadings_TFsH.tex loadings_RGsH.tex loadings_TGsH.tex
   sed -i s/u2/b/g  ../../outputs/$i
   sed -i s/'com '/c/g  ../../outputs/$i
   sed -i s/Variable/Espécie/g  ../../outputs/$i
-#  sed -i s/'Cumulative Var'/'$ \\sigma^2$ Acum.'/g  ../../outputs/$i
-#  sed -i s/'Proportion Var'/'$ \\sigma^2$ Prop.'/g  ../../outputs/$i
-#  sed -i s/'SS loadings'/'SS Loadings'/g  ../../outputs/$i
-#  sed -i s/'Cum. factor Var'/'$ \\sigma^2$ Fac. Acumu. '/g  ../../outputs/$i
+  sed -i s/'SS loadings'/'autovalor'/g  ../../outputs/$i
+  sed -i s/'Proportion Var'/'variância'/g  ../../outputs/$i
+  sed -i s/'Cumulative Var'/'variância acum.'/g  ../../outputs/$i
+  sed -i s/'Cum. factor Var'/'variância fat.'/g  ../../outputs/$i
   sed -i s/'\\caption{}'//g  ../../outputs/$i
 done
 

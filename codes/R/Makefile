@@ -40,6 +40,7 @@ all:
 	# shell
 	../shellscript/sedLatex_FactorAnalysis.sh
 	../shellscript/sedLatex_pmf.sh
+	../shellscript/sedLatex.sh
 
 clean:
 	rm -rf *~ 

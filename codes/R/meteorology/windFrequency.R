@@ -1,5 +1,3 @@
-
-
 source("myfunctions/load.R")
 
 noaa_harvard<-read.csv("../../outputs/noaa_from_harvard.csv")
@@ -15,8 +13,8 @@ summer2007<-list(begin=strptime('21-06-2007','%d-%m-%Y'),end=strptime('20-09-200
 autumn2007<-list(begin=strptime('21-09-2007','%d-%m-%Y'),end=strptime('20-12-2007','%d-%m-%Y'),titulo='Outono 2007',filename='autumn2007')
 winter2007_2008<-list(begin=strptime('21-12-2007','%d-%m-%Y'),end=strptime('20-03-2008','%d-%m-%Y'),titulo='Inverno 2007-2008',filename='winter2007_2008')
 spring2008<-list(begin=strptime('21-03-2008','%d-%m-%Y'),end=strptime('20-06-2008','%d-%m-%Y'),titulo='Primavera 2008',filename='spring2008')
-harmattan2006_2007<-list(begin=strptime('25-12-2006','%d-%m-%Y'),end=strptime('07-02-2007','%d-%m-%Y'),titulo='Harmattan(2006-2007)',filename='harmattan2006_2007')
-harmattan2007_2008<-list(begin=strptime('25-12-2007','%d-%m-%Y'),end=strptime('07-02-2008','%d-%m-%Y'),titulo='Harmattan(2007-2008)',filename='harmattan2007_2008')
+harmattan2006_2007<-list(begin=strptime('25-12-2006','%d-%m-%Y'),end=strptime('07-02-2007','%d-%m-%Y'),titulo='Harmatã(2006-2007)',filename='harmattan2006_2007')
+harmattan2007_2008<-list(begin=strptime('25-12-2007','%d-%m-%Y'),end=strptime('07-02-2008','%d-%m-%Y'),titulo='Harmatã',filename='harmattan2007_2008')
 
 periodos<-list(autumn2006,winter2006_2007,spring2007,summer2007,autumn2007,winter2007_2008,spring2008,harmattan2006_2007,harmattan2007_2008)
 
@@ -24,6 +22,6 @@ for (i in periodos){
   windFrequency(subset(noaa_harvard,noaa_harvard[,3] >= i$begin & noaa_harvard[,3] <= i$end),i$titulo,i$filename)
 }
 
-
-
+# Tudo
+windFrequency(noaa_harvard,' ','ventos_dir')
 

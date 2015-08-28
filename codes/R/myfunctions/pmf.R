@@ -176,11 +176,13 @@ pmf_residuals <- function(pathfile){
 ## Exports para latex
 
 pmf_profiles_latex <- function(sigla) {
+  
+  sigla = 'RFsH'
   pathfile = paste('../../inputs/pmf/',sigla,'/',sigla,'_profiles.csv',sep='')
   profiles = pmf_profiles(pathfile)
   x = profiles$fp_percent_species
-  x = round(x,2)
-  x[x<25.0] = ''
+  x = round(x,1)
+  x[x<10.0] = ''
   x = x[order(x$Factor.1,x$Factor.2,x$Factor.3,decreasing = T),]
 
   latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species.tex',sep='')
