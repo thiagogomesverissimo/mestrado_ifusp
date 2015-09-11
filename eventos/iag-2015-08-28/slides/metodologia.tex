@@ -1,16 +1,55 @@
 \section{Metodologia}
 
 \begin{frame}
+  \frametitle{Modelo receptor}
+  \textbf{Modelo Receptor} é uma abordagem matemática para quantificar o efeito das fontes 
+  nas amostras. Determinar as fontes a partir do receptor. \\
+  \textbf{Análise Multivariada} reduz as dimensões (variáveis) de um conjunto de dados 
+  em um conjunto de dados analítico complexo que poderão ser interpretados como 
+  tipo de fontes.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conservação de massa}
+  Fundamentação do modelo receptor: Conservação de massa. \\
+  Todos modelos resolvem a mesma equação: 
+  \begin{equation}
+    x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} + \epsilon_{ij}
+  \end{equation} 
+ 
+  \begin{itemize}
+    \item $x_{ij}$ = concentração na amostra i da espécie j;
+    \item $f_{pj}$ = fração da espécie j emitida na fonte p 
+                    (perfil da fonte, assinatura da fonte ou \textit{Factor Loadings}); 
+    \item $g_{ip}$ = contribuição da fonte p para amostra i (\textit{Factor Score});
+    \item $\epsilon$ = Resíduo, depende do modelo empregado.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
   \frametitle{Análise de Fatores}
-  Inserir conteúdo.
+  \begin{equation}
+    z_{j} = l_{j1}F_1 + l_{j2}F_2 + l_{j3}F_3 + ... + \epsilon_{ij}
+  \end{equation}
+  \begin{enumerate}
+    \item $z_{j}$ = concentração da espécie j normalizada;
+    \item Cálculo da matriz de correlação/covariância
+    \item Extração de autovalores e autovetores (ortogonais). 
+    \item Transformada Linear nos novos eixos
+    \item $l_{jk}$ = contribuição da Fonte $F_k$
+  \end{enumerate}
+
 \end{frame}
 
-\begin{frame}
-  \frametitle{PMF}
-  Inserir conteúdo.
-\end{frame}
 
 \begin{frame}
-  \frametitle{Black Carbon}
-  Inserir conteúdo.
+  \frametitle{Positive Matrix Factorizarion}
+
+  Função objeto - Q -  é uma função que precisa ser minimizada. 
+ 
+  \begin{equation}
+    Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{ x_{ij} - \sum_{p=1}^{P} g_{ip}f_{pj}} {u_{ij}} \right] ^2
+  \end{equation}
+
+  Diferente da Análise de Fatores, no PMF, a incerteza ($u_{ij}$) entra na conta.
 \end{frame}

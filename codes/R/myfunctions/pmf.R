@@ -173,6 +173,58 @@ pmf_residuals <- function(pathfile){
               scaled_residuals = scaled_residuals))
 }
 
+## Exports para latex
+
+pmf_profiles_latex <- function(sigla) {
+  
+  #sigla = 'RFsH'
+  pathfile = paste('../../inputs/pmf/',sigla,'/',sigla,'_profiles.csv',sep='')
+  profiles = pmf_profiles(pathfile)
+  x = profiles$fp_percent_species
+  x = round(x,1)
+  x[x<10.0] = ''
+  x = x[order(x$Factor.1,x$Factor.2,x$Factor.3,decreasing = T),]
+
+  latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species.tex',sep='')
+  print(xtable(x), 
+      type="latex", 
+      include.rownames = T, 
+      floating = FALSE,
+      sanitize.text.function = identity,
+      file=latex_percent_species)
+  
+  # Incluir gráficos com elementos no fator
+  # cores <- rainbow(nrow(x))
+  # pie3D(as.numeric(species$Factor.3),
+  #      explode=0.1,
+  #      col=cores,
+  #      main="Pie Chart of Countries ")
+  # legend("topright", row.names(species), cex=0.8,fill=cores)
+}
+
+pmf_contributions_latex <- function(sigla) {
+  pathfile = paste('../../inputs/pmf/',sigla,'/',sigla,'_contributions.csv',sep='')
+  contributions <- pmf_contributions(pathfile)
+  x = contributions$factor_contribution_conc_units
+  x = x[,seq(3,ncol(x))]
+  medias = colMeans(x)/sum(colMeans(x))*100
+  erros = (colStdevs(x)/sqrt(nrow(x)))/sum(colMeans(x))*100
+  contribution2latex = cbind(Contribuição=medias,Incerteza=erros)
+  contribution2latex = round(contribution2latex,2)
+  
+  latex_contribution = paste('../../outputs/',sigla,'_contribution.tex',sep='')
+  print(xtable(contribution2latex), 
+        type="latex", 
+        include.rownames = T, 
+        floating = FALSE,
+        sanitize.text.function = identity,
+        file=latex_contribution)
+
+  # Plotar contributions
+  # factor_contribution = contributions$factor_contribution
+  # plot(factor_contribution$`Factor 1`)
+}
+
 ### Testes ###
 #rm(list=ls())
 #setwd("~/remota/repos/mestrado_ifusp/codes/R")
@@ -189,6 +241,9 @@ pmf_residuals <- function(pathfile){
 
 #test4 = pmf_residuals("../../inputs/pmf/RFsH_residuals.csv")
 #test4$residuals
+
+#test5 
+# pmf_contributions_latex('RFsH')
 
 
 

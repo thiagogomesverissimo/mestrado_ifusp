@@ -1,5 +1,6 @@
 FactorAnalysis <- function(current_base,nfactors){
   
+  #current_base = 'TIcH'; nfactors = 5
   path_file = paste('../../outputs/pmf_fa/',current_base,'.csv',sep='')
   base<-read.csv(path_file,header=TRUE,row.names=1)
   datas = as.POSIXct(strptime(rownames(base), format = '%d/%m/%Y %H:%M'))
@@ -16,8 +17,19 @@ FactorAnalysis <- function(current_base,nfactors){
                          heading = current_base,
                          cumvar=T,
                          caption=loadings_caption_name)
+  loadings_caption_name = paste("Análise de Fatores: ",
+                                current_base,
+                                ' | a: comunalidade; b: singularidade; c: complexidade.',
+                                sep="")
+  #print(loadings(base.principal),cutoff=2e-1)
   loading_file_name = paste('../../outputs/loadings_',current_base,".tex",sep="")
-  write(loading_latex,file=loading_file_name)
+  fa2latex(base.principal,
+           font.size = 'tiny',
+           heading = loadings_caption_name,
+           cumvar=T,
+           #caption=loadings_caption_name,
+           caption='',
+           file=loading_file_name)
 
   # Scree plot
   scree_file_name = paste('../../outputs/scree_',current_base,'.pdf',sep="")
@@ -38,14 +50,12 @@ FactorAnalysis <- function(current_base,nfactors){
   # base.principal$weights
   # base.principal$r.scores
 
-  # Scores 
-  comunalidade_file_name = paste('../../outputs/comunalidade_',current_base,'.tex',sep='')
-  pdf(file=comunalidade_file_name)
-  
+  # Monta um gráfico que agrega todos fatores
   scores_file_name = paste('../../outputs/scores_',current_base,'.pdf',sep="")
   pdf(file=scores_file_name)
   par(mfrow=c(3,2)) 
   for(i in seq(1:nfactors)){
+    #i=2 # for debug
     factor_graph_name = paste(current_base,': Fator ',i,sep='')
     plot(base.principal$scores[,i] ~ datas,
          xaxt = "n", 
@@ -58,4 +68,18 @@ FactorAnalysis <- function(current_base,nfactors){
     axis(1, datas, format(datas, "%b-%Y"))
   }
   dev.off()
-}
+  
+  # Monta um gráfico para cada fator
+  for(i in seq(1:nfactors)){
+    fator_file_name = paste('../../outputs/score_',current_base,i,'.pdf',sep="")
+    pdf(file=fator_file_name)
+    plot(base.principal$scores[,i] ~ datas,
+         xaxt = "n", 
+         type = 'p',
+         xlab = '',
+         col = 'blue', 
+         cex=.7,
+         ylab = 'Score')
+    axis(1, datas, format(datas, "%b-%Y"))
+    dev.off()
+  }
