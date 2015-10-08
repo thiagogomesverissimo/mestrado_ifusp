@@ -11,19 +11,6 @@ Sys.setlocale("LC_TIME", "en_US.UTF-8")
 
 # Variáveis globais:
 debug = FALSE
-instalarPacotes = FALSE
-
-if(instalarPacotes){
-  install.packages("GPArotation")
-  install.packages("psych")
-  install.packages("xtable")
-  install.packages("MASS")
-  install.packages("lattice")
-  install.packages("nFactors")
-  install.packages("corrplot")
-  install.packages("plotrix")
-  install.packages("fBasics")
-}
 
 load<-function()
 { 

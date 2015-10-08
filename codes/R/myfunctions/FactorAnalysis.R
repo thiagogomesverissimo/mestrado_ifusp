@@ -83,3 +83,4 @@ FactorAnalysis <- function(current_base,nfactors){
     axis(1, datas, format(datas, "%b-%Y"))
     dev.off()
   }
+}
