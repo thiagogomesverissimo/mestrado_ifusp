@@ -14,15 +14,17 @@ debug = FALSE
 
 load<-function()
 { 
-  library("psych")
-  library("GPArotation")
-  library("xtable")
-  library("MASS")
-  library("lattice")
-  library("nFactors")
-  library('corrplot') #para matriz de correlações 
-  library('plotrix')
-  library('fBasics')
+  source("myfunctions/install_libraries.R")
+
+  library("psych",lib='~/.R/libraries')
+  library("GPArotation",lib='~/.R/libraries')
+  library("xtable",lib='~/.R/libraries')
+  library("MASS",lib='~/.R/libraries')
+  library("lattice",lib='~/.R/libraries')
+  library("nFactors",lib='~/.R/libraries')
+  library('corrplot',lib='~/.R/libraries') #para matriz de correlações 
+  library('plotrix',lib='~/.R/libraries')
+  library('fBasics',lib='~/.R/libraries')
 
   #Load the functions created for this project
   source("myfunctions/TrataID.R")
@@ -33,6 +35,7 @@ load<-function()
   source("myfunctions/duplicates.R")
   source("myfunctions/windFrequency.R")
   source("myfunctions/pmf.R")
+  source("myfunctions/FactorAnalysis.R")
   source("myfunctions/FactorAnalysis.R")
 }
 
