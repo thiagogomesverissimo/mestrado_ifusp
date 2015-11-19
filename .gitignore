@@ -47,3 +47,5 @@ outputs/*
 *.tdo
 *.png
 *.nls
+
+*.xls

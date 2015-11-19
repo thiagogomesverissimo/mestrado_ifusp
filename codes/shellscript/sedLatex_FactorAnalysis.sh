@@ -13,6 +13,23 @@ cd $(dirname $0)
 
 ### Corrige nomes nas tabelas de loadings.
 
+# Comuns
+FILES=$(ls ../../outputs | grep loading.*tex)
+
+for FILE in $FILES; do
+  i="../../outputs/$FILE"
+  sed -i s/h2/a/g $i
+  sed -i s/u2/b/g  $i
+  sed -i s/'com '/c/g $i
+  sed -i s/Variable/Espécie/g $i
+  sed -i s/'SS loadings'/'autovalor'/g $i
+  sed -i s/'Proportion Var'/'variância'/g $i
+  sed -i s/'Cumulative Var'/'\\textcolor{red}{variância acum.}'/g $i
+  sed -i s/'Cum. factor Var'/'variância fat.'/g $i
+  sed -i s/'\\caption{}'//g $i
+  sed -i s/htbp/H/g $i
+done
+
 ## RFsH
 FILE='../../outputs/loadings_RFsH.tex'
 sed -i s/PC1/Solo/g $FILE
@@ -21,7 +38,6 @@ sed -i s/PC3/Veículo/g $FILE
 sed -i s/PC4/Biomassa/g $FILE
 sed -i s/PC5/Zn/g $FILE
 sed -i s/RFsH/'\\textcolor{red}{$MP_{2.5}$ bairro}'/g $FILE
-
 
 ## TFsH
 FILE='../../outputs/loadings_TFsH.tex'
@@ -49,24 +65,4 @@ sed -i s/PC1/Solo/g  ../../outputs/loadings_TIcH.tex
 sed -i s/PC2/Biomassa/g  ../../outputs/loadings_TIcH.tex
 sed -i s/PC3/'Anti-mar'/g  ../../outputs/loadings_TIcH.tex
 sed -i s/PC4/'Lixo Sólido'/g  ../../outputs/loadings_TIcH.tex
-
-# Comuns
-for i in loadings_RFsH.tex loadings_TFsH.tex loadings_RGsH.tex loadings_TGsH.tex loadings_TIcH.tex; do
-  sed -i s/h2/a/g  ../../outputs/$i
-  sed -i s/u2/b/g  ../../outputs/$i
-  sed -i s/'com '/c/g  ../../outputs/$i
-  sed -i s/Variable/Espécie/g  ../../outputs/$i
-  sed -i s/'SS loadings'/'autovalor'/g  ../../outputs/$i
-  sed -i s/'Proportion Var'/'variância'/g  ../../outputs/$i
-  sed -i s/'Cumulative Var'/'\\textcolor{red}{variância acum.}'/g  ../../outputs/$i
-  sed -i s/'Cum. factor Var'/'variância fat.'/g  ../../outputs/$i
-  sed -i s/'\\caption{}'//g  ../../outputs/$i
-done
-
-
-
-
-
-
-
 

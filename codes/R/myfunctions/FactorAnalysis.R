@@ -13,9 +13,10 @@ FactorAnalysis <- function(current_base,nfactors){
   #print(loadings(base.principal),cutoff=2e-1)
   loadings_caption_name = paste("Análise de Fatores: ",current_base,sep="")
   loading_latex = fa2latex(base.principal,
-                         font.size = 'tiny',
+                         font.size = 'normalsize', # normalsize,small, scriptsize, tiny
                          heading = current_base,
                          cumvar=T,
+                         apa=T,
                          caption=loadings_caption_name)
   loadings_caption_name = paste("Análise de Fatores: ",
                                 current_base,
@@ -24,9 +25,10 @@ FactorAnalysis <- function(current_base,nfactors){
   #print(loadings(base.principal),cutoff=2e-1)
   loading_file_name = paste('../../outputs/loadings_',current_base,".tex",sep="")
   fa2latex(base.principal,
-           font.size = 'tiny',
+           font.size = 'normalsize',
            heading = loadings_caption_name,
            cumvar=T,
+           apa=T,
            #caption=loadings_caption_name,
            caption='',
            file=loading_file_name)
