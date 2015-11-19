@@ -1,70 +1,83 @@
+%%%%
 \section{Fluorescência de Raios X}
 
-Avaliação quali-quantitativa da amostras. Técnica não destrutiva, simultânea. 
-Instrumental: sem pré-tratamento químico. 
+Técnica não-destrutiva de análise simultânea para avaliação 
+quali-quantitativa da amostras que não precisa de pré-tratamento químico. 
 
 Tipos de fluorescências de Raios X:
-
 \begin{itemize}
   \item Dispersão de Energia
-  \item dDispersão de comprimento de onda
+  \item Dispersão de comprimento de onda
   \item Reflexão total
 \end{itemize}
 
-A dispersão por comprimento de onda é baseada na lei de Bragg. Os dispersivos 
-em energia usam semicondutor capaz de discriminar energia próximas. 
+Os raios X excitador pode ser um tudo ou fonte radioativa emissoras de raios X.
+O rendimento é calculado pelos raios X efetivamente emitidos em 
+relação as vacâncias produzidas.
 
-Os raios X excitador pode ser um tudo ou fonte radioativa emissoras de raios x. 
-(no nosso caso não seria dedido a baixa inetnsidade)
+Outra forma de excitação usada é por partículas aceleradas 
+(elétrons, prótons, íons, partícula alfa e beta negativa).
 
-Correção do efeito matriz: interações do raios x característicos com os 
-elementos da amostras. (absorção do raiox x ou reforço)
+Amostra espessas apresentam o efeito matriz, ou seja, interações dos 
+raios X característicos com os elementos da amostras, causando 
+absorção do raios X ou mesmo reforço de raios X.
 
-fases do edx;
+%%%%
+\subsection{Fluorescência de Raios X por dispersão em comprimento de onda}
 
-outras técnicas de excitação: partículas aceleradas: elétrons, prótons ou íons,
- alfa e beta negativa.
+A dispersão por comprimento de onda é baseada na lei de Bragg.
+Usasse critais de difração com distancias interplanares conhecidas.
+  
+%TODO: citar equação de Barg.
 
-Energia de ligação pode ser aproximada pela teoria atomica de bohr.
+%%%%
+\subsection{Fluorescência de Raios X por dispersão em energia}
 
+Os dispersivos em energia usam semicondutor capaz de discriminar energia 
+próximas, onde a distinção dos fótons é feita pela amplitude do pulso 
+eletrônico produzido no detector, já que os pulsos eletrônicos são
+proporcionais às energias dos raios X. 
+
+O detector mais empregado é o detector de silício ativado com lítio, Si(Li).
+
+%%%%
+\subsection{Nomenclaturas usadas em Fluorescência de Raios X}
+kalfa, kbeta representam transições de fótons nas camnadas dos átomos.
+Porém, Algumas transições tem energias tão próximas que é impossível separar.
+
+Transições mais comuns:
+\begin{itemize}
+  \item $K\alpha$: Transição L para K
+  \item $K\beta$: Transição M para K
+\end{itemize}
+
+%TODO: Fazer diagrama das transições .Lembrando que há transições proíbidas. 
+
+%%%%
+\subsection{Formulação Matemática}
+
+Energia de ligação pode ser aproximada pela teoria atômica de Bohr:
 \begin{math}
 E = \frac{me^4(Z-b)^2}{8w^2h^2n^2}
 \end{math}
 
-E = energia de ligação eletrônica (joules),
-m = massa de repouso do elétron = 9,11.10 -31 kilogramas,
-e = carga elétrica do elétron = 1,6.10 -19 coulombs,
-Z = número atômico do elemento emissor dos raios X,
-b = constante de Moseley, com valores iguais a 1 e 7,4, para as camadas K e L,
-respectivamente.
-w = o = permitividade elétrica no vácuo = 8,8534.10 -12 coulombs.newton -l .metro -2 ,
-h = constante de Planck = 6,625.10 -34 joules.s, e
-n = n o quântico principal do nível eletrônico (n = 1 para camada K, n = 2 para
-camada L, etc.),
+\begin{itemize}
+  \item E = energia de ligação eletrônica (joules);
+  \item m = massa de repouso do elétron = 9,11.10 -31 kilogramas;
+  \item e = carga elétrica do elétron = 1,6.10 -19 coulombs;
+  \item Z = número atômico do elemento emissor dos raios X;
+  \item b = constante de Moseley, com valores iguais a 1 e 7,4, 
+        para as camadas K e L, respectivamente;
+  \item w = o = permitividade elétrica no vácuo = 8,8534.10 -12 
+        coulombs.newton -l .metro -2;
+  \item h = constante de Planck = 6,625.10 -34 joules.s;
+  \item n = n o quântico principal do nível eletrônico 
+        (n = 1 para camada K, n = 2 para camada L, etc.).
+\end{itemize}
 
-amplitude do pulso eletrônico produzido no detector.
+%%%%
+\subsection{Limite de Detecção}
 
-bragg: critais de difração com distancias interplanares conhecidas 
-
-kalfa, kbeta: representa transições. kalfa: L para K. Kbeta: M para K
-
-Fazer diagrama das transições .Lembrando que há transições proíbidas. 
-Algumas transições tem energias tão próximas que é impossível seprara.
-
-%Notação http://en.wikipedia.org/wiki/Siegbahn_notation
-%http://www.amptek.com/pdf/characteristic_xrays.pdf que não é a recomendada pela: IUPAC
-
-rendimento: raios-x efetivamente emitidos em relação as vacancias produzidas. 
-
-espectrômetro de raios X por dispersão de energia
-
-pulsos ele-trônicos proporcionais às energias dos raios X
-
-o mais empregado é o detector de silício ativado com lítio, Si(Li),
- 
-
-
-\section{Limite de Detecção}
-
+Densidade mínima para haver detecção da espécie. 
 
 

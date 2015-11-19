@@ -1,303 +1,183 @@
+%%%%
 \section{Modelos Receptores}
 
-Modelo receptor é uma abordagem matemática para quantificar o efeito das fontes 
-nas amostras. Determinar as fontes a partir do receptor. 
-(no site da cetesb tem um esquema legal.).
+Modelo receptor e modelo de dispersão são duas abordagens matemáticas 
+para determinar e quantificar o efeito das fontes poluidoras do ar. 
+Os dois modelos se complementam, quando possível o pesquisador deve
+usar as duas metodologias. 
 
-Análise multivariada reduz as dimensões (variáveis) de um conjunto de dados 
-em um conjunto de dados analítico complexo que poderão ser interpretados como 
-tipo de fontes.
-Outlier é um desafio para modelos multivariados porque ele são de infrequentes 
-e de curta duração e com alta concentrações.
-O processo de identificação das fontes principais de poluição do ar é complexo,
-havendo diversos caminhos, os quais as técnicas estatísticas multivariadas 
-são historicamente usadas.
+No modelo de dispersão determina-se o poluente no receptor a 
+partir de fontes com perfis conhecidos, usando por exemplo um invetário de 
+fontes combinado com dados meteorológicos. O mais usado pelos governos é o da 
+hipótese que a distribuição espacial dos poluentes dentro da pluma é gaussiana. 
 
-Tentam identificar e quantificar as fontes de poluição baseados em medidas de 
-poluentes no receptor. 
-O número de fatores dependera do conhecimento do usuário sobre as fontes, 
-número de amostras, resolução da amostragem, e espécies medidas.
-Modelos receptores: Regressão linear múltipla, redes neurais, cluster, 
-edge detection, fator de enriquecimento, BQM, análises multivariadas. 
-Quais são os mais usados em poluição do ar?
+Modelo receptor quantifica o efeito das fontes poluidoras em amostras, 
+quando os perfis das fontes são desconhecidos.
+%TODO: no site da cetesb tem um esquema legal de modelo receptor
+%TODO: traçar um panomara da evolução histórica dos modelos receptores.
 
-O Balanço químico de massa necessita dos perfis das fontes.
+Análise multivariada é uma das técnicas utilizadas para identificação
+de fontes poluidoras através dos dados coletados em medidas usando
+Modelos Receptores, outras técnicas comuns são: Regressão linear múltipla,
+redes neurais, cluster, edge detection, fator de enriquecimento e 
+Balanço Químico de Massa (BQM).  
 
-modelo de dispersão: determinar o poluente no receptor a partir de fontes 
-conhecidas, exemplo: determinar a poluição em um ponto receptor usando um 
-inventário mais condições atmosféricas. O mais usado pelos governos é o da 
-hipótese que a distribuição espacial dos poluentes dentro da pluma é gaussiana.  
+Na análise multivariada se reduz as dimensões (variáveis) de um 
+conjunto de dados analíticos complexo que poderão ser interpretados 
+como tipo de fontes.
+As técnicas de redução da dimensão, como a análise multivariada, 
+permitem manter a quantidade de informação contida inicialmente nos dados. 
+Essa informação está armazenada na variância e covariância (ou correlação) 
+inicial dos dados. 
 
-Os dois se complementam.
+O Fator não é uma grandeza diretamente medida, e sim uma variável latente.
+Uma variável latente é um variável que não pode ser medida diretamente, 
+mas sim através de outras variáveis observáveis. 
 
-fundamentação do modelo receptor: conservação de massa. No fundo todos modelos resolvem a mesma equação: 
+O processo de identificação das fontes principais de poluição do ar é 
+complexo, havendo diversos caminhos, os quais as técnicas estatísticas
+multivariadas são historicamente usadas.
 
-Dada uma amostragem, coletamos $j$ amostras válidas, isto é, removendo-se filtros danificados, contaminados ou filtros que passaram por problemas no amostrador. Esses filtros são analisados por diversas técnicas, de acordo com o interesse do pesquisador, tais como: análise gravimétrica, refletância, fluoresncência de Raios X, dentre outras. Essas análises resultam em $i$ grandezas medidas.
-%Neste momento o pesquisador tem em mãos uma matriz $X_{ij}$, onde as linhas $i$ representam as amostras e as colunas $j$ as grandezas medidas nessas amostras. Há junto com $X_{ij}$ uma matriz de mesma dimensão, mas com os valores das incertezas: $u_{ij}$.
+O número de fatores extraídos dependerá do conhecimento do(a) pesquisador(a)
+sobre a região, possíveis fontes poluídoras, número de amostras, 
+resolução da amostragem e espécies medidas.
+O conhecimento do pesquisador é imprescindível para fazer o relacionamento 
+entre fator e fonte(s), afim de avaliar o significado físico das fontes. 
+Para tal, informações das possíveis fontes poluidoras próximas ao ponto 
+receptor, dados meteorológicos do período de coleta, inventário de emissões 
+e qualquer mais informação que o pesquisador julgar necessário devem ser 
+usadas para fazer esse relacionamento.
+
+Número reduzido de amostras, baixa resolução da amostragem, \textit{outliers} 
+(eventos infrequentes de curta duração e com alta concentração) representam 
+um desafio para modelos multivariados.
+
+%%%%
+\section{Fomulação matemática dos Modelos Receptores}
+
+Os poluentes que são emitidos pelas fontes devem chegar no receptor, assim, 
+pode-se usar o príncipio de conservação de massa no Modelo Receptor. 
+Vamos fazer uma adaptação da equação de convervação de massa para o contexto 
+de poluição do ar. 
+
+Se em uma amostragem coletamos $j$ amostras e medimos $i$ poluentes, podemos 
+escrever a equação da conservação de massa como segue: 
 
 \begin{equation}
   x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} + \epsilon_{ij}
 \end{equation} 
 
-$x_{ij}$ = concentração na amostra i de espécie j.
-$f_{pj}$ = fração da espécie j emitida na fonte p. 
-$g_{ip}$ = contribuição da fonte p para amostra i. 
+$x_{ij}$ = concentração na amostra receptora $i$ da espécie $j$.
+$f_{pj}$ = fração da espécie $j$ emitida pela fonte $p$. 
+$g_{ip}$ = contribuição da fonte $p$ para amostra $i$. 
 
 $\epsilon$ = erro do modelo.
 
-traçar um panomara da evolução histórica dos modelos receptores.
-Balanço químico de massas: o quanto dos perfis de fontes medidas explica as concentrações dos elementos.
-Balanço Químico de Massa
-é ideal que não haja muita mudança entre a emissão e o receptor. problema quando fontes importantes são omitidas do cálculo ou fonte incluida não representa fonte real.
+%%%%
+\subsection{Balanço Químico de Massa}
 
-supoções: composição das fontes constantes, sem especie reativas, todas fontes devem ser incluidas, numeros de fontes menor que o número de espécie, 
+O quanto dos perfis de fontes medidas explica as concentrações dos elementos? 
+A técnica Balanço Químico de Massa (\textit{BQM}) busca responder essa questão.
 
-falar um pouco do speciate. 
+O \textit{BQM} apresenta problema quando fontes importantes são omitidas do
+cálculo ou alguma fonte incluída não representa uma fonte real.
 
-O conhecimento do pesquisador é imprescindível para fazer o relacionamento entre fator e fonte(s), afim de avaliar o significado físico das fontes. Para tal, informações das possíveis fontes poluidoras próximas ao ponto receptor, dados meteorológicos do período de coleta, inventário de emissões e qualquer mais informação que o pesquisador julgar necessário devem ser usadas para fazer esse relacionamento.
+Considerações no uso do \textit{BQM}: 
+\begin{itemize}
+  \item composição química das fontes constantes no tempo;
+  \item as espécies não são reativas;
+  \item todas fontes devem ser incluídas;
+  \item número de fontes menor que o número de espécies.
+\end{itemize}
 
-boa rodada BQM, teste de performance (por amostra devem ser satisfeitos)
-1) statistic-t > 2
-2)R2 >=0,8
-3) Porcentagem da Massa entre 80 e 100 
-4) qui-quadrado < 4
-5) concentração modelada/concentração medida entre 0,2 e 2,0.  (como calcular o Grau de Liberdade?)
+%TODO: falar um pouco do speciate. 
 
-problemas: alta quantidade de dados.
+Critérios para validar os resultados do \textit{BQM}:
+\begin{itemize}
+  \item statistic-t > 2
+  \item R2 >=0,8
+  \item porcentagem da Massa Explicado entre 80 e 100 
+  \item qui-quadrado < 4
+  \item concentração modelada/concentração medida entre 0,2 e 2,0.
+\end{itemize}
 
-Redução da Dimensão
-Modelo receptor é uma abordagem matemática para quantificar o efeito das fontes nas amostras. 
-Análise multivariada reduz as dimensões (variáveis) de um conjunto de dados em um conjunto de dados analítico complexo que poderão ser interpretados como tipo de fontes.
+%%%%
+\subsection{Análise de Fatores}
 
+A ACP é um técnica multivariada que permite-nos encontrar os padrões 
+sistemáticos da variação dos dados. 
+Do ponto de vista de análise dos dados, a ACP é usada para estudar um 
+tabela de observações e variáveis com a principal ideia de transformar 
+as variáveis observadas em um conjunto de novas variáveis, 
+as componentes principais, que são ortogonais entre si 
+e explicam a variação inicial do dados.
 
-As técnicas de redução da dimensão permitem manter a quantidade de informação contida inicialmente nos dados. Sabemos da informação contida pela variância e covariancia (correlação) inicial dos dados. Como podemos usar a redução dos dados: 
-1) Combinação linear que reflete a variação dos dados. 
-2) Os dados iniciais estão organizados de forma revelar ium variável latente (Exploratory Factor Analysis EFA)
-3) Devemos confirmar nossa crença de como os dados originais são organizados em um jeito particular (Confirmatory Factro analysis)
+Os resultados do PCA e AF são similares, apesar de PCA ser um modelo
+descritivo dos dados e AF ser um modelo estrutura. 
+Os loadins no AF levemente menores que os da PCA, pois PCA tenta
+explicar toda a variância da matriz de correlação, enquanto que a AF
+explica apenas a variância comum. 
 
-Fator neste caso é uma variável latente, um construct. Uma variável latente é um variável que não pode ser medida diretamente, mas sim através de outras variáveis obseváveis
+PCA é uma representação onde as componentes são uma combinação linear 
+ortogonal que maximizam a variância total.
+AF é uma representação onde os fatores são uma combinação linear ortogonal
+que maximiza a porção compartilhada da variância. 
 
-O ponto inical é a matrix de correlação: fazer uma inspeção. 
-O olhometro é um bom método para validar nossa análise. Mas temos outros:
-1) Bartlet Test of sphericity: Compara nossa matriz de correlaçao com a identidade (correlação zero), fornece p-value. Se p-value for pequeno indica que é improvável obetermos essa matrix de correlação de uma população com correlação zero. Problema: o contrário não verdade. (Norman Streiner )
-2) Kaiser -Meyer-Olkin measure of sampling adequacy: Não produz p-value, Remover valores menores que 0.7.
-Esse testes indicam que podemos validar nossa factor analises. 
+Há evidencias que a variável latente (fator) existe?
 
-Outra problema da AF: Multicolinearidade (Variavel A = variavel B + 5). Pare decobrir verificar o determiante da matriz de correlação e ver se é maior que 0.00001. Ou excluir se a correlação entre duas for  1. 
+No PCA não perdemos variância no processo de extração, pois 
+o número de fatores extraídos é igual ao número de espécies medidas.
 
-Se todas correlação forem abaixo 0.3, não teremos resultado.
+PCA e AF são ambas usadas para redução da dimensão. 
+Na AF o objetivo é identificar o menor número de fatores que explica os 
+dados observados. Em PCA as dimensões só são reduzidas, mas a 
+interpretação das componentes é feita de forma similar no fatores da AF.
 
-Critério para quantificar quantas variáveis latente queremos: autovalor maior que 1 ou ...
+Um problema comum na Análise de Fatores é a Multicolinearidade. 
+Caso o determiante da matriz de correlação seja maior que $0,00001$ 
+há multicolinearidade e os dados devem ser checados. 
 
-Factor loading: Correlação entre a variável observada e o fator. é similar ao coeficiente padronizado da regressão multipla. 
+\textit{Factor Loading} é a correlação entre a variável observada e o fator
+extraído (similar ao coeficiente padronizado da regressão Linear Múltipla). 
 
-Comunalidade: A influencia total numa variavel de todos os fatores relacionadas com ela. é igual a soma dos factor loadings ao quadradro desse fatores, e fazendo uma analogiua com a regressão múltipla, é a variancia explicada R \^2, podemos representar em prcentagem ( \% da variabilidade prevista pelo modelo ) . 0 indica que a variável não foi nada explicada pelos fatores e 1 indica que foi completamente explicada pelos fatores. 
+\textit{Comunalidade} é a influência total numa variável de todos os fatores 
+relacionadas com ela. Matematicamente, é igual a soma dos \textit{Factor Loading}
+desses fatores ao quadradro. 
+$0$ indica que a variável não foi nada explicada pelos fatores e $1$ indica 
+que foi completamente explicada pelos fatores. 
 
-singularidade: Porção da variabilidade de uma variavel que não pode ser explicada pelas variáveis latentes relacionadas a essa variavel. 1-conunalidade; Ou seja, é a porcentagem da variabilidade que não pode ser prevista pelo modelo.
+\textit{Singularidade} é a porção da variabilidade de uma variável que não 
+pode ser explicada pelas variáveis latentes relacionadas a essa variável. 
+Matematicamente, é o resto da subtração da \textit{Comunalidade} por 1,
+ou seja, é a porcentagem da variabilidade que não pode ser prevista pelo modelo.
 
-Total da variância explicada: Quanto da variabilidade dos dados foi modelada pelas variáveis latentes. 
+\textit{Total da Variância Explicada} é o quanto da variabilidade dos dados foi 
+modelada pelas variáveis latentes. 
 
-rotação: maximiza os factor loading para melhor enetendiemnto dos resultados. Vaimax: afirma que os fatores não são correlacionados.Promax: os fatores podem estar correlacionados, da a correlação entre os fatores. 
+\textit{Rotação} maximiza os \textit{Factor Loading} para melhor 
+entendimento dos resultados. 
 
-Montar fator: excluir factor loading menores que 0.3/0.4 ou fazer p-value;  
+\textit{Rotação Varimax} pressupõe que os fatores não são correlacionados.
 
-reificação (transformação de algo abstrato em concreto): Fator é alhuma coisa na realidade? Há evidencias que a variável latente existe?
-
-Factor Scores: calculo: variavel dependente: fator score previsto e a independente é variavel obrservada. Matrix de coeficiente dos factor score, salvar valores padronizados.
-\begin{equation}
-FatorScore1 = coeficiente_{elemento1 fator1}*valor_elemento1 + coeficiente_{elemento2 fator1}*valor_elemento2 ...
-\end{equation} 
-Fazemos isso para cada amostra e temos o factor score para cada amostra. Lembrar que no PCA não perdemos variância no processo de extração, em outros sim, só podemos fazer isso no PCA, em outros casos o programa estima. Verificar se a média do factor score é zero e o desvio padrão 1. Plotar factor score 1 pelo 2, não devem ser correlacionados. Rotacionar com promax e ver o os factor scores. Como os factor scores são normalizados o que o valor de -3 sugere?
-
-Podemos fazer um diagrama
-
-Everitt \& Dunn 2001 page 288:
-Hills (1977) has gone as far as to suggest that factor analysis is not worth the time necessary to understand it and carry i
-t out. And
-Chatfield and Collins (1980) recommend that factor analysis should not be used in most practical situations. Such criticisms
-go too far.
-Factor analysis is simply an additional, and at times very useful, tool for investigating particular feature
-s of the structure of multivariate
-observations. Of course, like many models used in analysing data, the one used in factor analysis is likely to be only a very
-idealized
-approximation to the truth in the situations in which it is generally applied. Such a
-n approximation may, however, prove a valuable starting
-point for further investigations
-
-Olhar a comunalidade da PCA e FA, PCa começa com1 , FA não
-
-Comemoração de 100 anos de Analises de fatores http://www.fa100.info/down.htm
-
-fatores absolutos
-
+Equação da Análise de Fatores
 \begin{eqnarray}
 FA = \frac{L_{ij}\sigma_i}{\sigma_{PM}L_{PM_j}}
 \end{eqnarray}
 
-L = loadings
-i = espécies
-j = fatores extraídos
+\begin{itemize}
+  \item L = loadings
+  \item i = espécies
+  \item j = fatores extraídos
+\end{itemize}
 
-\chapter{Análise multivariada dos dados}
+Factor Scores: 
+\begin{equation}
+FatorScore1 = coeficiente_{elemento1 fator1}*valor_elemento1 + coeficiente_{elemento2 fator1}*valor_elemento2 ...
+\end{equation} 
 
-\section{Visão Geral}
+%%%%
+\subsection{\textit{PMF} - Positive Matrix Factorizarion}
 
-For this tutorial, we will assume that the appropriate number of factors has already been determined to be 2, such as through eigenvalues, scree tests, and a priori considerations. Most often, you will want to test solutions above and below the determined amount to ensure the optimal number of factors was selected.
-
-Note that several rotation and factoring methods are available when conducting EFA. Rotation methods can be described as orthogonal, which do not allow the resulting factors to be correlated, and oblique, which do allow the resulting factors to be correlated. Factoring methods can be described as common, which are used when the goal is to better describe data, and component, which are used when the goal is to reduce the amount of data. The fa() function is used for common factoring. For component analysis, see princomp(). The best methods will vary by circumstance and it is therefore recommended that you seek professional council in determining the optimal parameters for your future EFAs.
-In this tutorial, we will use oblique rotation (rotate = "oblimin"), which recognizes that there is likely to be some correlation between students' latent subject matter preference factors in the real world. We will use principal axis factoring (fm = "pa"), because we are most interested in identifying the underlying constructs in the data.
-
-Sobre o pacote psych: desenvolvido em Northwestern University. Usa redução da dimensão por fatores, cluster ou PCA.
-Revelle, W. (2012). psych: Procedures for Personality and Psychological Research. North-
-western University, Evanston. R package version 1.2.8.
-
-Solutions to this problem are examples of factor analysis
-(FA), principal components analysis (PCA), and cluster analysis (CA). All of these pro-
-cedures aim to reduce the complexity of the observed data. In the case of FA, the goal is
-to identify fewer underlying constructs to explain the observed data. In the case of PCA,
-the goal can be mere data reduction, but the interpretation of components is frequently
-done in terms similar to those used when describing the latent variables estimated by FA.
-
-An alternative to factor analysis, which is unfortunately frequently confused with factor
-analysis, is principal components analysis. Although the goals of PCA and FA are similar,
-PCA is a descriptive model of the data, while FA is a structural model. Psychologists
-typically use PCA in a manner similar to factor analysis and thus the principal function
-produces output that is perhaps more understandable than that produced by princomp
-in the stats package. Table 5 shows a PCA of the Thurstone 9 variable problem rotated
-using the Promax function. Note how the loadings from the factor model are similar but
-smaller than the principal component loadings. This is because the PCA model attempts
-to account for the entire variance of the correlation matrix, while FA accounts for just the
-common variance. This distinction becomes most important for small correlation matrices.
-Also note how the goodness of fit statistics, based upon the residual off diagonal elements,
-is much worse than the fa solution.
-
-
-reduce the complexity of the data
-and attempt to identify homogeneous subgroupings
-
-
-How many dimensions to use to represent a correlation matrix is an unsolved problem in
-psychometrics. There are many solutions to this problem, none of which is uniformly the
-best. Henry Kaiser once said that “a solution to the number-of factors problem in factor
-analysis is easy, that he used to make up one every morning before breakfast. But the
-problem, of course is to find the solution, or at least a solution that others will regard quite
-highly not as the best” Horn and Engstrom (1979).
-
-1) Extracting factors until the chi square of the residual matrix is not significant.
-2) Extracting factors until the change in chi square from factor n to factor n+1 is not
-significant.
-3) Extracting factors until the eigen values of the real data are less than the corresponding
-eigen values of a random data set of the same size (parallel analysis) fa.parallel (Horn,
-1965).
-4) Plotting the magnitude of the successive eigen values and applying the scree test (a
-sudden drop in eigen values analogous to the change in slope seen when scrambling up the
-talus slope of a mountain and approaching the rock face (Cattell, 1966).
-5) Extracting factors as long as they are interpretable.
-6) Using the Very Structure Criterion (vss) (Revelle and Rocklin, 1979).
-7) Using Wayne Velicer’s Minimum Average Partial (MAP) criterion (Velicer, 1976).
-8) Extracting principal components until the eigen value < 1.
-
-
-
-%https://en.wikipedia.org/wiki/Principal_component_analysis
-%http://en.wikipedia.org/wiki/Factor_analysis
-%http://www.statsoft.com/textbook/principal-components-factor-analysis/
-%http://www.din.uem.br/ia/pca/anal_fator.htm
-%http://carloscollares.blogspot.com.br/2011/01/introducao-analise-fatorial-e-analise.html
-O propósito da Análise de Componentes Principais (ACP) é encontrar a menor e melhor representação dimensional da variãncia da um conjunto de dados 
-
-A ACP é um técnica multivariada que permite-nos encontrar os padrões sistemáticos da variação dos dados. Do ponto de vista de análise dos dados, a ACP é usada para estudar um tabela de observações e variáveis com a principal ideia de transformar as variáveis observadas em um conjunto de novas variáveis, as componentes principais, que são não correlacionadas e explicam a variação do dados. 
-
-Existe no R muitas funções de diferente pacotes que no permitem calcular a PCA.
-
-Resultados do PCA: autovalores (variação dos dados), scores da PCA (estrutura das observações), loadings(correção entre as variáveis e as componentes)
-
-Muitas vezes as variáveis no PCA estão em escala diferentes, devemos normalizar tomando:  mean=0 e variace=1
-
-Principal Components Analysis (PCA) and Common Factor Analysis (CFA) are distinct methods. Often, they produce similar results and PCA is used as the default extraction method in the SPSS Factor Analysis routines. This undoubtedly results in a lot of confusion about the distinction between the two.
-
-The bottom line is, these are two different models, conceptually. In PCA, the components are actual orthogonal linear combinations that maximize the total variance. In FA, the factors are linear combinations that maximize the shared portion of the variance--underlying "latent constructs". That's why FA is often called "common factor analysis". FA uses a variety of optimization routines and the result, unlike PCA, depends on the optimization routine used and starting points for those routines. Simply there is not a single unique solution.
-
-In R, the factanal() function provides CFA with a maximum likelihood extraction. So, you shouldn't expect it to reproduce an SPSS result which is based on a PCA extraction. It's simply not the same model or logic. I'm not sure if you would get the same result if you used SPSS's Maximum Likelihood extraction either as they may not use the same algorithm. 
-
-It is important to recognize that rotated principal components are not principal components (the axes associated with the eigen value decomposition) but are merely components. To point this out, unrotated principal components are labelled as PCi, while rotated PCs are now labeled as RCi (for rotated components) and obliquely transformed components as TCi (for transformed components)
-
-My understanding is that the distinction between PCA and Factor analysis primarily is in whether there is an error term. Thus PCA can, and will, faithfully represent the data whereas factor analysis is less faithful to the data it is trained on but attempts to represent underlying trends or communality in the data. Under a standard approach PCA is not rotated, but it is mathematically possible to do so, so people do it from time to time. I agree with the commenters in that the "meaning" of these methods is somewhat up for grabs and that it probably is wise to be sure the function you are using does what you intend - for example, as you note R has some functions that perform a different sort of PCA than users of SPSS are familiar with.
-
- First, Principal Components Analysis (PCA) is a variable reduction technique which 
- maximizes the amount of variance accounted for in the observed variables by a 
- smaller group of variables called COMPONENTS. As an example, consider the 
- following situation. Let's say, we have 500 questions on a survey we designed 
- to measure stubbornness. We want to reduce the number of questions so that it 
- does not take someone 3 hours to complete the survey. It would be appropriate to 
- use PCA to reduce the number of questions by identifying and removing redundant 
- questions. For instance, if question 122 and question 356 are virtually identical 
- (i.e. they ask the exact same thing but in different ways), then one of them is 
- not necessary. The PCA process allows us to reduce the number of questions or 
- variables down to their PRINCIPAL COMPONENTS.
-
- PCA is commonly, but very confusingly, called exploratory factor analysis (EFA). 
- The use of the word factor in EFA is inappropriate and confusing because we are 
- really interested in COMPONENTS, not factors. This issue is made more confusing 
- by some software packages (e.g. PASW / SPSS, SAS) which list or use PCA under the 
- heading factor analysis.
-
- Second, Factor Analysis (FA) is typically used to confirm the latent factor 
- structure for a group of measured variables. Latent factors are unobserved 
- variables which typically can not be directly measured; but, they are assumed to 
- cause the scores we observe on the measured or indicator variables. FA is a model 
- based technique. It is concerned with modeling the relationships between measured 
- variables, latent factors, and error.
-
- As stated in O'Rourke, Hatcher, and Stepanski (2005): 
-     "Both (PCA e FA) are methods that can be used to identify groups of observed 
-      variables that tend to hang together empirically. Both procedures can also 
-      be performed with the SAS FACTOR procedure and they generally tend to provide 
-      similar results. Nonetheless, there are some important conceptual differences 
-      between principal component analysis and factor analysis that should be 
-      understood at the outset. Perhaps the most important deals with the assumption 
-      of an underlying causal structure. Factor analysis assumes that the covariation 
-      in the observed variables is due to the presence of one or more latent variables 
-      (factors) that exert causal influence on these observed variables" (p. 436).
-
- Final thoughts. Both PCA and FA can be used as exploratory analysis. But; PCA is 
- predominantly used in an exploratory fashion and almost never used in a confirmatory 
- fashion. FA can be used in an exploratory fashion, but most of the time it is used 
- in a confirmatory fashion because it is concerned with modeling factor structure. 
- The choice of which is used should be driven by the goals of the analyst. If you 
- are interested in reducing the observed variables down to their principal components 
- while maximizing the variance accounted for in the observed variables by the components, 
- then you should be using PCA. If you are concerned with modeling the latent factors 
- (and their relationships) which cause the scores on your observed variables, then 
- you should be using FA. 
-
-
-Details
-
-Useful for those cases where the correlation matrix is improper (perhaps because of SAPA techniques).
-
-There are a number of data reduction techniques including principal components analysis (PCA) and factor analysis (EFA). Both PC and FA attempt to approximate a given correlation or covariance matrix of rank n with matrix of lower rank (p). nRn = nFk kFn' + U2 where k is much less than n. For principal components, the item uniqueness is assumed to be zero and all elements of the correlation or covariance matrix are fitted. That is, nRn = nFk kFn' The primary empirical difference between a components versus a factor model is the treatment of the variances for each item. Philosophically, components are weighted composites of observed variables while in the factor model, variables are weighted composites of the factors.
-
-For a n x n correlation matrix, the n principal components completely reproduce the correlation matrix. However, if just the first k pri
-%https://docs.google.com/document/d/1VtY9xgVZF6wX4Vaotr3II7OiHpQMMMGysIyfmSedD_M/edit?pli=1ncipal components are extracted, this is the best k dimensional approximation of the matrix.
-
-It is important to recognize that rotated principal components are not principal components (the axes associated with the eigen value decomposition) but are merely components. To point this out, unrotated principal components are labelled as PCi, while rotated PCs are now labeled as RCi (for rotated components) and obliquely transformed components as TCi (for transformed components). (Thanks to Ulrike Gromping for this suggestion.)
-
-Rotations and transformations are either part of psych (Promax and cluster), of base R (varimax), or of GPArotation (simplimax, quartimax, oblimin).
-
-Some of the statistics reported are more appropriate for (maximum likelihood) factor analysis rather than principal components analysis, and are reported to allow comparisons with these other models.
-
-Although for items, it is typical to find component scores by scoring the salient items (using, e.g., score.items) component scores are found by regression where the regression weights are $R^(-1)$ lambda where lambda is the matrix of component loadings. The regression approach is done to be parallel with the factor analysis function fa. The regression weights are found from the inverse of the correlation matrix times the component loadings. This has the result that the component scores are standard scores (mean=0, sd = 1) of the standardized input. A comparison to the scores from princomp shows this difference. princomp does not, by default, standardize the data matrix, nor are the components themselves standardized. By default, the regression weights are found from the Structure matrix, not the Pattern matrix.
-
-Jolliffe (2002) discusses why the interpretation of rotated components is complicated. The approach used here is consistent with the factor analytic tradition. The correlations of the items with the component scores closely matches (as it should) the component loadings. 
-
-
-
-
-
-\section{\textit{PMF} - Positive Matrix Factorizarion}
-
-\subsection{Introdução}
 O \textit{Positive Matrix Factorizarion (PMF)} é outro método multivariado usado
 em modelos receptores para resolver a equação da conservação da massa 
 (citar equação). 
@@ -329,21 +209,10 @@ nos fornece os seguintes recursos:
   \item Arquivo \textit{XML} com as configurações usadas na rodada. 
 \end{itemize} 
 
-\subsection{\textit{PMF}, CMB e FA}
-
-Alguns trabalhamos mostram que PMF e CMB se correlacionam. 
-Os perfis de fontes calculado pelo PMF são similares aos medidos de fato para 
-USP no CMB (citar trabalho do Luis?). 
-
-Artigo que mostra um caso de não correlação entre os fatores extraídos pelo 
-CMB e PMF (buscar artigo).
-
-\subsection{Desenvolvimento Teórico} 
-
-\subsubsection{Conservação da massa}
-
-Seja,
-
+%%%%
+\subsubsection{Conservação da Massa}
+O PMF é uma solução para a equação da conservação da massa, assim, se 
+consiredarmos que:
 \begin{itemize}
   \item $c_{ij}$ matriz de concentração
   \item $u_{ij}$ matriz de incertezas (experimentais e analíticas)
@@ -351,7 +220,7 @@ Seja,
   \item $j$ as espécies medidas
 \end{itemize}
 
-Pode-se escrever a equação da conservação da massa (citar equação) no 
+Pode-se escrever a equação da conservação da massa no 
 contexto do \textit{PMF} \ref{equation:pmf}: 
 
 \begin{equation}
@@ -360,7 +229,6 @@ contexto do \textit{PMF} \ref{equation:pmf}:
 \end{equation}
 
 Onde,
-
 \begin{itemize}
   \item $p$: O número de fatores informado pelo usuário.
   \item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Score}).
@@ -382,6 +250,7 @@ Entretanto, é necessário avaliar a qualidade do ajuste, seguindo os passos
 que serão apresentados logo a seguir, assim como interpretar o significado 
 físico dos fatores. 
 
+%%%%
 \subsubsection{Função Objeto}
 
 Uma função objeto, em matemática, é uma função que precisa ser minimizada 
@@ -426,10 +295,13 @@ Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iteraç�
 como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim 
 mais esperança de encontrarmos um $Q$ mínimo global e não local.
 
-\subsection{Pré-processamento do ajuste}
+%%%%
+\subsubsection{Pré-processamento do ajuste}
 Requisitos conceituais e técnicos para realização do ajuste.
 
-\subsubsection{\textit{Signal Noise (S/N)}}
+%%%%
+\paragraph{Signal Noise (S/N)}
+
 Dependendo do método de medida, conhecimento dos processos químicos 
 atmosféricos e limite de detecção é necessário diminuir o peso de algumas 
 espécies no modelo, diminuindo as incertezas. 
@@ -454,7 +326,8 @@ e não altera-se as incertezas.
 Quando $S/N$ está entre 0,5 e 1, diminuímos o peso da espécie aumentando a 
 incerteza em um fator 3.  
 
-\subsubsection{Pré-requisitos do \textit{Software}}
+%%%%
+\paragraph{Manipulação do Software EPA}
 
 Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir 
 alguns pré-requisitos antes da realização do ajuste:
@@ -467,10 +340,10 @@ alguns pré-requisitos antes da realização do ajuste:
         pela data em ordem crescente.
 \end{itemize}
 
-\subsubsection{Inspeção dos dados de entrada}
+%%%%
+\paragraph{Inspeção dos dados de entrada}
 
 É necessário fazer ainda inspeções ou alterações antes de fazer o ajuste.
-
 \begin{itemize}
   \item Espera-se uma relação tipicamente linear entre 
         \textbf{Concentração} $\times$ \textbf{Incerteza}.  
@@ -488,12 +361,14 @@ alguns pré-requisitos antes da realização do ajuste:
     \end{itemize}
 \end{itemize}
 
-\subsection{Fazendo o ajuste}
+%%%%
+\subsubsection{Fazendo o ajuste}
 
 Segue-se uma séries de conceitos que deverão ser entendido antes da realização 
 do ajuste. 
 
-\subsubsection{Ambiguidade Rotacional}
+%%%%
+\paragraph{Ambiguidade Rotacional}
 
 A comparação fator por fator da contribuição dos fatores, $g_{ik}$, 
 pode ser plotada em um tipo de gráfico chamado \textit{G-Space}. 
@@ -506,7 +381,8 @@ proximidades dos eixos tem maior \textit{Ambiguidade Rotacional}.
 Amostras com contribuição zero em ambos os eixos proporcionam maior 
 estabilidade na solução e portanto menor \textit{Ambiguidade Rotacional}. 
 
- \subsubsection{Checklist}
+%%%%
+\paragraph{Rodando o Software}
 
 Uma vez que apresentamos os conceitos necessários o entendimento do jargão 
 usado no método \textit{PMF}, apresentamos as etapas escolhidas para realização 
@@ -542,7 +418,8 @@ do ajuste.
   \item Série temporal de $g_{ik}$. Avaliação do significado físico.
 \end{enumerate}
 
-\subsection{Pós-processamento do ajuste}
+%%%%
+\subsubsection{Pós-processamento do ajuste}
 Métodos para avaliação da estabilidade da solução.
 
 %DICA PARA PLOTAR OS HISTOGRAMAS DOS RESÍDUOS:

@@ -1,49 +1,100 @@
-\chapter{Análise multivariada dos dados}
+\section{Análise de Fatores}
 
-\section{Visão Geral}
-Vamos divivir a análise de fatores nos seguintes cenários:
+A tabela abaixo nos da a distribuição geral das amostras em moda e local de amostragem:
 
-\input{../outputs/amostras_por_local.tex}
-\input{../outputs/tabela_subset_com_harmata.tex}
-\input{../outputs/tabela_subset_sem_harmata.tex}
-\input{../outputs/tabela_descritiva_com_harmatan.tex}
+\begin{table}[H]
+ \centering
+ \caption{My caption}
+ %\label{my-label}
+ \input{../outputs/amostras_por_local.tex}
+\end{table}
+
+Depois da separação entre grosso e fino temos:
+\begin{table}[H]
+ \centering
+ \caption{My caption}
+ %\label{my-label}
+ \input{../outputs/tabela_subset_com_harmata.tex}
+\end{table}
+
+Estatística descritiva incluindo-se os dias com harmatão:
+\begin{table}[H]
+ \centering
+ \caption{My caption}
+ %\label{my-label}
+ \input{../outputs/tabela_descritiva_com_harmatan.tex}
+\end{table}
+
+Removendo-se os dias de ocorrência do harmatão da tabela acima, temos:
+\begin{table}[H]
+ \centering
+ \caption{My caption}
+ %\label{my-label}
+ \input{../outputs/tabela_subset_sem_harmata.tex}
+\end{table}
+
+O $MP_{2,5}$ é o que causa maior problemas de saúde. Somando-se as amostras dois pontos de coleta em Nina, área residencial e tráfego de veículos, podemos fazermos uma estimativa das fontes usando-se \textit{Análise de Fatores} 
+
+\input{../outputs/loadings_TFcH.tex}
+\input{../outputs/loadings_TFsH.tex}
+
+\input{../outputs/loadings_RFcH.tex}
+
+%Resultados da Análise de Fatores para RIcH:
+\input{../outputs/loadings_RIcH.tex}
+
+%Resultados da Análise de Fatores para TIcH:
+\input{../outputs/loadings_TIcH.tex}
+
+%Resultados da Análise de Fatores para RGcH:
+\input{../outputs/loadings_RGcH.tex}
+
+%Resultados da Análise de Fatores para TGcH:
+\input{../outputs/loadings_TGcH.tex}
+
+%Resultados da Análise de Fatores para RFsH:
 \input{../outputs/loadings_RFsH.tex}
 
-\subsection{AFCH: Residencial $MP_{2.5}$ \textbf{com} Harmathan}
 
 
+%Resultados da Análise de Fatores para RIsH:
+\input{../outputs/loadings_RIsH.tex}
 
-%# Fontes encontradas em Harvard:
-%#   Solid waste burning: Br. 
-%#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
-%#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
-%#   Aged biomass particles: K, Cl, S, BC
-%   Fresh biomass burning: K, Cl, S, BC
-%#   Sea salt: Na, Cl, S
-%# Sal marinho, solo, emissões veiculares e combustão de biomassa
-%# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
-%# Zn: Freio, pneu, peças.
+%Resultados da Análise de Fatores para TIsH:
+\input{../outputs/loadings_TIsH.tex}
 
+%Resultados da Análise de Fatores para RGsH:
+\input{../outputs/loadings_RGsH.tex}
 
+%Resultados da Análise de Fatores para TGsH:
+\input{../outputs/loadings_TGsH.tex}
 
-%\begin{figure}[H]
-%\centering
-%\includegraphics[width=\textwidth]{../outputs/AFCH_factor_scores.pdf}
-%\caption{AFCH factor scores}
-%\label{fig:AFCH_factor_scores}
-%\end{figure}
-
-Aumento do silicio no harmatan.
-
-Zheng: 
-Possíveis fontes: ressuspensão da ruas não pavimentadas
-biomassa: K,Cl,S
-
-massa,Al,Si,K,Ca,Fe
-K e cl se relacionam
-K e S no período não harmathan 
-Na e Cl se descorrelacionam no harmathan
-Br, Zn, Pb no não harmathan (gasolina-Br e Pb) Pneu:Zn
-
-
-
+%%# Fontes encontradas em Harvard:
+%%#   Solid waste burning: Br. 
+%%#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
+%%#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
+%%#   Aged biomass particles: K, Cl, S, BC
+%%   Fresh biomass burning: K, Cl, S, BC
+%%#   Sea salt: Na, Cl, S
+%%# Sal marinho, solo, emissões veiculares e combustão de biomassa
+%%# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
+%%# Zn: Freio, pneu, peças.
+%
+%%\begin{figure}[H]
+%%\centering
+%%\includegraphics[width=\textwidth]{../outputs/AFCH_factor_scores.pdf}
+%%\caption{AFCH factor scores}
+%%\label{fig:AFCH_factor_scores}
+%%\end{figure}
+%
+%%Aumento do silicio no harmatan.
+%
+%%Zheng: 
+%%Possíveis fontes: ressuspensão da ruas não pavimentadas
+%%biomassa: K,Cl,S
+%
+%%massa,Al,Si,K,Ca,Fe
+%%K e cl se relacionam
+%%K e S no período não harmathan 
+%%Na e Cl se descorrelacionam no harmathan
+%%Br, Zn, Pb no não harmathan (gasolina-Br e Pb) Pneu:Zn
