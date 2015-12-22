@@ -1,8 +1,8 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
-residencial = c('RFcH','RGcH','RIcH')   
-traffic = c('TFcH','TGcH','TIcH') 
+residencial = c('RFsH','RGsH','RIsH')   
+traffic = c('TFsH','TGsH','TIsH') 
 
 # All conditions
 conditions<-c(residencial,traffic)
@@ -45,7 +45,7 @@ for (i in conditions){
 }
 rel<-rbind(rel,'\\hline')
 rel<-rbind(rel,'\\end{tabular}')
-write.table(rel,'../../outputs/tabela_descritiva_com_harmatan.tex',
+write.table(rel,'../../outputs/tabela_descritiva_sem_harmatan.tex',
           row.names=F,
           col.names=F,
           quote=F)

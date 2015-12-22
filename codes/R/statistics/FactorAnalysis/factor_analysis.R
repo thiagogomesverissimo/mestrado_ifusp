@@ -18,3 +18,6 @@ FactorAnalysis('RIsH',4)
 FactorAnalysis('TIsH',4)
 FactorAnalysis('RGsH',4)
 FactorAnalysis('TGsH',4)
+
+
+

@@ -1,5 +1,6 @@
 FactorAnalysis <- function(current_base,nfactors){
   
+  # test:
   #current_base = 'TIcH'; nfactors = 5
   path_file = paste('../../outputs/pmf_fa/',current_base,'.csv',sep='')
   base<-read.csv(path_file,header=TRUE,row.names=1)
@@ -10,6 +11,16 @@ FactorAnalysis <- function(current_base,nfactors){
 
   # Loadings, h2 comunalidade e u2 a unicidade (ou singularidade)
   base.principal = fa.sort(base.principal)
+  
+  # Salva em texto puro
+  fa_file_name = paste('../../outputs/factor_analysis_',current_base,".txt",sep="")
+  capture.output( print(base.principal), file=fa_file_name)
+  
+  # Salva loading em csv
+  loading_csv_file_name = paste('../../outputs/loadings_',current_base,".csv",sep="")
+  capture.output( print(base.principal), file=loading_csv_file_name)
+  write.csv(as.data.frame(unclass(base.principal$loadings)),file=loading_csv_file_name) 
+  
   #print(loadings(base.principal),cutoff=2e-1)
   loadings_caption_name = paste("Análise de Fatores: ",current_base,sep="")
   loading_latex = fa2latex(base.principal,
@@ -85,4 +96,37 @@ FactorAnalysis <- function(current_base,nfactors){
     axis(1, datas, format(datas, "%b-%Y"))
     dev.off()
   }
+}
+
+####
+
+briefFA <-function(sigla){
+  #sigla = 'RFcH'
+  path_file = paste('../../outputs/loadings_',sigla,'.csv',sep='')
+  loading<-read.csv(path_file,header=TRUE)
+  arquivo = paste('../../outputs/factor_analysis_',sigla,'.txt',sep='')
+  
+  linha = readLines(arquivo,warn = F)
+  linha_variancia_acumulada = linha[grepl('Cumulative Var',linha)]
+  vetor_variancia_acumulada = unlist(strsplit(linha_variancia_acumulada, split=" "))
+  variancia_acumulada = vetor_variancia_acumulada[length(vetor_variancia_acumulada)]
+
+  num_fatores = ncol(loading) - 1
+  saida = data.frame(c('Variância Acumulada',variancia_acumulada))
+
+  for (i in seq(1, num_fatores)){
+    elementos=as.character(subset(loading,loading[,i+1]>0.4)[,1])
+    print(elementos)
+    linha= c(paste('F',i,sep=''),paste(elementos,collapse=', '))
+    saida = cbind(saida,linha)
+  }
+  saida = as.data.frame(t(saida))
+
+  path_output = paste('../../outputs/briefFA_',sigla,'.tex',sep='')
+  print(xtable(saida),
+    type="latex", 
+    floating = FALSE,
+    include.rownames = F, 
+    sanitize.text.function = identity,
+    file=path_output)
 }

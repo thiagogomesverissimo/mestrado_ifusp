@@ -19,17 +19,6 @@ all:
 	Rscript meteorology/windFrequency.R
 	#Rscript meteorology/noaa_ftp.R
 
-	#Latex
-	Rscript toLatex/tabela_subset_sem_harmatan.R
-	Rscript toLatex/tabela_subset_com_harmatan.R
-	Rscript toLatex/samples.R
-	Rscript toLatex/amostras_por_local.R
-	Rscript toLatex/tabela_descritiva_com_harmatan.R
-	Rscript toLatex/tabelas_pmf.R
-
-	# Gráficos
-	#Rscript graphs/graficos.R
-
 	# Estatísticas
 	Rscript statistics/FactorAnalysis/factor_analysis.R
 	#Rscript statistics/CMB/componentes_absolutos.R 
@@ -37,6 +26,16 @@ all:
 	#Rscript statistics/CMB/speciate_africa.R
 	#Rscript statistics/descriptive/descriptive_statistics.R
 	#Rscript statistics/PMF/main.R
+	
+	#Latex
+	Rscript toLatex/samples.R
+	Rscript toLatex/tabela_descritiva_com_harmatan.R
+	Rscript toLatex/tabela_descritiva_sem_harmatan.R
+	Rscript toLatex/tabelas_pmf.R
+	Rscript toLatex/tabelas_analise_fatores.R
+
+	# Gráficos
+	#Rscript graphs/graficos.R
 
 clean:
 	rm -rf *~ 

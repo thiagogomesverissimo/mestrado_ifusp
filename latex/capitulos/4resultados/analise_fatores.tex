@@ -1,73 +1,43 @@
 \section{Análise de Fatores}
 
-A tabela abaixo nos da a distribuição geral das amostras em moda e local de amostragem:
+A tabela abaixo nos da o número de amostras seguimentada por
+moda e região de amostragem. 
+Também mostra o número de casos quando remove-se os dias de ocorrência do harmatão.
 
 \begin{table}[H]
  \centering
- \caption{My caption}
- %\label{my-label}
- \input{../outputs/amostras_por_local.tex}
+  %\label{my-label}
+  \input{../outputs/tabela_descritiva_com_harmatan.tex}
+  \caption{Estatística descritiva incluindo-se os dias com harmatão}
 \end{table}
 
-Depois da separação entre grosso e fino temos:
 \begin{table}[H]
- \centering
- \caption{My caption}
- %\label{my-label}
- \input{../outputs/tabela_subset_com_harmata.tex}
+  \centering
+  %\label{my-label}
+  \input{../outputs/tabela_descritiva_sem_harmatan.tex}
+  \caption{Estatística descritiva excluíndo-se os dias com harmatão}
 \end{table}
 
-Estatística descritiva incluindo-se os dias com harmatão:
-\begin{table}[H]
- \centering
- \caption{My caption}
- %\label{my-label}
- \input{../outputs/tabela_descritiva_com_harmatan.tex}
-\end{table}
+% RFsH,RGsH,RIsH,TFsH,TGsH,TIsH,RFcH,RGcH,RIcH,TFcH,TGcH,TIcH 
 
-Removendo-se os dias de ocorrência do harmatão da tabela acima, temos:
-\begin{table}[H]
- \centering
- \caption{My caption}
- %\label{my-label}
- \input{../outputs/tabela_subset_sem_harmata.tex}
-\end{table}
+As principais fontes encontradas para $MP_{2,5}$ utilizando-se
+\textit{Análise de Fatores} na área residencial e excluíndo os dias
+de ocorrência do Harmatão foram: 
 
-O $MP_{2,5}$ é o que causa maior problemas de saúde. Somando-se as amostras dois pontos de coleta em Nina, área residencial e tráfego de veículos, podemos fazermos uma estimativa das fontes usando-se \textit{Análise de Fatores} 
-
-\input{../outputs/loadings_TFcH.tex}
-\input{../outputs/loadings_TFsH.tex}
-
-\input{../outputs/loadings_RFcH.tex}
-
-%Resultados da Análise de Fatores para RIcH:
-\input{../outputs/loadings_RIcH.tex}
-
-%Resultados da Análise de Fatores para TIcH:
-\input{../outputs/loadings_TIcH.tex}
-
-%Resultados da Análise de Fatores para RGcH:
-\input{../outputs/loadings_RGcH.tex}
-
-%Resultados da Análise de Fatores para TGcH:
-\input{../outputs/loadings_TGcH.tex}
-
-%Resultados da Análise de Fatores para RFsH:
 \input{../outputs/loadings_RFsH.tex}
 
+Ao incluirmos os dias de ocorrência do Harmatão a fonte solo
+virá predominande:
 
+\begin{table}[H]
+  \centering
+  %\label{my-label}
+  \input{../outputs/briefFA_RFcH}
+  \caption{ddd}
+\end{table}
 
-%Resultados da Análise de Fatores para RIsH:
-\input{../outputs/loadings_RIsH.tex}
+Já para o $MP_{2,5_10}$ também da aŕea residencial 
 
-%Resultados da Análise de Fatores para TIsH:
-\input{../outputs/loadings_TIsH.tex}
-
-%Resultados da Análise de Fatores para RGsH:
-\input{../outputs/loadings_RGsH.tex}
-
-%Resultados da Análise de Fatores para TGsH:
-\input{../outputs/loadings_TGsH.tex}
 
 %%# Fontes encontradas em Harvard:
 %%#   Solid waste burning: Br. 
