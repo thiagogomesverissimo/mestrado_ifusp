@@ -9,10 +9,9 @@ cd codes/R/
   make
 cd ../..
 
-cd codes/shellscript
-  sh sedLatex_FactorAnalysis.sh
-#  sh sedLatex_pmf.sh
-cd ../..
+cd codes/
+  make
+cd ../
 
 cd latex/
   make

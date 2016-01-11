@@ -3,7 +3,7 @@ FactorAnalysis <- function(current_base,nfactors){
   # test:
   #current_base = 'TIcH'; nfactors = 5
   path_file = paste('../../outputs/pmf_fa/',current_base,'.csv',sep='')
-  base<-read.csv(path_file,header=TRUE,row.names=1)
+  base<-read.csv(path_file,row.names=1)
   datas = as.POSIXct(strptime(rownames(base), format = '%d/%m/%Y %H:%M'))
 
   # PCA igual a do SPSS
@@ -29,9 +29,10 @@ FactorAnalysis <- function(current_base,nfactors){
                          cumvar=T,
                          apa=T,
                          caption=loadings_caption_name)
-  loadings_caption_name = paste("Análise de Fatores: ",
-                                current_base,
-                                ' | a: comunalidade; b: singularidade; c: complexidade.',
+  loadings_caption_name = paste(current_base, ' | ',
+                                '\\textcolor{red}{h} : Comunalidade; ', 
+                                '\\textcolor{red}{S=1-h} : Singularidade; ', 
+                                '\\textcolor{red}{C} : Complexidade. ',
                                 sep="")
   #print(loadings(base.principal),cutoff=2e-1)
   loading_file_name = paste('../../outputs/loadings_',current_base,".tex",sep="")
@@ -96,6 +97,7 @@ FactorAnalysis <- function(current_base,nfactors){
     axis(1, datas, format(datas, "%b-%Y"))
     dev.off()
   }
+  return(base.principal)
 }
 
 ####
@@ -103,7 +105,7 @@ FactorAnalysis <- function(current_base,nfactors){
 briefFA <-function(sigla){
   #sigla = 'RFcH'
   path_file = paste('../../outputs/loadings_',sigla,'.csv',sep='')
-  loading<-read.csv(path_file,header=TRUE)
+  loading<-read.csv(path_file)
   arquivo = paste('../../outputs/factor_analysis_',sigla,'.txt',sep='')
   
   linha = readLines(arquivo,warn = F)
@@ -121,6 +123,8 @@ briefFA <-function(sigla){
     saida = cbind(saida,linha)
   }
   saida = as.data.frame(t(saida))
+  saida = rbind(saida,saida[1,])
+  saida = saida[-1,]
 
   path_output = paste('../../outputs/briefFA_',sigla,'.tex',sep='')
   print(xtable(saida),

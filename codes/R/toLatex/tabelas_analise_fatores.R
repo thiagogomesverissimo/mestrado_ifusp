@@ -11,6 +11,15 @@ conditions<-c(residencial,traffic)
 # Inclui tabelas sem os meses do Harmathan
 conditions = c(conditions,gsub('c','s',conditions))
 
-conditions
+#conditions
+#lapply(conditions,briefFA)
 
-lapply(conditions,briefFA)
+briefFA('RFsH')
+briefFA('RFcH')
+briefFA('RGsH')
+briefFA('RGcH')
+
+briefFA('TFsH')
+briefFA('TFcH')
+briefFA('TGsH')
+briefFA('TGcH')

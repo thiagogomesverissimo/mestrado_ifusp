@@ -20,24 +20,60 @@ Também mostra o número de casos quando remove-se os dias de ocorrência do har
 
 % RFsH,RGsH,RIsH,TFsH,TGsH,TIsH,RFcH,RGcH,RIcH,TFcH,TGcH,TIcH 
 
-As principais fontes encontradas para $MP_{2,5}$ utilizando-se
-\textit{Análise de Fatores} na área residencial e excluíndo os dias
-de ocorrência do Harmatão foram: 
+As fontes poluídoras para $MP_{2,5}$ na região residencial são representadas 
+pelos seguintes elementos:
 
 \input{../outputs/loadings_RFsH.tex}
 
+As principais fontes encontradas utilizando-se
+\textit{Análise de Fatores} foram solo, queima de biomassa, mar e veículo.
+Porém, os elementos que representam cada fonte variam por região 
+(residencial ou avenida) e moda (fino ou grosso). 
+
 Ao incluirmos os dias de ocorrência do Harmatão a fonte solo
-virá predominande:
+virá predominande por causa da poeira e fica praticamte impossível
+detectar as outras fontes, inclusive a variância explicada pelas
+outros fatores são baixas, assim só apresentaremos aqui os resultados 
+removendo-se os dias do Harmatão. Mas a análise de Fatores do Harmatão
+estão todas no Apêndice I.
+
 
 \begin{table}[H]
   \centering
   %\label{my-label}
-  \input{../outputs/briefFA_RFcH}
-  \caption{ddd}
+  \input{../outputs/briefFA_RFsH}
+  \caption{RFsH}
 \end{table}
 
-Já para o $MP_{2,5_10}$ também da aŕea residencial 
+Já o $MP_{2,5-10}$ na região residencial:
 
+\begin{table}[H]
+  \centering
+  %\label{my-label}
+  \input{../outputs/briefFA_RGsH}
+  \caption{RGsH}
+\end{table}
+
+As principais fontes encontradas para $MP_{2,5}$ (fino) na via
+com maior tráfego:
+
+\begin{table}[H]
+  \centering
+  %\label{my-label}
+  \input{../outputs/briefFA_TFsH}
+  \caption{TFsH}
+\end{table}
+
+Já o $MP_{2,5-10}$ na região de tráfego:
+
+\begin{table}[H]
+  \centering
+  %\label{my-label}
+  \input{../outputs/briefFA_TGsH}
+  \caption{TGsH}
+\end{table}
+
+Separação da borracha do cobre.
 
 %%# Fontes encontradas em Harvard:
 %%#   Solid waste burning: Br. 

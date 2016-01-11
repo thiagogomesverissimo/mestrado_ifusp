@@ -39,20 +39,20 @@ harmathan<-c('December','January','February','March')
 # Exclusão dos meses do Harmathan
 
 RFsH <- RFcH[ !(months(RFcH$Date) %in% harmathan), ]
-RGsH <- RFcH[ !(months(RGcH$Date) %in% harmathan), ]
-RIsH <- RFcH[ !(months(RIcH$Date) %in% harmathan), ]
-TFsH <- RFcH[ !(months(TFcH$Date) %in% harmathan), ]
-TGsH <- RFcH[ !(months(TGcH$Date) %in% harmathan), ]
-TIsH <- RFcH[ !(months(TIcH$Date) %in% harmathan), ]
+RGsH <- RGcH[ !(months(RGcH$Date) %in% harmathan), ]
+RIsH <- RIcH[ !(months(RIcH$Date) %in% harmathan), ]
+TFsH <- TFcH[ !(months(TFcH$Date) %in% harmathan), ]
+TGsH <- TGcH[ !(months(TGcH$Date) %in% harmathan), ]
+TIsH <- TIcH[ !(months(TIcH$Date) %in% harmathan), ]
 
 # Exclusão dos meses do Harmathan nas incertezas
 
 RFsHunc <- RFcHunc[ !(months(RFcHunc$Date) %in% harmathan), ]
-RGsHunc <- RFcHunc[ !(months(RGcHunc$Date) %in% harmathan), ]
-RIsHunc <- RFcHunc[ !(months(RIcHunc$Date) %in% harmathan), ]
-TFsHunc <- RFcHunc[ !(months(TFcHunc$Date) %in% harmathan), ]
-TGsHunc <- RFcHunc[ !(months(TGcHunc$Date) %in% harmathan), ]
-TIsHunc <- RFcHunc[ !(months(TIcHunc$Date) %in% harmathan), ]
+RGsHunc <- RGcHunc[ !(months(RGcHunc$Date) %in% harmathan), ]
+RIsHunc <- RIcHunc[ !(months(RIcHunc$Date) %in% harmathan), ]
+TFsHunc <- TFcHunc[ !(months(TFcHunc$Date) %in% harmathan), ]
+TGsHunc <- TGcHunc[ !(months(TGcHunc$Date) %in% harmathan), ]
+TIsHunc <- TIcHunc[ !(months(TIcHunc$Date) %in% harmathan), ]
 
 # Novas siglas sem Harmathan
 conditions<-gsub('c','s',conditions)
