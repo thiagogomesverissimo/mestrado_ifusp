@@ -1,6 +1,8 @@
 # General packages used in my project. 
 # I lost some performance working in this way, however I am more organized.
 
+set.seed(69)
+
 # Eu quero que todos os retornos de funções sejam em English, pois eu uso isso na programação. 
 # sessionInfo()
 # Sys.getlocale() 

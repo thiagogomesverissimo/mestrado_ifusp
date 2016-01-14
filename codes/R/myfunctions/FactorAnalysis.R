@@ -13,40 +13,34 @@ FactorAnalysis <- function(current_base,nfactors){
   base.principal = fa.sort(base.principal)
   
   # Salva em texto puro
-  fa_file_name = paste('../../outputs/factor_analysis_',current_base,".txt",sep="")
+  fa_file_name = paste('../../outputs/factor_analysis_',current_base,nfactors,".txt",sep="")
   capture.output( print(base.principal), file=fa_file_name)
   
   # Salva loading em csv
-  loading_csv_file_name = paste('../../outputs/loadings_',current_base,".csv",sep="")
+  loading_csv_file_name = paste('../../outputs/loadings_',current_base,nfactors,".csv",sep="")
   capture.output( print(base.principal), file=loading_csv_file_name)
   write.csv(as.data.frame(unclass(base.principal$loadings)),file=loading_csv_file_name) 
   
   #print(loadings(base.principal),cutoff=2e-1)
-  loadings_caption_name = paste("Análise de Fatores: ",current_base,sep="")
   loading_latex = fa2latex(base.principal,
                          font.size = 'normalsize', # normalsize,small, scriptsize, tiny
                          heading = current_base,
                          cumvar=T,
                          apa=T,
-                         caption=loadings_caption_name)
-  loadings_caption_name = paste(current_base, ' | ',
-                                '\\textcolor{red}{h} : Comunalidade; ', 
-                                '\\textcolor{red}{S=1-h} : Singularidade; ', 
-                                '\\textcolor{red}{C} : Complexidade. ',
-                                sep="")
-  #print(loadings(base.principal),cutoff=2e-1)
-  loading_file_name = paste('../../outputs/loadings_',current_base,".tex",sep="")
+                         caption='')
+
+  
+  loading_file_name = paste('../../outputs/loadings_',current_base,nfactors,".tex",sep="")
   fa2latex(base.principal,
            font.size = 'normalsize',
-           heading = loadings_caption_name,
+           heading = '',#loadings_caption_name,
            cumvar=T,
            apa=T,
-           #caption=loadings_caption_name,
            caption='',
            file=loading_file_name)
 
   # Scree plot
-  scree_file_name = paste('../../outputs/scree_',current_base,'.pdf',sep="")
+  scree_file_name = paste('../../outputs/scree_',current_base,nfactors,'.pdf',sep="")
   pdf(file=scree_file_name)
   plot(base.principal$values,
     ylab='Autovalor',
@@ -65,7 +59,7 @@ FactorAnalysis <- function(current_base,nfactors){
   # base.principal$r.scores
 
   # Monta um gráfico que agrega todos fatores
-  scores_file_name = paste('../../outputs/scores_',current_base,'.pdf',sep="")
+  scores_file_name = paste('../../outputs/scores_',current_base,nfactors,'.pdf',sep="")
   pdf(file=scores_file_name)
   par(mfrow=c(3,2)) 
   for(i in seq(1:nfactors)){
@@ -85,7 +79,7 @@ FactorAnalysis <- function(current_base,nfactors){
   
   # Monta um gráfico para cada fator
   for(i in seq(1:nfactors)){
-    fator_file_name = paste('../../outputs/score_',current_base,i,'.pdf',sep="")
+    fator_file_name = paste('../../outputs/score_',current_base,nfactors,i,'.pdf',sep="")
     pdf(file=fator_file_name)
     plot(base.principal$scores[,i] ~ datas,
          xaxt = "n", 
@@ -97,16 +91,17 @@ FactorAnalysis <- function(current_base,nfactors){
     axis(1, datas, format(datas, "%b-%Y"))
     dev.off()
   }
+  briefFA(current_base,nfactors)
   return(base.principal)
 }
 
 ####
 
-briefFA <-function(sigla){
+briefFA <-function(sigla,nfactors){
   #sigla = 'RFcH'
-  path_file = paste('../../outputs/loadings_',sigla,'.csv',sep='')
+  path_file = paste('../../outputs/loadings_',sigla,nfactors,'.csv',sep='')
   loading<-read.csv(path_file)
-  arquivo = paste('../../outputs/factor_analysis_',sigla,'.txt',sep='')
+  arquivo = paste('../../outputs/factor_analysis_',sigla,nfactors,'.txt',sep='')
   
   linha = readLines(arquivo,warn = F)
   linha_variancia_acumulada = linha[grepl('Cumulative Var',linha)]
@@ -126,7 +121,7 @@ briefFA <-function(sigla){
   saida = rbind(saida,saida[1,])
   saida = saida[-1,]
 
-  path_output = paste('../../outputs/briefFA_',sigla,'.tex',sep='')
+  path_output = paste('../../outputs/briefFA_',sigla,nfactors,'.tex',sep='')
   print(xtable(saida),
     type="latex", 
     floating = FALSE,

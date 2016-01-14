@@ -32,7 +32,6 @@ all:
 	Rscript toLatex/tabela_descritiva_com_harmatan.R
 	Rscript toLatex/tabela_descritiva_sem_harmatan.R
 	Rscript toLatex/tabelas_pmf.R
-	Rscript toLatex/tabelas_analise_fatores.R
 
 	# Gráficos
 	#Rscript graphs/graficos.R

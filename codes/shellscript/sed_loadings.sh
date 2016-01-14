@@ -14,10 +14,10 @@ cd $(dirname $0)
 ### Corrige nomes nas tabelas de loadings.
 
 # Comuns loading
-FILES=$(ls ../../../outputs | grep loading.*tex)
+FILES=$(ls ../../outputs | grep loading.*tex)
 
 for FILE in $FILES; do
-  i="../../../outputs/$FILE"
+  i="../../outputs/$FILE"
   sed -i s/h2/'\\textcolor{red}{h}'/g $i
   sed -i s/u2/'\\textcolor{red}{S}'/g  $i
   sed -i s/'com '/'\\textcolor{red}{C}'/g $i
@@ -28,17 +28,25 @@ for FILE in $FILES; do
   sed -i s/'Cum. factor Var'/'variância acum. abs'/g $i
   sed -i s/'\\caption{}'//g $i
   sed -i s/htbp/H/g $i
-  sed -i s/cr/'\\'/g $i
+  sed -i '/multicolumn/I,+4 d' $i
+  sed -i '/begin{table}/,+0 d' $i
+  sed -i '/end{table}/,+0 d' $i
+  sed -i '/label{default}/,+0 d' $i
 done
 
-## RFsH.tex
-FILE='../../../outputs/loadings_RFsH.tex'
-sed -i s/RFsH/'\\textcolor{red}{$MP_{2.5}$ área residencial}'/g $FILE
+# Comuns loading
+FILES=$(ls ../../outputs | grep briefFA.*tex)
 
-## TFsH
-FILE='../../../outputs/loadings_TFsH.tex'
-sed -i s/TFsH/'\\textcolor{red}{$MP_{2.5}$ avenida com tráfego de autos}'/g $FILE
+for FILE in $FILES; do
+  i="../../outputs/$FILE"
+  sed -i s/V1/'Fonte poluídora'/g $i
+  sed -i s/V2/'Espécie'/g  $i
+done
 
-## RGsH
-FILE='../../../outputs/loadings_RGsH.tex'
-sed -i s/RGsH/'\\textcolor{red}{$MP_{2,5-10}$ área residencial}'/g $FILE
+## outputs/briefFA_RFsH5.tex
+FILE='../../outputs/briefFA_RFsH5.tex'
+sed -i s/F1/"Solo"/g $FILE
+sed -i s/F2/"Queima de biomassa"/g $FILE
+sed -i s/F3/"Mar"/g $FILE
+sed -i s/F4/"e-waste"/g $FILE
+sed -i s/F5/"veículo"/g $FILE

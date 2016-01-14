@@ -62,5 +62,3 @@ RGcHunc = subset(RGcHunc,!(RGcHunc$diamesano %in% removidos))
 write.csv(RGcH,'../../outputs/concentrations/RGcH.csv',row.names=F)
 write.csv(RGcHunc,'../../outputs/concentrations/RGcHunc.csv',row.names=F)
 
-## Traffic: TIcH - TFcH 
-

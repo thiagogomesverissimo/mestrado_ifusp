@@ -6,14 +6,16 @@ FactorAnalysis('RFcH',4)
 #print(FactorAnalysis('RFcH',4)$loadings,cutoff=4e-1)
 
 FactorAnalysis('RFsH',4)
-print(FactorAnalysis('RFsH',5)$loadings,cutoff=4e-1)
+FactorAnalysis('RFsH',5)
+#print(FactorAnalysis('RFsH',5)$loadings,cutoff=4e-1)
 
 ## Redidencial Grosso
 FactorAnalysis('RGcH',4)
-#print(FactorAnalysis('RGcH',4)$loadings,cutoff=4e-1)
+print(FactorAnalysis('RGcH',4)$loadings,cutoff=4e-1)
 
-FactorAnalysis('RGsH',4)
+FactorAnalysis('RGsH',5)
 print(FactorAnalysis('RGsH',5)$loadings,cutoff=4e-1)
+print(FactorAnalysis('RIsH',5)$loadings,cutoff=4e-1)
 
 ## Traffic fino
 FactorAnalysis('TFcH',4)

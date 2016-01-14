@@ -4,8 +4,7 @@
 
 all:
 	# shell
-	sh shellscript/sedLatex/loadings.sh
-	sh shellscript/sedLatex/briefFA.sh
+	sh shellscript/sed_loadings.sh
 	#sh ../shellscript/sedLatex/pmf.sh
 	#sh ../shellscript/sedLatex/general.sh
 
