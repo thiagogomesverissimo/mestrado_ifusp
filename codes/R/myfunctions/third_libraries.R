@@ -13,6 +13,7 @@ install_libraries = function()
   suppressPackageStartupMessages(require('plotrix'))
   suppressPackageStartupMessages(require('fBasics'))
   suppressPackageStartupMessages(require('stringr'))
+  suppressPackageStartupMessages(require('devtools'))
   
   # GPArotation
   if (!require("GPArotation")) {
@@ -62,6 +63,9 @@ install_libraries = function()
   # stringr
   if (!require("stringr")) {
     install.packages("stringr", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }  
+  if (!require("devtools")) {
+    install.packages("devtools", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
   }  
 }
 
