@@ -20,7 +20,3 @@ my.statistic <- list("fun"=length,
                      "labcalm" = function(x) round(x, 1))
 
 windRose(noaa_harvard, statistic=my.statistic)
-
-
-
-

@@ -1,5 +1,6 @@
 install_libraries = function()
 {
+  dir.create('~/.R', showWarnings = FALSE)
   dir.create('~/.R/libraries', showWarnings = FALSE)
   .libPaths(c('~/.R/libraries',.libPaths()))
   

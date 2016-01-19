@@ -26,6 +26,38 @@ Na análise multivariada se reduz as dimensões (variáveis) de um
 conjunto de dados analíticos complexo que poderão ser interpretados 
 como tipo de fontes.
 As técnicas de redução da dimensão, como a análise multivariada, 
+Modelos receptores é uma abordagem matemática para determinação e 
+quantificação dos efeitos das fontes poluidoras do ar. 
+
+%Não é verdade que modelos receptores prescindem do perfil das fontes. O Fator de Enriquecimento e CMB, primeiros destes modelos, somente são possíveis se você conhecer o perfil das fontes. PMF e AFP não necessitam deles para determinar "fatores principais" ou "principais fontes", mas que são genéricas e somente "adquirem vida" quando são identificadas pelo confronto com perfís conhecidos.
+%fiz algumas sugestões, mas acho que você precisará cuidar melhor deste item. 
+
+Eles buscam quantificar a participação de fontes poluidoras em amostras. 
+O Balanço Químico de Massas (CBM), por exemplo, necessita do conhecimento prévio do perfil 
+das fontes locais, cuja combinação linear proverá o rateio de amostragens entre tais fontes. 
+
+Já a Análise de Fatores Principais (PFA) ou Positive Matrix Fatorization (PMF) 
+permitem o rateio de fontes quando os seus perfis são desconhecidos. Entretanto,
+necessitamos de conhecê-los quando buscamos associar estes resultados a realidade 
+concreta da bacia aérea estudada. 
+
+%TODO: no site da cetesb tem um esquema legal de modelo receptor
+%TODO: traçar um panomara da evolução histórica dos modelos receptores.
+
+\subsection{Análise multivariada}
+
+O processo de identificação das fontes de poluição do ar é 
+complexo, havendo diversos caminhos, os quais as técnicas estatísticas
+multivariadas são historicamente usadas.
+ 
+Análise multivariada é uma das técnicas estatística utilizadas para 
+resolver reduzir a dimensão dos dados coletados nos modelos receptores, 
+usando a variância. 
+
+As dimensões (variáveis) reduzidas de um conjunto de dados analíticos 
+complexo poderão ser interpretados como tipo de fontes poluídora.
+
+As técnicas de redução da dimensão, como análise multivariada, 
 permitem manter a quantidade de informação contida inicialmente nos dados. 
 Essa informação está armazenada na variância e covariância (ou correlação) 
 inicial dos dados. 
@@ -37,27 +69,36 @@ mas sim através de outras variáveis observáveis.
 O processo de identificação das fontes principais de poluição do ar é 
 complexo, havendo diversos caminhos, os quais as técnicas estatísticas
 multivariadas são historicamente usadas.
+Assim, as dimensões resultantes de redução, chamada de Fator, 
+não é uma grandeza diretamente medida, e sim uma variável latente, 
+isto é, uma variável que não pode ser medida diretamente, 
+mas sim através de outras variáveis observáveis.
 
 O número de fatores extraídos dependerá do conhecimento do(a) pesquisador(a)
 sobre a região, possíveis fontes poluídoras, número de amostras, 
 resolução da amostragem e espécies medidas.
+
 O conhecimento do pesquisador é imprescindível para fazer o relacionamento 
 entre fator e fonte(s), afim de avaliar o significado físico das fontes. 
 Para tal, informações das possíveis fontes poluidoras próximas ao ponto 
 receptor, dados meteorológicos do período de coleta, inventário de emissões 
 e qualquer mais informação que o pesquisador julgar necessário devem ser 
 usadas para fazer esse relacionamento.
+e outras informações que possam ajudar a fazer esse relacionamento devem ser usadas.
 
 Número reduzido de amostras, baixa resolução da amostragem, \textit{outliers} 
 (eventos infrequentes de curta duração e com alta concentração) representam 
 um desafio para modelos multivariados.
 
 %%%%
-\section{Fomulação matemática dos Modelos Receptores}
+\subsection{Fomulação matemática dos Modelos Receptores}
 
 Os poluentes que são emitidos pelas fontes devem chegar no receptor, assim, 
 pode-se usar o príncipio de conservação de massa no Modelo Receptor. 
 Vamos fazer uma adaptação da equação de convervação de massa para o contexto 
+Os poluentes que são emitidos pelas fontes em uma bacia aérea devem 
+chegar no receptor, podendo-se, assim, usar o princípio de conservação de massa no Modelo Receptor. 
+Vamos fazer uma adaptação da equação de conservação de massa para o contexto 
 de poluição do ar. 
 
 Se em uma amostragem coletamos $j$ amostras e medimos $i$ poluentes, podemos 
@@ -67,11 +108,13 @@ escrever a equação da conservação de massa como segue:
   x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} + \epsilon_{ij}
 \end{equation} 
 
-$x_{ij}$ = concentração na amostra receptora $i$ da espécie $j$.
-$f_{pj}$ = fração da espécie $j$ emitida pela fonte $p$. 
-$g_{ip}$ = contribuição da fonte $p$ para amostra $i$. 
-
-$\epsilon$ = erro do modelo.
+sendo,
+\begin{itemize}
+  \item $x_{ij}$ = concentração na amostra receptora $i$ da espécie $j$;
+  \item $f_{pj}$ = fração da espécie $j$ emitida pela fonte $p$;
+  \item $g_{ip}$ = contribuição da fonte $p$ para amostra $i$;
+  \item $\epsilon$ = erro do modelo empregado.
+\end{itemize}
 
 %%%%
 \subsection{Balanço Químico de Massa}
@@ -93,16 +136,18 @@ Considerações no uso do \textit{BQM}:
 %TODO: falar um pouco do speciate. 
 
 Critérios para validar os resultados do \textit{BQM}:
+
 \begin{itemize}
-  \item statistic-t > 2
-  \item R2 >=0,8
-  \item porcentagem da Massa Explicado entre 80 e 100 
-  \item qui-quadrado < 4
+  \item $t-statistic$ > 2;
+  \item $R^2$ >= 0,8;
+  \item Porcentagem da massa explicada entre 80\% e 100\%; 
+  \item ${\chi}^2$ < 4
   \item concentração modelada/concentração medida entre 0,2 e 2,0.
 \end{itemize}
 
 %%%%
 \subsection{Análise de Fatores}
+%TODO: padronize a denominação dada à metodologia: Análise de Fatores Principais (AFP); Análise de Componentes Principais (ACP). Uma é geral. A outra é um método para resolvê-la.
 
 A ACP é um técnica multivariada que permite-nos encontrar os padrões 
 sistemáticos da variação dos dados. 
