@@ -64,9 +64,27 @@ install_libraries = function()
   if (!require("stringr")) {
     install.packages("stringr", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
   }  
+  
+  # devtools
   if (!require("devtools")) {
     install.packages("devtools", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
-  }  
+  }
+  
+  # Rcpp 
+  if (!require("Rcpp",lib.loc='~/.R/libraries')) {
+    install.packages("Rcpp", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
+
+  # dplyr 
+  if (!require("dplyr",lib.loc='~/.R/libraries')) {
+    install.packages("dplyr", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
+
+  # openair
+  if (!require("openair") & require('devtools')) {
+    install_github('davidcarslaw/openair')
+  }
+    
 }
 
 install_libraries()

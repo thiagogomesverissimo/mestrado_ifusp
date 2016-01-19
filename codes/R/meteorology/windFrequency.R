@@ -12,40 +12,45 @@ completo2006_2008<-list(begin=strptime('21-09-2006','%d-%m-%Y'),
                         titulo='Setembro/2006-Junho/2008',
                         filename='completo2006_2008')
 
+# Outono
 autumn2006<-list(begin=strptime('21-09-2006','%d-%m-%Y'),
                  end=strptime('20-12-2006','%d-%m-%Y'),
                  titulo='Setembro/2006-Dezembro/2006 (Outono)',
                  filename='autumn2006')
-
-winter2006_2007<-list(begin=strptime('21-12-2006','%d-%m-%Y'),
-                      end=strptime('20-03-2007','%d-%m-%Y'),
-                      titulo='Dezembro/2006-Março/2007 (Inverno)',
-                      filename='winter2006_2007')
-
-spring2007<-list(begin=strptime('21-03-2007','%d-%m-%Y'),
-                 end=strptime('20-06-2007','%d-%m-%Y'),
-                 titulo='Março/2007-Junho/2007 (Primavera)',
-                 filename='spring2007')
-
-summer2007<-list(begin=strptime('21-06-2007','%d-%m-%Y'),
-                 end=strptime('20-09-2007','%d-%m-%Y'),
-                 titulo='Junho/2007-Setembro/2007 (Verão)',
-                 filename='summer2007')
-
 autumn2007<-list(begin=strptime('21-09-2007','%d-%m-%Y'),
                  end=strptime('20-12-2007','%d-%m-%Y'),
                  titulo='Setembro/2007-Dezembro/2007 (Outono)',
                  filename='autumn2007')
 
+# inverno
+winter2006_2007<-list(begin=strptime('21-12-2006','%d-%m-%Y'),
+                      end=strptime('20-03-2007','%d-%m-%Y'),
+                      titulo='Dezembro/2006-Março/2007 (Inverno)',
+                      filename='winter2006_2007')
 winter2007_2008<-list(begin=strptime('21-12-2007','%d-%m-%Y'),
                       end=strptime('20-03-2008','%d-%m-%Y'),
                       titulo='Dezembro/2007-Março/2008 (Inverno)',
                       filename='winter2007_2008')
 
+# Primavera
+
+spring2007<-list(begin=strptime('21-03-2007','%d-%m-%Y'),
+                 end=strptime('20-06-2007','%d-%m-%Y'),
+                 titulo='Março/2007-Junho/2007 (Primavera)',
+                 filename='spring2007')
 spring2008<-list(begin=strptime('21-03-2008','%d-%m-%Y'),
                  end=strptime('20-06-2008','%d-%m-%Y'),
                  titulo='Março/2008-Junho/2008 (Primavera)',
                  filename='spring2008')
+
+# Verão
+summer2007<-list(begin=strptime('21-06-2007','%d-%m-%Y'),
+                 end=strptime('20-09-2007','%d-%m-%Y'),
+                 titulo='Junho/2007-Setembro/2007 (Verão)',
+                 filename='summer2007')
+
+
+
 
 harmattan2006_2007<-list(begin=strptime('25-12-2006','%d-%m-%Y'),
                          end=strptime('07-02-2007','%d-%m-%Y'),
