@@ -1,45 +1,18 @@
 %%%%
 \section{Modelos Receptores}
 
-Modelo receptor e modelo de dispersão são duas abordagens matemáticas 
-para determinar e quantificar o efeito das fontes poluidoras do ar. 
-Os dois modelos se complementam, quando possível o pesquisador deve
-usar as duas metodologias. 
+Modelo receptor é uma abordagem matemática para determinar e 
+quantificar o efeito das fontes poluidoras do ar. 
 
-No modelo de dispersão determina-se o poluente no receptor a 
-partir de fontes com perfis conhecidos, usando por exemplo um invetário de 
-fontes combinado com dados meteorológicos. O mais usado pelos governos é o da 
-hipótese que a distribuição espacial dos poluentes dentro da pluma é gaussiana. 
+Modelos receptores buscam quantificar a participação de fontes poluidoras em amostras. 
+O Balanço Químico de Massas (CBM), por exemplo, necessita do conhecimento prévio do 
+perfil das fontes locais, cuja combinação linear proverá o rateio de amostragens 
+entre tais fontes. 
 
-Modelo receptor quantifica o efeito das fontes poluidoras em amostras, 
-quando os perfis das fontes são desconhecidos.
-%TODO: no site da cetesb tem um esquema legal de modelo receptor
-%TODO: traçar um panomara da evolução histórica dos modelos receptores.
-
-Análise multivariada é uma das técnicas utilizadas para identificação
-de fontes poluidoras através dos dados coletados em medidas usando
-Modelos Receptores, outras técnicas comuns são: Regressão linear múltipla,
-redes neurais, cluster, edge detection, fator de enriquecimento e 
-Balanço Químico de Massa (BQM).  
-
-Na análise multivariada se reduz as dimensões (variáveis) de um 
-conjunto de dados analíticos complexo que poderão ser interpretados 
-como tipo de fontes.
-As técnicas de redução da dimensão, como a análise multivariada, 
-Modelos receptores é uma abordagem matemática para determinação e 
-quantificação dos efeitos das fontes poluidoras do ar. 
-
-%Não é verdade que modelos receptores prescindem do perfil das fontes. O Fator de Enriquecimento e CMB, primeiros destes modelos, somente são possíveis se você conhecer o perfil das fontes. PMF e AFP não necessitam deles para determinar "fatores principais" ou "principais fontes", mas que são genéricas e somente "adquirem vida" quando são identificadas pelo confronto com perfís conhecidos.
-%fiz algumas sugestões, mas acho que você precisará cuidar melhor deste item. 
-
-Eles buscam quantificar a participação de fontes poluidoras em amostras. 
-O Balanço Químico de Massas (CBM), por exemplo, necessita do conhecimento prévio do perfil 
-das fontes locais, cuja combinação linear proverá o rateio de amostragens entre tais fontes. 
-
-Já a Análise de Fatores Principais (PFA) ou Positive Matrix Fatorization (PMF) 
-permitem o rateio de fontes quando os seus perfis são desconhecidos. Entretanto,
-necessitamos de conhecê-los quando buscamos associar estes resultados a realidade 
-concreta da bacia aérea estudada. 
+Já a Análise de Fatores Principais (PFA) ou Positive Matrix Fatorization (PMF)
+permitem o rateio de fontes quando os seus perfis são desconhecidos. 
+Entretanto, necessitamos de conhecê-los quando buscamos associar estes 
+resultados a realidade concreta da bacia aérea estudada. 
 
 %TODO: no site da cetesb tem um esquema legal de modelo receptor
 %TODO: traçar um panomara da evolução histórica dos modelos receptores.
@@ -55,36 +28,27 @@ resolver reduzir a dimensão dos dados coletados nos modelos receptores,
 usando a variância. 
 
 As dimensões (variáveis) reduzidas de um conjunto de dados analíticos 
-complexo poderão ser interpretados como tipo de fontes poluídora.
+complexo poderão ser interpretados como fonte(s) poluídora(s).
 
 As técnicas de redução da dimensão, como análise multivariada, 
 permitem manter a quantidade de informação contida inicialmente nos dados. 
 Essa informação está armazenada na variância e covariância (ou correlação) 
 inicial dos dados. 
 
-O Fator não é uma grandeza diretamente medida, e sim uma variável latente.
-Uma variável latente é um variável que não pode ser medida diretamente, 
-mas sim através de outras variáveis observáveis. 
-
-O processo de identificação das fontes principais de poluição do ar é 
-complexo, havendo diversos caminhos, os quais as técnicas estatísticas
-multivariadas são historicamente usadas.
-Assim, as dimensões resultantes de redução, chamada de Fator, 
-não é uma grandeza diretamente medida, e sim uma variável latente, 
-isto é, uma variável que não pode ser medida diretamente, 
-mas sim através de outras variáveis observáveis.
+Dâ-se o nome de Fator as novas variáveis reduzidas. 
+O Fator é um tipo de variável latente, pois não é uma grandeza diretamente
+medida, mas sim obtida a partir de outras variáveis observáveis. 
 
 O número de fatores extraídos dependerá do conhecimento do(a) pesquisador(a)
-sobre a região, possíveis fontes poluídoras, número de amostras, 
+sobre a região, possíveis fontes poluidoras, número de amostras, 
 resolução da amostragem e espécies medidas.
 
 O conhecimento do pesquisador é imprescindível para fazer o relacionamento 
 entre fator e fonte(s), afim de avaliar o significado físico das fontes. 
 Para tal, informações das possíveis fontes poluidoras próximas ao ponto 
 receptor, dados meteorológicos do período de coleta, inventário de emissões 
-e qualquer mais informação que o pesquisador julgar necessário devem ser 
-usadas para fazer esse relacionamento.
-e outras informações que possam ajudar a fazer esse relacionamento devem ser usadas.
+e outras informações que possam ajudar a fazer esse relacionamento 
+devem ser usadas.
 
 Número reduzido de amostras, baixa resolução da amostragem, \textit{outliers} 
 (eventos infrequentes de curta duração e com alta concentração) representam 
@@ -93,11 +57,8 @@ um desafio para modelos multivariados.
 %%%%
 \subsection{Fomulação matemática dos Modelos Receptores}
 
-Os poluentes que são emitidos pelas fontes devem chegar no receptor, assim, 
-pode-se usar o príncipio de conservação de massa no Modelo Receptor. 
-Vamos fazer uma adaptação da equação de convervação de massa para o contexto 
-Os poluentes que são emitidos pelas fontes em uma bacia aérea devem 
-chegar no receptor, podendo-se, assim, usar o princípio de conservação de massa no Modelo Receptor. 
+Os poluentes que são emitidos pelas fontes em uma bacia aérea devem chegar no 
+receptor, podendo-se, assim, usar o princípio de conservação de massa no Modelo Receptor. 
 Vamos fazer uma adaptação da equação de conservação de massa para o contexto 
 de poluição do ar. 
 
@@ -122,6 +83,8 @@ sendo,
 O quanto dos perfis de fontes medidas explica as concentrações dos elementos? 
 A técnica Balanço Químico de Massa (\textit{BQM}) busca responder essa questão.
 
+%TODO: você deve terminar de dizer o que é o CMB antes de dizer suas condições de uso e limitações. Desse modo o leitor pode saber porque isso ocorre. Cabe falar do CMB, já que não realizou nenhuma avaliação com ele.
+
 O \textit{BQM} apresenta problema quando fontes importantes são omitidas do
 cálculo ou alguma fonte incluída não representa uma fonte real.
 
@@ -144,6 +107,7 @@ Critérios para validar os resultados do \textit{BQM}:
   \item ${\chi}^2$ < 4
   \item concentração modelada/concentração medida entre 0,2 e 2,0.
 \end{itemize}
+%ajuste o formato matemático dos itens acima.
 
 %%%%
 \subsection{Análise de Fatores}
@@ -156,6 +120,7 @@ tabela de observações e variáveis com a principal ideia de transformar
 as variáveis observadas em um conjunto de novas variáveis, 
 as componentes principais, que são ortogonais entre si 
 e explicam a variação inicial do dados.
+%TODO: o que faz a componentes principais? Não está claro  no que disse. O que de diferente faz a AF? Quais são as equações básicas deste modêlo?
 
 Os resultados do PCA e AF são similares, apesar de PCA ser um modelo
 descritivo dos dados e AF ser um modelo estrutura. 
@@ -181,6 +146,7 @@ interpretação das componentes é feita de forma similar no fatores da AF.
 Um problema comum na Análise de Fatores é a Multicolinearidade. 
 Caso o determiante da matriz de correlação seja maior que $0,00001$ 
 há multicolinearidade e os dados devem ser checados. 
+% essas explicações somente fazem sentido se você apresentar as equações do modelo e daquilo que está tratando.
 
 \textit{Factor Loading} é a correlação entre a variável observada e o fator
 extraído (similar ao coeficiente padronizado da regressão Linear Múltipla). 
@@ -205,6 +171,7 @@ entendimento dos resultados.
 \textit{Rotação Varimax} pressupõe que os fatores não são correlacionados.
 
 Equação da Análise de Fatores
+%essa é a equação para fatores absulutos, ou seja, é a recomposição dos fatores que são resultados da análise dos dados a partir da normalização dos dados originais pela média e pelo desvio padrão.
 \begin{eqnarray}
 FA = \frac{L_{ij}\sigma_i}{\sigma_{PM}L_{PM_j}}
 \end{eqnarray}
@@ -225,13 +192,16 @@ FatorScore1 = coeficiente_{elemento1 fator1}*valor_elemento1 + coeficiente_{elem
 
 O \textit{Positive Matrix Factorizarion (PMF)} é outro método multivariado usado
 em modelos receptores para resolver a equação da conservação da massa 
-(citar equação). 
+(citar equação).
+
+%TODO: Além de colocar a equação, antes de discutir o código numérico computacional, você deve discutir estatística e cientificamente o que faz o método. Apenas na sequência é que cabe discutir as facilidades oferecidas pelo programa computacional.
+
 
 O \textit{PMF} também é um tipo de Análise Fatorial (lincar para capitulo de analise fatorial)
 mas ao invés de fazer redução da dimensão dos dados decompondo a matriz de 
 correlação em autovalores e autovetores, resolve a equação de conservação 
 usando a resolução por mínimos quadrados. Em pesquisas de poluição atmosférica 
-o método \textit{PMF} tem ganhado espaço nos últimos anos, devido 3 motivos 
+o método \textit{PMF} tem ganhado espaço nos últimos anos, devido a 3 motivos 
 principais:
 
 \begin{itemize}
@@ -250,7 +220,7 @@ Em termos de reprodutibilidade da pesquisa científica o \textit{PMF EPA 5.0}
 nos fornece os seguintes recursos:
 
 \begin{itemize}
-  \item Fixação de \textit{Random Seed}.
+  \item Fixação de \textit{Random Seed}.%o que significa isso? Porque este detalhe destaca-se dos demais?
   \item Arquivo \textit{XML} com as configurações usadas na rodada. 
 \end{itemize} 
 
@@ -303,8 +273,10 @@ ou maximizada usando métodos numéricos para equações não lineares, pois nã
 tem solução analítica. 
 
 No \textit{PMF} a função objeto $Q$ é calculada conforme a equação 
-\ref{equation:pmf:object}, onde ${u_{ij}}$ é encontrado isolando-o na 
+\ref{equation:pmf:object}, onde ${e_{ij}}$ é encontrado isolando-o na 
 equação \ref{equation:pmf}.
+%TODO: veja que uij é a incerteza que temos na determinação da concentração (método analítico e amostragem); esse é um ponto importante e forte realizado neste trabalho e que vai precisar ser bemd iscutido, inclusive nesta parte teórica.
+
 
 \begin{equation}
   Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{e_{ij}} {u_{ij}} \right] ^2
@@ -312,7 +284,8 @@ equação \ref{equation:pmf}.
 \end{equation}
 
 O \textit{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ 
-mínimo local ou global. 
+mínimo local ou global.% o que é local e global?
+
 
 Como sempre estamos interessados no mínimo global, precisa-se verificar se a 
 solução gerou um $Q$ mínimo local ou global. A estratégica para identificar
@@ -338,7 +311,10 @@ que são então modificados, até a encontrar a melhor solução, ou seja,
 a do menor $Q_{robusto}$. 
 Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações 
 como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim 
-mais esperança de encontrarmos um $Q$ mínimo global e não local.
+mais esperança de encontrarmos um $Q$ mínimo global e não local. 
+
+%TODO: você está fazendo uma disucssão randomica sobre o método. Separe primeiro os fundamentos básicos do método no início, com suas equqções fundamentais. Depois selecione o que é relevante para a metodologia de solução numérica da equação. O manual de uso do método deve ser referido e quem for trabalhar com o modelo irá tratar de aprender seus detalhes. Isso vale para o que fez a seguir, que representa um conjunto de sugestões arbritrárias dos produtores do modelo e que podem direcioná-lo sem uma base concreta para tanto. O mais importante é você discutir como montou suas incertezas. Você pode até comentar algumas destas sugesões mas não convém adotá-las a prióri.
+
 
 %%%%
 \subsubsection{Pré-processamento do ajuste}
@@ -378,7 +354,7 @@ Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir
 alguns pré-requisitos antes da realização do ajuste:
 
 \begin{itemize}
-  \item Não é permitido concentrações negativas em $c_{ij}$ ou em $u_{ij}$.
+  \item Não é permitido valores negativos em $c_{ij}$ ou em $u_{ij}$.
   \item células vazias não são aceitas.
   \item nomes das colunas(espécies) e linhas(amostras) devem ser únicos.
   \item é ideal (não obrigatório) que os dados já estejam classificados 
