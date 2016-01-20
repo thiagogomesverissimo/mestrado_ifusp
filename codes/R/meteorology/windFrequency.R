@@ -4,6 +4,26 @@ source("myfunctions/load.R")
 noaa_harvard<-read.csv("../../outputs/noaa_from_harvard.csv")
 noaa_harvard$YRMODAHRMN<-strptime(noaa_harvard$YRMODAHRMN,"%Y%m%d%H%M")
 
+# Spring
+spring_data=subset(noaa_harvard,getSeasonNorth(noaa_harvard$YRMODAHRMN)=="Spring")
+windFrequency(spring_data,'Primavera','windFrequencySpring')
+
+# Winter
+winter_data=subset(noaa_harvard,getSeasonNorth(noaa_harvard$YRMODAHRMN)=="Winter")
+windFrequency(winter_data,'Inverno','windFrequencyWinter')
+
+# Summer
+summer_data=subset(noaa_harvard,getSeasonNorth(noaa_harvard$YRMODAHRMN)=="Summer")
+windFrequency(summer_data,'Verão','windFrequencySummer')
+
+# Fall
+fall_data=subset(noaa_harvard,getSeasonNorth(noaa_harvard$YRMODAHRMN)=="Fall")
+windFrequency(fall_data,'Outono','windFrequencyFall')
+
+# Meses do harmatão
+meses_harmatao = c('December', 'January')
+harmatao = subset(noaa_harvard, months(noaa_harvard$YRMODAHRMN) %in% meses_harmatao)
+windFrequency(harmatao,'Harmatão','windFrequencyHarmatao')
 
 #Estações do ano desde agosto 2006 até agosto 2008
 #Início e fim das datas para fazer os filtros.
