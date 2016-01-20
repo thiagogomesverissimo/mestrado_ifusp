@@ -28,6 +28,7 @@ load<-function()
   source("myfunctions/windFrequency.R")
   source("myfunctions/pmf.R")
   source("myfunctions/FactorAnalysis.R")
+  source("myfunctions/getSeason.R")
 }
 
 # Call the load function
