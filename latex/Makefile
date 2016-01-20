@@ -16,7 +16,6 @@ fast:
 	bibtex $(FILE).aux
 	pdflatex -interaction=nonstopmode -halt-on-error $(FILE).tex
 	pdflatex -interaction=nonstopmode -halt-on-error $(FILE).tex
-	make clean
 	
 clean:
 	rm -rf *.aux *.bbl *.toc *.out *.log *.nls *.nlo \
@@ -24,3 +23,7 @@ clean:
 	rm -rf */*.aux */*.bbl */*.toc */*.out */*.log   \
                */*.nls */*.nlo */*.lof */*.lot */*.blg */*.ilg */*.synctex.gz
 	rm -rf *~ */*~
+
+cleanht:
+	#Gerados pelo tex4ht
+	rm *.tmp *.4om *.4og *.png *.xref *.4ct *.4tc *.4oo *.lg
