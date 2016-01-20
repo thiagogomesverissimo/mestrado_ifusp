@@ -19,4 +19,14 @@ my.statistic <- list("fun"=length,
                      "lab2" = "velocidade média do vento",
                      "labcalm" = function(x) round(x, 1))
 
-windRose(noaa_harvard, statistic=my.statistic)
+pdf(file='../../outputs/windRoseNoaaHarvard.pdf')
+  windRose(noaa_harvard, statistic=my.statistic)
+dev.off()
+
+
+meses_harmatao = c('December', 'January') #'February'
+harmatao = subset(noaa_harvard, months(noaa_harvard$date) %in% meses_harmatao)
+pdf(file='../../outputs/windRoseHarmatao.pdf')
+  windRose(harmatao, statistic=my.statistic)
+dev.off()           
+
