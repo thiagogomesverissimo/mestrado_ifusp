@@ -1,24 +1,6 @@
 %%%%
 \section{Análise de Fatores}
 
-A tabela abaixo nos da o número de amostras seguimentada por
-moda e região de amostragem. 
-Também mostra o número de casos quando remove-se os dias de ocorrência do harmatão.
-
-\begin{table}[H]
- \centering
-  %\label{my-label}
-  \input{../outputs/tabela_descritiva_com_harmatan.tex}
-  \caption{Estatística descritiva incluindo-se os dias com harmatão}
-\end{table}
-
-\begin{table}[H]
-  \centering
-  %\label{my-label}
-  \input{../outputs/tabela_descritiva_sem_harmatan.tex}
-  \caption{Estatística descritiva excluíndo-se os dias com harmatão}
-\end{table}
-
 Ao incluirmos os dias de ocorrência do Harmatão, apenas 1 fator
 predomina na análise, ficando os outros fatores com autovalores
 menores do que 1 e degenerados. Neste cenário, a fonte 
@@ -37,15 +19,16 @@ fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
 % RFsH,RGsH,RIsH,TFsH,TGsH,TIsH,RFcH,RGcH,RIcH,TFcH,TGcH,TIcH 
 
 %%%%
-\subsection{$MP_{2,5}$ na região residencial}
 
-Na \textit{$MP_{2,5}$ na região residencial} o resultado da 
-\textit{Análise de Fatores}  explicou $83,0\%$ da variância total 
+\subsection{$MP_{2,5}$ na região residencial e avenida}
+
+Para \textit{$MP_{2,5}$ na região residencial} o resultado da 
+\textit{Análise de Fatores}  explicou $84,0\%$ da variância total 
 dos dados com 4 fatores retidos.
-A comunalidade, valor que nos indica o quão o ajuste explicou
-a variabilidade dos elementos, foi maior que 0,7 para a maioria dos elementos,
-com exceção do chumbo (Pb), bromo (Br) e zinco (Zn), que tiveram comunalidade 
-de 0,62, 0,50 e 0,42, respectivamente.
+A comunalidade, indicação do quão o ajuste explicou a variabilidade por 
+cada espécie, foi maior que $0,7$ para a maioria dos elementos,
+com exceção do bromo (Br), zinco (Zn) e chumbo (Pb) que tiveram comunalidade 
+de $0,43$, $0,49$ e $0,62$, respectivamente.
 
 \begin{table}[H]
   %\label{my-label} 
@@ -58,33 +41,41 @@ de 0,62, 0,50 e 0,42, respectivamente.
 \end{table}
 
 O fator predominante, isto é, que explica grande parte da variância, 
-tem autovalor $9,09$.
+tem autovalor $9,57$ e explica $53,0\%$ da variância total.
 Os elementos com maiores \textit{loadings} neste fator são essecialmente 
-metais (Al, Si, Ti, V, Fe, Mn, Ca, Mg) e provém principalmente de ressuspensão de solo.
-fósforo (P), potássio (K), cloro (Cl) possuem \textit{loadings} 
-altos neste fator, indicando sobreposição de fontes, ou mesmo solo contaminado.
-Por fim, a massa (\textit{mass}) também está no primeiro fator.
+metais (Al, Si, Ti, V, Fe, Mn, Ca, Mg) e massa (\textit{mass}), e proveem 
+principalmente de ressuspensão de solo.
+Neste fator, aparecem ainda fósforo (P), potássio (K), cloro (Cl), indicando 
+possível sobreposição de fontes, ou mesmo solo contaminado.
 %TODO: citar speciate
 
-O segundo fator predominante, de autovalor 2,04, agrega fósforo (P), 
+O segundo fator predominante, de autovalor $1,91$, agrega fósforo (P), 
 potássio (K) e enxofre (S), somente. Eles caracteriza a queima de biomassa, 
-comumente usada em \textit{Nima} 
+comumente usada em \textit{Nima}.
 %TODO: citar artigo sobre elementos de queima de biomassa.
 
-O terceiro fator predominante, de autovalor 2,02, contém elementos
-característicos de mar, sódio (Na), cloro (Cl) e bromo (Br) com 
-contaminação de enxofre (S). 
+O terceiro fator predominante, de autovalor $1,88$, contém elementos
+característicos de mar, sódio (Na), cloro (Cl), bromo (Br) e enxofre (S), 
+sendo o sódio (Na) de maior loading $0,81$. 
+Depois de um tempo de residência na atmosfera, o Cl do sal marinho envelhecido 
+é substituído por $SO_4^{2-}$ como resultado da reação com acido sulfurico e 
+ácido nitrico \cite{mcinnes1994}. 
+
 %TODO: citar artigo sobre elementos MAR
 
-O quarto e último fator retido, de autovalor 1,83, é composto 
+O quarto e último fator retido, de autovalor $1,78$, é composto 
 por black carbon (BC), chumbo (P) e zinco (Zn). 
 Acra tem um dos maiores lixões de eletrônicos do mundo, recebendo
 grande parte dos eletrônicos descartados como lixo na Europa e que são derretidos
-para obtenção do cobre (Cu). O lixão está localizado em \textit{Agbogbloshie}, 
-4 kilômetros a sudoeste de Nima. O vento predominante em Nima é de sudoeste, 
-o que nos indica grandes chances desse fator representar uma fonte de queima de 
-lixo eletrônico.
+para obtenção do cobre (Cu). 
+
+O lixão está localizado em \textit{Agbogbloshie}, 4 kilômetros a sudoeste de Nima. 
+O vento predominante em Nima é de sudoeste, o que nos indica grandes chances 
+desse fator representar uma fonte de queima de lixo eletrônico.
 %TODO: citar artigo Agbogbloshie
+
+\cite{asante2012} mediu níveis de:
+Al, Co, Cu, Zn, Cd, In, Sb, Ba, and Pb no solo do e-waste.
 
 Além disso, black carbon (BC) e zinco (Zn) também estão associados a veículos, 
 pois o black carbon (BC) é resultado de combustão incompleta e o zinco (Zn) é
@@ -92,47 +83,82 @@ liberado no desgate das pastilhas de freio e dos pneus dos automóveis.
 %TODO: citar artigo sobre poluentes de veículos
 
 Entretanto o chumbo (Pb) não pode estar associado a veículo, pois 
-foi banido da gasolina em Gana em 2003 devido a acordo internacional.
+foi banido da gasolina em Gana em 2003 devido a acordo internacional. 
+Mas nota-se que o loading de $0,30$ do chumbo (Pb) no primeiro fator revela 
+que ainda pode haver contaminação do solo por chumbo (Pb).
 %TODO: procurar artigo sobre isso. https://en.wikipedia.org/wiki/Ghana_Environmental_Protection_Agency
+
+Comparando com região metropolitana São Paulo, em uma medida de 2006, a média de Chumbo foi $11 +/- 0.7 ng/m^3$  
+(64 amostras) e frota veicular 7 milhões. 
+%TODO: citar artigo da simone.
 
 O zinco (Zn) é o principal composto de baterias de eletrônicos, assim também 
 pode estar associado ao \textit{e-waste} de \textit{Agbogbloshie}.
 
-No intuito de melhor investigar fontes que se associam a esses fatores e aumentar
-a comunalidade do zinco (Zn) o ajuste foi refeito para 5 fatores.
-
-
 \begin{table}[H]
   %\label{my-label} 
-  \caption{\textbf{Análise de Fatores com rotação varimax - 5 fatores retidos} 
-            para $MP_{2,5}$ na região residencial.
+  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
+             para $MP_{2,5}$ na avenida.
            (\textcolor{red}{h} : Comunalidade; 
            \textcolor{red}{S=1-h} : Singularidade; 
            \textcolor{red}{C} : Complexidade.)}
-  \input{../outputs/loadings_RFsH5.tex}
+  \input{../outputs/loadings_TFsH4.tex}
 \end{table}
 
-Acrescentando-se um quinto fator o zinco (Zn) aparece como elemento predominate 
-e quase único do novo fator. Há um peso (\textit{loading}) não desprezível de 
-black carbon (BC) $(0.19)$. 
+Ainda para $MP_{2,5}$, mas na avenida com intenso movimento de veículos,
+a Análise de Fatores tamém explicou $84,0\%$ da variância total 
+dos dados com 4 fatores retidos.
 
-A comunalidade do chumbo (Pb), bromo (Br) e zinco (Zn) aumentaram e o zinco (Zn)
-que estava mal explicado no ajuste de 4 fatores (0,42) foi muito bem explicado
-com o novo fator (0,93), indicando que black carbon (BC) e chumbo (Pb) representam 
-uma fonte e zinco (Zn) e um pouco black carbon (BC) foram outra fonte.  
+O fator predominante, de autovalor $9,87$, ressuspensão de solo, continua 
+como os mesmos elementos (Al, Si, Ti, V, Fe, Mn, Ca, Mg, P, K, Cl, massa).
 
-Portanto, a associação entre fatores e fontes poluídoras pode ser resumida
+O segundo fator predominante, de autovalor $1,87$, além dos elementos que 
+apareceram no barro residencial - fósforo (P), potássio (K) e enxofre (S) -
+também contém black carbon (BC) com alto loading $(0,72)$. 
+Esse fator continua caracterizando queima de biomassa.
+
+O terceiro fator predominante, autovalor $1,75$, composto por
+potássio (K), enxofre (S), bromo (Br), chumbo (P) e zinco (Zn). 
+Esse fator está associado a emissões veiculares. 
+
+O quarto e último fator predominante, autovalor $1,65$, 
+Nódio (Na), cloro (Cl) e bromo (Br) e enxofre (S).
+
+
+
+A associação entre fatores e fontes poluídoras pode ser resumida
 assim: \textit{solo, queima de biomassa, mar e lixo.}
 
 \begin{table}[H]
   \centering
   \caption{Associação de fonte de poluídoras na \textit{Análise de Fatores}
          para $MP_{2,5}$ na região residencial}
-  \input{../outputs/briefFA_RFsH5.tex}
+  \input{../outputs/briefFA_RFsH4.tex}
 \end{table}
 
 %%%%
-\subsection{$MP_{2,5-10}$ na região residencial}
+\subsection{$MP_{2,5-10}$ na região residencial e avenida}
+
+\begin{table}[H]
+  %\label{my-label} 
+  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
+             para $MP_{2,5}$ na avenida.
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)}
+  \input{../outputs/loadings_TFsH4.tex}
+\end{table}
+
+\begin{table}[H]
+  %\label{my-label} 
+  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
+             para $MP_{2,5}$ na avenida.
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)}
+  \input{../outputs/loadings_TFsH4.tex}
+\end{table}
+
 
 
 %%# Fontes encontradas em Harvard:
