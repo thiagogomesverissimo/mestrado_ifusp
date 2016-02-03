@@ -43,10 +43,9 @@ for FILE in $FILES; do
   sed -i s/V2/'Espécie'/g  $i
 done
 
-## outputs/briefFA_RFsH5.tex
+## outputs/briefFA_RFsH4.tex
 FILE='../../outputs/briefFA_RFsH5.tex'
 sed -i s/F1/"Solo"/g $FILE
 sed -i s/F2/"Queima de biomassa"/g $FILE
 sed -i s/F3/"Mar"/g $FILE
-sed -i s/F4/"e-waste"/g $FILE
-sed -i s/F5/"veículo"/g $FILE
+sed -i s/F4/"e-waste/veículo"/g $FILE

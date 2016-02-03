@@ -79,7 +79,7 @@ FactorAnalysis <- function(current_base,nfactors){
   
   # Monta um gráfico para cada fator
   for(i in seq(1:nfactors)){
-    fator_file_name = paste('../../outputs/score_',current_base,nfactors,i,'.pdf',sep="")
+    fator_file_name = paste('../../outputs/score_',current_base,nfactors,'-F',i,'.pdf',sep="")
     pdf(file=fator_file_name)
     plot(base.principal$scores[,i] ~ datas,
          xaxt = "n", 

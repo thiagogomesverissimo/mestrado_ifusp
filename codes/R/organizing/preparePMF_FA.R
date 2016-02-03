@@ -49,7 +49,7 @@ for(i in names(conditions_mass)){
   rownames(data) <- strftime(data$Date,format='%d/%m/%Y %H:%M')
   rownames(data_unc) <- strftime(data_unc$Date,format='%d/%m/%Y %H:%M')
   
-  # remove coluna Date
+  # remove coluna date para fazer conta do 8%
   data = data[,-1]
   data_unc = data_unc[,-1]
   
@@ -64,14 +64,21 @@ for(i in names(conditions_mass)) {
   conditions_unc8[[i]] = sqrt( (conditions_mass[[i]]*0.08)^2 + conditions_unc[[i]]^2 )
 }
 
-# Cria diretório PMF
+# Cria diretório pmf_fa
 if(!('pmf_fa' %in% list.files("../../outputs/"))) dir.create("../../outputs/pmf_fa")
 
 # Salvar os arquivos para análise PMF/FA, não pode ter aspas
 for(i in names(conditions_mass)){
   folder = '../../outputs/pmf_fa/'
-  write.csv(conditions_mass[[i]], paste(folder,i,'.csv',sep=''),quote=F)
-  write.csv(conditions_unc[[i]], paste(folder,i,'unc.csv',sep=''),quote=F)
-  write.csv(conditions_unc8[[i]], paste(folder,i,'unc8.csv',sep=''),quote=F)
+  
+  # coloca as colunas Date
+  conditions_mass[[i]] = cbind(Date=rownames(conditions_mass[[i]]),conditions_mass[[i]])
+  conditions_unc[[i]] = cbind(Date=rownames(conditions_unc[[i]]),conditions_unc[[i]])
+  conditions_unc8[[i]] = cbind(Date=rownames(conditions_unc8[[i]]),conditions_unc8[[i]])
+  
+  # Salva
+  write.csv(conditions_mass[[i]], paste(folder,i,'.csv',sep=''),quote=F,row.names=F)
+  write.csv(conditions_unc[[i]], paste(folder,i,'unc.csv',sep=''),quote=F,row.names=F)
+  write.csv(conditions_unc8[[i]], paste(folder,i,'unc8.csv',sep=''),quote=F,row.names=F)
 }
 

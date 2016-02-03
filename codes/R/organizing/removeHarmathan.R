@@ -34,7 +34,8 @@ for(i in conditions){
 
 
 # Harmathan: dez, Jan, Fev, Março
-harmathan<-c('December','January','February','March')
+#harmathan<-c('December','January','February','March')
+harmathan<-c('December','January')
 
 # Exclusão dos meses do Harmathan
 

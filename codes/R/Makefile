@@ -17,6 +17,7 @@ all:
 	#Sequência de código para meteorologia
 	Rscript meteorology/noaa_from_harvard.R
 	Rscript meteorology/windFrequency.R
+	Rscript meteorology/windRose.R
 	#Rscript meteorology/noaa_ftp.R
 
 	# Estatísticas
@@ -24,7 +25,7 @@ all:
 	#Rscript statistics/CMB/componentes_absolutos.R 
 	#Rscript statistics/CMB/create_CMB_files.R  
 	#Rscript statistics/CMB/speciate_africa.R
-	#Rscript statistics/descriptive/descriptive_statistics.R
+	Rscript statistics/descriptive/descriptive_statistics.R
 	#Rscript statistics/PMF/main.R
 	
 	#Latex
