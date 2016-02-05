@@ -5,7 +5,6 @@
 all:
 	# shell
 	sh shellscript/sed_loadings.sh
-	#sh ../shellscript/sedLatex/pmf.sh
 	#sh ../shellscript/sedLatex/general.sh
 
 	# Python

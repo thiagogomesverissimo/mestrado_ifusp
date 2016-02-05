@@ -1,4 +1,8 @@
 duplicates<-function(x,erro=F) {
+  
+  # Testes:
+  #x = read.csv("../../outputs/concentrations/TFcH.csv")
+  
   amostras_duplicadas <- subset(x,x$Duplicate==1)
   amostras_nao_duplicadas <- subset(x,x$Duplicate==0)
    
@@ -48,8 +52,6 @@ duplicates<-function(x,erro=F) {
   return(retorno)
 }
 
-# Testes:
-#x = read.csv("../../outputs/concentrations/TFcH.csv")
-#y = duplicates(x,T)
+
 
 

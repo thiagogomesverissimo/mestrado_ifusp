@@ -15,6 +15,7 @@ install_libraries = function()
   suppressPackageStartupMessages(require('fBasics'))
   suppressPackageStartupMessages(require('stringr'))
   suppressPackageStartupMessages(require('devtools'))
+  suppressPackageStartupMessages(require('openair'))
   
   # GPArotation
   if (!require("GPArotation")) {
@@ -85,6 +86,11 @@ install_libraries = function()
   if (!require("openair") & require('devtools')) {
     install_github('davidcarslaw/openair')
   }
+  
+  #  tikzDevice
+  #if (!require("tikzDevice",lib.loc='~/.R/libraries')) {
+  #  install.packages("tikzDevice", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  #}
     
 }
 

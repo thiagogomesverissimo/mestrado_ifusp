@@ -1,11 +1,12 @@
 ## A functions collection to extract data from PMF-EPA csv outputs.
 
-pmf_diagnostics <- function(pathfile){
+pmf_diagnostics <- function(path,sigla){
   
   ### Leitura do arquivo diagnostics.csv ###
   
   # tests:
-  # pathfile = '../../inputs/pmf/JIcH_contributions.csv'
+  #sigla= 'RFsH'
+  pathfile = paste(path,sigla,'/',sigla,'_diagnostics.csv',sep='')
   
   diagnostics=readLines(pathfile)
   linhas_em_branco = which(diagnostics=="")
@@ -57,10 +58,12 @@ pmf_diagnostics <- function(pathfile){
               regression = regression))
 }
 
-pmf_contributions <- function(pathfile){
+pmf_contributions <- function(path,sigla){
 
   # tests:
-  # pathfile= "../../inputs/pmf/RFsH_contributions.csv"
+  
+  #sigla= 'RFsH'
+  pathfile = paste(path,sigla,'/',sigla,'_contributions.csv',sep='')
     
   ### contributions.csv ###
 
@@ -100,12 +103,12 @@ pmf_contributions <- function(pathfile){
               factor_contribution_conc_units = factor_contribution_conc_units))
 }
 
-pmf_profiles <- function(pathfile){
-
+pmf_profiles <- function(path,sigla){
+  
   ### profiles.csv ###
   
   # tests:
-  # pathfile<-("../../inputs/pmf/RFsH_profiles.csv")
+  pathfile = paste(path,sigla,'/',sigla,'_profiles.csv',sep='')
   
   profiles = readLines(pathfile)
   linhas_em_branco = which(profiles=="")
@@ -144,12 +147,12 @@ pmf_profiles <- function(pathfile){
               fp_percent_total   =fp_percent_total))
 }
 
-pmf_residuals <- function(pathfile){
+pmf_residuals <- function(path,sigla){
   
   ### residuals.csv ###
   
   # tests:
-  # pathfile<-("../../inputs/pmf/RFsH_residuals.csv")
+  pathfile = paste(path,sigla,'/',sigla,'_residuals.csv',sep='')
   
   residuals = readLines(pathfile)
   linhas_em_branco = which(residuals=="")
@@ -175,15 +178,14 @@ pmf_residuals <- function(pathfile){
 
 ## Exports para latex
 
-pmf_profiles_latex <- function(sigla) {
+pmf_profiles_latex <- function(path,sigla) {
   
   #sigla = 'RFsH'
-  pathfile = paste('../../inputs/pmf/',sigla,'/',sigla,'_profiles.csv',sep='')
-  profiles = pmf_profiles(pathfile)
+  profiles = pmf_profiles(path,sigla)
   x = profiles$fp_percent_species
   x = round(x,1)
-  x[x<10.0] = ''
   x = x[order(x$Factor.1,x$Factor.2,x$Factor.3,decreasing = T),]
+  x[x>=30.0] = paste('\\textcolor{red}{\\textbf{',x[x>=30.0],'}}',sep='')
 
   latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species.tex',sep='')
   print(xtable(x), 
@@ -192,19 +194,13 @@ pmf_profiles_latex <- function(sigla) {
       floating = FALSE,
       sanitize.text.function = identity,
       file=latex_percent_species)
-  
-  # Incluir gráficos com elementos no fator
-  # cores <- rainbow(nrow(x))
-  # pie3D(as.numeric(species$Factor.3),
-  #      explode=0.1,
-  #      col=cores,
-  #      main="Pie Chart of Countries ")
-  # legend("topright", row.names(species), cex=0.8,fill=cores)
 }
 
-pmf_contributions_latex <- function(sigla) {
-  pathfile = paste('../../inputs/pmf/',sigla,'/',sigla,'_contributions.csv',sep='')
-  contributions <- pmf_contributions(pathfile)
+pmf_contributions_latex <- function(path,sigla,colors) {
+  
+  #sigla = 'RGsH'
+  contributions <- pmf_contributions(path,sigla)
+
   x = contributions$factor_contribution_conc_units
   x = x[,seq(3,ncol(x))]
   medias = colMeans(x)/sum(colMeans(x))*100
@@ -223,6 +219,24 @@ pmf_contributions_latex <- function(sigla) {
   # Plotar contributions
   # factor_contribution = contributions$factor_contribution
   # plot(factor_contribution$`Factor 1`)
+  # Incluir gráficos com elementos no fator
+ 
+  # Plota gráfico de pizza, assim como na ide do pmf:  
+  pizza_name = paste('../../outputs/',sigla,'_pmf_contribution_pizza','.pdf',sep="")
+  #pdf(file=pizza_name,onefile=T, paper='A4r') 
+  pdf(file=pizza_name) 
+  #tikz( pizza_name )
+    pieval<-contribution2latex[,1]
+    legenda<-paste(rownames(contribution2latex),' = ',contribution2latex[,1],'(', contribution2latex[,2],') %', sep='')
+    porcentagens <- paste(pieval,'%')
+    lp<-pie3D(pieval,radius=0.7,labels=porcentagens,explode=0.15,labelrad=1.4,col=colors,labelcex=1)
+    par(mar=c(0, 0, 0, 0))
+    legend('bottom',  legenda, cex=1.3,fill=colors, horiz=F)  
+   
+    #pie(pieval, col=colors, labels=porcentagens, cex=0.7)
+    #legend('bottom',  legenda, cex=0.5,fill=colors, horiz=F) 
+    
+  dev.off()
 }
 
 ### Testes ###
@@ -230,16 +244,16 @@ pmf_contributions_latex <- function(sigla) {
 #setwd("~/remota/repos/mestrado_ifusp/codes/R")
 #source("myfunctions/load.R")
 
-#test1 = pmf_diagnostics("../../inputs/pmf/RFsH_diagnostics.csv")
+#test1 = pmf_diagnostics("../../outputs/pmf/5factors/RFsH_diagnostics.csv")
 #test1$Q
 
-#test2 = pmf_contributions("../../inputs/pmf/RFsH_contributions.csv")
+#test2 = pmf_contributions("../../outputs/pmf/5factors/RFsH_contributions.csv")
 #test2$factor_contribution
 
-#test3 = pmf_profiles("../../inputs/pmf/RFsH_profiles.csv")
+#test3 = pmf_profiles("../../outputs/pmf/5factors/RFsH_profiles.csv")
 #test3$fp_conc_species
 
-#test4 = pmf_residuals("../../inputs/pmf/RFsH_residuals.csv")
+#test4 = pmf_residuals("../../outputs/pmf/5factors/RFsH_residuals.csv")
 #test4$residuals
 
 #test5 
