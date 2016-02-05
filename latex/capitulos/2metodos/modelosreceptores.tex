@@ -403,43 +403,6 @@ Amostras com contribuição zero em ambos os eixos proporcionam maior
 estabilidade na solução e portanto menor \textit{Ambiguidade Rotacional}. 
 
 %%%%
-\paragraph{Rodando o Software}
-
-Uma vez que apresentamos os conceitos necessários o entendimento do jargão 
-usado no método \textit{PMF}, apresentamos as etapas escolhidas para realização 
-do ajuste.
-
-\begin{enumerate}
-  \item Rodar o \textit{base run} com 20 iterações, encolhendo o número de 
-        fatores variando de 3 até 10. 
-        Verificar a quantidade de fatores com melhor significado físico. 
-        As matrizes soluções $g_{ik}$ e $f_{kj}$ sairão nos arquivos: 
-        \textit{profiles.csv} e \textit{contributions.csv}.
-  \item Verificar a estabilidade do $Q_{verdadeiro}$ e $Q_{robusto}$ que 
-        convergiram, se $Q$ não for estável, então não foi um bom ajuste.
-  \item Regressão linear simples das concentrações das espécies ajustadas 
-        versus medidas, que devem estar correlacionas. 
-        Remover amostras ou aumentar as incertezas das amostras que não foram 
-        bem ajustadas. Rodar novamente o \textit{base run}.  
-  \item Série temporal das concentrações das espécies ajustadas sobreposta
-        as medidas. 
-        Identificar pontos não bem ajustados, devido a fontes infrequentes, 
-        por exemplo.
-        Removê-los ou aumentar a incerteza. Rodar novamente o \textit{base run}.
-  \item Análise residual. Verificar se a distribuição do resíduo é normal 
-        (usando o \textit{Teste de Kolmogorov–Smirnov}). 
-        Quando não é normal há a indicação que o ajusto foi pobre para essa 
-        espécie. 
-        Pode-se diminuir o peso da espécie na análise aumentando sua incerteza, 
-        ou até mesmo remover a espécie da análise.
-  \item Verificação se $Q$ é mínimo global ou Local usando 10 valores 
-        diferentes de \textit{Random Seed}.
-  \item Avaliação da \textit{Ambiguidade Rotacional} usando os 
-        gráficos \textit{G-Space}.
-  \item Série temporal de $g_{ik}$. Avaliação do significado físico.
-\end{enumerate}
-
-%%%%
 \subsubsection{Pós-processamento do ajuste}
 Métodos para avaliação da estabilidade da solução.
 

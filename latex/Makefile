@@ -12,6 +12,7 @@ fast:
 	pdflatex -interaction=nonstopmode -halt-on-error $(FILE).tex 
 	pdflatex -interaction=nonstopmode -halt-on-error $(FILE).tex
 	makeindex $(FILE).nlo -s $(NOMENCL) -o $(FILE).nls
+	makeindex $(FILE).nlo -s $(NOMENCL) -o $(FILE).nls
 	pdflatex -interaction=nonstopmode -halt-on-error $(FILE).tex
 	bibtex $(FILE).aux
 	pdflatex -interaction=nonstopmode -halt-on-error $(FILE).tex
