@@ -16,6 +16,7 @@ install_libraries = function()
   suppressPackageStartupMessages(require('stringr'))
   suppressPackageStartupMessages(require('devtools'))
   suppressPackageStartupMessages(require('openair'))
+  suppressPackageStartupMessages(require('OpenStreetMap'))
   
   # GPArotation
   if (!require("GPArotation")) {
@@ -91,6 +92,11 @@ install_libraries = function()
   #if (!require("tikzDevice",lib.loc='~/.R/libraries')) {
   #  install.packages("tikzDevice", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
   #}
+
+  # OpenStreetMap
+  if (!require("OpenStreetMap",lib.loc='~/.R/libraries')) {
+    install.packages("OpenStreetMap", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
     
 }
 

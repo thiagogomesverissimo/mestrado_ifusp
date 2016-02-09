@@ -4,14 +4,14 @@ source("myfunctions/load.R")
 system('sh ../../codes/shellscript/sed_pmf.sh')
 
 # cores
-poeira = "#FF0000FF"
-biomassa = "#FFFF00FF"
-veiculo = "#00FF00FF"
-lixo_solido = "#00FFFFFF"
-mar = "#FF00FFFF"
-metal = '#3300FFFF'
-queimada = '#CC00FFFF'
-industria = '#FF0099FF'
+poeira = "#EECFA1"
+biomassa = "#006400"
+veiculo = "#CDCDC1"
+lixo_solido = "#FFD700"
+mar = "#87CEFF"
+metal = '#9C9C9C'
+queimada = '#FFA54F'
+industria = '#FF6AA7'
 
 RFsH_cores = c(lixo_solido,biomassa,poeira,mar,veiculo)
 TFsH_cores = c(mar,biomassa,poeira,lixo_solido,veiculo)
