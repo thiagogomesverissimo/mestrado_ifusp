@@ -14,13 +14,15 @@ FactorAnalysis('RGcH',4)
 #print(FactorAnalysis('RGcH',4)$loadings,cutoff=4e-1)
 
 FactorAnalysis('RGsH',4)
-print(FactorAnalysis('RGsH',4)$loadings,cutoff=2e-1)
+FactorAnalysis('RGsH',5)
+#print(FactorAnalysis('RGsH',4)$loadings,cutoff=2e-1)
 
 ## Traffic fino
 FactorAnalysis('TFcH',4)
 #print(FactorAnalysis('TFcH',4)$loadings,cutoff=4e-1)
 
 FactorAnalysis('TFsH',4)
+FactorAnalysis('TFsH',5)
 print(FactorAnalysis('TFsH',4)$loadings,cutoff=4e-1)
 
 ## Traffic grosso
@@ -28,4 +30,5 @@ FactorAnalysis('TGcH',4)
 print(FactorAnalysis('TGcH',4)$loadings,cutoff=4e-1)
 
 FactorAnalysis('TGsH',4)
+FactorAnalysis('TGsH',5)
 print(FactorAnalysis('TGsH',4)$loadings,cutoff=4e-1)

@@ -178,7 +178,7 @@ pmf_residuals <- function(path,sigla){
 
 ## Exports para latex
 
-pmf_profiles_latex <- function(path,sigla) {
+pmf_profiles_latex <- function(path,sigla,nfactors) {
   
   #sigla = 'RFsH'
   profiles = pmf_profiles(path,sigla)
@@ -187,7 +187,7 @@ pmf_profiles_latex <- function(path,sigla) {
   x = x[order(x$Factor.1,x$Factor.2,x$Factor.3,decreasing = T),]
   x[x>=30.0] = paste('\\textcolor{red}{\\textbf{',x[x>=30.0],'}}',sep='')
 
-  latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species.tex',sep='')
+  latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species',nfactors,'.tex',sep='')
   print(xtable(x), 
       type="latex", 
       include.rownames = T, 
@@ -196,7 +196,7 @@ pmf_profiles_latex <- function(path,sigla) {
       file=latex_percent_species)
 }
 
-pmf_contributions_latex <- function(path,sigla,colors) {
+pmf_contributions_latex <- function(path,sigla,colors,nfactors) {
   
   #sigla = 'RGsH'
   contributions <- pmf_contributions(path,sigla)
@@ -208,7 +208,7 @@ pmf_contributions_latex <- function(path,sigla,colors) {
   contribution2latex = cbind(Contribuição=medias,Incerteza=erros)
   contribution2latex = round(contribution2latex,2)
   
-  latex_contribution = paste('../../outputs/',sigla,'_contribution.tex',sep='')
+  latex_contribution = paste('../../outputs/',sigla,'_contribution',nfactors,'.tex',sep='')
   print(xtable(contribution2latex), 
         type="latex", 
         include.rownames = T, 
@@ -222,7 +222,7 @@ pmf_contributions_latex <- function(path,sigla,colors) {
   # Incluir gráficos com elementos no fator
  
   # Plota gráfico de pizza, assim como na ide do pmf:  
-  pizza_name = paste('../../outputs/',sigla,'_pmf_contribution_pizza','.pdf',sep="")
+  pizza_name = paste('../../outputs/',sigla,'_pmf_contribution_pizza',nfactors,'.pdf',sep="")
   #pdf(file=pizza_name,onefile=T, paper='A4r') 
   pdf(file=pizza_name) 
   #tikz( pizza_name )

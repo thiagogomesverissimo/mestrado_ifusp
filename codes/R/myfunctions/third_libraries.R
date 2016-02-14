@@ -16,7 +16,8 @@ install_libraries = function()
   suppressPackageStartupMessages(require('stringr'))
   suppressPackageStartupMessages(require('devtools'))
   suppressPackageStartupMessages(require('openair'))
-  suppressPackageStartupMessages(require('OpenStreetMap'))
+  suppressPackageStartupMessages(require('ggplot2'))
+
   
   # GPArotation
   if (!require("GPArotation")) {
@@ -88,16 +89,25 @@ install_libraries = function()
     install_github('davidcarslaw/openair')
   }
   
+  #  OpenStreetMap, depende de: apt-get install libgdal-dev libproj-dev
+  #if (!require("OpenStreetMap",lib.loc='~/.R/libraries')) {
+  #  install.packages("OpenStreetMap", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  #}
+  
+  #  sp
+  #if (!require("sp",lib.loc='~/.R/libraries')) {
+  #  install.packages("sp", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  #}
+  
+  #  ggplot2
+  if (!require("ggplot2",lib.loc='~/.R/libraries')) {
+    install.packages("ggplot2", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
+  
   #  tikzDevice
   #if (!require("tikzDevice",lib.loc='~/.R/libraries')) {
   #  install.packages("tikzDevice", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
-  #}
-
-  # OpenStreetMap
-  if (!require("OpenStreetMap",lib.loc='~/.R/libraries')) {
-    install.packages("OpenStreetMap", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
-  }
-    
+  #}  
 }
 
 install_libraries()
