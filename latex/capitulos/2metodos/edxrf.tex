@@ -1,22 +1,53 @@
 %%%%
 \section{Fluorescência de Raios X}
 
-Técnica não-destrutiva para análise química elementar 
-quantitativa (número atômico Z>10), não exigindo pré-tratamento químico das amostras. 
-%TODO: precisa melhorar bem este capítulo todo, colocando a formulação quantitativa para cálculo das concentrações e calibração que fez.
+Para determinação e quantificação das concentrações elemenares (número atômico $Z>10$)
+foi utilizada a técnica não-destrutiva de \textit{Fluorescência de Raios X}.
 
-Tipos de fluorescências de Raios X:
-\begin{itemize}
-  \item Dispersão de Energia
-  \item Dispersão de comprimento de onda
-  \item Reflexão total
-\end{itemize}
+\textit{Fluorescência de Raios X} é um método analítico quali-quantitativo, 
+multielementar, que mede os raios-X característicos emitidos dos átomos da amostra, 
+depois de também serem irradiados por Raios X. Não exige pré-tratamento químico
+das amostras.
 
-Os raios X excitador pode ser gerado em um tubo de raios-x ou por fonte radioativa 
-emissoras de raios X.
+A figura \ref{fig:shimadzu_atomo} ilustra classicamente o que ocorre com
+o átomo ao ser excitado.
+
+\begin{figure}[H]
+\begin{center} 
+  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
+  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
+   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
+\end{center}
+\end{figure}
+
+O feixe de raios x incidente, neste caso produzido por tudo de raios X, 
+expulsa os elétrons das camadas mais internas $K$ e $L$, produzindo 
+"vazios", chamados de vacâncias. Um átomo com vacância é instável e
+rapidamente elétrons das camadas mais externa preenchem  dfdf
+
+As transições dos elétrons das camadas mais externas para as camadas
+$K$ e $L$ liberam energias na região dos Raios X, que são características
+do átomo em questão. 
+
+Transições da camada $L$ para $K$ são do tipo $K\alpha$, de $M$ para $K$ 
+são $K\beta$ e de $M$ para $L$ são $L\alpha$ ou $L\beta$. 
+Apesar $K\alpha$  Algumas transições tem 
+energias tão próximas que .
+
+
+%TODO: Fazer diagrama das transições. Lembrando que há transições proíbidas. 
+
+%%%%
+
 O rendimento é calculado pelos raios X efetivamente emitidos em relação as 
 vacâncias produzidas.
-%TODO: de onde surgiu esta vacância? teria que mostrar o processo de excitação se quer discutir o método - colocar figura com átomo de Borhn. Veja a apresentação que fiz sobre xrf, por exemplo. Veja também as referências citadas ali.
+
+Existem 3 Tipos de fluorescências de raios X:
+\begin{itemize}
+  \item Dispersão de Energia;
+  \item Dispersão de comprimento de onda;
+  \item Reflexão total.
+\end{itemize}
 
 
 Outra forma de excitação usada é por partículas aceleradas 
@@ -26,15 +57,7 @@ Amostra espessas apresentam o efeito matriz, ou seja, interações dos
 raios X característicos com os elementos da amostras, causando 
 absorção do raios X ou mesmo reforço de raios X.
 
-%%%%
-\subsection{Fluorescência de Raios X por dispersão em comprimento de onda}
 
-A dispersão por comprimento de onda é baseada na lei de Bragg.
-Usasse critais de difração com distancias interplanares conhecidas.
-  
-%TODO: citar equação de Barg.
-
-%%%%
 \subsection{Fluorescência de Raios X por dispersão em energia}
 
 Os dispersivos em energia usam semicondutor capaz de discriminar energia 
@@ -44,20 +67,6 @@ proporcionais às energias dos raios X.
 
 O detector mais empregado é o detector de silício ativado com lítio, Si(Li).
 
-%%%%
-\subsection{Nomenclaturas usadas em Fluorescência de Raios X}
-kalfa, kbeta representam transições de fótons nas camnadas dos átomos.
-Porém, Algumas transições tem energias tão próximas que é impossível separar.
-
-Transições mais comuns:
-\begin{itemize}
-  \item $K\alpha$: Transição L para K
-  \item $K\beta$: Transição M para K
-\end{itemize}
-
-%TODO: Fazer diagrama das transições. Lembrando que há transições proíbidas. 
-
-%%%%
 \subsection{Formulação Matemática}
 
 Energia de ligação pode ser aproximada pela teoria atômica de Bohr:

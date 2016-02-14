@@ -36,6 +36,7 @@ all:
 
 	# Gráficos
 	#Rscript graphs/graficos.R
+	Rscript graphs/maps.R
 
 clean:
 	rm -rf *~ 

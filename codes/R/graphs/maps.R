@@ -1,25 +1,35 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
-library(ggmap)
+pontos = read.csv('../../inputs/geocode_nima.csv')
+pontos = pontos[,-4]
+location = c(-70.2954, 43.64278, -70.2350, 43.68093)
 
-geo_nima = read.csv('../../inputs/geocode_nima.csv')
+# site para pegar box http://nominatim.openstreetmap.org/
+# viewbox: left/bottom e right/top em lat lon
+# mouse position: lat lon
 
-stores <- data.frame(name=c("Commercial","Union","Bedford"),
-                     longitude=c(-70.25042295455933,-70.26050806045532,-70.27726650238037),
-                     latitude=c(43.657471302616806,43.65663299041943,43.66091757424481))
-#location = c(-70.2954, 43.64278, -70.2350, 43.68093)
-location = c( 5.59948,-0.23316,5.61443,-0.20290)
+# traffic +5° 34' 54.00", -0° 11' 56.30"
+# residential 5° 35' 2.00", -0° 11' 58.80"
+
+# left/bottom e right/top em lon,lat
+location = c(-0.40649,5.51074,0.07759,5.74991)
 
 # Fetch the map
-portland = get_map(location = location, source = "osm")
+accra = get_map(location = location, source = "osm")
 
+pdf('../../outputs/accra_sources.pdf')
 # Draw the map
-portlandMap = ggmap(portland)
+accraMap = ggmap(accra)
 
 # Add the points layer
-portlandMap = portlandMap + geom_point(data = stores, aes(x = longitude, y = latitude), size = 5)
+accraMap = accraMap + geom_point(data = pontos, aes(x = longitude, y = latitude), size = 2)
 
 # Add the labels
-portlandMap + geom_text(data = stores, aes(label = name, x = longitude+.001, y = latitude), hjust = 0)
+accraMap + geom_text(data = pontos, aes(label = name, x = longitude+.001, y = latitude), hjust = -0.15)
+
+dev.off()
+#map <- get_map(location = "accra",source='osm',  zoom = 6)
+#ggmap(map)
+
 

@@ -17,8 +17,8 @@ install_libraries = function()
   suppressPackageStartupMessages(require('devtools'))
   suppressPackageStartupMessages(require('openair'))
   suppressPackageStartupMessages(require('ggplot2'))
-
-  
+  suppressPackageStartupMessages(require('ggmap'))
+    
   # GPArotation
   if (!require("GPArotation")) {
     install.packages("GPArotation", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE)
@@ -47,6 +47,11 @@ install_libraries = function()
   # nFactors
   if (!require("nFactors")) {
     install.packages("nFactors", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
+  
+  # ggmap
+  if (!require("ggmap")) {
+    install.packages("ggmap", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
   }
 
   # corrplot
