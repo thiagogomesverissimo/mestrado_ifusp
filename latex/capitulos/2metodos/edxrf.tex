@@ -67,45 +67,72 @@ proporcionais às energias dos raios X.
 
 O detector mais empregado é o de silício ativado com lítio $Si(Li)$.
 
-A figura \ref{fig:esquemaxrfed} ilusta a geometria do \textbf{XRFED}. 
 
-\begin{figure}[H]
-\begin{center} 
-  \includegraphics[width=0.5\textwidth]{../inputs/images/esquema-xrfed.png}
-  \caption{Geometria de montagem fluorescência de Raios X por dispersão em energia \label{fig:esquemaxrfed}}
-\end{center}
-\end{figure}
 
 E a figura \ref{fig:xrfed_iag} ...
 
 \begin{figure}[H]
 \begin{center}
   \includegraphics[scale=0.4]{../inputs/images/edx_iag_monitor.png}
-  \caption{Fluorescência de Raios X por dispersão em energia do IAG USP - label{fig:xrfed_iag}}
+  \caption{Fluorescência de Raios X por dispersão em energia do IAG USP - \label{fig:xrfed_iag}}
 \end{center}
 \end{figure}
 
 %%%%
 \subsection{Calibração}
 
-Energia de ligação pode ser aproximada pela teoria atômica de Bohr:
-\begin{math}
-E = \frac{me^4(Z-b)^2}{8w^2h^2n^2}
-\end{math}
+O método \textit{PIXE (Particle Induced X-Ray Emission)}, 
+também comumente usado em análises ambientais, usa feixe de íons 
+(prótons ou alfas) para excitação dos átomos das amostras.
 
-\begin{itemize}
-  \item E = energia de ligação eletrônica (joules);
-  \item m = massa de repouso do elétron = 9,11.10 -31 kilogramas;
-  \item e = carga elétrica do elétron = 1,6.10 -19 coulombs;
-  \item Z = número atômico do elemento emissor dos raios X;
-  \item b = constante de Moseley, com valores iguais a 1 e 7,4, 
-        para as camadas K e L, respectivamente;
-  \item w = o = permitividade elétrica no vácuo = 8,8534.10 -12 
-        coulombs.newton -l .metro -2;
-  \item h = constante de Planck = 6,625.10 -34 joules.s;
-  \item n = n o quântico principal do nível eletrônico 
-        (n = 1 para camada K, n = 2 para camada L, etc.).
-\end{itemize}
+\begin{figure}[H]
+\begin{center} 
+  \includegraphics[width=0.8\textwidth]{../inputs/images/arranjopixe.png}
+  \caption{Arranjo experimental básico para análise de método PIXE 
+           \cite{tabacniks2000} \label{fig:arranjopixe}}
+\end{center}
+\end{figure}
+
+Baseado no arranjo experimental da figura \ref{fig:arranjopixe} e
+considerando o filtro fino (alguns $\mu m$),
+\cite{tabacniks2000} chega na equação \ref{eq:npixe} para quantidade de Raios X
+contadas no detector. 
+
+\begin{equation}
+  \label{eq:npixe}
+  N(Z) = \frac{\Omega}{4\pi} \sigma \zeta T t_z \frac{Q}{qe}
+\end{equation}
+
+Sendo que, o número de raios X detectados $N(Z)$ é proporcional à 
+densidade (massa ou átomos por área) $t_Z$ e a carga coletada $Q$.
+$Z$ é espécie química, $\zeta$ é a eficiência do detector, 
+$\sigma_x$ é a secção de choque, $\Omega$ é o ângulo sólido, 
+$T$ é a transmitância para raios-X em caso de uso de absorvedores 
+(colocados entre a amostra e o detector), $q$ é o estado de carga da 
+partícula incidente e $e$ é a carga do elétron \cite{tabacniks2000}.
+
+Para resolver a equação \ref{eq:npixe}, parâmetros do arranjo experimental
+deveriam ser conhecidos: $\Omega$, $\sigma$, $\zeta$ e $T$. 
+
+Porém, se usarmos filtros de calibração (comprados ou produzidos) 
+com $t_z$ conhecidos, podemos agrupar todas variáveis
+do arranjo experimental em uma única, chamada de fator de resposta $R(Z)$.
+
+Assim, a equação \ref{eq:npixe} se torna \ref{eq:contagem}
+
+\begin{equation}
+  \label{eq:contagem}
+  N(Z) = R(Z) I\Delta_t \frac{m}{a}
+\end{equation}
+
+$R(Z)$ é o fator de resposta, $I\Delta_t$ é a carga efetiva expressa
+em termos da corrente e do tempo de análise e $\frac{m}{a}$ é a 
+densidade $t_z$
+
+
+
+
+
 
 %86 # Y and X were measured
 %187 # 
