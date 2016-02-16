@@ -1,7 +1,5 @@
-
-codes/R/ggmapTemp.png
-
 latex/mestrado.pdf
+
 # Não versionar arquivos que podem ser recriados no projeto:
 outputs/*
 !outputs/README.md
@@ -49,4 +47,5 @@ outputs/*
 *.tdo
 *.nls
 
+# Microsoft
 *.xls

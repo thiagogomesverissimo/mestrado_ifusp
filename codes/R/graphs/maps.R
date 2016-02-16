@@ -16,7 +16,7 @@ location = c(-70.2954, 43.64278, -70.2350, 43.68093)
 location = c(-0.40649,5.51074,0.07759,5.74991)
 
 # Fetch the map
-accra = get_map(location = location, source = "osm")
+accra = get_map(location = location, source = "osm",filename = '/tmp/accra')
 
 pdf('../../outputs/accra_sources.pdf')
 # Draw the map

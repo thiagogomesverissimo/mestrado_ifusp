@@ -93,3 +93,4 @@ par(cex=.8)
 plot(iag$V,epa$V)
 abline(reg1)
 abline(0, 1)
+

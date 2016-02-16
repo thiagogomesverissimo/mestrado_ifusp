@@ -18,7 +18,9 @@ install_libraries = function()
   suppressPackageStartupMessages(require('openair'))
   suppressPackageStartupMessages(require('ggplot2'))
   suppressPackageStartupMessages(require('ggmap'))
-    
+  suppressPackageStartupMessages(require('Hmisc'))
+  suppressPackageStartupMessages(require('polynom'))
+  
   # GPArotation
   if (!require("GPArotation")) {
     install.packages("GPArotation", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE)
@@ -82,6 +84,16 @@ install_libraries = function()
   # Rcpp 
   if (!require("Rcpp",lib.loc='~/.R/libraries')) {
     install.packages("Rcpp", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
+  
+  # polynom
+  if (!require("polynom",lib.loc='~/.R/libraries')) {
+    install.packages("polynom", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
+  }
+  
+  # Hmisc
+  if (!require("Hmisc",lib.loc='~/.R/libraries')) {
+    install.packages("Hmisc", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE) 
   }
 
   # dplyr 
