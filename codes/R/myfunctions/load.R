@@ -29,6 +29,7 @@ load<-function()
   source("myfunctions/pmf.R")
   source("myfunctions/FactorAnalysis.R")
   source("myfunctions/getSeason.R")
+  source("myfunctions/edxCalibration.R")
 }
 
 # Call the load function
