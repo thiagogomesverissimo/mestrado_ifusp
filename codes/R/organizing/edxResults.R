@@ -112,7 +112,7 @@ pmError <- pmError[, !(names(pmError) %in% elementosRemovidos)]
 
 # Removendo elementos excluídos do vetor 'pmElementos'
 pmElementos <- pmElementos[!(pmElementos %in% elementosRemovidos)]
-write.csv(describe(pmConc[,pmElementos]),'../../outputs/edxStatistics.csv',row.names = F)
+#write.csv(describe(pmConc[,pmElementos]),'../../outputs/edxStatistics.csv',row.names = F)
 
 # Substituir NAs pelo limite de detecção
 for(i in pmElementos){

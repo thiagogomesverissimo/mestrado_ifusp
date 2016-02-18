@@ -18,16 +18,19 @@ ACC957K<-read.csv("../../inputs/detectionLimit/ACC957K_CARREGADO.csv")
 ACC957Kout<-DetectionLimit(ACC957K,"K",I,tempo,area,volume)
 
 pdf(file='../../outputs/limitDetectionK.pdf')
+
+mar.default <- c(5,4,4,2) + 0.1
+par(mar = mar.default + c(0, 3, 0, 0))
+y_legenda = expression(frac(ng,m^3))
+
 plot(ACC957Kout$Z,
      ACC957Kout$limite,
      log="y",
      col=c("red"),
      pch=20,
-     main="Limite de Deteção K - Amostras Nima",
+    # main="Limite de Deteção K - Amostras Nima",
      xlab="Z - Número Atômico",
-     ylab=expression(paste(ng/m^3))
-)
-
+     ylab=y_legenda)
 
 #ACC386 é branco
 ACC386K<-read.csv("../../inputs/detectionLimit/ACC386K_BR.csv")
@@ -47,14 +50,19 @@ ACC957L<-read.csv("../../inputs/detectionLimit/ACC957L_CARREGADO.csv")
 ACC957Lout<-DetectionLimit(ACC957L,"L",I,tempo,area,volume)
 
 pdf(file='../../outputs/limitDetectionL.pdf')
+
+mar.default <- c(5,4,4,2) + 0.1
+par(mar = mar.default + c(0, 3, 0, 0))
+y_legenda = expression(frac(ng,m^3))
+
 plot(ACC957Lout$Z,
      ACC957Lout$limite,
      log="y",
      col=c("red"),
      pch=20,
-     main="Limite de Deteção L - Amostras Nima",
+    # main="Limite de Deteção L - Amostras Nima",
      xlab="Z - Número Atômico",
-     ylab=expression(paste(ng/m^3))
+     ylab=y_legenda
 )
 
 #ACC386 é branco

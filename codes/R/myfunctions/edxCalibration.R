@@ -27,7 +27,7 @@ edxCalibration = function(name,line,file_medidos,cores,legenda,coefs1,coefs2=c(-
   }
   if (line == 'L') {
     axis(side=1, at=c(25:85))
-    axis(side=2, at=seq(0, 0.2, by=0.02))
+    axis(side=2, at=seq(0, 0.2, by=0.01))
   }
   
   p <- polynomial(coefs1)
