@@ -39,3 +39,21 @@ cores = col=c('blue','black')
 legenda = c('ajuste1: Z 11-26','medidos')
 edxCalibration('2010NovAkerr','L',file_medidos,cores,legenda,coefs1)
 
+#### Calibração Abril de 2011 ####
+
+# Linha K
+coefs1 = c(0.15987616,-0.026726302,9.55E-04,1.45E-05)
+coefs2 = c(-4.3221494, 0.4083262,-0.011499903, 1.04E-04)
+file_medidos = '../../inputs/edxCalibration/americo/K2011AbrMedidosAkerr.csv'
+cores = col=c('blue','red','black')
+legenda = c('ajuste1: Z 11-26',
+            'ajuste2: Z 22-43',
+            'medidos')
+edxCalibration('K2011AbrAkerr','K',file_medidos,cores,legenda,coefs1,coefs2)
+
+# Linha L
+coefs1 = c(-0.71619926,0.07987028,-0.003424948,6.95E-05,-6.49E-07,2.27E-09)
+file_medidos = '../../inputs/edxCalibration/americo/L2011AbrMedidosAkerr.csv'
+cores = col=c('blue','black')
+legenda = c('ajuste1: Z 11-26','medidos')
+edxCalibration('2011AbrAkerr','L',file_medidos,cores,legenda,coefs1)

@@ -27,14 +27,14 @@ edxCalibration = function(name,line,file_medidos,cores,legenda,coefs1,coefs2=c(-
   }
   if (line == 'L') {
     axis(side=1, at=c(25:85))
-    axis(side=2, at=seq(0, 0.2, by=0.1))
+    axis(side=2, at=seq(0, 0.2, by=0.02))
   }
   
   p <- polynomial(coefs1)
   if (line=='K')
     lines(p,xlim = c(10,26),col=cores[1])
   if (line=='L')
-    lines(p,xlim = c(29,85),col=cores[1])
+    lines(p,xlim = c(29,82),col=cores[1])
   
   # Se houver um segundo ajuste
   if (coefs2[1]!=-999) {
