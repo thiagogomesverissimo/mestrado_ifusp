@@ -1,6 +1,9 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
+# A função describe está no pacote Hmisc e psych
+detach("package:Hmisc", unload=TRUE) 
+
 residencial = c('RFsH','RGsH','RIsH')   
 traffic = c('TFsH','TGsH','TIsH') 
 
