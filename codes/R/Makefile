@@ -26,7 +26,6 @@ all:
 	#Rscript statistics/CMB/create_CMB_files.R  
 	#Rscript statistics/CMB/speciate_africa.R
 	Rscript statistics/descriptive/descriptive_statistics.R
-	#Rscript statistics/PMF/main.R
 	
 	#Latex
 	Rscript toLatex/samples.R

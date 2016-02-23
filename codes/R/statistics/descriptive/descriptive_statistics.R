@@ -7,6 +7,8 @@ source("myfunctions/load.R")
 #min(pmFino$Date)
 #max(pmFino$Date)
 
+# A função describe está no pacote Hmisc e psych
+detach("package:Hmisc", unload=TRUE) 
 
 RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv",header=TRUE)
 base = RFcH

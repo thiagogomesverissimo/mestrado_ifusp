@@ -60,7 +60,7 @@ p1_maio2010 = polynomial(coefs1_maio2010)
 coefs1_nov2010 = c(-0.852155,0.095432,-0.0041149,8.41603E-05,-7.9806E-07,2.8404E-09)
 p1_nov2010 = polynomial(coefs1_nov2010)
 
-coefs1_abril2011 = c(-0.71619926,0.07987028,-0.003424948,6.95E-05,-6.49E-07,2.27E-09)
+coefs1_abril2011 = c(-0.71619926,0.07987028,-0.003424948,0.00006946821,-0.00000064936,0.0000000022665)
 p1_abril2011 = polynomial(coefs1_abril2011)
 
 pdf('../../outputs/CalibrationLcomparacao.pdf')
