@@ -36,6 +36,7 @@ all:
 	# Gráficos
 	#Rscript graphs/graficos.R
 	Rscript graphs/maps.R
+	Rscript graphs/census2010.R
 	Rscript graphs/edxCalibration.R
 	Rscript graphs/edxCalibration_comparacao.R
 
