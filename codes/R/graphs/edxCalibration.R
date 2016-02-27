@@ -16,6 +16,13 @@ edxCalibration('2010MaiAkerr','K',file_medidos,cores,legenda,coefs1,coefs2)
 # Linha L
 coefs1 = c(-0.90276721,0.10112016,-0.0043561,0.0000889436792,-0.000000842128969,0.000000003)
 file_medidos = '../../inputs/edxCalibration/americo/L2010MaioMedidosAkerr.csv'
+
+# Ajuste
+medido = read.csv(file_medidos)
+model <- lm(medido$R ~ poly(medido$Z,5,raw=TRUE))
+plot(medido$Z,medido$R)
+
+coefs1 = model$coefficients
 cores = col=c('blue','black')
 legenda = c('ajuste1: Z 11-26','medidos')
 edxCalibration('2010MaiAkerr','L',file_medidos,cores,legenda,coefs1)
