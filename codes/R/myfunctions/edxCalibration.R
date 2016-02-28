@@ -1,4 +1,4 @@
-edxCalibration = function(name,line,file_medidos,cores,legenda,coefs1,coefs2=c(-999)) {
+edxCalibration = function(name,line,file_medidos,cores,coefs1,coefs2=c(-999)) {
   
   filename_pdf = paste('../../outputs/Calibration',line,name,'.pdf',sep='')
   pdf(filename_pdf)
@@ -47,6 +47,32 @@ edxCalibration = function(name,line,file_medidos,cores,legenda,coefs1,coefs2=c(-
   errbar(pontos$Z,pontos$R, pontos$R + pontos$Uncert, pontos$R - pontos$Uncert,pch=20, add=TRUE)
   
   # legenda
-  legend("topleft", legend = legenda, col=cores, pch = 15)
+  if (line=='K'){
+    legend("topright", legend = expression(a + bx + cx^2 + dx^3), cex=0.7, bty = "n")
+    legenda1 = paste(letters[1:4],format(coefs1, scientific=T),sep=' = ')
+    legenda1 = paste(legenda1,'\n',sep='')
+    legenda1 = paste(legenda1,collapse=" ")
+    legenda1 = gsub('\\.',',',legenda1)
+    legenda1 = paste('\n Ajuste polinomial de grau 3 \n  para número atômico (Z) de 11 até 26: \n\n ',legenda1)
+  
+    legenda2 = paste(letters[1:4],format(coefs2, scientific=T),sep=' = ')
+    legenda2 = paste(legenda2,'\n',sep='')
+    legenda2 = paste(legenda2,collapse=" ")
+    legenda2 = gsub('\\.',',',legenda2)
+    legenda2 = paste('\n  Ajuste polinomial de grau 3 \n  para número atômico (Z) de 22 até 43: \n\n',legenda2)
+  
+    legenda = c(legenda1,legenda2,'Pontos experimentais medidos \n com alvos de calibração')
+  }
+  if (line=='L') {
+    legend("topright", legend = expression(a + bx + cx^2 + dx^3 + ex^4 + fx^5), cex=0.7, bty = "n")
+    legenda = paste(letters[1:6],format(coefs1, scientific=T),sep=' = ')
+    legenda = paste(legenda,'\n',sep='')
+    legenda = paste(legenda,collapse=" ")
+    legenda = gsub('\\.',',',legenda)
+    legenda = paste('\n Ajuste polinomial de grau 5 \n  para número atômico (Z) de 29 até 82: \n\n',legenda)
+    legenda = c(legenda,'Pontos experimentais medidos \n com alvos de calibração')
+  }
+  
+  legend("topleft", legend = legenda, col=cores, pch = 15, cex=0.7, bty = "n")
   dev.off()
 }
