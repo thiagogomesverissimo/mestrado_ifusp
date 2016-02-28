@@ -112,7 +112,7 @@ pmError <- pmError[, !(names(pmError) %in% elementosRemovidos)]
 
 # Removendo elementos excluídos do vetor 'pmElementos'
 pmElementos <- pmElementos[!(pmElementos %in% elementosRemovidos)]
-
+#describe(pmConc[,pmElementos])
 # A função describe está no pacote Hmisc e psych
 detach("package:Hmisc", unload=TRUE) 
 write.csv(describe(pmConc[,pmElementos]),'../../outputs/edxStatistics.csv',row.names = F)
