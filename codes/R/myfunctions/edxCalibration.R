@@ -48,31 +48,58 @@ edxCalibration = function(name,line,file_medidos,cores,coefs1,coefs2=c(-999)) {
   
   # legenda
   if (line=='K'){
-    legend("topright", legend = expression(a + bx + cx^2 + dx^3), cex=0.7, bty = "n")
+    legend("top", legend = expression(a + bx + cx^2 + dx^3), cex=0.7, bty = "n")
     legenda1 = paste(letters[1:4],format(coefs1, scientific=T),sep=' = ')
     legenda1 = paste(legenda1,'\n',sep='')
     legenda1 = paste(legenda1,collapse=" ")
     legenda1 = gsub('\\.',',',legenda1)
-    legenda1 = paste('\n Ajuste polinomial de grau 3 \n  para número atômico (Z) de 11 até 26: \n\n ',legenda1)
+    legenda1 = paste('\n Coeficientes do ajuste polinomial \n de grau 3 para número atômico (Z) \n de 11 até 26: \n\n ',legenda1)
   
     legenda2 = paste(letters[1:4],format(coefs2, scientific=T),sep=' = ')
     legenda2 = paste(legenda2,'\n',sep='')
     legenda2 = paste(legenda2,collapse=" ")
     legenda2 = gsub('\\.',',',legenda2)
-    legenda2 = paste('\n  Ajuste polinomial de grau 3 \n  para número atômico (Z) de 22 até 43: \n\n',legenda2)
+    legenda2 = paste('\n Coeficientes do ajuste polinomial \n de grau 3 para número atômico (Z) \n de 22 até 43: \n\n',legenda2)
   
     legenda = c(legenda1,legenda2,'Pontos experimentais medidos \n com alvos de calibração')
   }
   if (line=='L') {
-    legend("topright", legend = expression(a + bx + cx^2 + dx^3 + ex^4 + fx^5), cex=0.7, bty = "n")
+    legend("top", legend = expression(a + bx + cx^2 + dx^3 + ex^4 + fx^5), cex=0.7, bty = "n")
     legenda = paste(letters[1:6],format(coefs1, scientific=T),sep=' = ')
     legenda = paste(legenda,'\n',sep='')
     legenda = paste(legenda,collapse=" ")
     legenda = gsub('\\.',',',legenda)
-    legenda = paste('\n Ajuste polinomial de grau 5 \n  para número atômico (Z) de 29 até 82: \n\n',legenda)
+    legenda = paste('\n Coeficientes do ajuste polinomial \n de grau 5  para número atômico (Z) \n de 29 até 82: \n\n',legenda)
     legenda = c(legenda,'Pontos experimentais medidos \n com alvos de calibração')
   }
   
   legend("topleft", legend = legenda, col=cores, pch = 15, cex=0.7, bty = "n")
   dev.off()
+}
+
+edxCalibrationTable = function(medidos,ajustados,name) {
+
+  colnames(medidos) = c('Z','Rmedido','Umedido')
+  colnames(ajustados) = c('Z','Rajustado','Uajustado')
+  
+  tabela = merge(medidos,ajustados,all=T)
+  
+  tabela = cbind(tabela,'razaoMedido'=100*(tabela$Umedido/tabela$Rmedido))
+  tabela = cbind(tabela,'razaoAjustado'=100*(tabela$Uajustado/tabela$Rajustado))
+  
+  tabela[,2:5] = format(tabela[,2:5], scientific=T,digits=2,nsmall = 2,na.encode=F)
+  tabela[,6:7] = format(tabela[,6:7], digits=2,nsmall = 2,na.encode=F)
+  
+  tabela = apply(tabela,2, gsub,pattern='NA',replacement='-')
+  
+  tabela[,6] = ifelse( grepl("-",tabela[,6]),'-',paste(tabela[,6], '\\%', sep=""))
+  tabela[,7] = ifelse( grepl("-",tabela[,7]),'-',paste(tabela[,7], '\\%', sep=""))
+  
+  name = paste('../../outputs/edxCalibration',name,'.tex',sep='')
+  print(xtable(tabela),
+        type="latex", 
+        floating = FALSE,
+        include.rownames = F, 
+        sanitize.text.function = identity,
+        file=name)
 }

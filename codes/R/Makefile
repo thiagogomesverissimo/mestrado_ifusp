@@ -32,6 +32,8 @@ all:
 	Rscript toLatex/tabela_descritiva_com_harmatan.R
 	Rscript toLatex/tabela_descritiva_sem_harmatan.R
 	Rscript toLatex/tabelas_pmf.R
+	Rscript toLatex/edxCalibration.R
+	Rscript toLatex/edxCalibration_comparacao.R
 
 	# Gráficos
 	#Rscript graphs/graficos.R

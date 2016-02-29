@@ -10,3 +10,5 @@ FILE='../../outputs/census2010_cookfuel.tex'
 #sed -i '/label{default}/,+0 d' $FILE
 sed -i s/cook/"Fontes de energia"/g $FILE
 sed -i s/year//g $FILE
+
+# \shortstack{aa \\ bb}

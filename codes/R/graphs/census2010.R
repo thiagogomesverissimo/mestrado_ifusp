@@ -26,7 +26,7 @@ print(xtable(fuel[,c(1,2,3,8)]),
       file='../../outputs/census2010_cookfuel.tex')
 
 # Eletrecidade
-eletro = read.csv('../../inputs/ghana/census2010_eletricidade.csv')
+#eletro = read.csv('../../inputs/ghana/census2010_eletricidade.csv')
 #print(xtable(eletro), 
 #      type="latex", 
 #      include.rownames = T, 
