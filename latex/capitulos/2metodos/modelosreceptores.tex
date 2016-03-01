@@ -171,7 +171,14 @@ entendimento dos resultados.
 \textit{Rotação Varimax} pressupõe que os fatores não são correlacionados.
 
 Equação da Análise de Fatores
-%essa é a equação para fatores absulutos, ou seja, é a recomposição dos fatores que são resultados da análise dos dados a partir da normalização dos dados originais pela média e pelo desvio padrão.
+equação para fatores absulutos, ou seja, é a recomposição dos fatores que 
+são resultados da análise dos dados a partir da normalização dos dados 
+originais pela média e pelo desvio padrão.
+
+\cite{keiding1986}
+
+Onde, sj é o desvio padrão da variável j para todas as N amostras; Bjp é o valor dos 'factor loadings' rotacionados para a variável j num fator p; sMP é o desvio padrão do material particulado para todas as N amostras; e Cp é o valor do 'factor loading' referente ao material particulado num fator p.
+
 \begin{eqnarray}
 FA = \frac{L_{ij}\sigma_i}{\sigma_{PM}L_{PM_j}}
 \end{eqnarray}
@@ -197,7 +204,7 @@ em modelos receptores para resolver a equação da conservação da massa
 %TODO: Além de colocar a equação, antes de discutir o código numérico computacional, você deve discutir estatística e cientificamente o que faz o método. Apenas na sequência é que cabe discutir as facilidades oferecidas pelo programa computacional.
 
 
-O \textit{PMF} também é um tipo de Análise Fatorial (lincar para capitulo de analise fatorial)
+O \textit{PMF} também é um tipo de Análise Fatorial
 mas ao invés de fazer redução da dimensão dos dados decompondo a matriz de 
 correlação em autovalores e autovetores, resolve a equação de conservação 
 usando a resolução por mínimos quadrados. Em pesquisas de poluição atmosférica 
@@ -235,6 +242,8 @@ consiredarmos que:
   \item $j$ as espécies medidas
 \end{itemize}
 
+EPA PMF v3.0.2.2 (EPA, 2008), uma ferramenta de análise multivariada que permite determinar um conjunto de p fatores, o perfil das espécies f de cada fonte e a contribuição da massa g de cada fator para cada amostra individual, de modo que a matriz de dados obtidos, em j amostragens e com i espécies químicas determinadas é dada por:
+
 Pode-se escrever a equação da conservação da massa no 
 contexto do \textit{PMF} \ref{equation:pmf}: 
 
@@ -251,6 +260,9 @@ Onde,
         a distribuição das espécies nos fatores. (\textit{Factor Loadings}).
   \item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas.
 \end{itemize}
+
+Onde eij é o residuo para cada amostra/espécie.
+O modelo procura o melhor par das matrizes g e f, que minimiza a função Q, que pondera as diferenças entre valores observados e estimados pelas incertezas dos valores observados (uij):
 
 O objetivo do \textit{PMF} é encontrar $g_{ik}$ e $f_{kj}$. 
 ($k$ é um fator genérico), pois a matriz $c_{ij}$ é decomposta em 

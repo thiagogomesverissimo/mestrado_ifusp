@@ -1,8 +1,31 @@
 %%%%
 \section{Fluorescência de Raiox X}
 
+
+Foram consideradas as 
+incertezas do método analítico (EDX, Refletância e gravimetria), 
+assim como um erro percentual fixo de 8\%, atribuído ao método de amostragem em si 
+(erro médio observado em amostragens em paralelo com o amostrador Harvard).
+
 %%%%
 \subsection{Calibração}
+
+Com os alvos padrões que tínhamos no LAPAT plotamos o gráfico
+da ... e foi possível ajustar uma curva nos pontos. 
+Assim, calculou-se o fator de resposta para elementos que 
+não tínhamos os alvos padrões. 
+
+Os alvos da Micromatter tem incerteza na massa de 5%.
+No cálculo do fator de respota, a propagação do erro dos alvos de calibração
+e a incerteza percentual estão na tabela. 
+
+percebe-se que a incerteza percentual ajustada é menor que 
+a incerteza percentual medida. 
+
+A incerteza é crítica para o PMF. 
+
+Usando \textit{Ajuste dos Mínimos Quadrados Matricial} foi possível
+reduzir a incerteza percentual.  
 
 \begin{table}[H]
  
@@ -80,7 +103,7 @@
 
 O queda de desempenho no uso da fluorescência de Raios X pode ser observada 
 na figura \ref{fig:compara_calibracao}. 
-Possíveis motivos para queda de desempenho: desgaste do tido ou desgaste do detector. 
+Possíveis motivos para queda de desempenho: desgaste do tubo ou desgaste do detector. 
 
 \begin{figure}[H]
   \caption{Calibrações de Fluorescência de Raiox X em 3 períodos \label{fig:compara_calibracao}}
@@ -96,6 +119,17 @@ Possíveis motivos para queda de desempenho: desgaste do tido ou desgaste do det
 
 %%%%
 \subsection{Limite de Detecçção}
+
+
+No caso das concentrações diárias, obtidas por EDX.  
+
+Os valores faltantes foram preenchidos com o valor da metade do Limite de Detecção 
+(LD/2, supondo que a concentração não detectada de um elemento que aparece 
+frequentemente nas demais amostras esteja entre 0 e LD, com igual 
+probabilidade de ocorrência para cada valor, LD/2 seria a média e, portanto, 
+o valor mais provável entre estes valores "invisíveis"); 
+
+para sua incerteza tomou-se 5LD/6 \cite{polissar1998}.
 
 \begin{figure}[H]
   \caption{}

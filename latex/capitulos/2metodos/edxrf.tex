@@ -3,12 +3,25 @@
 
 Para determinação e quantificação das composição química (número atômico $ 10 < Z < 82$)
 das amostras foi utilizada a técnica não-destrutiva de \textit{Fluorescência de Raios X}.
-\textit{Fluorescência de Raios X} é um método analítico quali-quantitativo, 
-multielementar, que mede os raios-X característicos emitidos dos átomos da amostra, 
-depois de também serem excitados por Raios X. Não exige pré-tratamento químico
+\textit{Fluorescência de Raios X (XRF)} é um método analítico quali-quantitativo, 
+multielementar, que mede os raios X característicos emitidos dos átomos da amostra, 
+depois de também serem excitados por raios X. Não exige pré-tratamento químico
 das amostras e permite análise simultânea dos elementos químicos.
 
-Existem 3 Tipos de fluorescências de raios X: dispersão em energia,
+Há basicamente 3 etapas envolvida na técnica de \textbf{XRF}: 
+excitação da amostra, emissão de raios x pelos átomos da amostragem
+e detecção. A excitação pode ocorrer por feixe de raios X produzido em 
+tubos submetidos a diferença de potencial, fontes radioativas 
+ou por partículas aceleradas. 
+
+Há Tipos de fluorescências de raios X
+
+Fluorescências de raios X por dispersão em comprimento de onda
+Fluorescências de raios X por dispersão em dispersão em energia
+Fluorescências de raios X polarizada EDPXRF
+Fluorescências de raios X por reflexão total
+
+ dispersão em energia,
 dispersão por comprimento de onda e reflexão total.
 O usado nessa pesquisa foi o 
 \textit{Fluorescência de Raios X por dispersão em energia} \cite{jenkins1988}.
@@ -16,16 +29,15 @@ O usado nessa pesquisa foi o
 A figura \ref{fig:shimadzu_atomo} ilustra classicamente o que ocorre com
 o átomo ao ser excitado.
 
-\begin{figure}[H]
-\begin{center} 
-  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
-  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
-   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
-\end{center}
-\end{figure}
+%\begin{figure}[H]
+%\begin{center} 
+%  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
+%  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
+%   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
+%\end{center}
+%\end{figure}
 
-O feixe de raios X incidente, produzido por tudo de raios X, fontes radioativas
-ou por partículas aceleradas, expulsa os elétrons das camadas mais 
+O feixe de raios X incidente, , expulsa os elétrons das camadas mais 
 internas $K$ e $L$, produzindo vacâncias. 
 Um átomo com vacância é instável e rapidamente elétrons das camadas 
 mais externa preenchem as vacâncias estabilizando o átomo.
@@ -69,11 +81,12 @@ O detector mais empregado é o de silício ativado com lítio $Si(Li)$
 O sistema eletrônico do equipamento armazena o pulso em um multicanal.
 
 Características da \textbf{XRF-ED} do IAG-USP e opções usadas nessa pesquisa:
+LAPAt (Laboratório de Análise dos Processos Atmosféricos – IAG-USP).
 \begin{itemize}
   \item marca e modelo: EDX-720/800HS
   \item tipo de tubo de raios x: ródio Rh
   \item tensão aplicada no tubo: 50 KV 
-  \item detector: Si(Li)
+  \item detector: Si(Li) sensibilidade de 0 -20 KeV
   \item multicanal: 2048 canais
   \item filtro: Al
   \item corrente: 1000 $\mu A$
@@ -103,9 +116,6 @@ Características da \textbf{XRF-ED} do IAG-USP e opções usadas nessa pesquisa:
 A análise dos espectros obtidos por esses métodos foram feitas no software WinQxas (IAEA, 2002).
 
 
-
-
-
 E a figura \ref{fig:xrfed_iag} ...
 
 \begin{figure}[H]
@@ -118,8 +128,8 @@ E a figura \ref{fig:xrfed_iag} ...
 %%%%
 \subsection{Calibração}
 
-O método \textit{PIXE (Particle Induced X-Ray Emission)}, 
-também comumente usado em análises ambientais, usa feixe de íons 
+O \textit{PIXE (Particle Induced X-Ray Emission)}, 
+outro método comumente usado em análises ambientais, usa feixe de íons 
 (prótons ou alfas) para excitação dos átomos das amostras.
 
 \begin{figure}[H]
@@ -146,7 +156,7 @@ $Z$ é espécie química, $\zeta$ é a eficiência do detector,
 $\sigma_x$ é a secção de choque, $\Omega$ é o ângulo sólido, 
 $T$ é a transmitância para raios-X em caso de uso de absorvedores 
 (colocados entre a amostra e o detector), $q$ é o estado de carga da 
-partícula incidente e $e$ é a carga do elétron \cite{tabacniks2000}.
+partícula incidente e $e$ é a carga do elétron \cite{tabacniks1983}.
 
 Para resolver a equação \ref{eq:npixe}, parâmetros do arranjo experimental
 ($\Omega$, $\sigma$, $\zeta$ e $T$) deveriam ser conhecidos. 
@@ -261,6 +271,23 @@ Densidade mínima para haver detecção da espécie. % como determina para XRF?
 Amostra espessas apresentam o efeito matriz, ou seja, interações dos 
 raios X característicos com os elementos da amostras, causando 
 absorção do raios X ou mesmo reforço de raios X.
+
+
+%%%%
+\subsection{WinQxas – Quantative X-Ray Spectra analysis System}
+
+O WinQxas foi o programa utilizado para interpretação dos espectros obtidos no EDX. Ele foi elaborado sob o patrocínio da Agência Internacional de Energia Atômica (IAEA), por um grupo chefiado pelo Profº. Dr. P. Van Espen da Universidade de Antuérpia, Bélgica entre 1987 a 1994, e reformulado para acompanhar as necessidades laboratoriais atuais, como banco de dados mais atualizados e compatibilidade com novos sistemas operacionais. 
+Realizamos a integração de todos os espectros (exemplo na Fig.9), através desse programa, para estimar a composição elementar do MP2,5. Para tanto, o sistema também foi  calibrado, a partir de amostras padrões, com concentrações definidas. Os parâmetros iniciais para o ajuste de energia, por mínimo Chi quadrado, foram determinados  a partir de espectros com picos bem definidos. Obtém-se, assim, os parâmetros iniciais de uma relação linear entre canal e energia, bem como a relação abaixo, entre a largura do pico a meia altura (FWHM), com o nível geral de ruido (NOISE)  no espectro e um termo (FANO), dependente da energia (E):
+
+%FWHM^2 = NOISE^2 + 2,35 x FANO  x E
+
+%\begin{figure}[H]
+%\begin{center}
+%  \includegraphics[scale=0.30]{../inputs/images/winqxas/GHA41editado.pdf}
+%  \includegraphics[scale=0.30]{../inputs/images/winqxas/GPE770editado.pdf}
+%\end{center}
+
+Este gráfico representa o número de contagens  versus a Energia (Kev) dos 	fótons vindos da amostras e recebidos pelo detector do EDX. Os picos 	característicos de elementos químicos encontrados estão indicados na figura.
 
 %%%%
 \subsection{Fontes de erro no branco}

@@ -33,3 +33,9 @@ print(xtable(fuel[,c(1,2,3,8)]),
 #      floating = FALSE,
 #      sanitize.text.function = identity,
 #      file='../../outputs/census2010_eletrecidade.tex')
+
+# Frota
+# http://dvla.gov.gh/
+# Aumento da Frota de Veículos na cidade
+frota = read.csv('../../inputs/ghana/frota.csv')
+
