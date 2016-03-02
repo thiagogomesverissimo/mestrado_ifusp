@@ -54,7 +54,12 @@ dev.off()
 cores = c('blue','red','black')
 legenda = c('Maio 2010','Novembro 2010','Abril 2011')
 
-coefs1_maio2010 = c(-0.90276721,0.10112016,-0.0043561,0.0000889436792,-0.000000842128969,0.000000003)
+# Ajuste polinomial
+file_medidos = '../../inputs/edxCalibration/americo/L2010MaioMedidosAkerr.csv'
+medido = read.csv(file_medidos)
+model <- lm(medido$R ~ poly(medido$Z,5,raw=TRUE))
+coefs1 = model$coefficients
+coefs1_maio2010 = as.vector(coefs1)
 p1_maio2010 = polynomial(coefs1_maio2010)
 
 coefs1_nov2010 = c(-0.852155,0.095432,-0.0041149,0.0000841603,-0.00000079806,0.0000000028404)
@@ -86,3 +91,4 @@ lines(p1_abril2011,xlim = c(29,82),col=cores[3])
 
 legend("topleft", legend = legenda, col=cores, pch = 15)
 dev.off()
+

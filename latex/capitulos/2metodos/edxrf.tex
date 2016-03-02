@@ -1,47 +1,49 @@
 %%%%
 \section{Fluorescência de Raios X}
 
-A Fluorescência de Raio-X  (XRF-ED) a excitação da amostra é 
-feita com uma fonte de Raios X, no caso um tubo de Ródio com 
-uma tensão de 50 KV \cite{jenkins1988}. 
+Para determinação e quantificação das composição química (número atômico $ 10 < Z < 82$)
+das amostras foi utilizada a técnica não-destrutiva de \textit{Fluorescência de Raios X}.
+\textit{Fluorescência de Raios X (XRF)} é um método analítico quali-quantitativo, 
+multielementar, que mede os raios X característicos emitidos dos átomos da amostra, 
+depois de também serem excitados por raios X. Não exige pré-tratamento químico
+das amostras e permite análise simultânea dos elementos químicos.
 
-Os fótons de Raios X emitido pela amostra são detectado por detectores do tipo Si(Li). 
+Há basicamente 3 etapas envolvida na técnica de \textbf{XRF}: 
+excitação da amostra, emissão de raios x pelos átomos da amostragem
+e detecção. A excitação pode ocorrer por feixe de raios X produzido em 
+tubos submetidos a diferença de potencial, fontes radioativas 
+ou por partículas aceleradas. 
 
-Através da “eletrônica do sistema” é gerado um pulso eletrônico proporcional a energia do fóton que chega ao detector, a qual é então armazenada em um multicanal. 
+Há Tipos de fluorescências de raios X
 
-A análise dos espectros obtidos por esses métodos foram feitas no software WinQxas (IAEA, 2002).
+Fluorescências de raios X por dispersão em comprimento de onda
+Fluorescências de raios X por dispersão em dispersão em energia
+Fluorescências de raios X polarizada EDPXRF
+Fluorescências de raios X por reflexão total
 
-Para determinação e quantificação das concentrações elemenares (número atômico $Z>10$)
-foi utilizada a técnica não-destrutiva de \textit{Fluorescência de Raios X}.
-
-\textit{Fluorescência de Raios X} é um método analítico quali-quantitativo, 
-multielementar, que mede os raios-X característicos emitidos dos átomos da amostra, 
-depois de também serem irradiados por Raios X. Não exige pré-tratamento químico
-das amostras.
-
-Existem 3 Tipos de fluorescências de raios X: dispersão em energia,
+ dispersão em energia,
 dispersão por comprimento de onda e reflexão total.
 O usado nessa pesquisa foi o 
-\textit{Fluorescência de Raios X por dispersão em energia}.
+\textit{Fluorescência de Raios X por dispersão em energia} \cite{jenkins1988}.
 
 A figura \ref{fig:shimadzu_atomo} ilustra classicamente o que ocorre com
 o átomo ao ser excitado.
 
-\begin{figure}[H]
-\begin{center} 
-  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
-  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
-   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
-\end{center}
-\end{figure}
+%\begin{figure}[H]
+%\begin{center} 
+%  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
+%  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
+%   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
+%\end{center}
+%\end{figure}
 
-O feixe de raios x incidente, neste caso produzido por tudo de raios X, 
-expulsa os elétrons das camadas mais internas $K$ e $L$, produzindo vacâncias. 
+O feixe de raios X incidente, , expulsa os elétrons das camadas mais 
+internas $K$ e $L$, produzindo vacâncias. 
 Um átomo com vacância é instável e rapidamente elétrons das camadas 
 mais externa preenchem as vacâncias estabilizando o átomo.
 
-As transições dos elétrons das camadas mais externas para as camadas
-$K$ e $L$ liberam Raios X característicos do átomo em questão. 
+As transições dos elétrons entre o nível quântico $L$ e
+$K$ liberam raios X característicos do átomo em questão. 
 
 Transições da camada $L$ para $K$ são do tipo $K\alpha$, de $M$ para $K$ 
 são $K\beta$ e de $M$ para $L$ são $L\alpha$ ou $L\beta$. 
@@ -69,14 +71,49 @@ transições tipo $K$ e $L$.
 %%%%
 \subsection{Fluorescência de Raios X por dispersão em energia}
 
-A \textit{Fluorescência de Raios X por dispersão em energia} (\textbf{XRFED}).
+A \textit{Fluorescência de Raios X por dispersão em energia} (\textbf{XRF-ED}).
 usa detectores de semicondutores capaz de discriminar energia 
 próximas, onde a distinção dos fótons é feita pela amplitude do pulso 
 eletrônico produzido no detector, pois os pulsos eletrônicos são
-proporcionais às energias dos raios X. 
+proporcionais às energias dos raios X incidentes. 
 
-O detector mais empregado é o de silício ativado com lítio $Si(Li)$.
+O detector mais empregado é o de silício ativado com lítio $Si(Li)$ 
+O sistema eletrônico do equipamento armazena o pulso em um multicanal.
 
+Características da \textbf{XRF-ED} do IAG-USP e opções usadas nessa pesquisa:
+LAPAt (Laboratório de Análise dos Processos Atmosféricos – IAG-USP).
+\begin{itemize}
+  \item marca e modelo: EDX-720/800HS
+  \item tipo de tubo de raios x: ródio Rh
+  \item tensão aplicada no tubo: 50 KV 
+  \item detector: Si(Li) sensibilidade de 0 -20 KeV
+  \item multicanal: 2048 canais
+  \item filtro: Al
+  \item corrente: 1000 $\mu A$
+  \item energia: 0 - 20 $KeV$ 
+  \item tempo morto médio: 13\%
+  \item tempo de análise: 18 minutos.
+\end{itemize}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{../inputs/images/suporte8.jpg}
+  \caption{Suporte 8- \label{fig:suporte8}}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{../inputs/images/xrf-ed-IAG-USP.jpg}
+  \caption{\textbf{XRF-ED} do IAG-USP - \label{fig:xrfed_iag}}
+\end{center}
+\end{figure}
+
+
+
+%TODO: Colocar espectro plot 
+
+A análise dos espectros obtidos por esses métodos foram feitas no software WinQxas (IAEA, 2002).
 
 
 E a figura \ref{fig:xrfed_iag} ...
@@ -84,20 +121,20 @@ E a figura \ref{fig:xrfed_iag} ...
 \begin{figure}[H]
 \begin{center}
   \includegraphics[scale=0.4]{../inputs/images/edx_iag_monitor.png}
-  \caption{Fluorescência de Raios X por dispersão em energia do IAG USP - \label{fig:xrfed_iag}}
+  \caption{Fluorescência de Raios X por dispersão em energia do IAG USP - \label{fig:xrfed_software}}
 \end{center}
 \end{figure}
 
 %%%%
 \subsection{Calibração}
 
-O método \textit{PIXE (Particle Induced X-Ray Emission)}, 
-também comumente usado em análises ambientais, usa feixe de íons 
+O \textit{PIXE (Particle Induced X-Ray Emission)}, 
+outro método comumente usado em análises ambientais, usa feixe de íons 
 (prótons ou alfas) para excitação dos átomos das amostras.
 
 \begin{figure}[H]
 \begin{center} 
-  \includegraphics[width=0.8\textwidth]{../inputs/images/arranjopixe.png}
+  \includegraphics[width=0.6\textwidth]{../inputs/images/arranjopixe.png}
   \caption{Arranjo experimental básico para análise de método PIXE 
            \cite{tabacniks2000} \label{fig:arranjopixe}}
 \end{center}
@@ -119,7 +156,7 @@ $Z$ é espécie química, $\zeta$ é a eficiência do detector,
 $\sigma_x$ é a secção de choque, $\Omega$ é o ângulo sólido, 
 $T$ é a transmitância para raios-X em caso de uso de absorvedores 
 (colocados entre a amostra e o detector), $q$ é o estado de carga da 
-partícula incidente e $e$ é a carga do elétron \cite{tabacniks2000}.
+partícula incidente e $e$ é a carga do elétron \cite{tabacniks1983}.
 
 Para resolver a equação \ref{eq:npixe}, parâmetros do arranjo experimental
 ($\Omega$, $\sigma$, $\zeta$ e $T$) deveriam ser conhecidos. 
@@ -235,6 +272,23 @@ Amostra espessas apresentam o efeito matriz, ou seja, interações dos
 raios X característicos com os elementos da amostras, causando 
 absorção do raios X ou mesmo reforço de raios X.
 
+
+%%%%
+\subsection{WinQxas – Quantative X-Ray Spectra analysis System}
+
+O WinQxas foi o programa utilizado para interpretação dos espectros obtidos no EDX. Ele foi elaborado sob o patrocínio da Agência Internacional de Energia Atômica (IAEA), por um grupo chefiado pelo Profº. Dr. P. Van Espen da Universidade de Antuérpia, Bélgica entre 1987 a 1994, e reformulado para acompanhar as necessidades laboratoriais atuais, como banco de dados mais atualizados e compatibilidade com novos sistemas operacionais. 
+Realizamos a integração de todos os espectros (exemplo na Fig.9), através desse programa, para estimar a composição elementar do MP2,5. Para tanto, o sistema também foi  calibrado, a partir de amostras padrões, com concentrações definidas. Os parâmetros iniciais para o ajuste de energia, por mínimo Chi quadrado, foram determinados  a partir de espectros com picos bem definidos. Obtém-se, assim, os parâmetros iniciais de uma relação linear entre canal e energia, bem como a relação abaixo, entre a largura do pico a meia altura (FWHM), com o nível geral de ruido (NOISE)  no espectro e um termo (FANO), dependente da energia (E):
+
+%FWHM^2 = NOISE^2 + 2,35 x FANO  x E
+
+%\begin{figure}[H]
+%\begin{center}
+%  \includegraphics[scale=0.30]{../inputs/images/winqxas/GHA41editado.pdf}
+%  \includegraphics[scale=0.30]{../inputs/images/winqxas/GPE770editado.pdf}
+%\end{center}
+
+Este gráfico representa o número de contagens  versus a Energia (Kev) dos 	fótons vindos da amostras e recebidos pelo detector do EDX. Os picos 	característicos de elementos químicos encontrados estão indicados na figura.
+
 %%%%
 \subsection{Fontes de erro no branco}
 
@@ -262,7 +316,7 @@ N  & Fator \\
 \end{tabular}
 \end{table}
 
-Já o erro da integração do espectro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
+%Já o erro da integração do espectro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
 
 
 

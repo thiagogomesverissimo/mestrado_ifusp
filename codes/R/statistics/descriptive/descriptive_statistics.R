@@ -8,20 +8,21 @@ source("myfunctions/load.R")
 #max(pmFino$Date)
 
 # A função describe está no pacote Hmisc e psych
-detach("package:Hmisc", unload=TRUE) 
+#detach("package:Hmisc", unload=TRUE) 
 
-RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv",header=TRUE)
-base = RFcH
+#RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv",header=TRUE)
+#base = RFcH
 
-describe(base*1000)
+
+#describe(base*1000)
 
 #Cria um data.frame com a porcentagem dos elementos na Massa total
-contrib_elementos_na_massa = c()
+#contrib_elementos_na_massa = c()
 
-for (linha in seq(nrow(base))) {
-  x<-c(100*sum(base[linha,-1:-2])/base[linha,c('mass')])
-  contrib_elementos_na_massa = append(contrib_elementos_na_massa,x)
-}
+#for (linha in seq(nrow(base))) {
+#  x<-c(100*sum(base[linha,-1:-2])/base[linha,c('mass')])
+#  contrib_elementos_na_massa = append(contrib_elementos_na_massa,x)
+#}
 #contrib_elementos_na_massa<-cbind(base$Date,contrib_elementos_na_massa)
 #base[,1]
 
