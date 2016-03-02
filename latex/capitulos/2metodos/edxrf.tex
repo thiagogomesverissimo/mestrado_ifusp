@@ -109,6 +109,11 @@ LAPAt (Laboratório de Análise dos Processos Atmosféricos – IAG-USP).
 \end{center}
 \end{figure}
 
+O carrossel do edxiag não tem sistema para segura os filtros e
+não estando preso o filtro se descola quando o vácuo é ligado. 
+
+um suporte de alumino foi projetado para ficar em cima da amostra, pressiona-do o filtro
+em cima do carrossel.
 
 
 %TODO: Colocar espectro plot 
@@ -127,6 +132,69 @@ E a figura \ref{fig:xrfed_iag} ...
 
 %%%%
 \subsection{Calibração}
+
+
+We use Calibration
+Standards from Micromatter ( www.micromatter.com).
+There is one target for each one or two elements,
+depending of it be made of the pure element or
+from a salt. And some salt targets are not much
+useful since its mass distribution in the
+standard is not stoichiometric, needing a
+secondary calibration. All targets are evaporated
+under vacuum. Those standards are useful if the
+approximation I told you is valid (the deposit of
+aerosol in the filters are thin ad we could neglect X-Ray self absorptions).
+Best wishes,
+
+1. CALIBRATION UNCERTAINTY
+>>>>>
+>>>>>3. UNCERTAINTY IN LEAST SQUARES FIT
+>>>>>4. UNCERTAINTY IN ATTENUATION CORRECTION
+>>>>>5. UNCERTAINTY IN INTERFERENCE CORRECTION
+>>>>>6. UNCERTAINTY IN FLOW RATE
+>>>>>7. UNCERTAINTY IN VAPS/DICHOT COARSE FOR
+>>>>>CORRECTION OF CONTAMINATING FINES
+>>>>>8. UNCERTAINTY IN MONITOR CORRECTION
+>>>>>9. UNCERTAINTY IN SAMPLE DEPOSIT AREA
+>>>>>
+>>>>>Itens 1 to 5 are related to XRF analysis (we
+>>>>>know those values and are related to our
+>>>>>equipment or analytical programs and
+>>>>>methods, and EPA has their specific values).
+>>>>>Item 7 should not have been used, since the
+>>>>>samplers were not Dichotomous. But the other
+>>>>>values for items 6 to 9 you should have
+>>>>>given to EPA, otherwise they must have used
+>>>>>a generic value. In any of this case you (or
+>>>>>I) must know which value they used for equivalence in data for comparisons.
+>>>>>Therefore, my question was not "what", but
+>>>>>"which" values was they (and you) using.
+>>>>>(a)  For volume you are using 5% (coming
+>>>>>from the flow meter).That also was the value used by EPA.
+>>>>>(b) Was a value you gave, the area and the
+>>>>>respective uncertainty used by EPA?
+>>>>>(c) Do they used a monitor correction se
+
+>>>>>There is no original unit of XRF. The
+>>>>>dimensions for thin filters are (mass/area).
+>>>>>The recommendation in environmental problems
+>>>>>is for using concentrations in µg/m³ and,
+>>>>>therefore, the standard setup of our
+>>>>>program, for calculating concentrations, is
+>>>>>for that units (since the area and volumes
+>>>>>are given).
+
+>>>>>>3) I noticed the uncertainties of Na, Mg,
+>>>>>>Al, Si are much greater than other elements. Any thoughts about that?
+>>>>>
+>>>>>That is a general trend, since the detection
+>>>>>limit values are worse for elements with low
+>>>>>atomic number. But considering the percent
+>>>>>uncertainty you also will observe high
+>>>>>values of error when you have a small peak
+>>>>>for an element (concentration close to the detection limit value). 
+
 
 O \textit{PIXE (Particle Induced X-Ray Emission)}, 
 outro método comumente usado em análises ambientais, usa feixe de íons 
@@ -181,11 +249,24 @@ precisão desejada. Isolando-se $R(Z)$, obtemos a \ref{eq:fator_de_resposta}.
 
 \begin{equation}
   \label{eq:fator_de_resposta}
-  R(Z) = \frac{N(Z) a}{m(Z)I \Delta t}
+  R(Z) = \frac{N(Z) A}{m(Z)I \Delta t}
 \end{equation}
 
 Assim, para cada elemento que se tem alvo padrão, pode-se calcular $R(Z)$,
 pois, nos alvos padrões a densidade ($m(Z)/a$) é conhecida e $N(Z)$, $I \Delta t$ são medidos. 
+
+Considerando que a incerteza da corrente e do tempo vivo são 
+despresíveis perto da incerteza da massa, da contagem e da área 
+a incerteza do fator de resposta pode ser calculada usando a expressão
+de propagação de erro para variáveis independentes.
+
+\begin{equation}
+  \label{eq:erro_fator_de_resposta}
+  \sigma_{R(Z)}^2 = {R(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                  \left(\frac{\sigma_A}{A}\right)^2 + 
+                                  \left(\frac{\sigma_{m(Z)}}{m(Z)}\right)^2 
+                           \right)
+\end{equation}
 
 Conhecendo-se o fator de resposta $R(Z)$, pode-se calcular a massa $m(Z)$ da espécie química
 desejada pela equação \ref{eq:xrfedmassa}, que nada mais é que o isolamento de $m(Z)$ na 
@@ -193,8 +274,20 @@ desejada pela equação \ref{eq:xrfedmassa}, que nada mais é que o isolamento d
 
 \begin{equation}
   \label{eq:xrfedmassa}
-  m(Z) = \frac{N(Z) a}{ R(Z)I \Delta t}
+  m(Z) = \frac{N(Z) A}{ R(Z)I \Delta t}
 \end{equation}
+
+Usansdo a expressão de propagação de erro para variáveis independentes, 
+o erro na massa pode ser cálculado:
+
+\begin{equation}
+  \label{eq:erro_massa}
+  \sigma_{m(Z)}^2 = {m(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                  \left(\frac{\sigma_A}{A}\right)^2 + 
+                                  \left(\frac{\sigma_{R(Z)}}{R(Z)}\right)^2 
+                           \right)
+\end{equation}
+
 
 Entretanto, para cada espécie química de interesse, seria necessário 
 o alvo de calibração correspondente.
@@ -292,6 +385,47 @@ Este gráfico representa o número de contagens  versus a Energia (Kev) dos 	fó
 %%%%
 \subsection{Fontes de erro no branco}
 
+A massa depositada no filtro amostrado $m(Z)_{medido}$ para um certo 
+elemento $Z$, é composta pela massa coletada na amostragem $m(Z)$ 
+mais a massa do filtro branco $m_{B}(Z)$. 
+
+Um conjunto de 10 amostras brancas (campo e laboratório) foram analisadas, 
+para eliminação da contaminação dos próprios filtros, assim como de 
+transporte e manipulação.
+
+A equação \ref{eq:contagem} pode ser escrita para representar essa situação
+\ref{eq:contagem_medida}. 
+
+\begin{equation}
+  \label{eq:contagem_medida}
+  N(Z)_{medido} = R(Z) I\Delta t \left( \frac{m(Z)}{A} + \frac{m_B(Z)}{A} \right)
+\end{equation}  
+
+Escrevendo a equação \ref{eq:contagem} para os brancos temos \ref{eq:contagembranco}:
+
+\begin{equation}
+  \label{eq:contagembranco}
+  N_B(Z) = R(Z) I_B\Delta t_B \frac{m_B(Z)}{A}
+\end{equation}
+
+Isolando-se $m_B(Z)$ em \ref{eq:contagembranco} e substituindo em 
+\ref{eq:contagem_medida}, encontramos \ref{eq:contagemcorrigida}:
+ 
+\begin{equation}
+  \label{eq:contagemcorrigida}
+  N(Z) = N(Z)_{medido} - I\Delta t \left( \frac{N_B}{I_B \Delta t_B} \right)
+\end{equation}
+
+
+A incerteza da equação \ref{eq:contagemcorrigida}:
+
+\begin{equation}
+  \label{eq:erro_contagemcorrigida}
+  \sigma_{N(Z)}^2 = \sigma_{N(Z)_{medido}}^2 + \left( \frac{I \Delta t}{I_B \Delta t_B} \right)^2 \sigma_{N_B}^2
+\end{equation}
+
+
+
 Quando se tem N alvos brancos, a concentração do elemento 
 considerado será a média sobre os N dados e o desvip padrão $\sigma_p$.
 
@@ -318,6 +452,19 @@ N  & Fator \\
 
 %Já o erro da integração do espectro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
 
+Temos duas fontes possíveis de erro.
+
+1) Erro estatístico. Quando se tem N brancos, a concentração do elemento considerado será a média sobre os N dados. O erro será o desvio padrão (p não é o desvio padrão da média), porque é a chance de termos esse erro em cada filtro analisado e não sobre a média. Para considerar o sentido do desvio padrão (68,3\% de chance de pertencer ao amostral) ainda precisa haver um fator de correção quando N for pequeno. Seria bom corrigir para N<=10. Dai em diante pode usar fator 1, porque a correção seria pequena.
+
+%$\sigma_{pc} = fatorr x \sigma_p$
+
+2) Erro da integração do espectro. Esse erro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração - em µg/cm - tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
+
+%\sigma_e = \sqrt{\frac{\Sigma \sigma_i}{N} }
+
+3) Erro total no branco. O erro final em cada elemento do branco é obtido considerando que 1 e 2 (acima) são independentes, logo:
+
+%$\sigma_{r} = \sqrt{\sigma_e^2 + \sigma_pc^2} $
 
 
 
