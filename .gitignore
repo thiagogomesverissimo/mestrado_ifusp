@@ -1,4 +1,6 @@
 latex/mestrado.pdf
+codes/R/Rplots.pdf
+
 
 # Não versionar arquivos que podem ser recriados no projeto:
 outputs/*
