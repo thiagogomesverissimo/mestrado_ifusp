@@ -20,10 +20,16 @@ install_libraries = function()
   suppressPackageStartupMessages(require('ggmap'))
   suppressPackageStartupMessages(require('Hmisc'))
   suppressPackageStartupMessages(require('polynom'))
+  suppressPackageStartupMessages(require('lubridate'))
   
   # GPArotation
   if (!require("GPArotation")) {
     install.packages("GPArotation", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE)
+  }
+  
+  # lubridate
+  if (!require("lubridate")) {
+    install.packages("lubridate", repos="http://cran.rstudio.com/",lib="~/.R/libraries",dependencies=TRUE)
   }
 
   # psych

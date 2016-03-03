@@ -39,3 +39,6 @@ print(xtable(fuel[,c(1,2,3,8)]),
 # Aumento da Frota de Veículos na cidade
 frota = read.csv('../../inputs/ghana/frota.csv')
 
+gh_pop = read.csv('../../inputs/ghana/ghana_population.csv')
+br_pop = read.csv('../../inputs/ghana/brazil_population.csv')
+

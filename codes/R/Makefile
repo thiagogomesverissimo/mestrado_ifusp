@@ -34,6 +34,9 @@ all:
 	Rscript toLatex/tabelas_pmf.R
 	Rscript toLatex/edxCalibration.R
 	Rscript toLatex/edxCalibration_comparacao.R
+	Rscript toLatex/blackCarbonCalibration.R
+	Rscript toLatex/blackCarbonRefletancia.R
+	Rscript toLatex/blackCarbonCetesb.R
 
 	# Gráficos
 	Rscript graphs/graficos.R

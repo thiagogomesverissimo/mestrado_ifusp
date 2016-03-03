@@ -29,8 +29,8 @@ plot(0,0,
 axis(side=1, at=seq(0.2, 2, by=0.1))
 axis(side=2, at=seq(0, 50, by=5))
 
-p <- polynomial(coefs_thiago)
-lines(p,xlim = c(0.5,2),col='red')
+p <- polynomial(coefs_akerr)
+lines(p,xlim = c(0.4,2),col='red')
 
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
@@ -48,3 +48,15 @@ legenda = paste('\n Coeficientes do ajuste \n polinomial grau 4: \n\n',legenda)
 legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1),pch = 15, cex=0.8, bty = "n")
 
 dev.off()
+
+# Exporta tabela para Latex
+dados = dados[-1,-1]
+colnames(dados) = c('Quartzo','Teflon','ugcm2','erro','efetivo','efetivo8','refletancia','errorefl')
+
+tabela = dados
+print(xtable(tabela),
+      type="latex", 
+      floating = FALSE,
+      include.rownames = F, 
+      sanitize.text.function = identity,
+      file="../../outputs/TOTcalibration.tex")

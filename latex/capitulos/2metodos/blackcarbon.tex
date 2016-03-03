@@ -2,7 +2,7 @@
 \section{Black Carbon}
 
 \textbf{Black Carbon} é um nome genérico que se da aos componetes
-absorvedores de luz que compoẽ o material particulado e é formado pela combustão
+absorvedores de luz que compoe o material particulado e é formado pela combustão
 incompleta de combustíveis fosseis, biocombustível e biomassa. 
 é emitido na atmosfera como $MP_{2,5}$ e dependendo da região, representa 
 mais da metade da massa do $MP_{2,5}$.
@@ -61,3 +61,55 @@ erro absoluto , a mesma para todos .
 %  \includegraphics[width=\textwidth]{../../inputs/images/repletometro.jpg}
 %  \caption{Refletômetro e peças auxiliares de fixação e teste do filtro}
 %\end{center}
+
+%%%%
+\subsection{Thermal/Optical Transmittance (TOT)}
+%http://www.dri.edu/eaf-capabilities?start=4
+O método \textbf{Thermal/Optical Transmittance (TOT)} mede carbono organico (OC) e 
+elementar (EC).
+
+O método \textbf{TOT} é baseado no principio  de que diferentes tipos de partículas
+compostas de carbono são convertidas para gás em diferentes temperaturas e condições
+de oxidação.
+
+Ao aumentar a temperatura, os compostos orgânicos do filtro são volatilizados 
+na atmosfera de He não oxidada enquanto que o carbono elementar é não oxidado.
+
+Para queima do carbono elementar, em temperaturas maiores que 580C o oxigênio é inserido no Hélio.  
+
+O gás passa então por uma placa de dióxido de magnésio aquecida onde é então 
+oxidado para dióxido de carbono. Atravessa um catalizador de níquel, que reduz o dióxido de carbono para metano CH4. 
+O CH4 é quantificado com uma detector ionizado de chama flame ionization detector (FID).
+
+OC1: atmosfera de Hélio na temperatura ambiente (~25 °C) até 140 C
+OC2: atmosfera de Hélio em temperatura de 140 C até 280 C
+OC3: atmosfera de Hélio em temperatura de 280 C até 480 C
+OC4: atmosfera de Hélio em temperatura de 480 C até 580 C
+EC1: atmosfera oxidada com temperatura de 580C
+EC2: atmosfera oxidada com temperatura de 580C até 740 C
+EC3: atmosfera oxidada com temperatura de 740 até 840C
+
+EC1 + EC2 + EC3 - OP 
+OP: Carbono organico pirolizado
+
+%  Em sentido estrito é uma reação de análise ou decomposição que ocorre pela ação de altas temperaturas. Ocorre uma ruptura da estrutura molecular original de um determinado composto pela ação do calor em um ambiente com pouco ou nenhum oxigênio.
+
+
+O sistema térmico consiste de um tubo de quartzo dentro de uma bobina aquecida. Calor controlado 
+por período. O filtro de quartzo é colocado na zona aquecida em diferentes temperaturas
+em atmosfera não ozidada e oxidada; 
+
+O sistema ótico consiste de um laser de He-Ne, transmissor de fibra ótica e uma fotocélula. 
+A intensidade do feixe do laser é controlada. 
+
+
+
+The reflected laser light is continuously monitored throughout the analysis cycle. The negative change in reflectance is proportional to the degree of pyrolytic conversion from organic to elemental carbon, which takes place during organic carbon analysis.
+
+After oxygen is introduced, the reflectance increases rapidly as the light-absorbing carbon is burned off the filter. The carbon measured after the reflectance attains the value it had at the beginning of the analysis cycle is classified as elemental carbon. This adjustment for pyrolysis in the analysis is significant, as high as 25% of organic or elemental carbon, and it cannot be ignored.
+
+The system is calibrated by analyzing samples of known amounts of methane, carbon dioxide, and potassium hydrogen phthalate (KHP). The FID response is ratioed to a reference level of methane injected at the end of each sample analysis. Performance tests of the instrument calibration are conducted at the beginning and end of each day's operation. Intervening samples are re-analyzed when calibration changes of more than +/-10% are found.
+
+Known amounts of American Chemical Society (ACS) certified reagent grade crystal sucrose and KHP are committed to TOR/TOT as a verification of the organic carbon fractions. Fifteen different standards are used for each calibration. Widely accepted primary standards for elemental and/or organic carbon are still lacking.
+
+Results of the TOR/TOT analysis of each filter are entered into the DRI database.
