@@ -1,46 +1,52 @@
 %%%%
 \section{Fluorescência de Raios X}
 
-Para determinação e quantificação das composição química (número atômico $ 10 < Z < 82$)
-das amostras foi utilizada a técnica não-destrutiva de \textit{Fluorescência de Raios X}.
-\textit{Fluorescência de Raios X (XRF)} é um método analítico quali-quantitativo, 
+Para determinação e quantificação das composição química (número atômico 
+$ 10 < Z < 82$) das amostras foi utilizada a técnica não-destrutiva de 
+\textbf{Fluorescência de Raios X (XRF)}.
+
+\textbf{XRF} é um método analítico quali-quantitativo, 
 multielementar, que mede os raios X característicos emitidos dos átomos da amostra, 
 depois de também serem excitados por raios X. Não exige pré-tratamento químico
 das amostras e permite análise simultânea dos elementos químicos.
 
-Há basicamente 3 etapas envolvida na técnica de \textbf{XRF}: 
-excitação da amostra, emissão de raios x pelos átomos da amostragem
-e detecção. A excitação pode ocorrer por feixe de raios X produzido em 
-tubos submetidos a diferença de potencial, fontes radioativas 
-ou por partículas aceleradas. 
+Há basicamente 3 etapas envolvida na técnica de \textbf{XRF}:
+excitação da amostra, emissão de raios x pelos átomos da amostra
+e detecção. A excitação pode ocorrer por feixe de raios X (ou raios gamas) 
+produzido em fontes radioativas, por partículas aceleradas ou 
+por tubos geradores de raios x quando submetidos a diferença de potencial. 
 
-Há Tipos de fluorescências de raios X
+Os tipos mais comuns de fluorescências de raios X são \citep{jenkins1988}:
 
-Fluorescências de raios X por dispersão em comprimento de onda
-Fluorescências de raios X por dispersão em dispersão em energia
-Fluorescências de raios X polarizada EDPXRF
-Fluorescências de raios X por reflexão total
+\begin{itemize}
+  \item \textbf{WD-XRF}: fluorescência de raios X por dispersão em comprimento de onda;
+  \item \textbf{ED-XRF}: fluorescência de raios X por dispersão em dispersão em energia;
+  \item \textbf{EDP-XRF}: fluorescência de raios X polarizada;
+  \item \textbf{T-XRF}: fluorescência de raios X por reflexão total;
+\end{itemize}
 
- dispersão em energia,
-dispersão por comprimento de onda e reflexão total.
-O usado nessa pesquisa foi o 
-\textit{Fluorescência de Raios X por dispersão em energia} \citep{jenkins1988}.
+Neste trabalho foi utilizado uma fluorescência do tipo \textbf{ED-XRF}
+pertencente ao \textbf{Laboratório de Análise dos Processos Atmosféricos - LAPAt}
+no \textbf{Instituto de Astronomia, Geofísica e Ciências Atmosféricas - IAG-USP}.
+
+O feixe de raios X incidente expulsa os elétrons das camadas mais 
+internas $K$ e $L$, produzindo vacâncias. Para tal, a energia do feixe
+incidente deve ser maior que a energia de ligação dos elétrons nessas camadas. 
+
+Um átomo com vacância é instável e rapidamente elétrons das camadas 
+mais externas preenchem as vacâncias, liberando energia e estabilizando o átomo.  
 
 A figura \ref{fig:shimadzu_atomo} ilustra classicamente o que ocorre com
 o átomo ao ser excitado.
 
-%\begin{figure}[H]
-%\begin{center} 
-%  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
-%  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
-%   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
-%\end{center}
-%\end{figure}
+\begin{figure}[H]
+\begin{center} 
+  \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
+  \caption{Shimadzu - Figura que acompanha o manual do XRF-ED \label{fig:shimadzu_atomo}}
+   % http://www.shimadzu.com.br/analitica/produtos/elemental/raios_x/eds/images/edx-7000_8000-2.jpg
+\end{center}
+\end{figure}
 
-O feixe de raios X incidente, , expulsa os elétrons das camadas mais 
-internas $K$ e $L$, produzindo vacâncias. 
-Um átomo com vacância é instável e rapidamente elétrons das camadas 
-mais externa preenchem as vacâncias estabilizando o átomo.
 
 As transições dos elétrons entre o nível quântico $L$ e
 $K$ liberam raios X característicos do átomo em questão. 
@@ -51,7 +57,7 @@ A camada $L$ possue 3 e a camada $M$ 5 subníveis o que
 resulta em inúmeras possibilidades de transições, sendo que algumas transições
 proibidas. 
 
-A \textit{notação de Siegbahn} permite identificarmos melhor os subníveis
+A \textbf{notação de Siegbahn} permite identificarmos melhor os subníveis
 de origen e destino, por exemplo, transição de $M_{IV}$ para $L_{III}$ é uma transição do 
 tipo $L\beta_1$ \citep{jenkins1991}, outras possíveis pode ser vista na
 figura \ref{fig:siegbahn}. 
@@ -71,7 +77,7 @@ transições tipo $K$ e $L$.
 %%%%
 \subsection{Fluorescência de Raios X por dispersão em energia}
 
-A \textit{Fluorescência de Raios X por dispersão em energia} (\textbf{XRF-ED}).
+A \textbf{Fluorescência de Raios X por dispersão em energia} (\textbf{XRF-ED}).
 usa detectores de semicondutores capaz de discriminar energia 
 próximas, onde a distinção dos fótons é feita pela amplitude do pulso 
 eletrônico produzido no detector, pois os pulsos eletrônicos são
@@ -196,7 +202,7 @@ Best wishes,
 >>>>>for an element (concentration close to the detection limit value). 
 
 
-O \textit{PIXE (Particle Induced X-Ray Emission)}, 
+O \textbf{PIXE (Particle Induced X-Ray Emission)}, 
 outro método comumente usado em análises ambientais, usa feixe de íons 
 (prótons ou alfas) para excitação dos átomos das amostras.
 
@@ -293,7 +299,7 @@ Entretanto, para cada espécie química de interesse, seria necessário
 o alvo de calibração correspondente.
 
 Nem sempre é possível adiquirir alvos de calibração para todos elementos
-químicos e a incerteza garantida pelos fabricantes (exemplo \textit{MICROMATTER}) é de
+químicos e a incerteza garantida pelos fabricantes (exemplo \textbf{MICROMATTER}) é de
 5\%. 
 
 Fazendo-se um ajuste polinomial com os $R(Z)$ disponíveis, mostrou-se uma estratégia 
@@ -307,7 +313,7 @@ inclusive para aquelas que tínhamos os alvos de calibrações.
 \subsection{Estimativa do erro}
 
 Para a estimativa do erro do ajuste, utilizou-se o 
-\textit{Ajuste dos Mínimos Quadrados Matricial} \citep{helene2006}.
+\textbf{Ajuste dos Mínimos Quadrados Matricial} \citep{helene2006}.
 
 Dada uma variável $Y_i$ com relação polinomial com $X_i$ 
 \begin{equation}
