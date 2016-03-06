@@ -4,46 +4,36 @@
 
 all:
 	# Sequência de códigos para cálculo da concentração elementar
-	Rscript organizing/detectionLimit.R
-	Rscript organizing/blackCarbon.R
-	Rscript organizing/edxResults.R
-	Rscript organizing/mainSplit.R
-	Rscript organizing/duplicates.R
-	Rscript organizing/grossoResidencial.R 
-	Rscript organizing/grossoTraffic.R 
-	Rscript organizing/removeHarmathan.R
-	Rscript organizing/preparePMF_FA.R 
+	Rscript experimental_results/detectionLimit.R
+	Rscript experimental_results/blackCarbon.R
+	Rscript experimental_results/edxResults.R
+	Rscript experimental_results/mainSplit.R
+	Rscript experimental_results/duplicates.R
+	Rscript experimental_results/grossoResidencial.R 
+	Rscript experimental_results/grossoTraffic.R 
+	Rscript experimental_results/removeHarmathan.R
+	Rscript experimental_results/preparePMF_FA.R 
 	
-	#Sequência de código para meteorologia
-	Rscript meteorology/noaa_from_harvard.R
-	Rscript meteorology/windFrequency.R
-	Rscript meteorology/windRose.R
-	#Rscript meteorology/noaa_ftp.R
-
-	# Estatísticas
-	Rscript statistics/FactorAnalysis/factor_analysis.R
-	#Rscript statistics/CMB/componentes_absolutos.R 
-	#Rscript statistics/CMB/create_CMB_files.R  
-	#Rscript statistics/CMB/speciate_africa.R
-	Rscript statistics/descriptive/descriptive_statistics.R
-	
-	#Latex
-	Rscript toLatex/samples.R
-	Rscript toLatex/tabela_descritiva_com_harmatan.R
-	Rscript toLatex/tabela_descritiva_sem_harmatan.R
-	Rscript toLatex/tabelas_pmf.R
-	Rscript toLatex/edxCalibration.R
-	Rscript toLatex/edxCalibration_comparacao.R
-	Rscript toLatex/blackCarbonCalibration.R
-	Rscript toLatex/blackCarbonRefletancia.R
-	Rscript toLatex/blackCarbonCetesb.R
-
-	# Gráficos
-	Rscript graphs/graficos.R
-	Rscript graphs/maps.R
-	Rscript graphs/census2010.R
-	Rscript graphs/edxCalibration.R
-	Rscript graphs/edxCalibration_comparacao.R
+	#Sequência de código para meteorolog
+	Rscript scripts/clean_noaa_data.R
+	Rscript scripts/plot_windFrequency.R
+	Rscript scripts/plot_windRose.R
+	Rscript scripts/blackCarbonCalibration.R
+	Rscript scripts/blackCarbonCetesb.R
+	Rscript scripts/blackCarbonRefletancia.R
+	Rscript scripts/census2010.R
+	Rscript scripts/descriptive_statistics.R
+	Rscript scripts/edxCalibration_comparacao.R
+	Rscript scripts/edxCalibration.R
+	Rscript scripts/EPA.R
+	Rscript scripts/factor_analysis.R
+	Rscript scripts/graficos.R
+	Rscript scripts/maps.R
+	Rscript scripts/PIB.R
+	Rscript scripts/samples.R
+	Rscript scripts/tabela_descritiva_com_harmatan.R
+	Rscript scripts/tabela_descritiva_sem_harmatan.R
+	Rscript scripts/tabelas_pmf.R
 
 clean:
 	rm -rf *~ 

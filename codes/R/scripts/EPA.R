@@ -41,10 +41,11 @@ iag = iag[amostras,]
 # Incluir: Al, Si
 
 x = epa$P
-y = iag$
+y = iag$P
 reg <- lm(y ~ x)
 coefficients(reg)
 par(cex=.8)
 plot(x,y)
 abline(reg)
 abline(0, 1)
+

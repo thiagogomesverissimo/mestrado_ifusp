@@ -114,7 +114,7 @@ briefFA <-function(sigla,nfactors){
 
   for (i in seq(1, num_fatores)){
     elementos=as.character(subset(loading,loading[,i+1]>0.4)[,1])
-    print(elementos)
+    #print(elementos)
     linha= c(paste('F',i,sep=''),paste(elementos,collapse=', '))
     saida = cbind(saida,linha)
   }

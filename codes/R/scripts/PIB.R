@@ -15,5 +15,5 @@ plot(PIB[,1],PIB$Brazil,type='n',
 lines(PIB[,1],PIB$Brazil,col='red')
 lines(PIB[,1],PIB$Ghana,col='blue')
 
-legend("topleft", legend = c('Brasil','Gana'), col=c('red','blue'),pch = 15, cex=0.8, bty = "n")
+legend("topleft", legend = c('Brasil','Gana'), col=c('red','blue'),pch = 15, cex=1.2, bty = "n")
 dev.off()
