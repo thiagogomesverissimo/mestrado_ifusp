@@ -34,6 +34,7 @@ all:
 	Rscript scripts/tabela_descritiva_com_harmatan.R
 	Rscript scripts/tabela_descritiva_sem_harmatan.R
 	Rscript scripts/tabelas_pmf.R
+	Rscript scripts/plot_fatorResposta.R
 
 clean:
 	rm -rf *~ 
