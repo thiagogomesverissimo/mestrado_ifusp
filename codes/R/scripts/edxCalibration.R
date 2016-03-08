@@ -30,3 +30,4 @@ edxCalibrationTable(medidos,ajustados,'abr2011K')
 medidos = read.csv('../../inputs/edxCalibration/americo/L2011AbrMedidosAkerr.csv')
 ajustados = read.csv('../../inputs/edxCalibration/americo/L2011AbrAjustadosAkerr.csv')
 edxCalibrationTable(medidos,ajustados,'maio2011L') 
+

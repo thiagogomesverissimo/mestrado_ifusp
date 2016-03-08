@@ -63,67 +63,53 @@ gráfico da figura \ref{fig:edx_calib_KLmaio2010}.
 %  \end{subfigure}
 %\end{figure}
  
-
-\begin{table}[H]
-  \begin{scriptsize} 
-  \input{../outputs/edxCalibrationnov2010K.tex}
-  \end{scriptsize}
-  \caption{}
-\end{table}
-
-\begin{table}[H]
-  
-  \begin{scriptsize} %small
-  %\label{my-label} 
-  \caption{}
-  \input{../outputs/edxCalibrationnov2010L.tex}
-  \end{scriptsize}
-\end{table}
-
-
-\begin{table}[H]
-  
-  \begin{footnotesize} %small
-  %\label{my-label} 
-  \caption{}
-  \input{../outputs/comparaCalibrationK.tex}
-  \end{footnotesize}
-\end{table}
-
-\begin{table}[H]
-  
-  \begin{footnotesize} %small
-  %\label{my-label} 
-  \caption{}
-  \input{../outputs/comparaCalibrationK.tex}
-  \end{footnotesize}
-\end{table}
-
-
-
-
-Por fim, a incerteza é dada pela diagonal da matriz de covariância 
-de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}.
-\ref{eq:matrizcovarianciaY}
-Adaptando-se para nosso contexto, $[Y]$ será os fatores de respostas $[R]$,
-e $[X]$ os números atômicos $[Z]$.
-
-percebe-se que a incerteza percentual ajustada é menor que 
+As tabelas \ref{table:edx_calib_Kmaio2010} e \ref{table:edx_calib_Lmaio2010}
+apresentam os valores finais da calibração de Maio de 2010. 
+Percebe-se que a incerteza percentual ajustada é menor que 
 a incerteza percentual medida. 
 
-A incerteza é crítica para o PMF. 
+\begin{table}[H]
+  \centering
+  \begin{scriptsize} 
+    \input{../outputs/edxCalibrationnov2010K.tex}
+  \end{scriptsize}
+  \caption{Calibração da Fluorescência de Raiox X - Maio de 2010 - Linha K
+  \label{table:edx_calib_Kmaio2010}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{scriptsize} 
+    \input{../outputs/edxCalibrationnov2010L.tex}
+  \end{scriptsize}
+  \caption{Calibração da Fluorescência de Raiox X - Maio de 2010 - Linha L 
+  \label{table:edx_calib_Lmaio2010}}
+\end{table}
 
 Usando \textbf{Ajuste dos Mínimos Quadrados Matricial} foi possível
 reduzir a incerteza percentual. 
+A incerteza é dada pela diagonal da matriz de covariância 
+de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}.
+Onde $[Y]$ são os fatores de respostas $[R]$ e $[X]$ os números atômicos $[Z]$.
 
+%TODO: inclir comparações entre calibrações
+%\begin{table}[H]
+%  \begin{footnotesize} %small
+%  \input{../outputs/comparaCalibrationK.tex}
+%  \end{footnotesize}
+%\end{table}
 
+%\begin{table}[H]
+%  \begin{footnotesize} %small
+%  \input{../outputs/comparaCalibrationK.tex}
+%  \end{footnotesize}
+%\end{table}
 
 O queda de desempenho no uso da fluorescência de Raios X pode ser observada 
 na figura \ref{fig:compara_calibracao}. 
 Possíveis motivos para queda de desempenho: desgaste do tubo ou desgaste do detector. 
 
 \begin{figure}[H]
-  \caption{Calibrações de Fluorescência de Raiox X em 3 períodos \label{fig:compara_calibracao}}
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{../outputs/CalibrationKcomparacao.pdf}
     \caption{Linha K}
@@ -132,21 +118,11 @@ Possíveis motivos para queda de desempenho: desgaste do tubo ou desgaste do det
     \includegraphics[width=\textwidth]{../outputs/CalibrationLcomparacao.pdf}
     \caption{Linha L}
   \end{subfigure}
+  \caption{Calibrações de Fluorescência de Raiox X em 3 períodos \label{fig:compara_calibracao}}
 \end{figure}
 
 %%%%
-\subsection{EPA}
-
-verificação da qualidade dos resultado obtidos por XRF.
-
-there are good agreements between
->>>>>>elemental concentrations measured in USP and EPA. 
-inter-comparisons
-
-%%%%
 \subsection{Limite de Detecçção}
-
-
 
 \begin{figure}[H]
   \caption{}
