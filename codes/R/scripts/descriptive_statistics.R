@@ -1,21 +1,22 @@
 rm(list=ls())
 source("myfunctions/load.R")
 
-#Verificando faltantes:
-#describe(pmConc[,pmElementos]) # ../../outputs/edxStatistics.csv
-#TODO: Reportar período da amostragem
-#min(pmFino$Date)
-#max(pmFino$Date)
+# A função describe está no pacote Hmisc e psych, saudades do python...
+detach("package:Hmisc", unload=TRUE) 
+path = '../../outputs/pmf_fa/'
 
-# A função describe está no pacote Hmisc e psych
-#detach("package:Hmisc", unload=TRUE) 
+descriptive2latex(path,'RFcH')
+descriptive2latex(path,'TFcH')
 
-#RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv",header=TRUE)
-#base = RFcH
+descriptive2latex(path,'RIcH')
+descriptive2latex(path,'TIcH')
 
+descriptive2latex(path,'RGcH')
+descriptive2latex(path,'TGcH')
 
-#describe(base*1000)
+descriptive2latex(path,'TFcH')
 
+#### 
 #Cria um data.frame com a porcentagem dos elementos na Massa total
 #contrib_elementos_na_massa = c()
 
@@ -31,13 +32,3 @@ source("myfunctions/load.R")
 
 #base: Colunas de concentrações, excluindo o diaMedio
 #base<- base[, !(colnames(base) %in% c('diaMedio'))]
-
-#Correlation Matrix
-#base.cor<-round(cor(base.pca),2) # NA resolver!
-#corrplot(base.cor, type = "lower",method="circle")
-
-#Bartlet Test: p-valeu pequeno rejeitamos a hipotese de correlaçao nula (matriz identidade)
-#cortest.bartlett(base.pca,nrow(base.pca))
-
-#determinante: but can do the determinant need it to be above 0.00001
-#det(base.cor) ###PROBLEMA

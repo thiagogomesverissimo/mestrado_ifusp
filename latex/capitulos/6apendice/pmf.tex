@@ -1,5 +1,69 @@
 \section{Apêndice II - Software PMF}
 
+Além do conhecimento da espécie, o \textbf{Signal Noise (S/N)} é um bom 
+indicador de quais amostra deve-se aumentar as incerteza.
+
+\begin{itemize}
+  \item Se, $c_{ij} >  u_{ij}$, então $ S/N = (c_{ij} - u_{ij})/u_{ij}$.
+  \item Se, $c_{ij} <  u_{ij}$, então $S/N = 0 $.
+\end{itemize}
+
+O \textbf{S/N} indica se a variabilidade nas medidas é real ou faz parte do 
+ruído dos dados. 
+Espécie com a concentração menor que a incerteza, não apresentam ruído, e devem 
+ser removidas da análise. Espécies com valores muito próximos da incerteza, 
+portanto com $S/N$ próximo de zero (< 0,5) também devem ser removidas da 
+análise. 
+Espécie nas quais a concentração é pelo menos duas vezes o valor da incerteza, 
+isto é, $S/N$ é maior ou igual à 1, são as ideais para análise, 
+e não altera-se as incertezas. 
+
+Quando $S/N$ está entre 0,5 e 1, diminuímos o peso da espécie aumentando a 
+incerteza em um fator 3.  
+
+Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir 
+alguns pré-requisitos antes da realização do ajuste:
+
+\begin{itemize}
+  \item Não é permitido valores negativos em $c_{ij}$ ou em $u_{ij}$.
+  \item células vazias não são aceitas.
+  \item nomes das colunas(espécies) e linhas(amostras) devem ser únicos.
+  \item é ideal (não obrigatório) que os dados já estejam classificados 
+        pela data em ordem crescente.
+\end{itemize}
+
+%%%%
+\paragraph{Inspeção dos dados de entrada}
+
+É necessário fazer ainda inspeções ou alterações antes de fazer o ajuste.
+\begin{itemize}
+  \item Espera-se uma relação tipicamente linear entre 
+        \textbf{Concentração} $\times$ \textbf{Incerteza}.  
+        Investigar o motivo caso isso não ocorra. 
+  \item Adequação das incertezas baseado no \textbf{Signal Noise (S/N)} e 
+        conhecimento da espécie. 
+  \item Marcar a Massa Total como \textbf{Total Variable}
+  \item Inspecionar gráficos de dispersão entre espécies nas quais se espera 
+        correlação, anti-correlação ou não correlação. 
+  \item Inspecionar gráficos de séries temporais, para:
+    \begin{itemize}
+      \item Identificar padrões temporais em espécies individuais ou em grupo 
+            de espécies.
+      \item Remover \textbf{outliers} 
+    \end{itemize}
+\end{itemize}
+
+Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações 
+como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim 
+mais esperança de encontrarmos um $Q$ mínimo global e não local. 
+O \textbf{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ 
+mínimo local ou global.% o que é local e global?
+
+Como sempre estamos interessados no mínimo global, precisa-se verificar se a 
+solução gerou um $Q$ mínimo local ou global. A estratégica para identificar
+o tipo de mínimo é rodar o \textbf{PMF} para diferentes valores de 
+\textbf{Random Seed} e acompanhar a estabilidade de $Q$.
+
 Uma vez que apresentamos os conceitos necessários o entendimento do jargão 
 usado no método \textbf{PMF}, apresentamos as etapas escolhidas para realização 
 do ajuste.
@@ -33,3 +97,11 @@ do ajuste.
         gráficos \textbf{G-Space}.
   \item Série temporal de $g_{ik}$. Avaliação do significado físico.
 \end{enumerate}
+
+Em termos de reprodutibilidade da pesquisa científica o \textbf{PMF EPA 5.0} 
+nos fornece os seguintes recursos:
+
+\begin{itemize}
+  \item Fixação de \textbf{Random Seed}.%o que significa isso? Porque este detalhe destaca-se dos demais?
+  \item Arquivo \textbf{XML} com as configurações usadas na rodada. 
+\end{itemize} 

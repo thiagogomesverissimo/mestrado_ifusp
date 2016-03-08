@@ -15,15 +15,15 @@ barplot(people[,2],
 dev.off()
 
 # Fontes de energia para cozimento
-fuel = read.csv('../../inputs/ghana/census2010_cookfuel.csv')
+fuel = read.csv('../../inputs/ghana/census_cookfuel.csv')
 fuel[,1] = c('não cozinha','biomassa','gás','eletricidade','querosene','carvão','resíduo de plantação',
-  'pó de serra','esterco', 'outro','total')
-print(xtable(fuel[,c(1,2,3,8)]), 
+  'pó de serra','esterco', 'outro')
+print(xtable(fuel), 
       type="latex", 
       include.rownames = T, 
       floating = FALSE,
       sanitize.text.function = identity,
-      file='../../outputs/census2010_cookfuel.tex')
+      file='../../outputs/census_cookfuel.tex')
 
 # Eletrecidade
 #eletro = read.csv('../../inputs/ghana/census2010_eletricidade.csv')
@@ -45,5 +45,20 @@ print(xtable(frota),
       floating = FALSE,
       sanitize.text.function = identity,
       file='../../outputs/frota_ghana.tex')
+
+# padrões, podem ser úteis:
+#read.csv('../../inputs/brazil_standard_airpollution.csv')
+#read.csv('../../inputs/brazil_standard_airpollution_old.csv')
+#read.csv('../../inputs/OMS_standard_airpollution.csv')
+#read.csv('../../inputs/ghana/epa_pm10_standard.csv')
+
+standard = read.csv('../../inputs/standard_brazil_ghana_OMS_pm10.csv')
+
+print(xtable(standard), 
+      type="latex", 
+      include.rownames = F, 
+      floating = FALSE,
+      sanitize.text.function = identity,
+      file='../../outputs/standard_brazil_ghana_OMS_pm10.tex')
 
 

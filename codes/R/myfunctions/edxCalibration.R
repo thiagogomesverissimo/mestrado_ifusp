@@ -79,13 +79,13 @@ edxCalibration = function(name,line,file_medidos,cores,coefs1,coefs2=c(-999)) {
 
 edxCalibrationTable = function(medidos,ajustados,name) {
 
-  colnames(medidos) = c('Z','Rmedido','Umedido')
-  colnames(ajustados) = c('Z','Rajustado','Uajustado')
+  colnames(medidos) = c('Z','Rexperimental','IncertezaExperimental')
+  colnames(ajustados) = c('Z','Rajustado','Incertezaajustado')
   
   tabela = merge(medidos,ajustados,all=T)
   
-  tabela = cbind(tabela,'razaoMedido'=100*(tabela$Umedido/tabela$Rmedido))
-  tabela = cbind(tabela,'razaoAjustado'=100*(tabela$Uajustado/tabela$Rajustado))
+  tabela = cbind(tabela,'desvioPercentualExperimental'=100*(tabela$Umedido/tabela$Rmedido))
+  tabela = cbind(tabela,'desvioPercentualAjustado'=100*(tabela$Uajustado/tabela$Rajustado))
   
   tabela[,2:5] = format(tabela[,2:5], scientific=T,digits=2,nsmall = 2,na.encode=F)
   tabela[,6:7] = format(tabela[,6:7], digits=2,nsmall = 2,na.encode=F)

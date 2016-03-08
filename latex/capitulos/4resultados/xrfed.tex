@@ -1,39 +1,74 @@
 %%%%
 \section{Fluorescência de Raiox X}
 
-
-Foram consideradas as 
-incertezas do método analítico (EDX, Refletância e gravimetria), 
-assim como um erro percentual fixo de 8\%, atribuído ao método de amostragem em si 
-(erro médio observado em amostragens em paralelo com o amostrador Harvard).
+As análises de \textbf{PMF} são ponderadas pelas incertezas, assim 
+tentou-se incluir todas fontes possíveis de erro, além do erro instrínseco 
+do método analítico. Um erro percentual fixo de 8\% atribuído ao método 
+de amostragem foi incluído 
+(erro médio observado em amostragens em paralelo com o amostrador Harvard)
+\citep{santos2014}.
 
 %%%%
 \subsection{Calibração}
 
-Com os alvos padrões que tínhamos no LAPAT plotamos o gráfico
-da ... e foi possível ajustar uma curva nos pontos. 
-Assim, calculou-se o fator de resposta para elementos que 
-não tínhamos os alvos padrões. 
+Durante o período de análise das amostra de Acra foram realizadas 
+três calibrações na \textbf{ED-XRF}: Maio de 2010, Novembro de 2010
+e Abril de 2011. 
 
-Os alvos da Micromatter tem incerteza na massa de 5%.
-No cálculo do fator de respota, a propagação do erro dos alvos de calibração
-e a incerteza percentual estão na tabela. 
+Com um conjunto de alvos padrões da marca \textbf{Micromatter} 
+(incerteza 5\%) calculou-se os fatores de respostas correspondentes
+usando-se a equação \ref{eq:fator_de_resposta}, bem como as respectivas
+incertezas analíticas usando-se \ref{eq:erro_fator_de_resposta}.
 
-percebe-se que a incerteza percentual ajustada é menor que 
-a incerteza percentual medida. 
+Um ajuste polinomial foi suficiente para descrever os pontos experimentais. 
+Na linha K foi necessário fazer dois ajustes polinomiais de grau 3, um do 
+número atômico 11 até 26 e o outro de 22 até 42. Para linha L foi 
+feito um ajuste em todos pontos com um polinômio de grau 5.
+Os ajustes e os pontos experimentais para Maio de 2010 estão plotados no 
+gráfico da figura \ref{fig:edx_calib_KLmaio2010}.
 
-A incerteza é crítica para o PMF. 
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/CalibrationK2010MaiAkerr.pdf}
+    \caption{Linha K}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/CalibrationL2010MaiAkerr.pdf}
+    \caption{Linha L}
+  \end{subfigure}
+  \caption{Calibração da Fluorescência de Raiox X - Maio de 2010 \label{fig:edx_calib_KLmaio2010}}
+\end{figure}
 
-Usando \textbf{Ajuste dos Mínimos Quadrados Matricial} foi possível
-reduzir a incerteza percentual.  
+%\begin{figure}[H]
+%  \caption{Calibração da Fluorescência de Raiox X - Novembro de 2010}
+%  \begin{subfigure}[b]{0.5\textwidth}
+%   \includegraphics[width=\textwidth]{../outputs/CalibrationK2010NovAkerr.pdf}
+%    \caption{Linha K}
+%  \end{subfigure}%
+%  \begin{subfigure}[b]{0.5\textwidth}
+%    \includegraphics[width=\textwidth]{../outputs/CalibrationL2010NovAkerr.pdf}
+%    \caption{Linha L}
+%  \end{subfigure}
+%\end{figure}
+
+%\begin{figure}[H]
+%  \caption{Calibração da Fluorescência de Raiox X - Abril de 2011}
+%  \begin{subfigure}[b]{0.5\textwidth}
+%    \includegraphics[width=\textwidth]{../outputs/CalibrationK2011AbrAkerr.pdf}
+%    \caption{Linha K}
+%  \end{subfigure}%
+%  \begin{subfigure}[b]{0.5\textwidth}
+%    \includegraphics[width=\textwidth]{../outputs/CalibrationL2011AbrAkerr.pdf}
+%    \caption{Linha L}
+%  \end{subfigure}
+%\end{figure}
+ 
 
 \begin{table}[H]
- 
-  \begin{scriptsize} %small footnotesize scriptsize
-  %\label{my-label} 
-  \caption{}
+  \begin{scriptsize} 
   \input{../outputs/edxCalibrationnov2010K.tex}
   \end{scriptsize}
+  \caption{}
 \end{table}
 
 \begin{table}[H]
@@ -65,41 +100,23 @@ reduzir a incerteza percentual.
 \end{table}
 
 
-\begin{figure}[H]
-  \caption{Calibração da Fluorescência de Raiox X - Maio de 2010}
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationK2010MaiAkerr.pdf}
-    \caption{Linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationL2010MaiAkerr.pdf}
-    \caption{Linha L}
-  \end{subfigure}
-\end{figure}
 
-\begin{figure}[H]
-  \caption{Calibração da Fluorescência de Raiox X - Novembro de 2010}
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationK2010NovAkerr.pdf}
-    \caption{Linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationL2010NovAkerr.pdf}
-    \caption{Linha L}
-  \end{subfigure}
-\end{figure}
 
-\begin{figure}[H]
-  \caption{Calibração da Fluorescência de Raiox X - Abril de 2011}
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationK2011AbrAkerr.pdf}
-    \caption{Linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationL2011AbrAkerr.pdf}
-    \caption{Linha L}
-  \end{subfigure}
-\end{figure}
+Por fim, a incerteza é dada pela diagonal da matriz de covariância 
+de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}.
+\ref{eq:matrizcovarianciaY}
+Adaptando-se para nosso contexto, $[Y]$ será os fatores de respostas $[R]$,
+e $[X]$ os números atômicos $[Z]$.
+
+percebe-se que a incerteza percentual ajustada é menor que 
+a incerteza percentual medida. 
+
+A incerteza é crítica para o PMF. 
+
+Usando \textbf{Ajuste dos Mínimos Quadrados Matricial} foi possível
+reduzir a incerteza percentual. 
+
+
 
 O queda de desempenho no uso da fluorescência de Raios X pode ser observada 
 na figura \ref{fig:compara_calibracao}. 

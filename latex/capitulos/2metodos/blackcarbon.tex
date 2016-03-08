@@ -3,113 +3,112 @@
 
 \textbf{Black Carbon} é um nome genérico que se da aos componetes
 absorvedores de luz que compoe o material particulado e é formado pela combustão
-incompleta de combustíveis fosseis, biocombustível e biomassa. 
-é emitido na atmosfera como $MP_{2,5}$ e dependendo da região, representa 
-mais da metade da massa do $MP_{2,5}$.
+incompleta de combustíveis fósseis, biocombustível e biomassa.. 
+É encontrado predominantemente na fração fina do material particulado 
+e dependendo da região, representa mais da metade da massa do $MP_{2,5}$. 
+Sua principal fonte em cidades são veículos automotores, 
+especialmente os movidos a diesel \citep{petzold2013}. 
 
-%Most U.S. emissions of BC come from mobile sources (52%), especially diesel engines and vehicles. 
+Exposição a \textbf{Black Carbon} causa probelmas respiratórios, cardiovasculares 
+e morte prematura \citep{jacobson2014}.
 
-Exposição a $MP_{2,5}$  causa probelmas respiratórios, cardiovasculares e morte prematura; 
-problemas de visibilidade. 
+%%%%
+\subsection{Refletância}
 
+Concentrações de \textbf{Black Carbon BC} foram obtidas por um 
+refletômetro \textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D, 
+pertencente ao \textbf{LAPAt}.
 
-% https://www3.epa.gov/blackcarbon/
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../inputs/images/refletometro.jpg}
+  \caption{Refletômetro \textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D 
+           e peças auxiliares de fixação do filtro \textbf{LAPAt}}
+\end{figure}
 
-Concentrações de Black Barbon (BC) foram obtidos por  refletância, 
-onde o filtro é iluminado por uma lâmpada de tungstênio e a luz refletida é 
-detectada por um sensor, assim, quanto menor a intensidade dessa luz,
- maior é a quantidade de black carbon presente na amostra. 
-
-Foi utilizado um refletômetro 
-\textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D. 
-
-Inter-calibrou-se a curva obtida pela refletância com um equipamento 
-Sunset para determinação de carbono orgânico e elementar, 
-por processo Térmico/Transmitância Óptica (EPA, 2012).
-
-A análise de refletância  é utilizada para se determinar a concentração 
-de Black Carbon (BC) presente em amostras de poluição do ar. 
-
-Black Carbon é encontrado  predominantemente na fração fina do aerossol, 
-sendo normalmente partículas provenientes de combustão incompleta de biomassa, 
-biocombustíveis ou combustíveis fósseis. 
-
-A técnica baseia-se na propriedade do composto (BC) possuir alta seção de 
-choque de absorção de luz na região do visível. 
+A técnica baseia-se na propriedade do composto \textbf{Black Carbon} 
+possuir alta seção de choque de absorção de luz na região do visível.
 
 A radiação emitida por uma lâmpada de tungstênio reflete nas amostras, 
-detectando-se o percentual de luz refletida. Este sistema foi calibrado 
-com amostras padrões, o que permitiu a determinação da concentração de BC, 
-segundo a expressão:
+detectando-se o percentual de luz refletida. Este sistema é calibrado 
+com amostras padrões, o que permite a determinação da concentração de $BC$
+\citep{lack2014}.
 
-Black carbon 
-%$ ug.m-3 = 81,95 - 71,83 x log(R)+15,43 x log(R)^2  x A/ V $
-% IAG 82.8046-(72.8235*Q25)+(15.7169*Q25^2) 2007
-% BC (mg/cm2) = 88.317 - 77.5471x + 16.6943x2
+Para calibração do refletômetro do \textbf{LAPAt} utilizou-se alvos padrões
+tipo \textbf{monarch 21} \citep{clarke1986}. Os valores de reflêtancia 
+desses filtros, bem como a massa de \textbf{Black Carbon} conhecida,
+etão na tabela \ref{table:monarch21ifusp}.
 
-%BC = a + b1x + b2x2,  x = logR Calibração de 1994 - Refletômetro IFUSP
+\begin{table}[H]
+ \centering
+  \begin{scriptsize}
+    \input{../outputs/CalibracaoRefletancia2007.tex}
+  \end{scriptsize}
+  \caption{Reflêtancia de filtros padrões tipo Monarch 21 \citep{clarke1986} 
+           do \textbf{IFUSP} usados na calibração do refletometro do 
+           \textbf{LAPAt} 2007 - \label{table:monarch21ifusp}}
+\end{table}
 
-%TODO: Colocar reflêtancia do IAG de 2007. 
-Sendo R a refletância (\%), A a área do filtro e V o volume de ar amostrado ($m^3$). 
-Utilizou-se um refletômetro Smoke Stain Refletometer, da Diffusion System, modelo M43D (fig.10).
+O logarítimo da refletância possui relação linear com a massa.
+A calibração para refletância encontra-se no gráfico da figura 
+\ref{fig:mocarch21calib}. 
 
-incerteza na medida do black carbon: calculado com os brancos e tirar o sd. 
-erro absoluto , a mesma para todos .
-
-%\begin{figure}[H]
-%\begin{center}
-%  \includegraphics[width=\textwidth]{../../inputs/images/repletometro.jpg}
-%  \caption{Refletômetro e peças auxiliares de fixação e teste do filtro}
-%\end{center}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
+  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
+          \label{fig:mocarch21calib}}
+\end{figure}
 
 %%%%
 \subsection{Thermal/Optical Transmittance (TOT)}
-%http://www.dri.edu/eaf-capabilities?start=4
-O método \textbf{Thermal/Optical Transmittance (TOT)} mede carbono organico (OC) e 
-elementar (EC).
 
-O método \textbf{TOT} é baseado no principio  de que diferentes tipos de partículas
+O \textbf{Thermal/Optical Transmittance (TOT)} é um método absoluto
+que mede carbono orgânico (OC) e carbono elementar (EC).
+É baseado no princípio  de que diferentes tipos de partículas
 compostas de carbono são convertidas para gás em diferentes temperaturas e condições
-de oxidação.
+de oxidação \citep{birch1998}.
 
 Ao aumentar a temperatura, os compostos orgânicos do filtro são volatilizados 
-na atmosfera de He não oxidada enquanto que o carbono elementar é não oxidado.
+na atmosfera de $He$ não oxidada.
+A evaporação do carbono elementar ocorre em temperaturas maiores que 
+$580 \degree C$ em atmosfera de $He$ oxidada.
+O sistema térmico consiste de um tubo de quartzo dentro de uma bobina aquecida, 
+onde temperatura é controlada por intervalos de tempo.  
 
-Para queima do carbono elementar, em temperaturas maiores que 580C o oxigênio é inserido no Hélio.  
+Segue-se a sequência de volatilização conforme aumento de temperatura e 
+oxidação da atmosfera:
 
-O gás passa então por uma placa de dióxido de magnésio aquecida onde é então 
-oxidado para dióxido de carbono. Atravessa um catalizador de níquel, que reduz o dióxido de carbono para metano CH4. 
-O CH4 é quantificado com uma detector ionizado de chama flame ionization detector (FID).
+\begin{itemize}
+  \item OC1: atmosfera de Hélio na temperatura ambiente $(\pm 25 \degree C)$ até $140 \degree C$
+  \item OC2: atmosfera de Hélio em temperatura de $140 \degree C$ até $280 \degree C$
+  \item OC3: atmosfera de Hélio em temperatura de $280 \degree C$ até $480 \degree C$
+  \item OC4: atmosfera de Hélio em temperatura de $480 \degree C$ até $580 \degree C$
+  \item EC1: atmosfera oxidada com temperatura de $580 \degree C$
+  \item EC2: atmosfera oxidada com temperatura de $580 \degree C$ até $740 \degree C$
+  \item EC3: atmosfera oxidada com temperatura de $740 \degree C$ até $840 \degree C$
+\end{itemize}
 
-OC1: atmosfera de Hélio na temperatura ambiente (~25 °C) até 140 C
-OC2: atmosfera de Hélio em temperatura de 140 C até 280 C
-OC3: atmosfera de Hélio em temperatura de 280 C até 480 C
-OC4: atmosfera de Hélio em temperatura de 480 C até 580 C
-EC1: atmosfera oxidada com temperatura de 580C
-EC2: atmosfera oxidada com temperatura de 580C até 740 C
-EC3: atmosfera oxidada com temperatura de 740 até 840C
+O gás formado com aumento da temperatura passa por uma placa de dióxido de magnésio 
+aquecida e é oxidado para dióxido de carbono, passando por um catalizador de níquel, 
+que reduz o dióxido de carbono em metano $CH_4$.
+O $CH_4$ é quantificado com uma detector do tipo 
+\textbf{flame ionization detector (FID)}.
 
-EC1 + EC2 + EC3 - OP 
-OP: Carbono organico pirolizado
+Durante a fase de volatilização do carbono orgânico, parte do carbono elementar
+é decomposto pelo processo de pirólise. 
+O sistema ótico composto por laser de $He-Ne$ com feixe de intensidade controlada, 
+transmissor de fibra ótica e uma fotocélula, contabiliza o carbono elementar
+decomposto nesta fase por transmitância.
 
-%  Em sentido estrito é uma reação de análise ou decomposição que ocorre pela ação de altas temperaturas. Ocorre uma ruptura da estrutura molecular original de um determinado composto pela ação do calor em um ambiente com pouco ou nenhum oxigênio.
+O carbono elementar total é resultado da soma EC1 + EC2 + EC3 + ECP,
+onde ECP é o carbono elementar formado por pirólise. 
 
+Para análises \textbf{TOT} é necessário fazer a coleta em filtros
+de quartzo, aumentando os custos e dificultando a logística das medidas, 
+pois é necessário montar ponto de medida paralelos.  
 
-O sistema térmico consiste de um tubo de quartzo dentro de uma bobina aquecida. Calor controlado 
-por período. O filtro de quartzo é colocado na zona aquecida em diferentes temperaturas
-em atmosfera não ozidada e oxidada; 
-
-O sistema ótico consiste de um laser de He-Ne, transmissor de fibra ótica e uma fotocélula. 
-A intensidade do feixe do laser é controlada. 
-
-
-
-The reflected laser light is continuously monitored throughout the analysis cycle. The negative change in reflectance is proportional to the degree of pyrolytic conversion from organic to elemental carbon, which takes place during organic carbon analysis.
-
-After oxygen is introduced, the reflectance increases rapidly as the light-absorbing carbon is burned off the filter. The carbon measured after the reflectance attains the value it had at the beginning of the analysis cycle is classified as elemental carbon. This adjustment for pyrolysis in the analysis is significant, as high as 25% of organic or elemental carbon, and it cannot be ignored.
-
-The system is calibrated by analyzing samples of known amounts of methane, carbon dioxide, and potassium hydrogen phthalate (KHP). The FID response is ratioed to a reference level of methane injected at the end of each sample analysis. Performance tests of the instrument calibration are conducted at the beginning and end of each day's operation. Intervening samples are re-analyzed when calibration changes of more than +/-10% are found.
-
-Known amounts of American Chemical Society (ACS) certified reagent grade crystal sucrose and KHP are committed to TOR/TOT as a verification of the organic carbon fractions. Fifteen different standards are used for each calibration. Widely accepted primary standards for elemental and/or organic carbon are still lacking.
-
-Results of the TOR/TOT analysis of each filter are entered into the DRI database.
+Neste trabalho, coletou-se material particulado em filtros de 
+quartzo para $\pm 10\%$ dos dias de amostragem e utilizou-se
+dos resultados da medida de carbono elementar por \textbf{TOT} 
+para inter-calibrar os resultado das medidas de refletância. 

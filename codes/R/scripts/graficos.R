@@ -6,15 +6,20 @@ RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv")
 RFcH = RFcH[-which.max(RFcH$mass),]
 RFcH$Date = strptime(RFcH$Date,format="%d/%m/%Y %H:%M")
 
-pdf('../../outputs/RFcH_massa.pdf')
+pdf('../../outputs/plot_RFcH_massa.pdf')
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 1, 0, 0))
 plot(RFcH$Date, 
-     RFcH$mass,
+     log10(RFcH$mass),
      type="p",
-     ylab=expression(" mg/m" ^3),
-     lwd=1.5,
+     ylab=expression("log("*mu*g/m^3*")"),
+     xlab = 'Ano',
      pch=16,
      col="darkorange2")
 grid()
+abline(h=log10(50),col='red') 
+abline(h=log10(150),col='blue') 
+legend("bottom",c('Padrão Gana','Padrão OMS'),col=c('blue','red'),bty = "n",pch = 15,)
 dev.off()
 
 
@@ -33,7 +38,7 @@ grid()
 hist(RFcH$mass,main="PM10 - Distribuição da massa", xlab=expression(mu* "g/m" ^3),col="lightblue")
 
 #função densidade
-densidade<-density(RFcH$mass,na.rm=TRUE)
+densidade<-density(RFcH$Fe,na.rm=TRUE)
 plot(densidade,main="PM2.5 densidade ")
 
 

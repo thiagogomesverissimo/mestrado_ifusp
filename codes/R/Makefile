@@ -25,6 +25,8 @@ all:
 	Rscript scripts/descriptive_statistics.R
 	Rscript scripts/edxCalibration_comparacao.R
 	Rscript scripts/edxCalibration.R
+	Rscript scripts/plot_edxCalibration_comparacao.R
+	Rscript scripts/plot_edxCalibration.R
 	Rscript scripts/EPA.R
 	Rscript scripts/factor_analysis.R
 	Rscript scripts/graficos.R

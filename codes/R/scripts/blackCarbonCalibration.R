@@ -17,7 +17,7 @@ pdf('../../outputs/TOTrefletanciaCalibration.pdf')
 # Gráfico 'vazio'
 mar.default <- c(5,4,4,2) + 0.5
 par(mar = mar.default + c(0, 3, 0, 0))
-#par(fig=c(0, 1, 0, 1), oma=c(0, 0, 0, 0), mar=c(0, 0, 0, 0), new=TRUE)
+
 plot(0,0,
      xlim = c(0.2,2),
      ylim = c(0,50),

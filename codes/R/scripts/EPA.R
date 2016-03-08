@@ -40,12 +40,62 @@ iag = iag[amostras,]
 
 # Incluir: Al, Si
 
+## P
 x = epa$P
 y = iag$P
 reg <- lm(y ~ x)
 coefficients(reg)
 par(cex=.8)
-plot(x,y)
-abline(reg)
-abline(0, 1)
 
+pdf('../../outputs/EPA_P.pdf')
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 2, 0, 0))
+plot(x,y,
+     main = 'Fósforo (P)',
+     xlim = c(0,2000),
+     ylim = c(0,2000),
+     pch=20,
+     xlab = expression(frac(n*g,cm^2)),
+     ylab = expression(frac(n*g,cm^2)))
+abline(0, 1)
+dev.off()
+
+## Fe
+x = epa$Fe
+y = iag$Fe
+reg <- lm(y ~ x)
+coefficients(reg)
+par(cex=.8)
+
+pdf('../../outputs/EPA_Fe.pdf')
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 2, 0, 0))
+plot(x,y,
+     main = 'Ferro (F)',
+     xlim = c(0,35000),
+     ylim = c(0,35000),
+     pch=20,
+     xlab = expression(frac(n*g,cm^2)),
+     ylab = expression(frac(n*g,cm^2)))
+abline(0, 1)
+dev.off()
+
+## Si
+x = epa$Si
+y = iag$Si
+reg <- lm(y ~ x)
+coefficients(reg)
+par(cex=.8)
+
+pdf('../../outputs/EPA_Si.pdf')
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 2, 0, 0))
+plot(x,y,
+     main = 'Fósforo (P)',
+     xlim = c(0,70000),
+     ylim = c(0,70000),
+     pch=20,
+     xlab = expression(frac(n*g,cm^2)),
+     ylab = expression(frac(n*g,cm^2)))
+abline(0, 1)
+dev.off()

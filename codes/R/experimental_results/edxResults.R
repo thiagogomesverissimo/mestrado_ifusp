@@ -23,7 +23,6 @@ gha<-read.csv("../../inputs/edxAnalysis/gha.csv")
 BlackCarbon<-read.csv("../../outputs/BlackCarbon.csv")
 
 # Converting date columns
-# TODO: qual a timezone usada na medida de Ghana?
 infoNima$StartTime<-as.POSIXct(strptime(infoNima$StartTime,format="%m/%d/%y %H:%M",tz="GMT"))
 infoNima$EndTime<-as.POSIXct(strptime(infoNima$EndTime,format="%m/%d/%y %H:%M",tz="GMT"))
 
@@ -106,7 +105,7 @@ pmError[,pmElementos]<-pmError[,pmElementos]/(1000*pmError$volumem3)
 
 # Elementos removidos, mas futuramente reanalisar espectros (PyMCA):
 elementosRemovidos = c('Rh','Ce','Y','Co','Nb','Lu','Th','Ga','Hf','Ba','Se') #Talvez: Rb
-#elementosRemovidos = c('Rh','Ce','Y','Co','Nb','Lu','Th') #Talvez: Rb
+#elementosRemovidos = c('Rh')
 pmConc <- pmConc[, !(names(pmConc) %in% elementosRemovidos)]
 pmError <- pmError[, !(names(pmError) %in% elementosRemovidos)]
 

@@ -63,6 +63,10 @@ tipo $L_{\beta_1}$, outras transições possíveis estão na figura \ref{fig:sie
 Na prática, agrupa-se transições dos subníveis e trabalha-se com 
 as denominações de linhas $K$ e $L$ apenas. 
 
+No modelo de \textbf{XRF} usado, considerou-se elementos da 
+linha K do sódio (Na) até Molibdênio (Mo) e linha L do 
+Molibdênio (Mo) até chumbo (Pb).  
+ 
 %%%%
 \subsection{Tipos de \textbf{XRF}}
 
@@ -153,7 +157,7 @@ o carrossel da figura \ref{fig:carrossel8} de 8 posições.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=0.7\textwidth]{../inputs/images/carrossel8.jpg}
+  \includegraphics[width=0.5\textwidth]{../inputs/images/carrossel8.jpg}
   \caption{Carrossel de 8 posições para \textbf{ED-XRF Shimadzu 720HS} \label{fig:carrossel8}}
 \end{center}
 \end{figure}
@@ -202,7 +206,7 @@ Usa feixe de íons (prótons ou alfas) para excitação dos
 
 \begin{figure}[H]
 \begin{center} 
-  \includegraphics[width=0.7\textwidth]{../inputs/images/arranjopixe.png}
+  \includegraphics[width=0.5\textwidth]{../inputs/images/arranjopixe.png}
   \caption{Arranjo experimental básico para análise de método PIXE 
            \citep{tabacniks2000} \label{fig:arranjopixe}}
 \end{center}
@@ -302,7 +306,7 @@ o alvo de calibração correspondente.
 Nem sempre é possível adiquirir alvos de calibração para todos elementos
 químicos e a incerteza garantida pela \textbf{Micromatter}) é de 5\%. 
 
-No gráfico da figura \ref{{fg:edxrfcalib2010maio}} estão plotados os $R(Z)$ 
+No gráfico da figura \ref{fg:edxrfcalib} estão plotados os $R(Z)$ 
 dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010. 
 
 \begin{figure}[H]
@@ -316,14 +320,14 @@ dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010.
   \end{subfigure}
   \caption{Fatores de respostas $R(Z)$ dos para alvos padrões da 
            \textbf{Micromatter} irradiados em Maio de 2010. 
-           \label{fg:edxrfcalib2010maio}}
+           \label{fg:edxrfcalib}}
 \end{figure}
 
 Nota-se que é possível fazer um ajuste polinomial nos dados, o que 
 permite encontrar $R$ para elementos que não possuem alvos padrões.
 
 %%%%
-\subsection{Estimativa do erro}
+\subsection{Estimativa das incertezas}
 
 Utilizou-se o \textbf{Ajuste dos Mínimos Quadrados Matricial} 
 para a estimativa do erro do ajuste \citep{helene2006}.
@@ -378,84 +382,8 @@ de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}.
   [V_{\tilde{Y}}] = [X] [V_{Ã}]^{-1} [X]^{-1}
 \end{equation}
 
-Adaptando-se para nosso contexto, $[Y]$ será os fatores de respostas $[R]$,
-e $[X]$ os números atômicos $[Z]$.
-
-%%%%
-\subsection{Limite de Detecção}
-
-O limite de detecção é o valor mínimo de massa que a amostra precisa
-ter para ser detectada pelo \textbf{ED-XRF}. 
-
-Irradiando-se uma amostra branca obtém-se o número de contagens medidas ($N_B$) 
-sob o pico dos elementos que se quer calcular o limite de detecção. 
-
-A medida do detector segue uma \textbf{distribuição de Poisson}
-pois realiza contagens aleatórias em torno do valor médio da energia 
-no pico. O desvio padrão da contagem $N$ é portanto $\sqrt{N}$.
-
-\begin{equation}
-  \label{eq:limitedeteccao}
-  N_{LD} = 3 x \sqrt{N_B}
-\end{equation}
-
-O número mínimo de contagens para se distiguir um pico é $N_{LD}$ e é
-calculado usando \ref{eq:limitedeteccao}.
-Pode-se calcular o limite de detecção em termos da massa 
-elementar usando \ref{eq:xrfedmassa}. 
-
-O limite de detecção muda conforme a quantidade de material coletado, podeaqui fizemos um filtro supercarregado
-e outro branco. O branco seria o menor LD possível para esse tipo de filtro Teflon. 
-O LD muda se mudar o tipo de filtro: material e espessura , pois muda o NB. 
-
-Lembrete, usa-se LD K do sódio até Mo. E L para frente do Mo.  
-  
-
-No caso das concentrações diárias, obtidas por EDX.  
-
-Os valores faltantes foram preenchidos com o valor da metade do Limite de Detecção 
-(LD/2, supondo que a concentração não detectada de um elemento que aparece 
-frequentemente nas demais amostras esteja entre 0 e LD, com igual 
-probabilidade de ocorrência para cada valor, LD/2 seria a média e, portanto, 
-o valor mais provável entre estes valores "invisíveis"); 
-
-para sua incerteza tomou-se 5LD/6 \citep{polissar1998}.
-
-
-Densidade mínima para haver detecção da espécie. % como determina para XRF?
-
-
-
-
-%%%%
-\subsection{WinQxas – Quantative X-Ray Spectra Analysis System}
-
-O WinQxas foi o programa utilizado para integração dos espectros obtidos no \textbf{ED-XRF}. 
-
-Ele foi elaborado sob o patrocínio da Agência Internacional de Energia Atômica (IAEA), por um grupo chefiado pelo Profº. Dr. P. Van Espen da Universidade de Antuérpia, Bélgica entre 1987 a 1994, e reformulado para acompanhar as necessidades laboratoriais atuais, como banco de dados mais atualizados e compatibilidade com novos sistemas operacionais. 
-Realizamos a integração de todos os espectros (exemplo na Fig.9), através desse programa, para estimar a composição elementar do MP2,5. Para tanto, o sistema também foi  calibrado, a partir de amostras padrões, com concentrações definidas. Os parâmetros iniciais para o ajuste de energia, por mínimo Chi quadrado, foram determinados  a partir de espectros com picos bem definidos. Obtém-se, assim, os parâmetros iniciais de uma relação linear entre canal e energia, bem como a relação abaixo, entre a largura do pico a meia altura (FWHM), com o nível geral de ruido (NOISE)  no espectro e um termo (FANO), dependente da energia (E):
-
-%FWHM^2 = NOISE^2 + 2,35 x FANO  x E
-
-%\begin{figure}[H]
-%\begin{center}
-%  \includegraphics[scale=0.30]{../inputs/images/winqxas/GHA41editado.pdf}
-%  \includegraphics[scale=0.30]{../inputs/images/winqxas/GPE770editado.pdf}
-%\end{center}
-
-Este gráfico representa o número de contagens  versus a Energia (Kev) dos 	fótons vindos da amostras e recebidos pelo detector do EDX. Os picos 	característicos de elementos químicos encontrados estão indicados na figura.
-
-O fundo do espectro dificulta a distinção dos picos e piora
-o limite de detecção. É gerado pela radiação emitida pelo tubo de ródio
-devido a aceleração e desaceleração de elétrons.
-
 %%%%
 \subsection{Fontes de erro no branco}
-
-
-%TODO: Colocar espectro plot 
-
-A análise dos espectros obtidos por esses métodos foram feitas no software WinQxas (IAEA, 2002).
 
 A massa depositada no filtro amostrado $m(Z)_{medido}$ para um certo 
 elemento $Z$, é composta pela massa coletada na amostragem $m(Z)$ 
@@ -489,55 +417,138 @@ Isolando-se $m_B(Z)$ em \ref{eq:contagembranco} e substituindo em
 \end{equation}
 
 
-A incerteza da equação \ref{eq:contagemcorrigida}:
+A incerteza da contagem corrigida \ref{eq:contagemcorrigida}, 
+usando-se propagação de erros para variáveis independentes fica
+\ref{eq:erro_contagemcorrigida}.
 
 \begin{equation}
   \label{eq:erro_contagemcorrigida}
   \sigma_{N(Z)}^2 = \sigma_{N(Z)_{medido}}^2 + \left( \frac{I \Delta t}{I_B \Delta t_B} \right)^2 \sigma_{N_B}^2
 \end{equation}
 
+Usa-se a média da razão $\frac{N_B}{I_B \Delta t_B}$ dos $n$ alvos brancos
+selecionados para o experimento. 
 
+%TODO: incluir discussão sobre incerteza do Otaviano
 
-Quando se tem N alvos brancos, a concentração do elemento 
-considerado será a média sobre os N dados e o desvip padrão $\sigma_p$.
+%Temos duas fontes possíveis de erro.
 
-Mas quando N<10 é pequeno, precisa haver um fator de correção conforme tabela.
-
-\begin{table}[H]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{ll}
-N  & Fator \\
-2  & 1,84  \\
-3  & 1,32  \\
-4  & 1,20  \\
-5  & 1,14  \\
-6  & 1,12  \\
-7  & 1,11  \\
-8  & 1,09  \\
-9  & 1,08  \\
-10 & 1,06  \\
-20 & 1,03 
-\end{tabular}
-\end{table}
-
-%Já o erro da integração do espectro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
-
-Temos duas fontes possíveis de erro.
-
-1) Erro estatístico. Quando se tem N brancos, a concentração do elemento considerado será a média sobre os N dados. O erro será o desvio padrão (p não é o desvio padrão da média), porque é a chance de termos esse erro em cada filtro analisado e não sobre a média. Para considerar o sentido do desvio padrão (68,3\% de chance de pertencer ao amostral) ainda precisa haver um fator de correção quando N for pequeno. Seria bom corrigir para N<=10. Dai em diante pode usar fator 1, porque a correção seria pequena.
+%1) Erro estatístico. Quando se tem N brancos, a concentração do elemento considerado será a média sobre os N dados. O erro será o desvio padrão (p não é o desvio padrão da média), porque é a chance de termos esse erro em cada filtro analisado e não sobre a média. Para considerar o sentido do desvio padrão (68,3\% de chance de pertencer ao amostral) ainda precisa haver um fator de correção quando N for pequeno. Seria bom corrigir para N<=10. Dai em diante pode usar fator 1, porque a correção seria pequena.
 
 %$\sigma_{pc} = fatorr x \sigma_p$
 
-2) Erro da integração do espectro. Esse erro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração - em µg/cm - tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
+%\begin{table}[]
+%\centering
+%\caption{My caption}
+%\label{my-label}
+%\begin{tabular}{lllllllllll}
+%N     & 2    & 3    & 4    & 5    & 6    & 7    & 8    & 9    & 10   & 20   \\
+%Fator & 1,84 & 1,32 & 1,20 & 1,14 & 1,12 & 1,11 & 1,09 & 1,08 & 1,06 & 1,03
+%\end{tabular}
+%\end{table}
+
+%2) Erro da integração do espectro. Esse erro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração - em µg/cm - tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
 
 %\sigma_e = \sqrt{\frac{\Sigma \sigma_i}{N} }
 
-3) Erro total no branco. O erro final em cada elemento do branco é obtido considerando que 1 e 2 (acima) são independentes, logo:
+%3) Erro total no branco. O erro final em cada elemento do branco é obtido considerando que 1 e 2 (acima) são independentes, logo:
 
 %$\sigma_{r} = \sqrt{\sigma_e^2 + \sigma_pc^2} $
 
+%%%%
+\subsection{Integração dos Espectros}
+
+Realizou-se a integração de todos os espectro obtidos na \textbf{ED-XRF} no
+WinQxas \textbf{Quantitative X-Ray Analysis System for Widows},
+programa desenvolvido para integração numérica de espectros. 
+
+O \textbf{WinQxas} foi elaborado sob o patrocínio da Agência Internacional 
+de Energia Atômica (IAEA) \citep{capote2000}.
+
+Obtém-se os parâmetros iniciais da relação linear entre canal e energia,
+conhecendo-se ao menos dois picos no espectro, normalmente Ferro e Cálcio, 
+no caso de poluição do ar ambiental. 
+
+Os parâmetros iniciais entre a largura do pico a meia altura (FWHM),
+dependente da energia (E), do nível geral de ruído (NOISE) no espectro 
+e de um termo (FANO), dado pela relação \ref{eq:fwhm}. 
+
+\begin{equation}
+  \label{eq:fwhm}
+   FWHM^2 = NOISE^2 + 2,35 x FANO  x E
+\end{equation}
+
+Os parâmetros iniciais foram determinados a partir de espectros com picos bem definidos.
+
+Na figura \ref{fig:winqxas} há dois exemplos de espectros abertos no \textbf{WinQxas}, 
+um de uma amostra branca e outro de uma amostra carregada. 
+Os picos característicos de elementos químicos encontrados estão indicados na figura.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.7\textwidth}
+    \includegraphics[width=\textwidth]{../inputs/images/winqxas/GHA41editado.pdf}
+    \caption{Espectro de amostra carregada (GHA41) - Acra Nima}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.7\textwidth}
+    \includegraphics[width=\textwidth]{../inputs/images/winqxas/GPE770editado.pdf}
+     \caption{Espectro de amostra branca (GPE770)- Acra Nima}
+  \end{subfigure}
+  \caption{Espectros amostra branca e carregada \label{fig:winqxas}}
+\end{figure}
+
+O fundo do espectro, gerado pela radiação emitida no tubo de ródio
+devido a aceleração e desaceleração de elétrons, dificulta a distinção 
+dos picos e altera o limite de detecção. 
+
+Na análise feita nos espectros, feita um a um, deve-se ter atenção 
+para identificação e correção dos seguintes eventos: 
+
+\begin{itemize}
+  \item pico soma: quando fotóns do diferente elementos são contados
+        juntos pelo detector. 
+  \item pico XXX: quando o fóton incidente excita o silício do detector
+        e é contato com a energia de incidência menos a energia usada para excitar o silício. 
+\end{itemize}
 
 
+%%%%
+\subsection{Limite de Detecção}
 
+O limite de detecção é a densidade mínima para haver 
+detecção da espécie no tipo de filtro e \textbf{ED-XRF} considerados. 
+
+Irradiando-se uma amostra branca obtém-se o número de contagens 
+medidas ($N_{fundo}$) sob o pico (fundo do espectro) de todo elementos.
+
+A medida realizada pelo detector segue uma \textbf{distribuição de Poisson}
+pois realiza contagens aleatórias em torno do valor médio da energia 
+no pico. O desvio padrão da contagem $N$ é portanto $\sqrt{N}$.
+
+Dada a natureza do detector, o número mínimo de contagens para se 
+distiguir um pico é $N_{LD}$, calculado usando \ref{eq:limitedeteccao} 
+(distribuição de Poisson).
+
+\begin{equation}
+  \label{eq:limitedeteccao}
+  N_{LD} = 3 x \sqrt{N_{fundo}}
+\end{equation}
+
+Pode-se calcular o limite de detecção em termos da massa 
+elementar usando \ref{eq:xrfedmassa}.
+O limite de detecção muda conforme a quantidade de material coletado,
+pois em amostras carregadas, a radiação gerada no tubo aumenta, e 
+portanto aumenta o fundo, aumentando o limite de detecção. 
+Assim, o ideal é calcular o limite de detecção
+em amostra branca e carregada.
+
+O limite de detecçãodo branco foi usado para preechimento dos valores faltantes.  
+Os valores faltantes foram preenchidos com o valor da metade do 
+limite de detecção $(LD/2)$, pois supoe-se que a concentração não 
+detectada de um elemento que aparece frequentemente nas demais amostras 
+esteja entre 0 e o limite de detecção, com igual probabilidade de ocorrência 
+para cada valor. Assim, $LD/2$ seria a média e, portanto, o valor mais 
+provável entre estes valores não detectados. 
+
+Para a incerteza das concentrações, usou-se o valor proposto por
+\citep{polissar1998} de $5LD/6$.

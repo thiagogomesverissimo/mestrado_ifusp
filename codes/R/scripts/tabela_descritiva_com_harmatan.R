@@ -4,8 +4,11 @@ source("myfunctions/load.R")
 # A função describe está no pacote Hmisc e psych
 detach("package:Hmisc", unload=TRUE) 
 
-residencial = c('RFcH','RGcH','RIcH')   
-traffic = c('TFcH','TGcH','TIcH') 
+#residencial = c('RFcH','RGcH','RIcH')   
+#traffic = c('TFcH','TGcH','TIcH') 
+
+residencial = c('RFcH','RIcH')   
+traffic = c('TFcH','TIcH') 
 
 # All conditions
 conditions<-c(residencial,traffic)
@@ -19,7 +22,7 @@ for (i in conditions){
 
 rel<-rbind('\\begin{tabular}{rrrrrr}')
 rel<-rbind(rel,'\\hline')
-rel<-rbind(rel,"Descrição & n & Média & Desvio Padrão & Mediana & OMS \\\\")
+rel<-rbind(rel,"Descrição & n & Média & Desvio Padrão & Mediana & Ultrapassagens OMS \\\\")
 rel<-rbind(rel,'\\hline')
 # Estatística descritiva
 for (i in conditions){
@@ -48,6 +51,8 @@ for (i in conditions){
 }
 rel<-rbind(rel,'\\hline')
 rel<-rbind(rel,'\\end{tabular}')
+
+# Salva tex 
 write.table(rel,'../../outputs/tabela_descritiva_com_harmatan.tex',
           row.names=F,
           col.names=F,

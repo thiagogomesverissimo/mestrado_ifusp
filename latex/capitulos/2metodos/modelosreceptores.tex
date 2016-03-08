@@ -2,71 +2,63 @@
 \section{Modelos Receptores}
 
 Modelo receptor é uma abordagem matemática para determinar e 
-quantificar o efeito das fontes poluidoras do ar. 
+quantificar o efeito das fontes poluidoras do ar em amostras.
 
-Modelos receptores buscam quantificar a participação de fontes poluidoras em amostras. 
-O Balanço Químico de Massas (CBM), por exemplo, necessita do conhecimento prévio do 
-perfil das fontes locais, cuja combinação linear proverá o rateio de amostragens 
-entre tais fontes. 
+\textbf{Análise de Fatores (AF)} e 
+\textbf{Positive Matrix Fatorization (PMF)} são técnicas matemáticas
+de análise multivariada usadas em modelos receptores e 
+permitem a identificação de fontes quando os seus perfis são desconhecidos.
 
-Já a Análise de Fatores Principais (PFA) ou Positive Matrix Fatorization (PMF)
-permitem o rateio de fontes quando os seus perfis são desconhecidos. 
-Entretanto, necessitamos de conhecê-los quando buscamos associar estes 
-resultados a realidade concreta da bacia aérea estudada. 
+Outra técnica que resolve os modelos receptores é 
+o \textbf{Balanço Químico de Massa (CMB)}, usando quando se conhece 
+o perfil das fontes locais e permite verificar o impacto das fontes 
+nas concetrações medidas no amostrador. 
+O \textbf{CMB} não foi usado nesta pesquisa, já que não medimos os perfis 
+das fontes. 
 
-%TODO: no site da cetesb tem um esquema legal de modelo receptor
-%TODO: traçar um panomara da evolução histórica dos modelos receptores.
-
-\subsection{Análise multivariada}
-
-O processo de identificação das fontes de poluição do ar é 
-complexo, havendo diversos caminhos, os quais as técnicas estatísticas
-multivariadas são historicamente usadas.
- 
-Análise multivariada é uma das técnicas estatística utilizadas para 
-resolver reduzir a dimensão dos dados coletados nos modelos receptores, 
-usando a variância. 
-
-As dimensões (variáveis) reduzidas de um conjunto de dados analíticos 
-complexo poderão ser interpretados como fonte(s) poluídora(s).
-
-As técnicas de redução da dimensão, como análise multivariada, 
-permitem manter a quantidade de informação contida inicialmente nos dados. 
-Essa informação está armazenada na variância e covariância (ou correlação) 
-inicial dos dados. 
-
-Dâ-se o nome de Fator as novas variáveis reduzidas. 
-O Fator é um tipo de variável latente, pois não é uma grandeza diretamente
+A análise multivariada é uma técnica estatística utilizada para 
+reduzir a dimensão de dados matriciais. 
+Permite manter a quantidade de informação contida inicialmente nos dados, 
+armazenada na variância e covariância. 
+Dâ-se o nome de fator as novas variáveis reduzidas, que são
+ortogonais entre si. 
+O fator é uma variável latente, pois não é uma grandeza diretamente
 medida, mas sim obtida a partir de outras variáveis observáveis. 
 
-O número de fatores extraídos dependerá do conhecimento do(a) pesquisador(a)
-sobre a região, possíveis fontes poluidoras, número de amostras, 
-resolução da amostragem e espécies medidas.
+As dimensões (variáveis) reduzidas de um conjunto de dados analíticos 
+complexo podem ser interpretados como fonte(s) poluídora(s) 
+\citep{wang2012} e \citep{mansha2012}.
+
+O número de fatores extraídos dependerá dependerá das possíveis 
+fontes poluidoras, número de amostras, resolução da amostragem 
+e espécies medidas.
 
 O conhecimento do pesquisador é imprescindível para fazer o relacionamento 
-entre fator e fonte(s), afim de avaliar o significado físico das fontes. 
-Para tal, informações das possíveis fontes poluidoras próximas ao ponto 
+entre fator e fonte(s), avaliando o significado físico das fontes. 
+Informações das possíveis fontes poluidoras próximas ao ponto 
 receptor, dados meteorológicos do período de coleta, inventário de emissões 
-e outras informações que possam ajudar a fazer esse relacionamento 
-devem ser usadas.
+e outras informações ajudam no mapeamento fator-fonte(s).
+Assim, o principal desafio em análises multivariada é identificar 
+se o fator de fato existe enquanto fonte(s) poluídora(s). 
 
 Número reduzido de amostras, baixa resolução da amostragem, \textbf{outliers} 
 (eventos infrequentes de curta duração e com alta concentração) representam 
 um desafio para modelos multivariados.
 
 %%%%
-\subsection{Fomulação matemática dos Modelos Receptores}
+\subsection{Conservação da massa}
 
 Os poluentes que são emitidos pelas fontes em uma bacia aérea devem chegar no 
-receptor, podendo-se, assim, usar o princípio de conservação de massa no Modelo Receptor. 
-Vamos fazer uma adaptação da equação de conservação de massa para o contexto 
-de poluição do ar. 
+receptor, podendo-se, assim, usar o princípio de conservação da massa 
+no modelo receptor. 
 
-Se em uma amostragem coletamos $j$ amostras e medimos $i$ poluentes, podemos 
-escrever a equação da conservação de massa como segue: 
+Aplicando-se a equação de conservação da massa para uma amostragem que se 
+coletou $i$ amostras e mediu-se $j$ poluentes tem-se a 
+equação \ref{eq:conservacaomassa}.
 
 \begin{equation}
-  x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} + \epsilon_{ij}
+  \label{eq:conservacaomassa}
+  x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} %+ \epsilon_{ij}
 \end{equation} 
 
 sendo,
@@ -74,186 +66,118 @@ sendo,
   \item $x_{ij}$ = concentração na amostra receptora $i$ da espécie $j$;
   \item $f_{pj}$ = fração da espécie $j$ emitida pela fonte $p$;
   \item $g_{ip}$ = contribuição da fonte $p$ para amostra $i$;
-  \item $\epsilon$ = erro do modelo empregado.
+  %\item $\epsilon_{ij}$ = erro do modelo empregado.
 \end{itemize}
 
 %%%%
-\subsection{Balanço Químico de Massa}
+\subsection{Análise de Fatores (AF)}
 
-O quanto dos perfis de fontes medidas explica as concentrações dos elementos? 
-A técnica Balanço Químico de Massa (\textbf{BQM}) busca responder essa questão.
+A técnica \textbf{AF} consiste na redução da dimensionalidade dos dados, 
+para uma nova base contendo a menor dimensão possível, 
+relativamente à dimensão dos dados originais.
 
-%TODO: você deve terminar de dizer o que é o CMB antes de dizer suas condições de uso e limitações. Desse modo o leitor pode saber porque isso ocorre. Cabe falar do CMB, já que não realizou nenhuma avaliação com ele.
+A redução é feita de tal forma que estas novas variáveis (Fatores) 
+sejam combinação linear das anteriores e que representem a máxima fração possível da 
+variabilidade contida naquelas variáveis. 
 
-O \textbf{BQM} apresenta problema quando fontes importantes são omitidas do
-cálculo ou alguma fonte incluída não representa uma fonte real.
+Popularizada após a publicação do trabalho de Lourenz em 1956, que chamou 
+a técnica de Análise de Funções Ortogonais Empíricas, 55 anos após a 
+descoberta da mesma por Karl Pearson \citep{bartholomew2011}.
 
-Considerações no uso do \textbf{BQM}: 
-\begin{itemize}
-  \item composição química das fontes constantes no tempo;
-  \item as espécies não são reativas;
-  \item todas fontes devem ser incluídas;
-  \item número de fontes menor que o número de espécies.
-\end{itemize}
-
-%TODO: falar um pouco do speciate. 
-
-Critérios para validar os resultados do \textbf{BQM}:
-
-\begin{itemize}
-  \item $t-statistic$ > 2;
-  \item $R^2$ >= 0,8;
-  \item Porcentagem da massa explicada entre 80\% e 100\%; 
-  \item ${\chi}^2$ < 4
-  \item concentração modelada/concentração medida entre 0,2 e 2,0.
-\end{itemize}
-%ajuste o formato matemático dos itens acima.
-
-%%%%
-\subsection{Análise de Fatores}
-%TODO: padronize a denominação dada à metodologia: Análise de Fatores Principais (AFP); Análise de Componentes Principais (ACP). Uma é geral. A outra é um método para resolvê-la.
-
-A ACP é um técnica multivariada que permite-nos encontrar os padrões 
-sistemáticos da variação dos dados. 
-Do ponto de vista de análise dos dados, a ACP é usada para estudar um 
-tabela de observações e variáveis com a principal ideia de transformar 
-as variáveis observadas em um conjunto de novas variáveis, 
-as componentes principais, que são ortogonais entre si 
-e explicam a variação inicial do dados.
-%TODO: o que faz a componentes principais? Não está claro  no que disse. O que de diferente faz a AF? Quais são as equações básicas deste modêlo?
-
-Os resultados do PCA e AF são similares, apesar de PCA ser um modelo
-descritivo dos dados e AF ser um modelo estrutura. 
-Os loadins no AF levemente menores que os da PCA, pois PCA tenta
-explicar toda a variância da matriz de correlação, enquanto que a AF
-explica apenas a variância comum. 
-
-PCA é uma representação onde as componentes são uma combinação linear 
-ortogonal que maximizam a variância total.
-AF é uma representação onde os fatores são uma combinação linear ortogonal
-que maximiza a porção compartilhada da variância. 
-
-Há evidencias que a variável latente (fator) existe?
-
-No PCA não perdemos variância no processo de extração, pois 
-o número de fatores extraídos é igual ao número de espécies medidas.
-
-PCA e AF são ambas usadas para redução da dimensão. 
-Na AF o objetivo é identificar o menor número de fatores que explica os 
-dados observados. Em PCA as dimensões só são reduzidas, mas a 
-interpretação das componentes é feita de forma similar no fatores da AF.
-
-Um problema comum na Análise de Fatores é a Multicolinearidade. 
-Caso o determiante da matriz de correlação seja maior que $0,00001$ 
-há multicolinearidade e os dados devem ser checados. 
-% essas explicações somente fazem sentido se você apresentar as equações do modelo e daquilo que está tratando.
-
-\textbf{Factor Loading} é a correlação entre a variável observada e o fator
-extraído (similar ao coeficiente padronizado da regressão Linear Múltipla). 
-
-\textbf{Comunalidade} é a influência total numa variável de todos os fatores 
-relacionadas com ela. Matematicamente, é igual a soma dos \textbf{Factor Loading}
-desses fatores ao quadradro. 
-$0$ indica que a variável não foi nada explicada pelos fatores e $1$ indica 
-que foi completamente explicada pelos fatores. 
-
-\textbf{Singularidade} é a porção da variabilidade de uma variável que não 
-pode ser explicada pelas variáveis latentes relacionadas a essa variável. 
-Matematicamente, é o resto da subtração da \textbf{Comunalidade} por 1,
-ou seja, é a porcentagem da variabilidade que não pode ser prevista pelo modelo.
-
-\textbf{Total da Variância Explicada} é o quanto da variabilidade dos dados foi 
-modelada pelas variáveis latentes. 
-
-\textbf{Rotação} maximiza os \textbf{Factor Loading} para melhor 
-entendimento dos resultados. 
-
-\textbf{Rotação Varimax} pressupõe que os fatores não são correlacionados.
-
-Equação da Análise de Fatores
-equação para fatores absulutos, ou seja, é a recomposição dos fatores que 
-são resultados da análise dos dados a partir da normalização dos dados 
-originais pela média e pelo desvio padrão.
-
-\citep{keiding1986}
-
-Onde, sj é o desvio padrão da variável j para todas as N amostras; Bjp é o valor dos 'factor loadings' rotacionados para a variável j num fator p; sMP é o desvio padrão do material particulado para todas as N amostras; e Cp é o valor do 'factor loading' referente ao material particulado num fator p.
-
-\begin{eqnarray}
-FA = \frac{L_{ij}\sigma_i}{\sigma_{PM}L_{PM_j}}
-\end{eqnarray}
-
-\begin{itemize}
-  \item L = loadings
-  \item i = espécies
-  \item j = fatores extraídos
-\end{itemize}
-
-Factor Scores: 
+Dado as variáveis observáveis ($x_1,\dots,x_j$) com 
+respectivas médias $\mu_1,\dots,\mu_j$ a equação da análise de fatores 
+pode ser escrita como em \ref{eq:af}. 
+ 
 \begin{equation}
-FatorScore1 = coeficiente_{elemento1 fator1}*valor_elemento1 + coeficiente_{elemento2 fator1}*valor_elemento2 ...
-\end{equation} 
+  \label{eq:af}
+  x_i-\mu_i = l_{i1} F_1 + \cdots + l_{ip} F_p + \varepsilon_i 
+\end{equation}
+
+Sendo $F$ os fatores extraídos e $l_{ip}$ o peso ou $loading$ 
+da variável $i$ no fator $p$.
+
+Um problema comum em \textbf{AF} é a de multicolinearidade, assim, 
+deve-se evitar amostras medidas em paralelo. 
+
+A \textbf{comunalidade} é igual a soma dos $loading$ ao quadradro 
+para cada variável e indica como cada variável foi explicada pelo ajuste. 
+$0$ indica que a variável não foi nada explicada pelos fatores extraídos 
+no ajuste e $1$ indica que foi completamente explicada.
+
+Deve-se checar sempre a \textbf{variância total da explicada} que indica 
+o quanto da variabilidade dos dados inicais foi explica pelo ajuste. 
+Ajuste com 80\% de \textbf{variância total da explicada} são considerados bons. 
+
+A rotação tipo \textbf{Varimax} dos resultados da \textbf{AF} 
+para um novo sistema de eixos foi feita para maximizar as variâncias 
+e melhorar entendimento dos resultados \citep{kaiser1958}.
+
+Por fim, os critérios usados para retenção dos fatores foram:
+1. reter um número de componentes suficientes para explicar 85\% da 
+   \textbf{variância total da explicada};
+2. reter os componentes cujos autovalores são maiores que 1;
+3. usar um gráfico scree exibindo os autovalores associados aos fator e
+   verificar se o fator não está degenerado. 
+
+%TODO: não sei ainda se voo colocar a discussão de fatores absolutos 
+
+%equação para fatores absulutos, ou seja, é a recomposição dos fatores que 
+%são resultados da análise dos dados a partir da normalização dos dados 
+%originais pela média e pelo desvio padrão.
+%\citep{keiding1986}
+
+%Onde, sj é o desvio padrão da variável j para todas as N amostras; 
+%Bjp é o valor dos 'factor loadings' rotacionados para a variável j num fator p; 
+%sMP é o desvio padrão do material particulado para todas as N amostras; 
+%Cp é o valor do 'factor loading' referente ao material particulado num fator p.
+
+%\begin{eqnarray}
+%FA = \frac{L_{ij}\sigma_i}{\sigma_{PM}L_{PM_j}}
+%\end{eqnarray}
+
+%\begin{itemize}
+%  \item L = loadings
+%  \item i = espécies
+%  \item j = fatores extraídos
+%\end{itemize}
+
+%Factor Scores: 
+%\begin{equation}
+%FatorScore1 = coeficiente_{elemento1 fator1}*valor_elemento1 + coeficiente_{elemento2 fator1}*valor_elemento2 ...
+%\end{equation} 
 
 %%%%
-\subsection{\textbf{PMF} - Positive Matrix Factorizarion}
+\subsection{Positive Matrix Factorizarion (\textbf{PMF})}
 
 O \textbf{Positive Matrix Factorizarion (PMF)} é outro método multivariado usado
-em modelos receptores para resolver a equação da conservação da massa 
-(citar equação).
+em modelos receptores e permite determinar um conjunto de fatores $p$, 
+o perfil $f$ das espécies de cada fonte e a contribuição da massa $g$ de cada fator 
+para cada amostra individual \citep{norris2014}. 
 
-%TODO: Além de colocar a equação, antes de discutir o código numérico computacional, você deve discutir estatística e cientificamente o que faz o método. Apenas na sequência é que cabe discutir as facilidades oferecidas pelo programa computacional.
+O \textbf{PMF} resolve a equação de conservação de massa usando a resolução por 
+mínimos quadrados, diferente da \textbf{AF}, que reduz a dimensão dos 
+dados decompondo a matriz de correlação em autovalores e autovetores. 
 
+O usuário informa a quantidade de fatores desejados $p$ e o \textbf{PMF} 
+tentará encontrar uma solução para quantidade de fatores inseridos e 
+mesmo que o \textbf{PMF} retorne um ajuste matematicamente consistente 
+é necessário verificar o significado físico da solução.
 
-O \textbf{PMF} também é um tipo de Análise Fatorial
-mas ao invés de fazer redução da dimensão dos dados decompondo a matriz de 
-correlação em autovalores e autovetores, resolve a equação de conservação 
-usando a resolução por mínimos quadrados. Em pesquisas de poluição atmosférica 
-o método \textbf{PMF} tem ganhado espaço nos últimos anos, devido a 3 motivos 
-principais:
-
-\begin{itemize}
-  \item Disponibilização de uma versão gratuita do software que implementa 
-        o método \textbf{PMF} pela \textbf{EPA}, o \textbf{PMF EPA 5.0} 
-        \citep{Norris:2014}. 
-        Ainda existe a versão proprietária e comercial, com mais recursos.   
-  \item Incorporação de um algoritmo robusto desenvolvido por (citar paatero e tapper) 
-        que impede o aparecimento de valores negativos no perfil e 
-        contribuição de fontes.
-  \item Ponderação pelas incertezas das concentrações, diminuído assim o peso 
-        de espécies com incertezas altas.
-\end{itemize}  
-
-Em termos de reprodutibilidade da pesquisa científica o \textbf{PMF EPA 5.0} 
-nos fornece os seguintes recursos:
-
-\begin{itemize}
-  \item Fixação de \textbf{Random Seed}.%o que significa isso? Porque este detalhe destaca-se dos demais?
-  \item Arquivo \textbf{XML} com as configurações usadas na rodada. 
-\end{itemize} 
-
-%%%%
-\subsubsection{Conservação da Massa}
-O PMF é uma solução para a equação da conservação da massa, assim, se 
-consiredarmos que:
-\begin{itemize}
-  \item $c_{ij}$ matriz de concentração
-  \item $u_{ij}$ matriz de incertezas (experimentais e analíticas)
-  \item $i$ as amostras válidas
-  \item $j$ as espécies medidas
-\end{itemize}
-
-EPA PMF v3.0.2.2 (EPA, 2008), uma ferramenta de análise multivariada que permite determinar um conjunto de p fatores, o perfil das espécies f de cada fonte e a contribuição da massa g de cada fator para cada amostra individual, de modo que a matriz de dados obtidos, em j amostragens e com i espécies químicas determinadas é dada por:
-
-Pode-se escrever a equação da conservação da massa no 
-contexto do \textbf{PMF} \ref{equation:pmf}: 
+Dada uma campanha da amostragem com $i$ amostras válidas e 
+$j$ espécies medidas, a matriz das concentrações $c_{ij}$ 
+pode ser decomposta em $g_{ik}$ e $f_{kj}$ conforme \ref{eq:pmf}. 
+O \textbf{PMF} procura um par das matrizes $g_{ik}$ e $f_{kj}$ que
+minimizam a função objeto $Q$ da equação \ref{eq:pmfobject}. 
 
 \begin{equation}
   c_{ij} = \sum_{k=i}^p g_{ik}f_{kj} + e_{ij}
-  \label{equation:pmf}
+  \label{eq:pmf}
 \end{equation}
 
 Onde,
 \begin{itemize}
+  \item $c_{ij}$ matriz de concentração
+  \item $u_{ij}$ matriz de incertezas (experimentais e analíticas)
   \item $p$: O número de fatores informado pelo usuário.
   \item $g_{ik}$: Contribuição dos fatores nas amostras (\textbf{Factor Score}).
   \item $f_{kj}$: Perfil da fonte ou assinatura da fonte, ou seja, 
@@ -261,306 +185,46 @@ Onde,
   \item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas.
 \end{itemize}
 
-Onde eij é o residuo para cada amostra/espécie.
-O modelo procura o melhor par das matrizes g e f, que minimiza a função Q, que pondera as diferenças entre valores observados e estimados pelas incertezas dos valores observados (uij):
+\begin{equation}
+  Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{e_{ij}} {u_{ij}} \right] ^2
+  \label{eq:pmfobject}
+\end{equation}
 
-O objetivo do \textbf{PMF} é encontrar $g_{ik}$ e $f_{kj}$. 
-($k$ é um fator genérico), pois a matriz $c_{ij}$ é decomposta em 
-$g_{ik}$ e $f_{kj}$. Assim, a pergunta que temos que fazer ao trabalha com 
-o \textbf{PMF} é: 
+O método \textbf{PMF} tem sido muito utilizado em pesquisas de poluição 
+atmosférica, pois inclue um algoritmo robusto desenvolvido por \citep{paatero1994}
+que impede o aparecimento de valores negativos no perfil e na contribuição de fontes.
 
-\textbf{Quais $g_{ik}$ e $f_{kj}$ melhor reproduzem $c_{ij}$?}
-
-O usuário informa a quantidade de fatores desejados $p$ e o \textbf{PMF} 
-sempre encontrará uma solução para essa quantidade de fatores. 
-Entretanto, é necessário avaliar a qualidade do ajuste, seguindo os passos 
-que serão apresentados logo a seguir, assim como interpretar o significado 
-físico dos fatores. 
+Diferente da \textbf{AF}, pondera o ajuste pelas incertezas das concentrações, 
+diminuíndo assim o peso de espécies com incertezas altas \ref{eq:pmfobject}.
+Por isso é necessário que os resultados e de \textbf{XRF} e \textbf{Black Carbon}
+tenham incerteza que englobem .
 
 %%%%
 \subsubsection{Função Objeto}
 
-Uma função objeto, em matemática, é uma função que precisa ser minimizada 
+Função objeto, em matemática, é uma função que precisa ser minimizada 
 ou maximizada usando métodos numéricos para equações não lineares, pois não 
-tem solução analítica. 
-
-No \textbf{PMF} a função objeto $Q$ é calculada conforme a equação 
-\ref{equation:pmf:object}, onde ${e_{ij}}$ é encontrado isolando-o na 
-equação \ref{equation:pmf}.
-%TODO: veja que uij é a incerteza que temos na determinação da concentração (método analítico e amostragem); esse é um ponto importante e forte realizado neste trabalho e que vai precisar ser bemd iscutido, inclusive nesta parte teórica.
-
+tem solução analítica. A matriz de resíduo ${e_{ij}}$ da equação \ref{eq:pmf}
+pode ser substítuida em \ref{eq:pmfobject} obtendo-se \ref{eq:pmfobjectfull}.
 
 \begin{equation}
-  Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{e_{ij}} {u_{ij}} \right] ^2
-  \label{equation:pmf:object}
+  Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{c_{ij} - \sum_{k=i}^p g_{ik}f_{kj}} {u_{ij}} \right] ^2
+  \label{eq:pmfobjectfull}
 \end{equation}
 
-O \textbf{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ 
-mínimo local ou global.% o que é local e global?
+A solução para \ref{eq:pmfobjectfull} foi inicialmente implementada usando 
+o \textbf{método de Gauss-Newton} \citep{paatero1994}, mas na 
+versão atual do software \textbf{PMF EPA 5.0} \citep{norris2014} é usado o 
+\textbf{Método do Gradiente Conjugado}.
 
-
-Como sempre estamos interessados no mínimo global, precisa-se verificar se a 
-solução gerou um $Q$ mínimo local ou global. A estratégica para identificar
-o tipo de mínimo é rodar o \textbf{PMF} para diferentes valores de 
-\textbf{Random Seed} e acompanhar a estabilidade de $Q$.
-
-A equação \ref{equation:pmf:object} foi inicialmente implementada usando 
-o \textbf{método de Gauss-Newton}  (citar fonte 1997 Paatero Tapper), mas na 
-versão atual do software \textbf{PMF EPA 5.0} é usado o 
-\textbf{Método do Gradiente Conjugado}, que necessita de menos recursos 
-computacionais. 
-
-Os valores de $g_{ik}$ e $f_{kj}$ são ajustados até encontrar menor $Q$. 
+Os valores de $g_{ik}$ e $f_{kj}$ são iniciados randomicamente e
+são ajustados até se chegar no menor $Q$.
+ 
 O \textbf{PMF EPA 5.0} nos oferece dois valores para $Q$: $Q_{verdadeiro}$ e 
-$Q_{robusto}$, onde o primeiro foi calculado considerando todos os valores 
+$Q_{robusto}$, onde o primeiro é calculado considerando todos os valores 
 de concentração e no segundo remove-se os \textbf{outliers}.
 Assim quando há poucos \textbf{outliers}, $Q_{verdadeiro}$ e $Q_{robusto}$ 
-são próximos. Incertezas muitos altas também causam $Q_{verdadeiro}$ e 
+são próximos. Incertezas muitos altas resultam em $Q_{verdadeiro}$ e 
 $Q_{robusto}$ similares.
 
-O \textbf{PMF EPA 5.0} começa com os valores da matriz $f_{kj}$ randômicos, 
-que são então modificados, até a encontrar a melhor solução, ou seja, 
-a do menor $Q_{robusto}$. 
-Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações 
-como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim 
-mais esperança de encontrarmos um $Q$ mínimo global e não local. 
 
-%TODO: você está fazendo uma disucssão randomica sobre o método. Separe primeiro os fundamentos básicos do método no início, com suas equqções fundamentais. Depois selecione o que é relevante para a metodologia de solução numérica da equação. O manual de uso do método deve ser referido e quem for trabalhar com o modelo irá tratar de aprender seus detalhes. Isso vale para o que fez a seguir, que representa um conjunto de sugestões arbritrárias dos produtores do modelo e que podem direcioná-lo sem uma base concreta para tanto. O mais importante é você discutir como montou suas incertezas. Você pode até comentar algumas destas sugesões mas não convém adotá-las a prióri.
-
-
-%%%%
-\subsubsection{Pré-processamento do ajuste}
-Requisitos conceituais e técnicos para realização do ajuste.
-
-%%%%
-\paragraph{Signal Noise (S/N)}
-
-Dependendo do método de medida, conhecimento dos processos químicos 
-atmosféricos e limite de detecção é necessário diminuir o peso de algumas 
-espécies no modelo, diminuindo as incertezas. 
-Além do conhecimento da espécie, o \textbf{Signal Noise (S/N)} é um bom 
-indicador de quais amostra deve-se aumentar as incerteza.
-
-\begin{itemize}
-  \item Se, $c_{ij} >  u_{ij}$, então $ S/N = (c_{ij} - u_{ij})/u_{ij}$.
-  \item Se, $c_{ij} <  u_{ij}$, então $S/N = 0 $.
-\end{itemize}
-
-O \textbf{S/N} indica se a variabilidade nas medidas é real ou faz parte do 
-ruído dos dados. 
-Espécie com a concentração menor que a incerteza, não apresentam ruído, e devem 
-ser removidas da análise. Espécies com valores muito próximos da incerteza, 
-portanto com $S/N$ próximo de zero (< 0,5) também devem ser removidas da 
-análise. 
-Espécie nas quais a concentração é pelo menos duas vezes o valor da incerteza, 
-isto é, $S/N$ é maior ou igual à 1, são as ideais para análise, 
-e não altera-se as incertezas. 
-
-Quando $S/N$ está entre 0,5 e 1, diminuímos o peso da espécie aumentando a 
-incerteza em um fator 3.  
-
-%%%%
-\paragraph{Manipulação do Software EPA}
-
-Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir 
-alguns pré-requisitos antes da realização do ajuste:
-
-\begin{itemize}
-  \item Não é permitido valores negativos em $c_{ij}$ ou em $u_{ij}$.
-  \item células vazias não são aceitas.
-  \item nomes das colunas(espécies) e linhas(amostras) devem ser únicos.
-  \item é ideal (não obrigatório) que os dados já estejam classificados 
-        pela data em ordem crescente.
-\end{itemize}
-
-%%%%
-\paragraph{Inspeção dos dados de entrada}
-
-É necessário fazer ainda inspeções ou alterações antes de fazer o ajuste.
-\begin{itemize}
-  \item Espera-se uma relação tipicamente linear entre 
-        \textbf{Concentração} $\times$ \textbf{Incerteza}.  
-        Investigar o motivo caso isso não ocorra. 
-  \item Adequação das incertezas baseado no \textbf{Signal Noise (S/N)} e 
-        conhecimento da espécie. 
-  \item Marcar a Massa Total como \textbf{Total Variable}
-  \item Inspecionar gráficos de dispersão entre espécies nas quais se espera 
-        correlação, anti-correlação ou não correlação. 
-  \item Inspecionar gráficos de séries temporais, para:
-    \begin{itemize}
-      \item Identificar padrões temporais em espécies individuais ou em grupo 
-            de espécies.
-      \item Remover \textbf{outliers} 
-    \end{itemize}
-\end{itemize}
-
-%%%%
-\subsubsection{Fazendo o ajuste}
-
-Segue-se uma séries de conceitos que deverão ser entendido antes da realização 
-do ajuste. 
-
-%%%%
-\paragraph{Ambiguidade Rotacional}
-
-A comparação fator por fator da contribuição dos fatores, $g_{ik}$, 
-pode ser plotada em um tipo de gráfico chamado \textbf{G-Space}. 
-O gráfico \textbf{G-Space} auxilia na verificação da existência de 
-\textbf{Ambiguidade Rotacional} na solução. 
-Dada a natureza da \textbf{Análise Fatorial}, onde os fatores não devem estar 
-correlacionados, no gráfico \textbf{G-Space} fatores com pontos fora da 
-proximidades dos eixos tem maior \textbf{Ambiguidade Rotacional}. 
-
-Amostras com contribuição zero em ambos os eixos proporcionam maior 
-estabilidade na solução e portanto menor \textbf{Ambiguidade Rotacional}. 
-
-%%%%
-\subsubsection{Pós-processamento do ajuste}
-Métodos para avaliação da estabilidade da solução.
-
-%DICA PARA PLOTAR OS HISTOGRAMAS DOS RESÍDUOS:
-%Os resíduos estão na escala das incertezas: o ideal é que o eixo x vá de -3 até 3 (bin:0.5 eixo y: porcentagem)
- 
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-%COMPARAÇÃO ENTRE AS RODADAS DE DIFERENTES Q
-%Dois diagnósticos para avaliar diferenças entre as rodadas:
-% 1)analise residual entre as rodadas 
-% 2)o sumário do fator distribuição dos elementos comparados com a rodada do menor Qrobusto. 
-% (compara resultados do menor $Q_{robusto}$ com outras Q)
-% Mas detalhes de comparação entre as rodadas é dada na comparação dos resíduos.). 
-%Cálculo residual entre as rodadas: compara os residuos entre a baserun mais a diferenca quadrada entre os residuos (na escala das incertezas) para cada par de base run:
-% \begin{equation}
-%  d_{jkl} = \sum\limits_{l} (r_{ijk} - r_{ijl})^2
-% \end{equation}
-% r: resíduo na escala das incertezas
-% i: amostra
-% j: espécie
-% k,l: duas diferentes rodadas consideradas.
-% %Teremos assim uma matriz onde podemos checar rodadas diferenças significativas, a matriz está no arquivo *_diagnostics. O que olhar? Comparar um fator com um outro, deveria ser contantes...
-% 2.5)Os valores das espécies pareadas para cada rodada podem ser comparados adcionando os d da equação anterior:
-% \begin{equation}
-%   D_{kl} = \sum\limits_{j} d_{jkl}
-% \end{equation}
-% %a matriz D está no arquivo *_diagnostics. Prestar a atenção na estabilidade por elemento.Grande variações indicam que duas rodadas resultaram em solucoes diferentes de fato em vez de meras rotações uma da outras.
-% 2.6) Variação do Q nos fatores: No arquivo *_run_comparation podemos ver o Q por fator, assum veremos o quão estável está o Q no fator, encontrando assim fatores com Q instáveis 
-% 
-%perfil: azul: concentração de cada espécie no distribuida no fator.
-% vermelho: porcentagem de cada especie distribuida no fator: 
-% o grafico esta normalizado entap a media de  todas contribuicoes para cada é 1. 
-% O interessante aqui é verificar todas rodada afim de ver a estabilidade da solução. (ou seja, ver se os fatores ou especies estao vatriand muuito entre as rodadas). Fazer um stack plotr grafico com todos fatroes.  
-%
-%no grafico do contribuition podemo multiplicar pela massa total para plotaR nas unidades. 
-
-%Qesperado = (número de amostras*número de elementos) - (n. de fatores (n.elementos + n. n.amostras))
-%
-%Q/ Qesperado (é por espécie) = soma dos quadrados dos residuos (na escala correta) de todas espécies dividido pelo número da espécie.   
-
-%o gráfico de  Q/ Qesperado é um caminho de como enteder os resíduos na solucao pmf, e ver qual especie ou amostra nao é bemajustada (com valor maior que 2). Assim, podemos rodar o modelo novamente com mais fontes, para ver se os elementos não ajustados na verdade não correspondem a outro fator. na temporal os pontos maior que dois pode indicar impactos de fontes unicas e devem ser investigado.
-
-%PARA COMPARA COM SAIDAS DO ACP OU CMB
-%As saidas F (ug) e G ($1/m^3$) estao normatizadas (preciso conferir se quando marcamos a massa total ele nao faz isso), mas precisam ser renomartizados para as unidades originais: F (ug/ug) e G ($ug/m^3$), mas se marcarmos a MAssa total o programa faz isso, será? como:
-%F sai em ug (deveria ser ug/ug) 
-%G sai rm 1/m3 (ug/m3)
-%
-%Pegue um fator. 
-%divida as espécies da Matriz F pela Massa (do fator considerado).
-%multiplique o cada fator da matriz G pela Massa (do fator considerado)
-%
- 
-%Exemplo:
-%F:
-%$Al_{fator1}$ = valor do Al no fator 1 de F / valor da massa do fator1 de F
-%
-%G:
-%amostra1.fator1 = valor da amostra1 no fator1 de G x Valor da massa do fator 1 de F.  
-
-
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-%% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
-%\subsection{Estabilidade da Solução}
-%
-%\subsection{BS - Bootstrap}
-%Para avaliar a estabilidade da solução, o \textbf{PMF EPA 5.0} cria conjuntos de dados "similarers" aos dados originais, na técnica \textbf{BS}, $g_{ik}$ e $f_{kj}$ são calculados para esses conjuntos de dados e comparados com os encotrados para a base original.
-%Métodos de estimativa do erro: DISP,BS e BS-DISP.
-%
-%A estabilidade da solução do PMF pode ser estimada usando 3 métodos:
-%#Métodos de Avaliação do erro para verificar a estabilidade da solução
-%3)DISP displacement: sensitividade da solução escolhida a pequenas mudanças. O DISP (deslocamento) avalia o efeito da ambiguidade rotacional. 
-%Explora o ambiguidade rotacional no PMF avaliando o maior intervalo de valores de perfis de fontes sem um aumento significativo do Q-value. 
-%Altera o Qrobusto.? 
-%Os valores do perfil do fator são rearranjados ao máximo (dQmax=base-modificado).
-%O modelo gerara resultado para 4 valores de dQmax=4,8,15 e 25. 
-%Mas vamos usar o 4 (Q minimo local) pois fornece um intervalo robusto para o dataset. 
-%Dois arquivos são gerados nesse momento: \_DISPest.dat e \_DISP.txt, sendo o txt mais amigavel. 
-%output: para cada dQmax *\_DISPres1, *\_DISPres2, *\_DISPres3, *\_DISPres4. (mas vamos usar o menor)
-%
-%4)BS(inicialização): analise de bootstrap: investiva se um subset de amostras podem influenciar disproporcionalmente a solução. Inclui efeitos de erros aleatórios 
-%e inclui parcialmente erros da ambiguidade rotacional. 
-%Estratégia de análise: O usuário especifica quantos subconjuntos ele quer e o BS vai rodar para esse subconjuntos. 
-%O fatores desses subconjuntos serão correlacionados com os do Base run (mapeamento). 
-%O resultado será em forma de porcentagem dos fatores do base run mapeados no BS, os que não forem mapeados, investigar melhor. 
-%***block size: Número de amostras de cada subconjunto (há um método para estimar Politis and white).
-%Number de bootstraps: 100 para robustes (numeros de subconjutos que ele vai testar).
-%Minimo R: pearson, minimo R que vamos aceitar como fatores correlacioandos. O DDP (discrete difference percentiles) podem ser usados 
-%para reportarmos a estimativa do erro do bootstrap. (DDP o Intervalo de confianca 95\% em relacao A BASE RUN.)
-% Olhar sempre a matriz de mapping, nela os fatores devem ter sido mapeados para eles mesmos, ao menos 80 por cento dos fatores devem ser
-% mapeados por eles mesmos, o que indica que as incerteza do bootstrap e o numro de fatores sao apropriados.
-% é interessante plotar um gráfico da varibilidade (em concentracao e em porcentagem) - Box-and-whiskers plot) e é
-% bom colocar um ponto do baserun, as especies que estao fora do interquartil range devemos olhar com  cautela. 
-%output: *profile_boot, contém o número de rodade BS mapeada para base run. 
-%
-%
-%5)BS-DISP: abordagen hibrida.Estima efeitos associados a  erros aleatórios e da ambiguidafde rotacional, é uma combinação 
-%dos dois métodos BS e DISP, sendo que cada subconjunto BS rodado acima é feito um DISP. Assim cada DISP cria espaços rotacioandos,
-%ai novamente o BS é rodado aleatóriamente em diversas direções. Assim esse método apresenta a incerteza randômica e a incerteza rotacional. 
-%Há espécie chaves para cada fator. 
-%Estratégia de análise:  
-%Olhar CI e dQmax. Se a solução nao tem uma ambiguidade rotacional e não tem swap (troca de fatores) os resultado da solução podem ser usados. 
-%Se houver swaps na solução, diminuir número de FATORES? 
-%cAbecalho: k (casos no arquivo)=1 + n. bootstrap.; o segundo valor é o quanto mudou o Q, se for mais que 1 por cento refazer analise.; 
-%numero de cassos com diminuicao de Q; numero de casos com swap factor no mekhor fit; numero de swaps no DISP.Olhar arquivo de saida: baseErrorEstimationSummary.
-%output: São gerados 4 arquivos: (*\_BSDISP1, *\_BSDISP2,*\_BSDISP3, *\_BSDISP4) para cada dQmax (mas vamos usar o menor)
-%
-%4)Fpeak
-%output: *_fpeak, contém perfis e contribuição para cada rodada Fpeak
-%
-%5)Constrained 
-%output: *_Constrained
-%
-%6)Profiles (\_profile unidade de massa, porcentagem da especie e gracao da conc da especie  )
-%
-%7)Contributions (\_contrib normalizado e em funo da massa total)
-%
-%8)Residual (\_resid), Run Comparison (run\_compararios) e  Summary , Input, Base Runs (diag com os 3)
-%
-%
-%9)\_ErrorEstimationSummary provides a summary of the base run and the error estimations that have been done using BS, DISP, and BS-DISP. 
-
-%10) Ferramentas de Rotação:
-%
-%Um infinito número de soluções são geradas, a rotação tenta diminuir o número de soluções. informações das fontes, nos ajudam a descartar possíveis soluções.
-%
-%Aqui não é bem uma rotação, mas sim uma transformação linear.
-%\begin{equation}
-%G* = GT
-%\end{equation} 
-%
-%\begin{equation}
-%F* = T^{-1}F
-%\end{equation}
-%
-%A matriz T é pxp.
-%p número de fatores.
-% No PMF não é possível ter valores negativos (restrição não negativa), isso já nos assegura que existe uma pequena ambiguidade rotacional na solucao, pois uma rotacao pura só é possivel se nenhum dos elementos das novas matrizes são negativos. Caso nenhuma rotacao seja possível, a solucao é unica.
-%rotacao pura: com uma matriz T especifica 
-%Assim, rotaçÕes aproximadas que permitem algum aumento no Q e impedem qualquer elemento ba solucao de tornar negativo são uteis. 
-%
-%Para determinar se a solucao foi enconttrada, é necessário inspecinar o G-space plot para pares de fatores.
-%
-%comparar os gráficos do fpeak com o baserun.
-%
-%Precauções ao usar o \textbf{PMF}:
-%\begin{itemize}
-%  \item É possível ter um bom ajuste resulte, mas com uma solução sem significado físico. 
-%  \item Rotação ambígua, isto é, a unicidade da solução não eh garantida.
-%\end{itemize}

@@ -30,6 +30,7 @@ load<-function()
   source("myfunctions/FactorAnalysis.R")
   source("myfunctions/getSeason.R")
   source("myfunctions/edxCalibration.R")
+  source("myfunctions/descriptive.R")
 }
 
 # Call the load function

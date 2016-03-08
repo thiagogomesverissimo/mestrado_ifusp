@@ -62,6 +62,3 @@ print(xtable(tabela),
       include.rownames = F, 
       sanitize.text.function = identity,
       file='../../outputs/comparaCalibrationL.tex')
-
-
-
