@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 # A função describe está no pacote Hmisc e psych

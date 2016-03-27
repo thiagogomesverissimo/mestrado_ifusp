@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 ref2007 = read.csv('../../inputs/CalibracaoRefletancia2007.csv')

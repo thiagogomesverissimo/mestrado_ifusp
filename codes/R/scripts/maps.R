@@ -1,19 +1,19 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 pontos = read.csv('../../inputs/geocode_nima.csv')
-pontos = pontos[,-4]
-location = c(-70.2954, 43.64278, -70.2350, 43.68093)
+pontos = pontos[,1:3]
 
 # site para pegar box http://nominatim.openstreetmap.org/
-# viewbox: left/bottom e right/top em lat lon
+# onde o viewbox: left/bottom e right/top em lat lon
 # mouse position: lat lon
 
-# traffic +5° 34' 54.00", -0° 11' 56.30"
-# residential 5° 35' 2.00", -0° 11' 58.80"
-
-# left/bottom e right/top em lon,lat
+# na biblioteca ggmap: left/bottom e right/top em lon,lat
 location = c(-0.40649,5.51074,0.07759,5.74991)
+#location = c(-0.31345,5.51347,-0.07141,5.63307)
+#location = c(-0.47035,5.42598,0.01373,5.66518)
+#location = c(-0.82672,5.27968,0.14145,5.75811)
+#location = c(-1.57104,4.99245,0.36530,5.94936)
 
 # Fetch the map
 accra = get_map(location = location, source = "osm",filename = '/tmp/accra')

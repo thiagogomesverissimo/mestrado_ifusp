@@ -1,3 +1,16 @@
+# https://gist.github.com/stevenworthington/3178163
+#ipak <- function(pkg){
+#  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+#  if (length(new.pkg)) 
+#    install.packages(new.pkg, dependencies = TRUE)
+#  sapply(pkg, require, character.only = TRUE)
+#}
+
+# usage
+#packages <- c("ggplot2", "plyr")
+#ipak(packages)
+
+
 install_libraries = function()
 {
   dir.create('~/.R', showWarnings = FALSE)

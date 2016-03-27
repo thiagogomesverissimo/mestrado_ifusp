@@ -1,4 +1,6 @@
-rm(list=ls()) # limpa tudo na memória
+##rm(list=ls()) # limpa tudo na memória
+
+source("myfunctions/load.R")
 
 #Inspecionado os dados
 dados<-read.csv("../../inputs/meteorology/noaaMeteorology.csv",sep=",",colClasses="character")

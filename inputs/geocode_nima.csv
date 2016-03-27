@@ -1,10 +1,11 @@
-name,longitude,latitude,url
-Refinaria oleo Tema,-0.006385,5.679435,http://www.tor.com.gh/
-Volta Aluminum Company,-0.020885,5.668513,http://www.valcotema.com/
-e-waste Agbogbloshie,-0.225716,5.554105,
-Porto em Tema,-0.016356,5.635515,
-Kotoka International Airport,-0.168081,5.605925,
-Aço,-0.133848,5.634299,gcmcgh.com
-Metalex,-0.124543,5.637608,http://www.metalexlimited.com/
-Concreto,-0.167858,5.624256,http://empireconcretes.com/
-Metalurgica,-0.217077,5.579475,http://www.ghanametals.com/
+name,longitude,latitude,url,description
+Refinaria,-0.006385,5.679435,http://www.tor.com.gh/,Refinaria óleo Tema
+Alumínio,-0.020885,5.668513,http://www.valcotema.com/,Volta Aluminum Company
+e-waste,-0.225716,5.554105,,Agbogbloshie
+Porto,-0.016356,5.625515,,porto em Tema
+Aeroporto,-0.168081,5.605925,,Kotoka International Airport
+Aço,-0.133848,5.634299,gcmcgh.com ou http://www.metalexlimited.com/,
+Construção Cívil,-0.167858,5.624256,http://empireconcretes.com/,
+Metalúrgicas,-0.217077,5.569475,http://www.ghanametals.com/,
+Amostragem,-0.20031,5.58019,,
+

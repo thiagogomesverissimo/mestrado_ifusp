@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 #Há dados para BlackCarbon apenas para PM2.5

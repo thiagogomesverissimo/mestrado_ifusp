@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 #### Calibração Maio de 2010 ####

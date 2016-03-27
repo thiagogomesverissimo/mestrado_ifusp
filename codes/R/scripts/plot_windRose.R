@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 noaa_harvard<-read.csv("../../outputs/noaa_from_harvard.csv")

@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 #Completos
@@ -132,3 +132,4 @@ daterange=c(min(RFcH$Date),max(RFcH$Date))
 
 #implemtar:
 # Qual recorte do harmatan, ditribuição da velocidade do vento, subtrair pm10-pm25 corrigir erro
+

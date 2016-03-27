@@ -240,7 +240,7 @@ pmf_contributions_latex <- function(path,sigla,colors,nfactors) {
 }
 
 ### Testes ###
-#rm(list=ls())
+##rm(list=ls())
 #setwd("~/remota/repos/mestrado_ifusp/codes/R")
 #source("myfunctions/load.R")
 

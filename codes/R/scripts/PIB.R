@@ -1,4 +1,4 @@
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 # Dados de PIB percapita: http://data.worldbank.org/indicator/NY.GDP.PCAP.CD

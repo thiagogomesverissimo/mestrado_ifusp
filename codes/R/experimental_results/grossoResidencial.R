@@ -1,6 +1,6 @@
 # Encontrar o grosso subtraindo o fino do inalável.
 
-rm(list=ls())
+#rm(list=ls())
 source("myfunctions/load.R")
 
 # Tabela periódica
