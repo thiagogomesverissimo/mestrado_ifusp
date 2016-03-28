@@ -36,4 +36,3 @@ FactorAnalysis('TGcH',5)
 FactorAnalysis('TGsH',4)
 FactorAnalysis('TGsH',5)
 #print(FactorAnalysis('TGsH',4)$loadings,cutoff=4e-1)
-

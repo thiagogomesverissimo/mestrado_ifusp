@@ -250,7 +250,8 @@ da \textbf{ED-XRF} e incluindo o fator de resposta $R(Z)$ chegamos na equação
 $R(Z)$ é o fator de resposta, $I\Delta t$ é a carga efetiva expressa
 em termos da corrente e do tempo efetivo de análise.
 A densidade $t_z$ está representada pela razão da massa $m(Z)$ pela 
-área de deposição $A$.
+área de deposição $A$ (suposição: a massa está uniformemente distríbuida 
+na superfície do filtro).
 
 Isolando-se $R(Z)$ em \ref{eq:contagem} obtém-se a equação para cálculo 
 do fator de respota \ref{eq:fator_de_resposta}.
@@ -325,6 +326,10 @@ dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010.
 
 Nota-se que é possível fazer um ajuste polinomial nos dados, o que 
 permite encontrar $R$ para elementos que não possuem alvos padrões.
+
+O fator de resposta reflete o arranjo experimental. Mudanças físicas
+nesse arranjo alteram o valor de R, assim como desgates no detector
+ou tubo. Portanto, a calibração deve ser realizada com frequência.
 
 %%%%
 \subsection{Estimativa das incertezas}
@@ -511,6 +516,10 @@ para identificação e correção dos seguintes eventos:
         e é contato com a energia de incidência menos a energia usada para excitar o silício. 
 \end{itemize}
 
+Calibração do multicanal (ajuste linear entre canal e energia 
+encontrado a partir de dois elemento conhecidos do espectros.): 
+
+E = 0,0101 Canal - 0,1335 (keV)
 
 %%%%
 \subsection{Limite de Detecção}
