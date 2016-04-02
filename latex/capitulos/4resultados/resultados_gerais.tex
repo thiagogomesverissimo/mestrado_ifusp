@@ -1,38 +1,73 @@
 %%%%
-\section{Resultados gerais}
+\section{Concentrações elementares}
 
-O projeto global envolvendo 11 pontos de amostragem em Acra, 
-reuniu 2898 amostras, todas analisadas na refletância e \textbf{ED-XRF}
-do \textbf{LAPAt}. 
+No projeto global, envolvendo 11 pontos de amostragem em Acra, 
+coletou-se 2898 amostras, todas analisadas na refletância e 
+\textbf{Fluorescência de Raios X (XRF)} do 
+\textbf{Laboratório de Análise dos Processos Atmosféricos - LAPAt} 
+do \textbf{Instituto de Astronomia, Geofísica e Ciências Atmosféricas - IAG-USP}.
+
 Os resultados gerais foram apresentados em 2011 no
 \textbf{23th Congress of the International Society for Environmental 
 Epidemiology} \citep{zhou2011} e publicados em \citep{zhou2013} e \citep{zhou2014}. 
 
-Essa pesquisa aprofundou as análises exclusivamente no bairro de Nima, 
-com 791 amostras válidas entre 11 de Novembro de 2006 e 15 de Agosto de 2008.
+Nesta pesquisa, em particular, aprofundou-se os estudos exclusivamente no bairro de Nima, 
+com 791 amostras válidas coletadas em dois locais entre 11 de 
+Novembro de 2006 e 15 de Agosto de 2008.
+
+Os dois pontos de amostragem em Nima serão referidos como \textbf{residencial},
+para medidas na rua só com residências e \textbf{avenida} para medidas na avenida
+com presença de comércio e alto fluxo de veículos.
+
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.6\textwidth]{../inputs/images/zheng/nima_mapa.pdf}
+  \caption{Mapa de Nima. NM-1 ponto de amostragem na área residencial e 
+           NM-2 ponto de amostragem na avenida. Porcentagem do uso da queima
+           de biomassa para preparação de alimentos em residências usando dados
+           do censo de 2000 \citep{ghanacensus2003} \label{fig:nima_mapa}}
+\end{center}
+\end{figure}
+
 
 \begin{table}[H]
   \centering
   \begin{scriptsize}
   \input{../outputs/samples}
   \end{scriptsize}
-  \caption{Quantificação total das amostras analisadas por \textbf{ED-XRF} e refletância}
+  \caption{Quantificação total das amostras analisadas no \textbf{LAPAt}}
 \end{table}
 
-Os dois pontos de amostragem em Nima serão referidos como \textbf{residencial},
-para medidas na rua só de residências e \textbf{avenida} para medidas na avenida
-com presença de comércio e alto fluxo de veículos.
+%\begin{table}[H]
+% \centering
+%  \begin{scriptsize}
+%    \input{../outputs/tabela_descritiva_com_harmatan.tex}
+%  \end{scriptsize} 
+%  \caption{Média, desvio padrão e mediana da massa total e ultrapassagens das 
+%           recomendações da Organização Mundial de Sáude (OMS) para média diária de 
+%           25 $\mu g/m^3$ para $MP_{2,5}$ e 50 $\mu g/m^3$ para $MP_{10}$
+%           \label{table:descritiva}}
+%\end{table}
 
 \begin{table}[H]
- \centering
+  \centering
   \begin{scriptsize}
-    \input{../outputs/tabela_descritiva_com_harmatan.tex}
-  \end{scriptsize} 
-  \caption{Média, desvio padrão e mediana da massa total e ultrapassagens das 
+    \input{../outputs/descriptive_RFcH}
+  \end{scriptsize}
+  \caption{Tabela com estatística descritiva para $MP_{2,5}$ na área \textbf{residencial}
+           \label{table:RFcH_descriptive}}
+\end{table}
+
+A tabela \ref{table:RFcH_descriptive} traz as médias elementares de $MP_{2,5}$ na área 
+\textbf{residencial}.
+O \textbf{Black Carbon} representa 3.7 \% da massa total.
+
+
+
+Média, desvio padrão e mediana da massa total e ultrapassagens das 
            recomendações da Organização Mundial de Sáude (OMS) para média diária de 
            25 $\mu g/m^3$ para $MP_{2,5}$ e 50 $\mu g/m^3$ para $MP_{10}$
-           \label{table:descritiva}}
-\end{table}
+
 
 Na tabela \ref{table:descritiva} estão as médias para a avenida e área residencial
 bem como a porcentagem de ultrapassagem do padrão diário da 
@@ -57,19 +92,7 @@ em mais que 1\% das amostragens durante um ano.
           Organização Mundial de Sáude \label{table:pm10standards}}
 \end{table}
 
-A tabela \ref{table:RFcH_descriptive} traz as médias das medidas elementares 
-realizadas por \textbf{ED-XRF} e de \textbf{Black Carbon} para $MP_{2,5}$ na área 
-\textbf{residencial}.
-O \textbf{Black Carbon} representa 3.7 \% da massa total.
 
-\begin{table}[H]
-  \centering
-  \begin{scriptsize}
-    \input{../outputs/descriptive_RFcH}
-  \end{scriptsize}
-  \caption{Tabela com estística descritiva para $MP_{2,5}$ na área \textbf{residencial}
-           \label{table:RFcH_descriptive}}
-\end{table}
 
 %TODO: Fazer sem o harmatão e ver se BC aumenta.  
 Já na avenida \ref{table:TFcH_descriptive} o \textbf{Black Carbon} 
