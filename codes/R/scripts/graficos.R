@@ -1,16 +1,15 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
-#Completos
-RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv")
-RFcH = RFcH[-which.max(RFcH$mass),]
-RFcH$Date = strptime(RFcH$Date,format="%d/%m/%Y %H:%M")
-
 pdf('../../outputs/plot_RFcH_massa.pdf')
+
+RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv")
+RFcH$Date = strptime(RFcH$Date,format="%d/%m/%Y %H:%M")
 mar.default <- c(5,4,4,2) + 0.5
 par(mar = mar.default + c(0, 1, 0, 0))
 plot(RFcH$Date, 
      log10(RFcH$mass),
+     main = "Residencial Fino",
      type="p",
      ylab=expression("log("*mu*g/m^3*")"),
      xlab = 'Ano',
@@ -19,7 +18,9 @@ plot(RFcH$Date,
 grid()
 abline(h=log10(50),col='red') 
 abline(h=log10(150),col='blue') 
-legend("bottom",c('Padrão Gana','Padrão OMS'),col=c('blue','red'),bty = "n",pch = 15,)
+legend("bottom",c('Padrão para media diaria em Gana',
+                  'Padrão de media diaria da OMS'),
+       col=c('blue','red'),bty = "n",pch = 15,)
 dev.off()
 
 

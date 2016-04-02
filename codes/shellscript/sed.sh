@@ -37,10 +37,10 @@ FILE='../../outputs/edxCalibrationnov2010K.tex'
 FILES=$(ls ../../outputs | grep descriptive_)
 for i in $FILES; do
  FILE='../../outputs/'$i
- sed -i s/mean/'Média'/g $FILE
- sed -i s/'se'/'Des. Pad. Média'/g $FILE
- sed -i s/'median'/'Mediana'/g $FILE
  sed -i s/'\.'/','/g $FILE
+ sed -i s/mean/'Média ($\mu g \/ m^3$)'/g $FILE
+ sed -i s/'median'/'Mediana'/g $FILE
+ sed -i s/'se'/'Des. Pad. Média'/g $FILE
  sed -i s/'e-'/' E-'/g $FILE
  sed -i s/'e+'/' E+'/g $FILE
  sed -i s/'e+'/' E+'/g $FILE
