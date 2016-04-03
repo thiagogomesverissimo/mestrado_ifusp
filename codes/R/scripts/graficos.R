@@ -1,40 +1,15 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
-pdf('../../outputs/plot_RFcH_massa.pdf')
+# A função describe está no pacote Hmisc e psych, saudades do python...
+detach("package:Hmisc", unload=TRUE) 
 
-RFcH<-read.csv("../../outputs/pmf_fa/RFcH.csv")
+massa_temporal('RFcH','pm2.5')
+massa_temporal('TFcH','pm2.5')
+
+
+RFcH = read.csv('../../outputs/pmf_fa/RFcH.csv')
 RFcH$Date = strptime(RFcH$Date,format="%d/%m/%Y %H:%M")
-mar.default <- c(5,4,4,2) + 0.5
-par(mar = mar.default + c(0, 1, 0, 0))
-plot(RFcH$Date, 
-     log10(RFcH$mass),
-     main = "Residencial Fino",
-     type="p",
-     ylab=expression("log("*mu*g/m^3*")"),
-     xlab = 'Ano',
-     pch=16,
-     col="darkorange2")
-grid()
-abline(h=log10(50),col='red') 
-abline(h=log10(150),col='blue') 
-legend("bottom",c('Padrão para media diaria em Gana',
-                  'Padrão de media diaria da OMS'),
-       col=c('blue','red'),bty = "n",pch = 15,)
-dev.off()
-
-
-plot(RFcH$Date, 
-     RFcH$Na,
-     type="p",
-     ylab=expression(" mg/m" ^3),
-     lwd=1.5,
-     pch=16,
-     col="darkorange2")
-grid()
-
-
-
 
 hist(RFcH$mass,main="PM10 - Distribuição da massa", xlab=expression(mu* "g/m" ^3),col="lightblue")
 
@@ -75,9 +50,6 @@ plot(as.factor(format(RFcH$Date,"%A")),RFcH[,7],col="lightpink")
 #meansFE<-aggregate(RFcH$S,format(RFcH$Date,"%Y-%m"),mean)
 #meansFE$Date<-seq(min(pm10$StartTime),max(pm10$StartTime),length=nrow(meansFE))
 #plot(meansFE$StartTime,meansFE$FE,type="l")
-
-
-daterange=c(min(RFcH$Date),max(RFcH$Date))
 
 ##por ano # fazer por semana
 #yearsFE<-aggregate(pm10["FE"],format(pm10["StartTime"],"%Y"),mean,na.rm=TRUE) #herda o nome da coluna nox

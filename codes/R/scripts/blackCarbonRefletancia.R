@@ -1,12 +1,12 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
-ref2007 = read.csv('../../inputs/CalibracaoRefletancia2007.csv')
+ref2007 = read.csv('../../inputs/BlackCarbon/calibration/Refletancia2007.csv')
 x = ref2007$Log10Ref
 y = ref2007$ug_cm2
 y_erro = ref2007$erro_ug_cm2 
 
-# Ajuste polinomial, vou ajustar, mas vou mostrar o do Lapat
+# Ajuste polinomial, vou ajustar, mas vou mostrar a do Lapat
 model <- lm(y ~ poly(x,2,raw=TRUE))
 coefs_thiago = model$coefficients
 coefs_thiago = as.vector(coefs_thiago)

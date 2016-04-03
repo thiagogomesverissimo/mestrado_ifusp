@@ -3,7 +3,7 @@ source("myfunctions/load.R")
 
 # Copiado do Américo
 coefs_akerr = c(-42.96398,88.3336)
-dados = read.csv('../../inputs/BlackCarbonCetesb2012.csv')
+dados = read.csv('../../inputs/BlackCarbon/calibration/amostras_Cetesb2012.csv')
 
 # Pontos experimentais
 x = log10(dados$refletancia)

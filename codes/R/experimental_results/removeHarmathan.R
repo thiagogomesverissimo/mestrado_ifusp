@@ -1,14 +1,9 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
-# Siglas
-#conditions<-c('JFcH','RFcH','TFcH','JFsH','RFsH','TFsH','JFeH',
-#              'JIcH','RIcH','TIcH','JIsH','RIsH','TIsH','JIeH')
-
+# All conditions
 residencial = c('RFcH','RGcH','RIcH')   
 traffic = c('TFcH','TGcH','TIcH') 
-
-# All conditions
 conditions<-c(residencial,traffic)
 
 # Lendo arquivos de concentrações
@@ -21,21 +16,19 @@ for (i in conditions){
   eval(parse(text=code_unc))
 }
 
-# Transformando as colunas Date para tipo R-Date. 
-for(i in conditions){
-  #Formatando a coluna dates com formato de data
-  code=paste(i,"$Date","<-","as.POSIXct(strptime(",i,"$Date",",format='%Y-%m-%d %H:%M:%S',tz='GMT'))",sep="")
-  code_unc=paste(i,"unc","$Date","<-","as.POSIXct(strptime(",i,"unc","$Date",",format='%Y-%m-%d %H:%M:%S',tz='GMT'))",sep="")
-  if(debug) print(code)
-  if(debug) print(code_unc)
+# Date as rowname
+lista = c(conditions,paste(conditions,'unc',sep=""))
+for(i in lista){
+  # set rowname
+  code=paste("rownames(",i,") = ",i,"$Date",sep="")
   eval(parse(text=code))
-  eval(parse(text=code_unc))
+  # set Date
+  code=paste(i,"$Date","<-","as.POSIXct(strptime(",i,"$Date",",format='%Y-%m-%d %H:%M:%S',tz='GMT'))",sep="")
+  eval(parse(text=code))
 }
 
-
-# Harmathan: dez, Jan, Fev, Março
-#harmathan<-c('December','January','February','March')
-harmathan<-c('December','January')
+### Critério 1: definir que o harmatão ocorre somente nos meses de: Nov,Dez, Jan, Fev
+harmathan<-c('November','December','January','February')
 
 # Exclusão dos meses do Harmathan
 
@@ -48,17 +41,30 @@ TIsH <- TIcH[ !(months(TIcH$Date) %in% harmathan), ]
 
 # Exclusão dos meses do Harmathan nas incertezas
 
-RFsHunc <- RFcHunc[ !(months(RFcHunc$Date) %in% harmathan), ]
-RGsHunc <- RGcHunc[ !(months(RGcHunc$Date) %in% harmathan), ]
-RIsHunc <- RIcHunc[ !(months(RIcHunc$Date) %in% harmathan), ]
-TFsHunc <- TFcHunc[ !(months(TFcHunc$Date) %in% harmathan), ]
-TGsHunc <- TGcHunc[ !(months(TGcHunc$Date) %in% harmathan), ]
-TIsHunc <- TIcHunc[ !(months(TIcHunc$Date) %in% harmathan), ]
+#RFsHunc <- RFcHunc[ !(months(RFcHunc$Date) %in% harmathan), ]
+#RGsHunc <- RGcHunc[ !(months(RGcHunc$Date) %in% harmathan), ]
+#RIsHunc <- RIcHunc[ !(months(RIcHunc$Date) %in% harmathan), ]
+#TFsHunc <- TFcHunc[ !(months(TFcHunc$Date) %in% harmathan), ]
+#TGsHunc <- TGcHunc[ !(months(TGcHunc$Date) %in% harmathan), ]
+#TIsHunc <- TIcHunc[ !(months(TIcHunc$Date) %in% harmathan), ]
 
-# Novas siglas sem Harmathan
+### Critério 2: definir que o harmatão os dias que ocorre concetração do Si > 10000 ng/m3
+
+RIsH <- RGcH[ !(months(RIcH$Date) %in% harmathan) & RIcH$Si < 10.0, ]
+TIsH <- TGcH[ !(months(TIcH$Date) %in% harmathan) & TIcH$Si < 10.0, ]
+
+a = RFsH[ rownames(RFsH) %in% rownames(RIcH),]
+
+RFsH <- subset(RFcH,RFcH$Si > 10.0)
+RGsH <- subset(RGcH,RGcH$Si > 10.0)
+RIsH <- subset(RIcH,RIcH$Si > 10.0)
+TFsH <- subset(TFcH,TFcH$Si > 10.0)
+TGsH <- subset(TGcH,TGcH$Si > 10.0)
+TIsH <- subset(TIcH,TIcH$Si > 10.0)
+
+
+# Salvando csv's com novas siglas
 conditions<-gsub('c','s',conditions)
-
-# Salvando csv's
 for (i in conditions){
   code=paste("write.csv(",i,",'../../outputs/concentrations/",i,".csv',","row.names=FALSE)",sep="")
   code_unc=paste("write.csv(",i,"unc",",'../../outputs/concentrations/",i,"unc.csv',","row.names=FALSE)",sep="")

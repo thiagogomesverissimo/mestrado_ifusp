@@ -46,19 +46,5 @@ print(xtable(frota),
       sanitize.text.function = identity,
       file='../../outputs/frota_ghana.tex')
 
-# padrões, podem ser úteis:
-#read.csv('../../inputs/brazil_standard_airpollution.csv')
-#read.csv('../../inputs/brazil_standard_airpollution_old.csv')
-#read.csv('../../inputs/OMS_standard_airpollution.csv')
-#read.csv('../../inputs/ghana/epa_pm10_standard.csv')
-
-standard = read.csv('../../inputs/standard_brazil_ghana_OMS_pm10.csv')
-
-print(xtable(standard), 
-      type="latex", 
-      include.rownames = F, 
-      floating = FALSE,
-      sanitize.text.function = identity,
-      file='../../outputs/standard_brazil_ghana_OMS_pm10.tex')
 
 

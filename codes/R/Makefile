@@ -14,7 +14,7 @@ all:
 	Rscript experimental_results/removeHarmathan.R
 	Rscript experimental_results/preparePMF_FA.R 
 	
-	#Sequência de código para meteorolog
+	# Scripts gerais
 	Rscript scripts/clean_noaa_data.R
 	Rscript scripts/plot_windFrequency.R
 	Rscript scripts/plot_windRose.R
