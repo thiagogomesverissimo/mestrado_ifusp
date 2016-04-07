@@ -27,41 +27,30 @@ for(i in lista){
   eval(parse(text=code))
 }
 
-### Critério 1: definir que o harmatão ocorre somente nos meses de: Nov,Dez, Jan, Fev
+### Critérios: 
+# 1) definir que o harmatão ocorre somente nos meses de: Nov,Dez, Jan, Fev 
 harmathan<-c('November','December','January','February')
+# 2) definir que o harmatão os dias que ocorre concetração do Si > 10000 ng/m3
+limiteSi = 10.0
 
-# Exclusão dos meses do Harmathan
+RIsH <- RIcH[ !(months(RIcH$Date) %in% harmathan) & RIcH$Si < limiteSi, ]
+TIsH <- TIcH[ !(months(TIcH$Date) %in% harmathan) & TIcH$Si < limiteSi, ]
 
-RFsH <- RFcH[ !(months(RFcH$Date) %in% harmathan), ]
-RGsH <- RGcH[ !(months(RGcH$Date) %in% harmathan), ]
-RIsH <- RIcH[ !(months(RIcH$Date) %in% harmathan), ]
-TFsH <- TFcH[ !(months(TFcH$Date) %in% harmathan), ]
-TGsH <- TGcH[ !(months(TGcH$Date) %in% harmathan), ]
-TIsH <- TIcH[ !(months(TIcH$Date) %in% harmathan), ]
+RFsH <- RFcH[ !(months(RFcH$Date) %in% harmathan) & RFcH$Si < limiteSi, ]
+TFsH <- TFcH[ !(months(TFcH$Date) %in% harmathan) & TFcH$Si < limiteSi, ]
+
+RGsH <- RGcH[ !(months(RGcH$Date) %in% harmathan) & RGcH$Si < limiteSi, ]
+TGsH <- TGcH[ !(months(TGcH$Date) %in% harmathan) & TGcH$Si < limiteSi, ]
 
 # Exclusão dos meses do Harmathan nas incertezas
+RIsHunc = RIcHunc[rownames(RIsH),]
+TIsHunc = TIcHunc[rownames(TIsH),]
 
-#RFsHunc <- RFcHunc[ !(months(RFcHunc$Date) %in% harmathan), ]
-#RGsHunc <- RGcHunc[ !(months(RGcHunc$Date) %in% harmathan), ]
-#RIsHunc <- RIcHunc[ !(months(RIcHunc$Date) %in% harmathan), ]
-#TFsHunc <- TFcHunc[ !(months(TFcHunc$Date) %in% harmathan), ]
-#TGsHunc <- TGcHunc[ !(months(TGcHunc$Date) %in% harmathan), ]
-#TIsHunc <- TIcHunc[ !(months(TIcHunc$Date) %in% harmathan), ]
+RFsHunc = RFcHunc[rownames(RFsH),]  
+TFsHunc = TFcHunc[rownames(TFsH),]  
 
-### Critério 2: definir que o harmatão os dias que ocorre concetração do Si > 10000 ng/m3
-
-RIsH <- RGcH[ !(months(RIcH$Date) %in% harmathan) & RIcH$Si < 10.0, ]
-TIsH <- TGcH[ !(months(TIcH$Date) %in% harmathan) & TIcH$Si < 10.0, ]
-
-a = RFsH[ rownames(RFsH) %in% rownames(RIcH),]
-
-RFsH <- subset(RFcH,RFcH$Si > 10.0)
-RGsH <- subset(RGcH,RGcH$Si > 10.0)
-RIsH <- subset(RIcH,RIcH$Si > 10.0)
-TFsH <- subset(TFcH,TFcH$Si > 10.0)
-TGsH <- subset(TGcH,TGcH$Si > 10.0)
-TIsH <- subset(TIcH,TIcH$Si > 10.0)
-
+RGsHunc = RGcHunc[rownames(RGsH),]  
+TGsHunc = TGcHunc[rownames(TGsH),]
 
 # Salvando csv's com novas siglas
 conditions<-gsub('c','s',conditions)

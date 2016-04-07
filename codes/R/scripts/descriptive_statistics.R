@@ -6,15 +6,22 @@ detach("package:Hmisc", unload=TRUE)
 path = '../../outputs/pmf_fa/'
 
 descriptive2latex(path,'RFcH')
-descriptive2latex(path,'TFcH')
-
+descriptive2latex(path,'RGcH')
 descriptive2latex(path,'RIcH')
+
+descriptive2latex(path,'TFcH')
+descriptive2latex(path,'TGcH')
 descriptive2latex(path,'TIcH')
 
-descriptive2latex(path,'RGcH')
-descriptive2latex(path,'TGcH')
+descriptive2latex(path,'RFsH')
+descriptive2latex(path,'RGsH')
+descriptive2latex(path,'RIsH')
 
-descriptive2latex(path,'TFcH')
+descriptive2latex(path,'TFsH')
+descriptive2latex(path,'TGsH')
+descriptive2latex(path,'TIsH')
+
+
 
 #### 
 #Cria um data.frame com a porcentagem dos elementos na Massa total

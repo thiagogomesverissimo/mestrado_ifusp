@@ -4,7 +4,7 @@ source("myfunctions/load.R")
 ## Residencial Fino
 FactorAnalysis('RFcH',4)
 FactorAnalysis('RFcH',5)
-#print(FactorAnalysis('RFcH',4)$loadings,cutoff=4e-1)
+print(FactorAnalysis('RFcH',4)$loadings,cutoff=4e-1)
 
 FactorAnalysis('RFsH',4)
 FactorAnalysis('RFsH',5)

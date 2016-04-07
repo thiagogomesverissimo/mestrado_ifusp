@@ -1,7 +1,7 @@
 descriptive2latex <- function(path,sigla){
   
-  path = '../../outputs/pmf_fa/'
-  sigla = 'RFcH'
+  #path = '../../outputs/pmf_fa/'
+  #sigla = 'RFcH'
   pathfile = paste(path,sigla,'.csv',sep='')
   base = read.csv(pathfile)
   
