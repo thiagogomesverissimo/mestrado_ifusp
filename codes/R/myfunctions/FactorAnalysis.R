@@ -1,8 +1,8 @@
 FactorAnalysis <- function(current_base,nfactors){
   
   # test:
-  #source("myfunctions/load.R")
-  #current_base = 'TIcH'; nfactors = 5
+  source("myfunctions/load.R")
+  current_base = 'TIcH'; nfactors = 5
   path_file = paste('../../outputs/pmf_fa/',current_base,'.csv',sep='')
   base<-read.csv(path_file,row.names=1)
   datas = as.POSIXct(strptime(rownames(base), format = '%d/%m/%Y %H:%M'))

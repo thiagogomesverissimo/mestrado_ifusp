@@ -2,7 +2,6 @@
 #
 cd $(dirname $0)
 
-
 # Copia saídas do PMF-EPA 5.0 
 if [ -d '../../outputs/pmf' ]; then
   rm -r '../../outputs/pmf'

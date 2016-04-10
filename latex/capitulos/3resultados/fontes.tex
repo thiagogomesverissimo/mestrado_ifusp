@@ -1,70 +1,123 @@
 %%%%
-\section{Identificação da fontes locais}
+\section{Identificação das fontes}
 
-O Harmatão foi presente tanto em MP10 quanto em MP2.5.
+O alto número de amostras coletadas possibilitou a exclusão dos dias de 
+ocorrência do Harmatão nas tabelas de concentrações sem comprometer as análises
+multivariadas. A alta concentração de poeira provinda do Harmatão dificulta a 
+identificação de fontes locais.
 
+Nem todos os dias nos meses de ocorrência do Harmatão (Novembro-Março) 
+ocorrem altas concentrações, assim, se usássemos como critério de exclusão para 
+influência do Harmatão todas amostras entre Novembro e Março, poderíamos
+perder informações de fontes locais nos dias em que a poeira do Harmatão fosse
+tão intensa. 
 
-O número de amostras coletadas possibilitou a realização de
-análise detalhada, principalmente em relação a influência do harmatão, 
-pois este, em primeira instância, dificulta a identificação de fontes locais.
- 
-Nem todos os dias nos meses de ocorrência do harmatão ocorrem 
-altas concentrações e se usássemos o critério de exclusão de amostras
-de hormatão baseado somente nos meses, praticamente perderia-se quatro
-meses de amostragem (considerando-se somente a análise de fontes). 
- 
-Usamos o critério sugerido por \cite{aboh2009}, onde os dias de ocorrência 
-do harmatão são os de concentrações de sílicio maiores que 10 $\mu g/m^3$
-entre Novembro e Março.
-
-Na Análise de Fatores por exemplo, as estimativas de fatores 
-mantendo os dias de ocorrência do Harmatão, resultam em geral em apenas 
-1 fator predominante, ficando os outros fatores com autovalores
-menores do que 1 e degenerados. Neste cenário, a fonte 
-\textbf{poeira de solo} predomina e fica praticamte impossível
-detectar as outras fontes. Assim, só apresentaremos aqui os resultados 
-removendo-se os dias do Harmatão. Mas a Análise de Fatores com os
-dias do Harmatão inclusos estão no estão no Apêndice I.
-
-Diversas parametrizações foram testadas na \textbf{Análise de Fatores}
-e aquelas que resultaram em fatores que se associavam com fontes poluídoras
-reais foram escolhidas. A seguir estão os resultados para 
-\textbf{Análise de Fatores} nos dois pontos de amostragem 
-(residencial e avenida) e nas duas modas
-fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
-
-No período do Harmatão, devido as altas concentrações, as fontes locais sejam 
-ocultadas nas análises multivariadas, assim, além dos 4 conjuntos de dados 
-supracitados, as análises multivariadas serão também realizadas nos mesmos 4 
-conjuntos de dados, mas excluindo-se as amostras do período do Harmatão, 
-resultando em 8 bancos de dados disponíveis para análises multivariadas. 
-
-Além disso, afim de fazer estudo específico do período do 
-Harmatão, agrupou-se amostras $PM_{2.5}$ somente do período do Harmatão. 
-Fez-se o mesmo para $PM_{10}$.  
-
-% RFsH,RGsH,RIsH,TFsH,TGsH,TIsH,RFcH,RGcH,RIcH,TFcH,TGcH,TIcH 
+Uso-se o critério sugerido por \cite{aboh2009}, que considera os dias de 
+ocorrência do Harmatão como os que tem concentrações de silício maiores que 
+10 $\mu g/m^3$ e estão entre Novembro e Março.
 
 %%%%
+\subsection{Material Particulado Fino ($MP_{2,5}$)}
 
-\subsection{$MP_{2,5}$ na região residencial e avenida}
+Os \textbf{loadings} encontrados para \textbf{Análise de Fatores} de $MP_{2,5}$
+na área residencial estão na tabela \ref{table:loadings_RFcH5}. 
+Nota-se que o primeiro fator sozinho explica 58 \% da variância e quase todos 
+elementos tem \textbf{loadings} altos nesse fator. 
 
-Para \textbf{$MP_{2,5}$ na região residencial} o resultado da 
-\textbf{Análise de Fatores}  explicou $84,0\%$ da variância total 
-dos dados com 4 fatores retidos.
+\begin{table}[H]
+  \input{../outputs/loadings_RFcH5.tex}
+  \caption{Análise de Fatores para $MP_{2,5}$ na região residencial.
+           Rotação varimax - 5 fatores retidos (n=197).
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)
+           \label{table:loadings_RFcH5}}
+\end{table}
+
+Os perfis de fontes da análise \textbf{PMF} para a mesma base de dados é 
+apresentado na tabela \ref{table:RFcH_profiles5} e a contribuição na massa
+de cada fator é apresentada no gráfico da figura \ref{table:RFcH_contribution5}.
+Assim como na \textbf{Análise de Fatores}, há um fator se destacando de todos
+outros, pois sozinho contribuiu para 51,84\% da massa e carrega em seu perfil
+quase todos elementos. O fator que está ofuscando os demais fatores
+tanto no \textbf{PMF} quanto na \textbf{Análise de Fatores} está relacionado
+a poeira do Harmatão. 
+Assim, para melhor identificar as fontes locais, daqui em diante basearemos 
+nossa investigação de fontes excluindo-se os dias de ocorrência de ventos do 
+Harmatão, como proposto por \cite{aboh2009}. Entretanto, análise \textbf{PMF} e 
+\textbf{Análise de Fatores} para as tabelas de concentrações completas podem
+ser consultadas no apêndice II. 
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/RFcH_profiles_percent_species5.tex}
+    \caption{residencial $MP_{2,5}$ seed=123; n= 197. 
+             \label{table:RFcH_profiles5}}
+\end{table}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.6\textwidth]{../outputs/RFcH_pmf_contribution_pizza5.pdf}
+  \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
+           residencial. 5 fatores extraídos.
+          \label{table:RFcH_contribution5}}
+\end{figure}
+
+Refazendo-se a \textbf{Análise de Fatores} de $MP_{2,5}$ na área residencial, 
+porém excluindo-se os dias de Harmatão (número de amostra cai de 197 para 123), 
+obtemos os \textbf{loadings} da tabela \ref{table:loadings_RFsH6}. 
+
+\begin{table}[H]
+  \input{../outputs/loadings_RFsH5.tex}
+  \caption{Análise de Fatores para $MP_{2,5}$ na região residencial
+           excluindo-se dias de ocorrência do Harmatão.
+           Rotação varimax - 5 fatores retidos (n=123).
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)
+           \label{table:loadings_RFsH5}}
+\end{table}
+
+explicou $84,0\%$ da variância
+total dos dados com 4 fatores retidos.
 A comunalidade, indicação do quão o ajuste explicou a variabilidade por 
 cada espécie, foi maior que $0,7$ para a maioria dos elementos,
 com exceção do bromo (Br), zinco (Zn) e chumbo (Pb) que tiveram comunalidade 
 de $0,43$, $0,49$ e $0,62$, respectivamente.
 
+Diversas parametrizações foram testadas na \textbf{Análise de Fatores}
+e aquelas que resultaram em fatores que se associavam com fontes poluidoras
+reais foram escolhidas. A seguir estão os resultados para 
+\textbf{Análise de Fatores} nos dois pontos de amostragem 
+(residencial e avenida) e nas duas modas
+fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/RFsH_profiles_percent_species5.tex}
+    \caption{residencial $MP_{2,5}$ removendo-se os dias do Harmatão 
+              seed=123; n= 123. 
+             \label{table:RFsH_profiles5}}
+\end{table}
+
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.6\textwidth]{../outputs/RFsH_pmf_contribution_pizza5.pdf}
+  \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
+           residencial . 5 fatores extraídos.
+          \label{table:RFsH_contribution5}}
+\end{figure}
+
+-------------------------
+
 \begin{table}[H]
   %\label{my-label} 
-  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
-             para $MP_{2,5}$ na região residencial.
+  \caption{Análise de Fatores para $MP_{2,5}$ na região residencial.
+           Rotação varimax - 5 fatores retidos.
            (\textcolor{red}{h} : Comunalidade; 
            \textcolor{red}{S=1-h} : Singularidade; 
            \textcolor{red}{C} : Complexidade.)}
-  \input{../outputs/loadings_RFsH4.tex}
+  \input{../outputs/loadings_RFsH5.tex}
 \end{table}
 
 O fator predominante, isto é, que explica grande parte da variância, 
@@ -161,6 +214,15 @@ assim: \textbf{solo, queima de biomassa, mar e lixo.}
   \input{../outputs/briefFA_RFsH4.tex}
 \end{table}
 
+Na Análise de Fatores por exemplo, as estimativas de fatores 
+mantendo os dias de ocorrência do Harmatão, resultam em geral em apenas 
+1 fator predominante, ficando os outros fatores com autovalores
+menores do que 1 e degenerados. Neste cenário, a fonte 
+\textbf{poeira de solo} predomina e fica praticamte impossível
+detectar as outras fontes. Assim, só apresentaremos aqui os resultados 
+removendo-se os dias do Harmatão. Mas a Análise de Fatores com os
+dias do Harmatão inclusos estão no estão no Apêndice I.
+
 %%%%
 \subsection{$MP_{2,5-10}$ na região residencial e avenida}
 
@@ -245,12 +307,7 @@ estão no gráfico da figura \ref{figure:grosso_pmf_contribution_pizza}.
 do e-waste de Agbogbloshie e Fe, Sb, and Pb tiveram concentrações alta se comparada
 a um pessoa de referência, que não tem contato com \textbf{e-waste}.
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{../outputs/RGsH_pmf_contribution_pizza4.pdf}
-  \caption{PMF - 4 fatores retidos para $MP_{2,5-10}$ na região residencial}
-\end{center}
-\end{figure}
+
 
 \citep{kaku2016}
 
@@ -260,12 +317,7 @@ a um pessoa de referência, que não tem contato com \textbf{e-waste}.
 da poeira do deserto.
 
 
-\begin{table}[H]
-  \centering
-  %\label{my-label} 
-  \caption{RFsH}
-  \input{../outputs/RFsH_profiles_percent_species4.tex}
-\end{table}
+
 
 \begin{table}[H]
   \centering
@@ -288,7 +340,7 @@ da poeira do deserto.
   \caption{TFsH}
   \input{../outputs/TFsH_profiles_percent_species4.tex}
 \end{table}
-
+O Harmatão foi presente tanto em MP10 quanto em MP2.5.
 
 
 %%# Fontes encontradas em Harvard:
