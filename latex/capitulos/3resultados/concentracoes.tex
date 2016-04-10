@@ -2,12 +2,17 @@
 \section{Concentrações Ambientais}
 
 Em estudos do aerossol atmosférico usando modelos receptores, 
-há duas direções para considerar. 
-A primeira, é a avaliação das concentrações da massa total no ar, que possibilita 
-estimar de maneira genérica a carga de poluente ambiental durante o período da medida. 
-Na segunda, a composição química das partículas dará suporte a estimativa 
-dos perfis de fontes. Inicialmente, vamos fazer a análise ambiental 
-e posteriormente a avaliaçao dos perfis de fontes.  
+pode-se direcionar a análise em duas direções. 
+A primeira, é a avaliação ambiental das concentrações, considerando-se a massa total,
+que possibilita estimar de maneira genérica a carga de poluição total na atmosfera 
+durante o período da medida, usada principalmente para comparação com padrões
+de qualidade do ar definidos por agências ambientais ou de sáude. 
+
+Na segunda abordagem, mais detalhada, utiliza-se a composição química 
+das partículas para estimar perfis de fontes. 
+
+Inicialmente, vamos fazer a análise ambiental e posteriormente a 
+avaliaçao dos perfis de fontes.  
 
 No projeto global, envolvendo 11 pontos de amostragem em Acra, 
 coletou-se 2898 amostras, todas analisadas na refletância e 
@@ -21,76 +26,148 @@ Epidemiology} \citep{zhou2011} e publicados em \cite{zhou2013} e \cite{zhou2014}
 
 \begin{table}[H]
   \centering
-  \begin{scriptsize}
+ % \begin{scriptsize}
   \input{../outputs/samples}
-  \end{scriptsize}
+ % \end{scriptsize}
   \caption{Quantificação total das amostras analisadas no \textbf{LAPAt} porcentagem
           refletância e \textbf{XRF-ED}}
 \end{table}
 
-Nesta pesquisa, em particular, aprofundou-se os estudos exclusivamente no bairro de Nima, 
-que teve 791 amostras válidas coletadas em dois pontos de amostragem paralela entre 11 de 
-Novembro de 2006 e 15 de Agosto de 2008.
+Nesta pesquisa, em particular, aprofundou-se os estudos exclusivamente no bairro
+de Nima, onde coletou-se 791 amostras válidas coletadas em dois pontos de 
+amostragem entre 11 de Novembro de 2006 e 15 de Agosto de 2008.
 
 Será referido como \textbf{residencial} a rua só com residências e como \textbf{avenida} 
 o local de amostagrem com presença de comércio e alto tráfego de veículos.
 
-Na tabela \ref{table:RFcH_descriptive} encontra-se a média, desvio padrão da média, 
-mediana, mínimo e máximo das concentrações na área residencial. 
+%%%%
+\subsection{Inalável $MP_{10}$}
 
-A concentração média da massa total ($83\pm 18 \mu g / m^3$) é aproximadamente
-3 vezes maior que a relatada para São Paulo ($28\pm 13 \mu g / m^3$) reportada 
-em estudo que mediu as concentrações elementares de $MP_{2,5}$ em 6 cidades 
-brasileiras (São Paulo, Rio de Janeiro, Belo Horizonte, Curitiba, Recife e 
-Porto Alegre) \cite{andrade2012}. 
+Os padrões de qualidade do ar são fixados em níveis que quando ultrapassados 
+podem afetar a saúde da população. 
+A tabela \ref{table:padroesgana} lista os valores do Padrão de Qualidade do Ar 
+para $MP_{10}$ ambiental vigente em Gana. Nota-se que há limites diferentes para 
+meses de ocorrências do Harmantão. Além disso, regiões consideradas como zonas
+industriais ou de comércio possuem limites mais permissivos, revelando 
+uma priorização do Governo com o desenvolvimento econômico do País em 
+detrimento da saúde da população.
 
-O $BC$ é um indicador de fontes de combustão, principalmente de veículos pesados e 
-em cidade onde veículos representam a principal fonte poluídora o $BC$ pode chegar 
-a $50\%$ da massa total de $MP_{2,5}$. 
-Mesmo Nima tendo tendo alto tráfego de veículo o $BC$ representou $3,7 \%$ 
-($3,13\pm 0,05 \mu g / m^3$) da massa total, enquanto que em São Paulo esse valor foi de 
-$35,7 \%$ \citep{andrade2012}, 
+% http://www.epa.gov.gh/ghanalex/policies/EPAguidelines%20Report.pdf
+\begin{table}[H]
+\centering
+\begin{tabular}{cccc}
+\hline
+Condição                      &   regiões  &        regiões       &         regiões               \\
+Tipo da média                 & sensíveis & residenciais e rurais & insdustriais e comerciais      \\
+\hline
+Média anual geométrica        & 70              & 100                      & 200                   \\
+Média mensal durante Harmatão & 100             & 200                      & 500                     \\
+Média diária                  & 110             & 150                      & 260         \\               
+\hline
+\end{tabular}
+\caption{Padrões de Qualidade do Ar para $MP_{10}$ Ambiental em Gana
+         \cite{epa2015} \label{table:padroesgana}}
+\end{table}
 
-Em Kwabenya, 11 $km$ a noroeste de Nima, medidas de 2009 realizadas por 
-\citep{aboh2009}, reportou  40,8 $g / m^3$ e 1,9 $g / m^3$ (ou ) de BC.
+A tabela \ref{table:RIcH_descriptive} mostra a média, desvio padrão da média,
+mediana, mínimo e máximo para as concentrações de $MP_{10}$ (Inalável) 
+encontradas na área residencial. Esses resultados possibilitam comparações com 
+padrões de qualidade do ar para avaliação de atendimento ou não dos mesmos.    
 
 \begin{table}[H]
   \centering
  % \begin{scriptsize}
-    \input{../outputs/descriptive_RFcH}
+    \input{../outputs/descriptive_RIcH}
  % \end{scriptsize}
-  \caption{Estatística descritiva para $MP_{2,5}$ na área \textbf{residencial}
-           $\mu g / m^3$ \label{table:RFcH_descriptive}}
+  \caption{Estatística descritiva das concentrações de  $MP_{10}$ na área 
+           \textbf{residencial} \label{table:RIcH_descriptive}}
 \end{table}
 
-A baixa concentração de BC na massa de $MP_{2,5}$ explica ferro (Fe) 
+Na tabela \ref{table:pm10standards} estão agrupados os limite da média anual de 
+concentrações ambientais para $MP_{10}$ entre Brasil \citep{conama1990}, 
+Gana \citep{epa2015} e Organização Mundial de Sáude \citep{who}. 
+Em Gana a média anual é geométrica e no Brasil aritmética.
+Outra recomendação da OMS é que a concentração não ultrapasse $25 \mu g/m^3$ 
+em mais que 1\% das amostragens durante um ano. 
 
+\begin{table}[H]
+  \centering
+      \begin{tabular}{cccc}
+     \hline
+   Tipo & Brasil & Gana (residencial e rural) & Organização Mundial de Saúde \\
+     \hline
+   diaria & 150 & 150 &  50 \\
+     anual &  50 & 100 &  20 \\
+      \hline
+  \end{tabular}
+  \caption{Padrões para média anual de $MP_{10}$ no Brasil \citep{conama1990}, 
+           Gana \citep{epa2015} e 
+           Organização Mundial de Sáude \citep{who}
+           \label{table:pm10standards}}
+\end{table}
 
+Na área residencial de Nima, a concentração média da massa total de $MP_{10}$ 
+durante este estudo foi $114\pm 11 \mu g / m^3$ e na avenida 
+$134\pm 12 \mu g / m^3$. Na avenida, como esperado, a concentração média 
+foi maior que na região residencial, já que possui maior movimentação de 
+veículos, que além de emitirem grande quantidades de poluentes, levantam 
+poeira local. 
 
-\citep{ofosu2012} Tema 28 km Fevereiro até Agosto 2008
+A CETESB (Companhia Ambiental Do Estado De São Paulo) possui uma rede de 
+monitoramento de qualidade do Ar no estado de São Paulo e em seu relatório 
+de 2014 \citep{cetesb2014} a estação com menor média anual da RMSP 
+de concentração média da massa total de $MP_{10}$ foi a Ibirapuera 
+(29 $\mu g / m^3$) e a maior em Parelheiros 44 $\mu g / m^3$.  
 
- conduziu um estudo em 
-e obteve média diária PM10: 179 ug/m3 e 4 ug/m3 de BC.
-O Harmatão foi presente tanto em MP10 quanto em MP2.5.
+Em estudo realizado em XXXX \cite{souza2014} encontrou 64 $\mu g / m^3$.
 
+Em termos gerais, em Nima a concentração é de 2 a 3 vezes maior do que 
+tipicamente encontrado em São Paulo. 
 
-
-
+Excluindo-se os dias de ocorrência do Harmatão da tabela 
+\ref{table:RIcH_descriptive} obtém-se a tabela \ref{table:RIsH_descriptive}.
+Assim, é possível avaliar com melhor precisão o impacto de fontes locais.  
 
 \begin{table}[H]
   \centering
  % \begin{scriptsize}
-    \input{../outputs/descriptive_TFcH}
+    \input{../outputs/descriptive_RIsH}
  % \end{scriptsize}
-  \caption{Estatística descritiva para $MP_{2,5}$ na \textbf{avenida}
-           $\mu g / m^3$ \label{table:TFcH_descriptive}}
+  \caption{Estatística descritiva das concentrações de  $MP_{10}$ na área 
+           \textbf{residencial} excluíndo-se os dias do Harmantão
+            \label{table:RIsH_descriptive}}
 \end{table}
 
-A 
-A tabela \ref{table:RFcH_descriptive} traz as médias elementares de $MP_{2,5}$ na área 
-\textbf{residencial}.
-O \textbf{Black Carbon} representa $3,73 \%$ da massa total.
+Removendo-se o Harmatão, as médias são próximas das tipicamente
+encontradas em São Paulo. 
 
+Em Kwabenya, região periférica e semi-rural de Acra 11 $km$ a noroeste de Nima, 
+medidas realizadas durante 2006 e 2007 resultaram em 179 $\mu g / m^3$ de massa 
+de $MP_{10}$ e 77 $\mu g / m^3$ quando removidos os dias de ocorrências
+de ventos do Harmatão \citep{aboh2009}.
+
+\begin{table}[H]
+  \centering
+ % \begin{scriptsize}
+    \input{../outputs/descriptive_TIcH}
+ % \end{scriptsize}
+  \caption{Estatística descritiva das concentrações de $MP_{10}$ na 
+           \textbf{avenida} \label{table:TIcH_descriptive}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+ % \begin{scriptsize}
+    \input{../outputs/descriptive_TIsH}
+ % \end{scriptsize}
+  \caption{Estatística descritiva das concentrações de $MP_{10}$ na 
+           \textbf{avenida} removendo-se o Harmatão
+           \label{table:TIsH_descriptive}}
+\end{table}
+
+No gráfico da figura \ref{fig:plot_RFcH_massa} percebe-se que no período 
+do harmatão tanto o padrão nacional de Gana quanto a recomendação da OMS 
+são ultrapassados.
 
 \begin{figure}[H]
   \centering
@@ -105,110 +182,86 @@ O \textbf{Black Carbon} representa $3,73 \%$ da massa total.
   \caption{Massa total de $MP_{2,5}$ na área \textbf{residencial} \label{fig:massa_temporal_fino}}
 \end{figure}
 
+O índice de ultrapassagens foi alto para os dois os casos, 
+mas principalmente na avenida
 
-Média, desvio padrão e mediana da massa total e ultrapassagens das 
-           recomendações da Organização Mundial de Sáude (OMS) para média diária de 
-           25 $\mu g/m^3$ para $MP_{2,5}$ e 50 $\mu g/m^3$ para $MP_{10}$
+%%%%
+\subsection{Fino $MP_{2,5}$}
 
+As recomendações da Organização Mundial de Sáude (OMS) para média diária de 
+25 $\mu g/m^3$ para $MP_{2,5}$ e 50 $\mu g/m^3$ 
 
-Na tabela \ref{table:descritiva} estão as médias para a avenida e área residencial
-bem como a porcentagem de ultrapassagem do padrão diário da 
-Organização Mundial de Sáude (OMS).
-O indíce de ultrapassagens foi alto para todos os casos, mas principalmente na avenida,
-acima de (90\%) tanto para $MP_{10}$ quanto para $MP_{2,5}$.
+Na tabela \ref{table:RFcH_descriptive} encontra-se a média, desvio padrão da média, 
+mediana, mínimo e máximo das concentrações na área residencial. 
 
-Os padrões de qualidade do ar são fixados em níveis que quando ultrapassados 
-podem afetar a saúde da população. 
-Na tabela \ref{table:pm10standards} há uma comparação dos padrões de $MP_{10}$ 
-no Brasil (CONAMA 03/90), Gana (EPA-Gana) e os recomentados pela Organização
-Mundial de Sáude.
-Outra recomendação da OMS é que a concentração não ultrapasse $25 \mu g/m^3$ 
-em mais que 1\% das amostragens durante um ano. 
+A concentração média da massa total ($83\pm 18 \mu g / m^3$) é aproximadamente
+3 vezes maior que a relatada para São Paulo ($28\pm 13 \mu g / m^3$) reportada 
+em estudo que mediu as concentrações elementares de $MP_{2,5}$ em 6 cidades 
+brasileiras (São Paulo, Rio de Janeiro, Belo Horizonte, Curitiba, Recife e 
+Porto Alegre) \cite{andrade2012}. 
+
+Em Kwabenya, região periférica e semi-rural de Acra 11 $km$ a noroeste de Nima, 
+medidas realizadas durante 2006 e 2007 resultaram em 40,8 $g / m^3$ de massa de 
+$MP_{2,5}$ e 1,9 $g / m^3$ (ou $4,6\%$) de $BC$ \citep{aboh2009}.
+
+Em outro estudo realizado em Aishaiman (região industrial), também em Acra, 
+mas a 22 $km$ a nordeste de Nima, entre Fevereiro e Agosto (portanto não 
+incluindo os meses de incidência do Harmatão) reportou 21,6 $g / m^3$ de massa 
+de $MP_{2,5}$ e 2,07 $g / m^3$ (ou $9,5\%$) de $BC$ \citep{ofosu2012}.
+
+O $BC$ é um indicador de fontes de combustão, principalmente de veículos pesados.
+Cidades onde veículos representam a principal fonte poluídora o $BC$ pode chegar 
+a $50\%$ da massa total de $MP_{2,5}$.  
+
+Neste estudo $BC$ representou $3,7 \%$ ($3,13\pm 0,05 \mu g / m^3$) da massa 
+total, enquanto que em São Paulo esse valor foi de $35,7 \%$ \citep{andrade2012}.
+Apesar de muito baixa quando comparada com São Paulo, a porcentagem de $BC$ 
+encontrada em Nima concorda com outros estudos de Acra, mesmo Nima tendo alto
+tráfego de veículo e frota envelhecida. Isso explica-se, pois, partículas 
+oriundas de poeira do solo local e do Harmatão ofuscam a contribuição de outros
+elementos, no caso o $BC$. 
 
 \begin{table}[H]
   \centering
-  \begin{scriptsize}
-      \begin{tabular}{cccc}
-     \hline
-   Tipo & Brasil & Gana (residencial e rural) & Organização Mundial de Saúde \\
-     \hline
-   diaria & 150 & 150 &  50 \\
-     anual &  50 & 100 &  20 \\
-      \hline
-  \end{tabular}
-  \end{scriptsize}
-  \caption{Padrões para $MP_{10}$ no Brasil (CONAMA 03/90), Gana (EPA-Gana) e 
-          Organização Mundial de Sáude \label{table:pm10standards}}
+ % \begin{scriptsize}
+    \input{../outputs/descriptive_RFcH}
+ % \end{scriptsize}
+  \caption{Estatística descritiva para $MP_{2,5}$ na área \textbf{residencial}
+            \label{table:RFcH_descriptive}}
 \end{table}
 
-%http://www.mma.gov.br/port/conama/processos/C1CB3034/Minuta_SMCQ.pdf,,,,
-\begin{table}[]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{lllll}
-                              & PQI & PQ2 & Padrão Primário & Padrão Secundário \\
-MP10-24horas                  & 120 & 100 & 75              & 50                \\
-MP10- Média Anual aritmética  & 40  & 35  & 30              & 20                \\
-MP2.5-24horas                 & 60  & 50  & 37              & 25                \\
-MP2.5- Média Anual aritmética & 20  & 17  & 15              & 10               
-\end{tabular}
+\begin{table}[H]
+  \centering
+ % \begin{scriptsize}
+    \input{../outputs/descriptive_RFsH}
+ % \end{scriptsize}
+  \caption{Estatística descritiva para $MP_{2,5}$ na área \textbf{residencial}
+           removendo-se harmatão \label{table:RFsH_descriptive}}
 \end{table}
 
-\begin{table}[]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{lll}
-Tipo de medida               & Padrão Primário & Padrão Secundário \\
-MP10-24horas                 & 150             & 150               \\
-MP10- Média Anual aritmética & 50              & 50               
-\end{tabular}
+\begin{table}[H]
+  \centering
+ % \begin{scriptsize}
+    \input{../outputs/descriptive_TFcH}
+ % \end{scriptsize}
+  \caption{Estatística descritiva para $MP_{2,5}$ na \textbf{avenida}
+            \label{table:TFcH_descriptive}}
 \end{table}
 
-\begin{table}[]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{ll}
-oms Tipo de medida & Padrão \\
-MP10-24horas       & 50     \\
-MP10- Média Anual  & 20     \\
-MP2.5-24horas      & 25     \\
-MP2.5- Média Anual & 10    
-\end{tabular}
-\end{table}
-
-% http://www.epa.gov.gh/ghanalex/policies/EPAguidelines%20Report.pdf
-\begin{table}[]
-\centering
-\caption{My caption}
-\label{my-label}
-\begin{tabular}{llll}
-Tipo de média                 & áreas sensíveis & área residencial e rural & área industrial e comercial \\
-Média annual geométrica       & 70              & 100                      & 200                         \\
-média mensal durante Harmatão & 100             & 200                      & 500                         \\
-média diária                  & 110             & 150                      & 260                        
-\end{tabular}
+\begin{table}[H]
+  \centering
+ % \begin{scriptsize}
+    \input{../outputs/descriptive_TFsH}
+ % \end{scriptsize}
+  \caption{Estatística descritiva para $MP_{2,5}$ na \textbf{avenida}
+           removendo-se harmatão \label{table:TFsH_descriptive}}
 \end{table}
 
 
-%TODO: Fazer sem o harmatão e ver se BC aumenta.  
 Já na avenida \ref{table:TFcH_descriptive} o \textbf{Black Carbon} 
 representa 4.7 \% da massa total.
 
-\begin{table}[H]
-  \centering
-  \begin{scriptsize}
-    \input{../outputs/descriptive_TFcH}
-  \end{scriptsize}
-  \caption{Tabela com estística descritiva para $MP_{2,5}$ na \textbf{avenida}
-          \label{table:TFcH_descriptive}}
-\end{table}
 
-No gráfico da figura \ref{fig:plot_RFcH_massa} percebe-se que no período 
-do harmatão tanto o padrão nacional de Gana quanto a recomendação da OMS 
-são ultrapassados.
 
 
 
@@ -224,16 +277,19 @@ são ultrapassados.
 %\end{table}
 
 %%%%
-\subsection{Comparação dos resultados com dados da USEPA}
+\subsection{Comparação dos resultados com os da EPA-US}
 
-Verificação da qualidade dos resultado obtidos por XRF.
-Entre as 2898 amostras analisadas por \textbf{ED-XRF}, existiam 92 que foram 
-previamente analisadas pela \textbf{United States Environmental Protection 
-Agency (USEPA)}, porém nós não sabíamos, pois o Prof. Dr. Majid Ezzati quis 
-fazer um teste a cega das nossas medidas. 
+Entre as 2898 amostras enviadas para serem analisadas na USP, 92 foram previamente 
+analisadas por Fluorescência de Raios X na \textbf{United States Environmental 
+Protection Agency (USEPA)}. Ao fazermos as análises no Lapat, não sabíamos
+dessa informação, pois o Prof. Dr. Majid Ezzati executou um teste a cega das 
+nossas medidas para verificação da exatidão e precisão dos resultados. 
+Só depois que enviamos os resultados das nossas análises, nos foi informando, 
+que parte das amostra já tinham sido analisadas no EPA. Os resultados do Lapat
+e EPA tiveram concordância. 
 
 Os elementos com concentrações muito acima do limite de detecção tiveram ótima
-concordância, com pode ser observado no gráfico da figura \ref{fig:epa} 
+correlação, com pode ser observado no gráfico da figura \ref{fig:epa} 
 
 \begin{figure}[H]
   \centering
@@ -242,3 +298,5 @@ concordância, com pode ser observado no gráfico da figura \ref{fig:epa}
     \includegraphics[width=0.3\textwidth]{../outputs/EPA_P.pdf}
   \caption{Comparação das concentrações com análise da USEPA \label{fig:epa}.}
 \end{figure}
+
+Verificação da qualidade dos resultado obtidos por XRF.

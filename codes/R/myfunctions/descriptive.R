@@ -1,7 +1,8 @@
 descriptive2latex <- function(path,sigla){
   
+  #detach("package:Hmisc", unload=TRUE) 
   #path = '../../outputs/pmf_fa/'
-  #sigla = 'RFcH'
+  #sigla = 'RIcH'
   pathfile = paste(path,sigla,'.csv',sep='')
   base = read.csv(pathfile)
   
@@ -9,7 +10,8 @@ descriptive2latex <- function(path,sigla){
   tabela = describe(base[,-1])
   tabela = tabela[,c(2,3,13,5,8,9)]
   tabela[,c(2:6)] = tabela[,c(2:6)]*1000
-  tabela[c("mass","BC"),c(2:6)] = tabela[c("mass","BC"),c(2:6)]/1000
+  tabela[c("mass"),c(2:6)] = tabela[c("mass"),c(2:6)]/1000
+  if(grepl('F',sigla)) tabela[c("BC"),c(2:6)] = tabela[c("BC"),c(2:6)]/1000
   tabela[,c(2:6)] = format(tabela[,c(2:6)], scientific=F,digits=1,nsmall=2)
   tabela[,1] = as.integer(tabela[,1])
 
