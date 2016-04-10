@@ -16,6 +16,17 @@ Uso-se o critério sugerido por \cite{aboh2009}, que considera os dias de
 ocorrência do Harmatão como os que tem concentrações de silício maiores que 
 10 $\mu g/m^3$ e estão entre Novembro e Março.
 
+%%# Fontes encontradas em Harvard:
+%%#   Solid waste burning: Br. 
+%%#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
+%%#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
+%%#   Aged biomass particles: K, Cl, S, BC
+%%   Fresh biomass burning: K, Cl, S, BC
+%%#   Sea salt: Na, Cl, S
+%%# Sal marinho, solo, emissões veiculares e combustão de biomassa
+%%# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
+%%# Zn: Freio, pneu, peças.
+
 %%%%
 \subsection{Material Particulado Fino ($MP_{2,5}$)}
 
@@ -48,24 +59,27 @@ Harmatão, como proposto por \cite{aboh2009}. Entretanto, análise \textbf{PMF} 
 \textbf{Análise de Fatores} para as tabelas de concentrações completas podem
 ser consultadas no apêndice II. 
 
-\begin{table}[H]
-  \centering
-    \input{../outputs/RFcH_profiles_percent_species5.tex}
-    \caption{residencial $MP_{2,5}$ seed=123; n= 197. 
-             \label{table:RFcH_profiles5}}
-\end{table}
-
 \begin{figure}[H]
 \centering
-  \includegraphics[width=0.6\textwidth]{../outputs/RFcH_pmf_contribution_pizza5.pdf}
+  \includegraphics[width=0.5\textwidth]{../outputs/RFcH_pmf_contribution_pizza5.pdf}
   \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
            residencial. 5 fatores extraídos.
           \label{table:RFcH_contribution5}}
 \end{figure}
 
+\begin{table}[H]
+  \centering
+    \input{../outputs/RFcH_profiles_percent_species5.tex}
+    \caption{Perfis do fatores na área residencial $MP_{2,5}$ 
+             (seed=123, n= 197). 
+             \label{table:RFcH_profiles5}}
+\end{table}
+
+
+
 Refazendo-se a \textbf{Análise de Fatores} de $MP_{2,5}$ na área residencial, 
 porém excluindo-se os dias de Harmatão (número de amostra cai de 197 para 123), 
-obtemos os \textbf{loadings} da tabela \ref{table:loadings_RFsH6}. 
+obtém-se os \textbf{loadings} da tabela \ref{table:loadings_RFsH6}. 
 
 \begin{table}[H]
   \input{../outputs/loadings_RFsH5.tex}
@@ -78,19 +92,146 @@ obtemos os \textbf{loadings} da tabela \ref{table:loadings_RFsH6}.
            \label{table:loadings_RFsH5}}
 \end{table}
 
-explicou $84,0\%$ da variância
-total dos dados com 4 fatores retidos.
-A comunalidade, indicação do quão o ajuste explicou a variabilidade por 
-cada espécie, foi maior que $0,7$ para a maioria dos elementos,
-com exceção do bromo (Br), zinco (Zn) e chumbo (Pb) que tiveram comunalidade 
-de $0,43$, $0,49$ e $0,62$, respectivamente.
+Apesar do fator com elementos de poeira continuar prepoderante, agora, os 
+elementos estão melhor distribuídos entre os demais fatores.  
 
-Diversas parametrizações foram testadas na \textbf{Análise de Fatores}
-e aquelas que resultaram em fatores que se associavam com fontes poluidoras
-reais foram escolhidas. A seguir estão os resultados para 
-\textbf{Análise de Fatores} nos dois pontos de amostragem 
-(residencial e avenida) e nas duas modas
-fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
+A \textbf{Análise de Fatores} para $MP_{2,5}$ na área residencial explicou 
+$84,0\%$ da variância total dos dados com 5 fatores retidos.
+A comunalidade, variável que indica o quão o ajuste explicou a variabilidade por 
+espécie, foi maior que $0,7$ para a maioria dos elementos,
+com exceção do bromo (Br) e zinco (Zn) que tiveram comunalidade de $0,59$ e 
+$0,44$, respectivamente.
+
+O fator predominante, isto é, que explica sozinho a maior parte da variância, 
+tem autovalor $7,88$ ou $44,0\%$ da variância total.
+Os elementos com maiores \textbf{loadings} neste fator são essencialmente 
+metais (Al, Si, Ti, V, Fe, Mn, Ca, Mg) e massa (\textbf{mass}).
+São oriundos de re-suspensão de poeira do solo e com exceção do Vanádio,
+são comumente encontrados em diversos tipos de solos, como os disponíveis no 
+banco de dados \textbf{SPECIATE} da \textbf{EPA-US} \citep{simon2010}.
+Neste fator, aparece secundariamente fósforo (P) e potássio (K), indicando 
+possível sobreposição de fontes ou solo contaminado. 
+Vanádio, normalmente associado a queima de óleos pesados como o diesel, ao 
+aparecer na fonte solo, indica sobreposição de fontes com temporalidade próximas.
+\cite{aboh2009} também encontrou Vanádio no fator de poeira solo.
+As partículas que compõem poeira de solo estão em sua maioria na moda grossa 
+($MP_{2,5-10}$) do material particulado, pois são geradas por processo mecânico,
+entretanto, tamanha a quantidade de poeira em Acra que mesmo no $MP_{2,5}$ o 
+principal fator encontrado representa solo.  
+
+O segundo fator predominante, de autovalor $2,22$, contém alto \textbf{loadings}
+de fósforo (P), potássio (K) e enxofre (S), espécies típicas de queima de 
+biomassa \citep{reid2005}, ainda hoje pratica comum em Acra para preparação 
+de alimentos. 
+
+O terceiro fator retido, de autovalor $2,02$, é composto por Black Carbon (BC), 
+chumbo (P), zinco (Zn), potássio (K) e massa.
+\cite{aboh2009} encontrou o mesmo fator em Kwabenya e o considerou como fonte
+veicular, pois $BC$ e $Zn$ estão associados a veículos, devido a combustão 
+incompleta e desgaste das pastilhas de freio e dos pneus dos automóveis, 
+respectivamente.
+
+O chumbo (Pb) foi banido da gasolina em Gana em 2003 devido a acordo 
+internacional \citep{epa2015}.  
+Na tabela \ref{table:RFcH_descriptive} a concentração média de $Pb$ 
+foi $18,6 \pm 0,8 n g /m^3$, próxima de valores típicos de São Paulo 
+$16 \pm 13 n g /m^3$ \citep{andrade2012}.
+
+Entretanto, Acra tem um dos maiores lixões de eletrônicos (\textbf{e-waste}) 
+do mundo, recebendo grande parte dos equipamentos descartados como lixo na 
+Europa e que são derretidos para obtenção do cobre (Cu) em \textbf{Agbogbloshie},
+bairro de Acra a 4 kilometros sudoeste de Nima.  
+
+Altas concentrações de Al, Co, Cu, Zn, Cd, In, Sb, Ba, e Pb foram encontradas
+no solo do \textbf{e-waste} de \textbf{Agbogbloshie} \citep{asante2012}. 
+O zinco (Zn) é o principal composto de baterias de eletrônicos. 
+
+O vento predominante em Nima é de sudoeste e portanto pode carregar material 
+de \textbf{Agbogbloshie} para Nima, distante apenas 4 kilômetros. 
+Assim, é possível que no fator 3 esteja representada duas fontes, a veicular e 
+e queima de lixo eletrônico, pois as duas emitem grande quantidade de partículas
+na atmosfera do mesmo tipo. 
+
+O quarto fator predominante, de autovalor $1,59$, com Sódio (Na) e Cloro (Cl)
+representa indubitavelmente a fonte mar. 
+Partículas de Sódio (Na) e Cloro (Cl) geradas no mar estão mais concentradas 
+na moda grossa, mas pela proximidade do ponto de amostragem com mar, obteu-se
+concentrações suficientes que permitiram a geração de um fator. 
+Em pouco tempo de residência na atmosfera, o Cloro do sal marinho envelhecido 
+é substituído por $SO_4^{2-}$ como resultado da reação com ácido sulfúrico e 
+ácido nítrico \citep{mcinnes1994}, o que explica o \textbf{loading} $0,29$ 
+neste fator.
+
+O quinto e último fator predominante retido teve autovalor $1,33$. 
+Os elementos com altos \textbf{loadings} foram Vanádio, Sódio, Bromo e Chumbo.
+Esse elementos representam atividades de indústrias locais. 
+
+Na avenida, o resultado da \textbf{Análise de Fatores} de $MP_{2,5}$ está na 
+tabela \ref{table:loadings_TFsH5}. Os 4 primeiros fatores principais extraídos 
+foram essencialmente os mesmos que na área residencial, com mudanças nos 
+\textbf{loadings} de alguns elementos. O último fator, entretanto, de autovalor
+$1,29$ possui BC e K, diferente do quinto fator da área residencial. 
+Na avenida há muitos comércios   
+
+
+\begin{table}[H]
+  \input{../outputs/loadings_TFsH5.tex}
+  \caption{Análise de Fatores para $MP_{2,5}$ na avenida
+           excluindo-se dias de ocorrência do Harmatão.
+           Rotação varimax - 5 fatores retidos (n=123).
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)
+           \label{table:loadings_TFsH5}}
+\end{table}
+
+
+
+The major sources of phosphorus air pollution are the
+
+industries engaged in the production of phosphate fertilizers,
+phosphoric acid, phosphorus pentoxide, and phosphorus chemicals
+
+for industrial uses.
+
+ Recently, various organic phosphorus compounds have been
+
+
+
+
+used as combustion chamber deposit modifiers as well as corro-
+
+
+
+
+sion inhibitors for motor gasolines and aviation fuels.  Thus
+
+
+
+
+there is a possibility that automobile emissions may contain
+
+
+
+
+toxic phosphorus compounds.
+
+        Phosphorus concentrations in the ambient air of Los
+
+
+
+Angeles (1954) and Cincinnati (1966) were found to average
+
+
+
+1.43 |J,g/m3 , and 0.22 |ag/m3 , respectively.  Measurements on
+
+
+
+national or regional scales are not available.
+
+
+
 
 \begin{table}[H]
   \centering
@@ -120,60 +261,6 @@ fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
   \input{../outputs/loadings_RFsH5.tex}
 \end{table}
 
-O fator predominante, isto é, que explica grande parte da variância, 
-tem autovalor $9,57$ e explica $53,0\%$ da variância total.
-Os elementos com maiores \textbf{loadings} neste fator são essecialmente 
-metais (Al, Si, Ti, V, Fe, Mn, Ca, Mg) e massa (\textbf{mass}), e proveem 
-principalmente de ressuspensão de solo.
-Neste fator, aparecem ainda fósforo (P), potássio (K), cloro (Cl), indicando 
-possível sobreposição de fontes, ou mesmo solo contaminado.
-%TODO: citar speciate
-
-O segundo fator predominante, de autovalor $1,91$, agrega fósforo (P), 
-potássio (K) e enxofre (S), somente. Eles caracteriza a queima de biomassa, 
-comumente usada em \textbf{Nima}.
-%TODO: citar artigo sobre elementos de queima de biomassa.
-
-O terceiro fator predominante, de autovalor $1,88$, contém elementos
-característicos de mar, sódio (Na), cloro (Cl), bromo (Br) e enxofre (S), 
-sendo o sódio (Na) de maior loading $0,81$. 
-Depois de um tempo de residência na atmosfera, o Cl do sal marinho envelhecido 
-é substituído por $SO_4^{2-}$ como resultado da reação com acido sulfurico e 
-ácido nitrico \citep{mcinnes1994}. 
-
-%TODO: citar artigo sobre elementos MAR
-
-O quarto e último fator retido, de autovalor $1,78$, é composto 
-por black carbon (BC), chumbo (P) e zinco (Zn). 
-Acra tem um dos maiores lixões de eletrônicos do mundo, recebendo
-grande parte dos eletrônicos descartados como lixo na Europa e que são derretidos
-para obtenção do cobre (Cu). 
-
-O lixão está localizado em \textbf{Agbogbloshie}, 4 kilômetros a sudoeste de Nima. 
-O vento predominante em Nima é de sudoeste, o que nos indica grandes chances 
-desse fator representar uma fonte de queima de lixo eletrônico.
-%TODO: citar artigo Agbogbloshie
-
-\citep{asante2012} mediu níveis de:
-Al, Co, Cu, Zn, Cd, In, Sb, Ba, and Pb no solo do e-waste.
-
-Além disso, black carbon (BC) e zinco (Zn) também estão associados a veículos, 
-pois o black carbon (BC) é resultado de combustão incompleta e o zinco (Zn) é
-liberado no desgate das pastilhas de freio e dos pneus dos automóveis. 
-%TODO: citar artigo sobre poluentes de veículos
-
-Entretanto o chumbo (Pb) não pode estar associado a veículo, pois 
-foi banido da gasolina em Gana em 2003 devido a acordo internacional. 
-Mas nota-se que o loading de $0,30$ do chumbo (Pb) no primeiro fator revela 
-que ainda pode haver contaminação do solo por chumbo (Pb).
-%TODO: procurar artigo sobre isso. https://en.wikipedia.org/wiki/Ghana_Environmental_Protection_Agency
-
-Comparando com região metropolitana São Paulo, em uma medida de 2006, a média de Chumbo foi $11 +/- 0.7 ng/m^3$  
-(64 amostras) e frota veicular 7 milhões. 
-%TODO: citar artigo da simone.
-
-O zinco (Zn) é o principal composto de baterias de eletrônicos, assim também 
-pode estar associado ao \textbf{e-waste} de \textbf{Agbogbloshie}.
 
 \begin{table}[H]
   %\label{my-label} 
@@ -222,6 +309,13 @@ menores do que 1 e degenerados. Neste cenário, a fonte
 detectar as outras fontes. Assim, só apresentaremos aqui os resultados 
 removendo-se os dias do Harmatão. Mas a Análise de Fatores com os
 dias do Harmatão inclusos estão no estão no Apêndice I.
+
+Diversas parametrizações foram testadas na \textbf{PMF}
+e aquelas que resultaram em fatores que se associavam com fontes poluidoras
+reais foram escolhidas. A seguir estão os resultados para 
+\textbf{Análise de Fatores} nos dois pontos de amostragem 
+(residencial e avenida) e nas duas modas
+fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
 
 %%%%
 \subsection{$MP_{2,5-10}$ na região residencial e avenida}
