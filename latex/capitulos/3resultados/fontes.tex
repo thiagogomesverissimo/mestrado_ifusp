@@ -1,6 +1,9 @@
 %%%%
 \section{Identificação das fontes}
 
+A discriminação de fontes é complexa pois
+há uma mistura de elementos do deserto com fontes antropogênicas.
+
 O alto número de amostras coletadas possibilitou a exclusão dos dias de 
 ocorrência do Harmatão nas tabelas de concentrações sem comprometer as análises
 multivariadas. A alta concentração de poeira provinda do Harmatão dificulta a 
@@ -16,7 +19,12 @@ Uso-se o critério sugerido por \cite{aboh2009}, que considera os dias de
 ocorrência do Harmatão como os que tem concentrações de silício maiores que 
 10 $\mu g/m^3$ e estão entre Novembro e Março.
 
+
+
 %%# Fontes encontradas em Harvard:
+I assume you are talking about the paper "Chemical composition and sources of particle pollution in affluent and poor
+
+neighborhoods of Accra, Ghana". Both Pb and Zn were included in the PMF analysis. Based on our analysis, they showed up in two factors: Road dust and traffic particles and solid waste burning. As you may already know, the choice of the number of PM sources and labeling PM sources involve subjectivity. Since we were comparing four neighborhoods, we kept sources more or less consistent across neighborhoods. In your case, it might be reasonable to further break down the sources.
 %%#   Solid waste burning: Br. 
 %%#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
 %%#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
@@ -108,6 +116,7 @@ metais (Al, Si, Ti, V, Fe, Mn, Ca, Mg) e massa (\textbf{mass}).
 São oriundos de re-suspensão de poeira do solo e com exceção do Vanádio,
 são comumente encontrados em diversos tipos de solos, como os disponíveis no 
 banco de dados \textbf{SPECIATE} da \textbf{EPA-US} \citep{simon2010}.
+%ruas não pavimentadas
 Neste fator, aparece secundariamente fósforo (P) e potássio (K), indicando 
 possível sobreposição de fontes ou solo contaminado. 
 Vanádio, normalmente associado a queima de óleos pesados como o diesel, ao 
@@ -168,6 +177,12 @@ O quinto e último fator predominante retido teve autovalor $1,33$.
 Os elementos com altos \textbf{loadings} foram Vanádio, Sódio, Bromo e Chumbo.
 Esse elementos representam atividades de indústrias locais. 
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{../outputs/scores_RFsH5.pdf}
+  \caption{RGsH factor scores}
+\end{figure}
+
 Na avenida, o resultado da \textbf{Análise de Fatores} de $MP_{2,5}$ está na 
 tabela \ref{table:loadings_TFsH5}. Os 4 primeiros fatores principais extraídos 
 foram essencialmente os mesmos que na área residencial, apenas com mudanças nos 
@@ -187,6 +202,7 @@ os estabelecimentos queimam biomassa para preparação de alimentos.
            \label{table:loadings_TFsH5}}
 \end{table}
 
+
 Diversas parametrizações foram testadas no \textbf{PMF} e as soluções estáveis 
 com fatores de significados físicos foram escolhida. 
 A tabela \ref{table:RFsH_profiles5} apresenta o perfil dos fatores para a área
@@ -205,14 +221,6 @@ fator5: vegetação.
              \label{table:RFsH_profiles5}}
 \end{table}
 
-\begin{figure}[H]
-\centering
-  \includegraphics[width=0.6\textwidth]{../outputs/RFsH_pmf_contribution_pizza5.pdf}
-  \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
-           residencial . 5 fatores extraídos.
-          \label{table:RFsH_contribution5}}
-\end{figure}
-
 A tabela \ref{table:TFsH_profiles5} apresenta o perfil dos fatores para a avanida
 e $MP_{2,5}$.
 
@@ -223,15 +231,6 @@ e $MP_{2,5}$.
               seed=123; n= 123. 
              \label{table:TFsH_profiles5}}
 \end{table}
-
-\begin{figure}[H]
-\centering
-  \includegraphics[width=0.6\textwidth]{../outputs/TFsH_pmf_contribution_pizza5.pdf}
-  \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
-           residencial . 5 fatores extraídos.
-          \label{table:TFsH_contribution5}}
-\end{figure}
-
 
 \begin{figure}[H]
   \centering
@@ -248,36 +247,7 @@ e $MP_{2,5}$.
 
 
 %%%%
-\subsection{$MP_{2,5-10}$ na região residencial e avenida}
-
-\begin{table}[H]
-  %\label{my-label} 
-  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
-             para $MP_{2,5}$ na avenida.
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)}
-  \input{../outputs/loadings_TFsH4.tex}
-\end{table}
-
-\begin{table}[H]
-  %\label{my-label} 
-  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
-             para $MP_{2,5}$ na avenida.
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)}
-  \input{../outputs/loadings_TFsH4.tex}
-\end{table}
-
-%%%%
-\section{Positive Matrix Factorization}
-Avaliou-se o perfil de parâmetros meteorológicos locais, como direção e intensidade dos ventos, 
-identificando-se um regime de brisa marinha bem definido, com ventos de sul quando sol a pino, mas se deslocando a oeste com a entrada da noite. 
-
-I assume you are talking about the paper "Chemical composition and sources of particle pollution in affluent and poor
-
-neighborhoods of Accra, Ghana". Both Pb and Zn were included in the PMF analysis. Based on our analysis, they showed up in two factors: Road dust and traffic particles and solid waste burning. As you may already know, the choice of the number of PM sources and labeling PM sources involve subjectivity. Since we were comparing four neighborhoods, we kept sources more or less consistent across neighborhoods. In your case, it might be reasonable to further break down the sources.
+\subsection{Material Particulado Grosso $MP_{2,5-10}$}
 
 \begin{figure}[H]
   \centering
@@ -285,16 +255,20 @@ neighborhoods of Accra, Ghana". Both Pb and Zn were included in the PMF analysis
   \caption{ \citep{carslaw2012} \label{fig:windRose_horaria}}
 \end{figure}
 
+Avaliou-se o perfil de parâmetros meteorológicos locais, como direção e 
+intensidade dos ventos, identificando-se um regime de brisa marinha bem 
+definido, com ventos de sul quando sol a pino, mas se deslocando a oeste com a 
+entrada da noite. 
+Nota-se também uma perceptível diferença entre os dois períodos climáticos, 
+pois no Verão temos maior quantidade de radiação solar, fortalecendo a 
+formação de brisa marinha e, consequentemente, deslocando mais para o 
+oeste a distribuição de frequência nas direções dos ventos.
+
 \begin{figure}[H]
   \centering
   \includegraphics[width=1\textwidth]{../outputs/windRose_mensal.pdf}
   \caption{ \citep{carslaw2012} \label{fig:windRose_mensal}}
 \end{figure}
-
-%Nota-se também uma perceptível diferença entre os dois períodos climáticos, 
-%pois no Verão temos maior quantidade de radiação solar, fortalecendo a 
-%formação de brisa marinha e, consequentemente, deslocando mais para o 
-%leste a distribuição de frequência nas direções dos ventos.
 
 \begin{figure}[H]
   \centering
@@ -312,83 +286,76 @@ Fonte de energia para cozimento de alimentos em Gana \ref{table:cookfuel}.
            Gana \citep{ghanacensus2013} \label{table:cookfuel}}
 \end{table}
 
-No caso de Accra a discriminação de fontes é complexa pois
-há uma mistura de elementos do deserto com fontes antropogênicas.
-
-Apesar dos altos índices de poluição em Accra pouca pesquisa tem sido 
-realizada na tentativa de enteder a composição química do ar na região
-(tanto antropogênica quando natural - poeira mineral do deserto). 
-
-\subsection{$MP_{2,5}$ na região residencial e avenida}
-
 Os perfis dos fatores para $MP_{2,5-10}$ nos dois sítios de amostragem, 
-residencial e avenida, estão na tabela \ref{table:grosso_profiles_percent_species}.
+residencial e avenida, estão na tabela \ref{}.
 
 A contribuição por fator e a respectiva associação com fontes poluídoras
-estão no gráfico da figura \ref{figure:grosso_pmf_contribution_pizza}. 
+estão no gráfico da figura \ref{}. 
 
 \citep{asante2012} analisou nível de elementos traços nas urinas de trabalhadores 
 do e-waste de Agbogbloshie e Fe, Sb, and Pb tiveram concentrações alta se comparada
 a um pessoa de referência, que não tem contato com \textbf{e-waste}.
 
-
-
-\citep{kaku2016}
-
-\citep{prospero2002} mostra países afetados por harmatão. 
-
-\citep{engelbrecht2009a} e \citep{engelbrecht2009b} estudaram a composição 
-da poeira do deserto.
-
-
-
-
-\begin{table}[H]
-  \centering
-  %\label{my-label} 
-  \caption{RGsH}
-  \input{../outputs/RGsH_profiles_percent_species4.tex}
-\end{table}
-
-\begin{table}[H]
-  \centering
-  %\label{my-label} 
-  \caption{TGsH}
-  \input{../outputs/TGsH_profiles_percent_species4.tex}
-\end{table}
-
-
-\begin{table}[H]
-  \centering
-  %\label{my-label} 
-  \caption{TFsH}
-  \input{../outputs/TFsH_profiles_percent_species4.tex}
-\end{table}
 O Harmatão foi presente tanto em MP10 quanto em MP2.5.
 
+\begin{table}[H]
+  \input{../outputs/loadings_RGsH4.tex}
+  \caption{Análise de Fatores para $MP_{2,5-10}$ na área residencial
+           excluindo-se dias de ocorrência do Harmatão.
+           Rotação varimax - 5 fatores retidos (n=).
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)
+           \label{table:loadings_RGsH4}}
+\end{table}
 
-%%# Fontes encontradas em Harvard:
-%%#   Solid waste burning: Br. 
-%%#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
-%%#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
-%%#   Aged biomass particles: K, Cl, S, BC
-%%   Fresh biomass burning: K, Cl, S, BC
-%%#   Sea salt: Na, Cl, S
-%%# Sal marinho, solo, emissões veiculares e combustão de biomassa
-%%# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
-%%# Zn: Freio, pneu, peças.
+\begin{table}[H]
+  \input{../outputs/loadings_TGsH4.tex}
+  \caption{Análise de Fatores para $MP_{2,5-10}$ na avenida
+           excluindo-se dias de ocorrência do Harmatão.
+           Rotação varimax - 5 fatores retidos (n=).
+           (\textcolor{red}{h} : Comunalidade; 
+           \textcolor{red}{S=1-h} : Singularidade; 
+           \textcolor{red}{C} : Complexidade.)
+           \label{table:loadings_TGsH4}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/RGsH_profiles_percent_species4.tex}
+    \caption{residencial $MP_{2,5-10}$ removendo-se os dias do Harmatão 
+              seed=123; n=. 
+             \label{table:RGsH_profiles4}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/TGsH_profiles_percent_species4.tex}
+    \caption{avenida $MP_{2,5-10}$ removendo-se os dias do Harmatão 
+              seed=123; n= . 
+             \label{table:TGsH_profiles4}}
+\end{table}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/RGsH_pmf_contribution_pizza4.pdf}
+    \caption{Residencial}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/TGsH_pmf_contribution_pizza4.pdf}
+    \caption{Avenida}
+  \end{subfigure}
+  \caption{Contribuição $MP_{2,5-10}$ \label{qqq}}
+\end{figure}
+
+
+
 %
-%%\begin{figure}[H]
-%%\centering
-%%\includegraphics[width=\textwidth]{../outputs/AFCH_factor_scores.pdf}
-%%\caption{AFCH factor scores}
-%%\label{fig:AFCH_factor_scores}
-%%\end{figure}
-%
-%%Aumento do silicio no harmatan.
 %
 %%Zheng: 
-%%Possíveis fontes: ressuspensão da ruas não pavimentadas
+%%Possíveis fontes: ressuspensão da 
 %%biomassa: K,Cl,S
 %
 %%massa,Al,Si,K,Ca,Fe

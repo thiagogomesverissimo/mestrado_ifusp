@@ -1,8 +1,16 @@
 # Função que: prepara dados para plot distribuição de frequência
 # Nos gráficos, os labels serão a sequência começando de 22.5 até 360 com passo de  
 # 22.5. Porém, para distribuirmos as frequências vamos nos centrar nestes labels +/- 11.25
+
 windFrequency<-function(inputdados,GraphTitle="Ghana",file_name) 
 {
+  # Test
+  #source("myfunctions/load.R")
+  #noaa_harvard<-read.csv("../../outputs/noaa_from_harvard.csv")
+  #noaa_harvard$YRMODAHRMN<-strptime(noaa_harvard$YRMODAHRMN,"%Y%m%d%H%M")
+  #inputdados=subset(noaa_harvard,getSeasonNorth(noaa_harvard$YRMODAHRMN)=="Spring")
+  #GraphTitle="Ghana"
+  ####
   calmaria<-sum(inputdados$Calmaria)
   inputdados<-inputdados[!is.na(inputdados$DIR),]
   inputdados<-inputdados[inputdados$DIR!=990,]
@@ -15,8 +23,7 @@ windFrequency<-function(inputdados,GraphTitle="Ghana",file_name)
   porcentage_calmaria<-round(100*(calmaria/(sum(freq$quantidade) +  calmaria)),digits=2)
   freq$quantidade<-100*freq$quantidade/(sum(freq$quantidade) +  calmaria)
   
-  ##Plotando gráficos
-  #library(plotrix)  
+  # Plotando gráficos
   pdf(file=paste('../../outputs/',file_name,'.pdf',sep=""))
   polar.plot(lengths=freq$quantidade,
              polar.pos=freq$centroide,

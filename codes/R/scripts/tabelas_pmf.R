@@ -15,8 +15,8 @@ industria = '#FF6AA7'
 
 RFsH_cores = c(veiculo,lixo_solido,poeira,mar,vegetacao)
 TFsH_cores = c(lixo_solido,mar,poeira,veiculo,vegetacao)
-RGsH_cores = c(poeira,metal,mar,queimada,industria)
-TGsH_cores = c(poeira,metal,industria,queimada,mar)
+RGsH_cores = c(poeira,metal,mar,vegetacao,industria)
+TGsH_cores = c(poeira,metal,industria,vegetacao,mar)
 
 # Contributions
 pmf_contributions_latex('../../outputs/pmf/6factors/','RFsH',rainbow(6),nfactors=6)

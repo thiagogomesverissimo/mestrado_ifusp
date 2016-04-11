@@ -16,7 +16,6 @@ all:
 	
 	# Scripts gerais
 	Rscript scripts/clean_noaa_data.R
-	Rscript scripts/plot_windFrequency.R
 	Rscript scripts/plot_windRose.R
 	Rscript scripts/blackCarbonCalibration.R
 	Rscript scripts/blackCarbonCetesb.R
