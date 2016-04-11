@@ -10,11 +10,11 @@ veiculo = "#CDCDC1"
 lixo_solido = "#FFD700"
 mar = "#87CEFF"
 metal = '#9C9C9C'
-queimada = '#FFA54F'
+vegetacao = '#FFA54F'
 industria = '#FF6AA7'
 
-RFsH_cores = c(lixo_solido,biomassa,poeira,mar,veiculo)
-TFsH_cores = c(mar,biomassa,poeira,lixo_solido,veiculo)
+RFsH_cores = c(veiculo,lixo_solido,poeira,mar,vegetacao)
+TFsH_cores = c(lixo_solido,mar,poeira,veiculo,vegetacao)
 RGsH_cores = c(poeira,metal,mar,queimada,industria)
 TGsH_cores = c(poeira,metal,industria,queimada,mar)
 

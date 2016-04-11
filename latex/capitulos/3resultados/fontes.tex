@@ -52,7 +52,8 @@ Assim como na \textbf{Análise de Fatores}, há um fator se destacando de todos
 outros, pois sozinho contribuiu para 51,84\% da massa e carrega em seu perfil
 quase todos elementos. O fator que está ofuscando os demais fatores
 tanto no \textbf{PMF} quanto na \textbf{Análise de Fatores} está relacionado
-a poeira do Harmatão. 
+a poeira do Harmatão.
+ 
 Assim, para melhor identificar as fontes locais, daqui em diante basearemos 
 nossa investigação de fontes excluindo-se os dias de ocorrência de ventos do 
 Harmatão, como proposto por \cite{aboh2009}. Entretanto, análise \textbf{PMF} e 
@@ -75,14 +76,12 @@ ser consultadas no apêndice II.
              \label{table:RFcH_profiles5}}
 \end{table}
 
-
-
 Refazendo-se a \textbf{Análise de Fatores} de $MP_{2,5}$ na área residencial, 
 porém excluindo-se os dias de Harmatão (número de amostra cai de 197 para 123), 
 obtém-se os \textbf{loadings} da tabela \ref{table:loadings_RFsH6}. 
 
 \begin{table}[H]
-  \input{../outputs/loadings_RFsH5.tex}
+  \input{../outputs/loadings_RFsH6.tex}
   \caption{Análise de Fatores para $MP_{2,5}$ na região residencial
            excluindo-se dias de ocorrência do Harmatão.
            Rotação varimax - 5 fatores retidos (n=123).
@@ -119,10 +118,13 @@ As partículas que compõem poeira de solo estão em sua maioria na moda grossa
 entretanto, tamanha a quantidade de poeira em Acra que mesmo no $MP_{2,5}$ o 
 principal fator encontrado representa solo.  
 
+%TODO: é fertilizante? Gana não produz, mas importa bastante.
+%http://www.iaees.org/publications/journals/piaees/articles/2012-2%281%29/quality-control-analysis-of-imported-fertilizers.pdf
+%https://ifdcorg.files.wordpress.com/2015/04/ghana-fertilizer-assessment.pdf
+%http://file.scirp.org/pdf/JEP20110300013_26705603.pdf
 O segundo fator predominante, de autovalor $2,22$, contém alto \textbf{loadings}
-de fósforo (P), potássio (K) e enxofre (S), espécies típicas de queima de 
-biomassa \citep{reid2005}, ainda hoje pratica comum em Acra para preparação 
-de alimentos. 
+de fósforo (P), potássio (K) e enxofre (S). 
+vegetação / fertilizante?
 
 O terceiro fator retido, de autovalor $2,02$, é composto por Black Carbon (BC), 
 chumbo (P), zinco (Zn), potássio (K) e massa.
@@ -168,11 +170,11 @@ Esse elementos representam atividades de indústrias locais.
 
 Na avenida, o resultado da \textbf{Análise de Fatores} de $MP_{2,5}$ está na 
 tabela \ref{table:loadings_TFsH5}. Os 4 primeiros fatores principais extraídos 
-foram essencialmente os mesmos que na área residencial, com mudanças nos 
+foram essencialmente os mesmos que na área residencial, apenas com mudanças nos 
 \textbf{loadings} de alguns elementos. O último fator, entretanto, de autovalor
-$1,29$ possui BC e K, diferente do quinto fator da área residencial. 
-Na avenida há muitos comércios   
-
+$1,29$, possui altos \textbf{loadings} de BC e K e representam a queima de 
+biomassa \citep{reid2005}. Na avenida há intensas atividades comerciais, 
+os estabelecimentos queimam biomassa para preparação de alimentos.   
 
 \begin{table}[H]
   \input{../outputs/loadings_TFsH5.tex}
@@ -185,38 +187,15 @@ Na avenida há muitos comércios
            \label{table:loadings_TFsH5}}
 \end{table}
 
----
-\begin{table}[H]
-  \input{../outputs/loadings_TGsH4.tex}
-  \caption{Análise de Fatores para $MP_{2,5-10}$ na avenida
-           excluindo-se dias de ocorrência do Harmatão.
-           Rotação varimax - 5 fatores retidos (n=123).
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)
-           \label{table:loadings_TGsH5}}
-\end{table}
-
-The major sources of phosphorus air pollution are the
-
-industries engaged in the production of phosphate fertilizers,
-phosphoric acid, phosphorus pentoxide, and phosphorus chemicals
-
-for industrial uses.
-
- Recently, various organic phosphorus compounds have been
-
-sed as combustion chamber deposit modifiers as well as corro-
-sion inhibitors for motor gasolines and aviation fuels.  Thus
-there is a possibility that automobile emissions may contain
-toxic phosphorus compounds.
-     Phosphorus concentrations in the ambient air of Los
-
-Angeles (1954) and Cincinnati (1966) were found to average
-1.43 |J,g/m3 , and 0.22 |ag/m3 , respectively.  Measurements on
-national or regional scales are not available.
-
-
+Diversas parametrizações foram testadas no \textbf{PMF} e as soluções estáveis 
+com fatores de significados físicos foram escolhida. 
+A tabela \ref{table:RFsH_profiles5} apresenta o perfil dos fatores para a área
+residencial e $MP_{2,5}$. 
+fator1: veiculos
+fator2: lixo solido
+fator3: solo
+fator4: mar
+fator5: vegetação.
 
 \begin{table}[H]
   \centering
@@ -234,73 +213,39 @@ national or regional scales are not available.
           \label{table:RFsH_contribution5}}
 \end{figure}
 
--------------------------
-
-\begin{table}[H]
-  %\label{my-label} 
-  \caption{Análise de Fatores para $MP_{2,5}$ na região residencial.
-           Rotação varimax - 5 fatores retidos.
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)}
-  \input{../outputs/loadings_RFsH5.tex}
-\end{table}
-
-
-\begin{table}[H]
-  %\label{my-label} 
-  \caption{\textbf{Análise de Fatores com rotação varimax - 4 fatores retidos} 
-             para $MP_{2,5}$ na avenida.
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)}
-  \input{../outputs/loadings_TFsH4.tex}
-\end{table}
-
-Ainda para $MP_{2,5}$, mas na avenida com intenso movimento de veículos,
-a Análise de Fatores tamém explicou $84,0\%$ da variância total 
-dos dados com 4 fatores retidos.
-
-O fator predominante, de autovalor $9,87$, ressuspensão de solo, continua 
-como os mesmos elementos (Al, Si, Ti, V, Fe, Mn, Ca, Mg, P, K, Cl, massa).
-
-O segundo fator predominante, de autovalor $1,87$, além dos elementos que 
-apareceram no barro residencial - fósforo (P), potássio (K) e enxofre (S) -
-também contém black carbon (BC) com alto loading $(0,72)$. 
-Esse fator continua caracterizando queima de biomassa.
-
-O terceiro fator predominante, autovalor $1,75$, composto por
-potássio (K), enxofre (S), bromo (Br), chumbo (P) e zinco (Zn). 
-Esse fator está associado a emissões veiculares. 
-
-O quarto e último fator predominante, autovalor $1,65$, 
-Nódio (Na), cloro (Cl) e bromo (Br) e enxofre (S).
-
-A associação entre fatores e fontes poluídoras pode ser resumida
-assim: \textbf{solo, queima de biomassa, mar e lixo.}
+A tabela \ref{table:TFsH_profiles5} apresenta o perfil dos fatores para a avanida
+e $MP_{2,5}$.
 
 \begin{table}[H]
   \centering
-  \caption{Associação de fonte de poluídoras na \textbf{Análise de Fatores}
-         para $MP_{2,5}$ na região residencial}
-  \input{../outputs/briefFA_RFsH4.tex}
+    \input{../outputs/TFsH_profiles_percent_species5.tex}
+    \caption{residencial $MP_{2,5}$ removendo-se os dias do Harmatão 
+              seed=123; n= 123. 
+             \label{table:TFsH_profiles5}}
 \end{table}
 
-Na Análise de Fatores por exemplo, as estimativas de fatores 
-mantendo os dias de ocorrência do Harmatão, resultam em geral em apenas 
-1 fator predominante, ficando os outros fatores com autovalores
-menores do que 1 e degenerados. Neste cenário, a fonte 
-\textbf{poeira de solo} predomina e fica praticamte impossível
-detectar as outras fontes. Assim, só apresentaremos aqui os resultados 
-removendo-se os dias do Harmatão. Mas a Análise de Fatores com os
-dias do Harmatão inclusos estão no estão no Apêndice I.
+\begin{figure}[H]
+\centering
+  \includegraphics[width=0.6\textwidth]{../outputs/TFsH_pmf_contribution_pizza5.pdf}
+  \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
+           residencial . 5 fatores extraídos.
+          \label{table:TFsH_contribution5}}
+\end{figure}
 
-Diversas parametrizações foram testadas na \textbf{PMF}
-e aquelas que resultaram em fatores que se associavam com fontes poluidoras
-reais foram escolhidas. A seguir estão os resultados para 
-\textbf{Análise de Fatores} nos dois pontos de amostragem 
-(residencial e avenida) e nas duas modas
-fina ($MP_{2,5}$) e grossa ($MP_{2,5-10}$).
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/RFsH_pmf_contribution_pizza5.pdf}
+    \caption{Residencial}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/TFsH_pmf_contribution_pizza5.pdf}
+    \caption{Avenida}
+  \end{subfigure}
+  \caption{Contribuição $MP_{2,5}$ \label{a:kkk}}
+\end{figure}
+
 
 %%%%
 \subsection{$MP_{2,5-10}$ na região residencial e avenida}
