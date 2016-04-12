@@ -34,17 +34,3 @@ print(xtable(fuel),
 #      sanitize.text.function = identity,
 #      file='../../outputs/census2010_eletrecidade.tex')
 
-# Frota
-# http://dvla.gov.gh/
-# Aumento da Frota de Veículos na cidade
-frota = read.csv('../../inputs/ghana/frota.csv')
-
-print(xtable(frota), 
-      type="latex", 
-      include.rownames = F, 
-      floating = FALSE,
-      sanitize.text.function = identity,
-      file='../../outputs/frota_ghana.tex')
-
-
-
