@@ -1,5 +1,55 @@
 %%%%
 \section{Black Carbon}
+Pegue no endereço do site os textos e artigos sobre XRF e BC.
+Para o XRF há revisões nos textos gerais, como na tese sobre o Epsilon5.
+No caso do BC a base são os comentários enviados à Jawma
+(jawma_bc2013st20v2.doc) que lhe enviei antes. Veja ainda os comentários
+que fiz para o Zeng sobre BC no arquivo
+"zheng2012jl02calibr_comments.odt". Lá destaco algumas referências
+dentre aquelas que lhe mandei. Mas é importante observar as outras
+também (inclusive aquela que procura definir o que é BC). O texto da EPA
+é bem ilustrado. Em geral o nome do arquivo dá uma idéia do que tem
+dentro. No caso dos arquivos da Atmospheric Environment eu os indico com
+a&e e ano (trabalhos do Quincey, por exemplo). Na discussão sobre a
+qualidade deste modo de calibração que adotamos, é importante você
+destacar aquela calibração antiga do IAG, usando o Monarch21, apontando
+as particularidades que mudam para as medidas de refletância - o filtro
+usado, características regionais e temporais do BC etc. Do túnel do
+Jânio para Ghana também há muita diferença - e ambos envolvem calibração
+com TOT.
+
+citar WHO.
+
+Etapas:
+
+1) usualmente medido por refletência comparando com monarca (artigo que indidica
+ele para ser usado em amostras ambientais)
+
+2) recebemos amostras super carregadas, mas os monarca tinha pouca carga.
+
+3) Tentamos encontrar monarca 21 comercial mais carregado. Na cetesb,
+usando material astm, produzimos filtro com alta e baixa concentração.
+Neste caso a massa e o log da refletância tiveram relação linear. 
+
+Equações entre massa e refletância e evolução hostórica do perfil de BC:
+% Quincey, Paul; 2007. A relationship between Black Smoke Index and Black Carbon concentration, Atmospheric Environment, 41 7964-7968.
+% Quincey, Paul; Butterfield, David; Green, David; Coyle, Mhairi; Capre Neil J.; 2009. An evaluation of measurement methods for organic, elemental and black carbon in ambient air monitoring sites, Atmospheric Environment, 43 5085-5091.
+
+4) com aumento da massa (artigo do quince) a linearidade se perde. 
+
+5) Na experiência do tunel (tb carregado) houve medida em quartzo para medida
+em TOT em paralelo a policarbonato. Os policarbonato foram medidos por reflectancia
+calibrados com os Monarca. O TOT e a refletancia estava correlacionados, mas
+os valores abosolutos da refle. era 4 vezes maiores.
+Particula grossa tem menor superficie de absorção (ASTM -N762 Black). 
+explicação: a reflectance mede outras coisas que não BC, assim é importante
+fazer a comparação de metodo indireto com metodo direto, pois BC tem caracteristicas
+diferentes dependendo da região.
+
+calibraça; filtro, material.
+
+6) Em Gana, só TOT para amostras muito carregadas, o ponto zero (teórico)
+ajudou no ajuste.
 
 O padrão de calibração usado até então no laboratório usando Monarca 21 cobre refletância de 30\% a 100\%. 
 Os alvos de Ghana, por serem extremamente carregados, chegaram a quase 100\% o que nos impossibilitou de usar 
@@ -49,13 +99,13 @@ A massa foi medida em balança microanalítica +/- 1ug.
 %incerteza na medida do black carbon: calculado com os brancos e tirar o sd. 
 %erro absoluto , a mesma para todos .
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{../outputs/TOTrefletanciaCalibration.pdf}
-  \caption{}
-\end{center}
-\end{figure}
-  
+\begin{table}[H]
+  \centering
+  \begin{scriptsize}
+    \input{../outputs/TOTcalibration}
+  \end{scriptsize}
+\end{table}
+
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
@@ -63,10 +113,12 @@ A massa foi medida em balança microanalítica +/- 1ug.
 \end{center}
 \end{figure}
 
-\begin{table}[H]
-  \centering
-  \begin{scriptsize}
-    \input{../outputs/TOTcalibration}
-  \end{scriptsize}
-\end{table}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{../outputs/TOTrefletanciaCalibration.pdf}
+  \caption{}
+\end{center}
+\end{figure}
+  
+
 
