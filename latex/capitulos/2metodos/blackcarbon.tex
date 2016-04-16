@@ -1,45 +1,120 @@
 %%%%
-\section{Black Carbon}
+\section{Black Carbon (BC)}
+
+Medidas de BC podem ser realizadas de forma absoluta ou relativa. 
+Medidas relativas, como por refletência, são incomparavelmente mais simples 
+e de menor custo que medidas absolutas, pois: pode-se usar os mesmos filtros 
+da análise elementar por XRF-ED (teflon ou policarbonato), é não destrutiva e 
+é rádida, pois cada medida leva segundos, possibilitando medição de centenas de 
+amostras em poucos dias.
+
+Outra medida relativa de BC é por Aetalômetro, mais antiga que reflectancia,
+onde um feixe colimado de  luz monocromática é incidido sobre
+filtro com amostra coletada e mede-se a a quantidade luz absorvida via 
+atenuação. Medida relativas de BC são realizadas desde 1980 e ainda hoje são 
+intensamente empregadas pois são simples e de baixo custo \citep{targino2016}.
+
+Medida abosutas, como TOT, necessitam de filtro especial e portanto de 
+todo aparato de medida exclusivo. Além de ser destrutivo. 
 
 %%%%
 \subsection{Refletância}
 
-Concentrações de Black Carbon (\textbf{BC}) foram obtidas por um 
-refletômetro \textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D, 
-pertencente ao \textbf{LAPAt}.
+Concentrações de BC foram obtidas por refletômetro do tipo 
+\textit{Smoke Stain Reflectometer} modelo EEL43D da empresa Diffusion System.
+Devido a simplicidade, é tradicionamenbte usado em amostras ambientais 
+\citep{lack2014}. 
+
+A técnica baseia-se na propriedade ótica do composto BC possuir alta seção de choque 
+de absorção de luz na região do visível e é assumido que não existe outras 
+partículas que absorvem a luz incidente que não as de BC.
+
+A refletância é uma técnica de medida de BC relativa, pois não mede diretamente
+o BC. 
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/refletometro.jpg}
-  \caption{Refletômetro \textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D 
-           e peças auxiliares de fixação do filtro \textbf{LAPAt}}
+  \caption{Refletômetro Diffusion System modelo ELL43D 
+           e peças auxiliares de fixação LAPAt}
 \end{figure}
 
-A técnica baseia-se na propriedade do composto \textbf{Black Carbon} 
-possuir alta seção de choque de absorção de luz na região do visível.
+Na refletância, um ponto definido na amostra é ilumindado por lâmpada de 
+tungsténio. Parte da luz difusora incidente é absorvida pelas partículas
+do filtro e parte refletida. Uma fotocélula com orifício cicurlar, localizada
+entre a lâmpada e a amostra, mede a porcentagem da luz refletida (R).
+Um filtro branco é usado para fixar o 100\% das leituras a cada 3 medidas.
 
-A radiação emitida por uma lâmpada de tungstênio reflete nas amostras, 
-detectando-se o percentual de luz refletida. Este sistema é calibrado 
-com amostras padrões, o que permite a determinação da concentração de $BC$
-\citep{lack2014}.
+A luz incidente I decai $-dI/dx$ em qualquer parte camada de partículas na 
+amostra:
 
-Para calibração do refletômetro do \textbf{LAPAt} utilizou-se alvos padrões
-tipo \textbf{monarch 21} \citep{clarke1986}. Os valores de reflêtancia 
-desses filtros, bem como a massa de \textbf{Black Carbon} conhecida,
-etão na tabela \ref{table:monarch21ifusp}.
+\begin{equation}
+  -\frac{\delta I}{dx} = I
+\end{equation}
+
+Sendo x a espessura da camada de partículas coletas no filtro e inserindo-se
+ coeficiente de proporcionalidade $\alpha$ e integrando os dois
+lados da equação, tem-se:
+
+\begin{equation}
+  \int_{I_0}^{I} \frac{dI}{I} = - \int_{0}^{x} \alpha dx
+\end{equation}
+
+Resultando em uma relação exponencial entre a transmissão do feixe de luz 
+que atravessa o filtro e o coeficiente de absorção das partículas:
+
+\begin{equation}
+  \label{eq:iso9835}
+  I = \frac{I_0}{exp(\alpha x)}
+\end{equation}
+
+A equação \ref{eq:iso9835} é regulamentada pela ISO 9835, sendo, I a intensidade 
+da luz transmitida, $I_0$ a intensidade da luz incidente, $\alpha$ o coeficiente
+de absorção das partículas da amostra e $x$ a espessura da  coluna de ar amostrada 
+(volume divido pela área do filtro).
+
+Adaptando-se a \ref{eq:iso9835} para o caso da reflectância e consideranso-se 
+que a luz refletida passa pela camada de partículas da superfície duas vezes, 
+podendo-se tratá-la como dupla transmitância (o que siginifica que pode-se
+multiplicar a coluna de ar por 2), obtém-se a equação 
+\ref{eq:iso9835repletancia}, com o coeficiente de absorção $\sigma$
+isolado.
+
+\begin{equation}
+  \label{eq:iso9835refletancia}
+  \sigma = \frac{1}{2l} ln\frac{R}{R_0}
+\end{equation}
+ 
+%As propriedades ópticas dos filtros de teflon variam sensivelmente. 
+
+Há uma limitação da técnica de refletância quando filtros de teflon são usados, 
+em altas concentrações, para R inferior a 20\%, ocorre saturação \citep{taha2007}. 
+
+%%%%
+\subsubsection{Calibração}
+
+Para conversão entre as refletancias medidas para massa de BC foi realizada 
+calibração da reflêtancia utilizando alvos padrões comerciais 
+com concentrações conhecidas de BC Monarch 71 (M71) suspendidos em 
+$CH_2Cl_2$ \citep{clarke1986}. 
+
+A tabela \ref{table:monarch21ifusp} mostra os valores de referência dos 
+alvos padrões com BC Monarch 71 (M71) do IFUSP bem como 3 medidas realizadas 
+na refletância do Lapat. 
 
 \begin{table}[H]
  \centering
-  \begin{scriptsize}
+  %\begin{scriptsize}
     \input{../outputs/CalibracaoRefletancia2007.tex}
-  \end{scriptsize}
+  %\end{scriptsize}
   \caption{Reflêtancia de filtros padrões tipo Monarch 21 \citep{clarke1986} 
-           do \textbf{IFUSP} usados na calibração do refletometro do 
-           \textbf{LAPAt} 2007 - \label{table:monarch21ifusp}}
+           do IFUSP usados na calibração do refletometro do 
+           LAPAt 2007 - \label{table:monarch21ifusp}}
 \end{table}
 
-O logarítimo da refletância possui relação linear com a massa.
-A calibração para refletância encontra-se no gráfico da figura 
+O logarítimo da refletância possui relação linear com a massa?
+A curva de calibração com a refletâcnia média das 3 medidas da tabela 
+\ref{table:monarch21ifusp} encontra-se no gráfico da figura 
 \ref{fig:mocarch21calib}. 
 
 \begin{figure}[H]
