@@ -1,22 +1,65 @@
 %%%%
 \section{Black Carbon}
 
+Para conversão entre as refletâncias medidas em \% para massa de BC foi 
+realizada curva de calibração utilizando alvos padrões comerciais 
+com concentrações conhecidas de BC Monarch 71 (M71) suspendidos em 
+$CH_2Cl_2$ \citep{clarke1986}. 
+
+A tabela \ref{table:monarch21ifusp} (apêndice) mostra os valores de referência 
+dos alvos padrões com BC Monarch 71 (M71) do IFUSP bem como 3 medidas realizadas 
+na refletância do Lapat. 
+
+A curva de calibração com a refletâcnia média das 3 medidas da tabela 
+\ref{table:monarch21ifusp} encontra-se no gráfico da figura 
+\ref{fig:mocarch21calib}
+O logarítimo da refletância possui relação aproximadamente linear com a massa, 
+apesar de ter sido ajustado um equação de segundo grau, poderia ter sido de 
+primeiro. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
+  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
+          \label{fig:mocarch21calib}}
+\end{figure}
+
 Na tabela \ref{table:monarch21ifusp} dos alvos padrões com BC Monarch 71, 
-nota-se a reflectancia medidas variam entre 30\% e 85\%.
+nota-se a refletância medidas variam entre 30\% e 85\%.
 
-Métodos relativos de medidas aproximadas de BC, em especial a reflectância,  
-não são ideais para determinar exatamente o coeficiente de absorção óptica 
-\ref{eq:iso9835refletancia}
-das partículas de BC, mesmo que sejam usados para tal.  com efeito, que o factor de 2 
-utilizadas aqui para ligar o trabalho e os coeficientes de absorção reais podem
- variar entre 2 e 2,8, dependendo do local de amostragem e o tipo de filtro 
-de fibra utilizado. 
+%TODO: citar o clássico  \citep{quincey2007}, mas onde?
+Há uma limitação da técnica de refletância quando filtros de teflon são usados, 
+em altas concentrações, pois para R inferior a 20\%, ocorre saturação
+e a relação exponencial da equação \ref{eq:iso9835refletancia} 
+passa não valer mais\citep{taha2007}. Alvos muito carregados, 
+com Rs próximo de zero representam um problema para refletância. 
 
-A validade desta aproximação, num caso específico pode ser 
-avaliada a partir dos dados apresentados a seguir. \citep{quincey2007}
+No mesmo período de medidas das amostras de Gana (2010), foi realizada 
+experiência para avaliação da poluição em tuneis de São Paulo, 
+rodoanel e jânio Quadros, em que amostras super carregadas foram coletadas, 
+assim como as de Gana, porém em filtros de policarbonato.
+ 
+Para ampliar a curva de calibração de gráfico \ref{fig:mocarch21calib} 
+englobando refletâncias próximas de 0 (alvos carregados) e poucos carregados
+(\% próximas de 100) 
+produziu-se 27 filtros de policarbonato com
+BC de referência (ASTM -N762) usando amostrador dicotômico em uma câmara de 
+ressuspensão em CETESB (Agência Estado de São Paulo Ambiente). 
 
+A massa foi medida numa microbalança (± 1 g), bem como a refletância, 
+a seguir a correlação entre BC e o log da reflectância encotrando.
 
-comparando com monarca 
+A deposição foi feita por nebulização sobre a área total, sem controle do diâmetro de partícula.
+
+%Assumimos como incerteza para os valores de reflectância (medido em percentagem),
+%o desvio padrão corrigido das medições fez para 7 filtros em branco 
+%(0,96\% x 1,11 = 1,06\%, corrigidos para as estatísticas poucos dados, 
+%utilizando 7 valores). 
+%A incerteza em massa acumulada foi de (2) 1/2. 
+
+Uma variação eficaz para medidas BC foi interativamente ajustada, adicionando, às próprias incertezas BC, a transposição linear das incertezas da reflectância, até que a convergência de crises sucessivas.
+
+Os parâmetros para este ajuste linear foram:
 
 %O texto da EPA
 %é bem ilustrado. Em geral o nome do arquivo dá uma idéia do que tem
@@ -36,9 +79,7 @@ comparando com monarca
 
 2) recebemos amostras super carregadas, mas os monarca tinha pouca carga.
 
-3) Tentamos encontrar monarca 21 comercial mais carregado. Na cetesb,
-usando material astm, produzimos filtro com alta e baixa concentração.
-Neste caso a massa e o log da refletância tiveram relação linear. 
+3) 
 
 Equações entre massa e refletância e evolução hostórica do perfil de BC:
 % Quincey, Paul; 2007. A relationship between Black Smoke Index and Black Carbon concentration, Atmospheric Environment, 41 7964-7968.
@@ -68,6 +109,12 @@ Para tentar contornar e recalibrar o refletância foi produzido 27 filtros (cete
 usando ASTM -N762 Black Carbon, com amostrador dicotomico, com refletância de 3,1 até 95,9\% (mais um de 100\%).
 
 A massa foi medida em balança microanalítica +/- 1ug.
+
+
+
+
+Este intercalibração veio de um experimento dirigido para analisar as emissões veiculares no interior do "Jânio Quadros" túnel na cidade de São Paulo, no Brasil, a partir de maio, 04, 2011, até que May, 13, 2011. amostras simultâneas de PM2.5 foram coletados por um MiniVol amostrador, em filtros de quartzo, e por um amostrador Partisol, em filtros de policarbonato. O MiniVol amostrados períodos 12h, com início às 08:00 eo Partisol amostrados sequencialmente dois períodos 6h, com início às 08:00 e outro período de 12 h com início às 20:00. As medidas nos dois primeiros períodos Partisol 6h foram calculados como sendo equivalente às medidas no primeiro período Mini Vol.
+A determinação BC por TOT (TOTºBC) nos filtros de quartzo foi conduzido pelo Dr. Pierre Herckes, no Departamento de Química e Bioquímica da Universidade Estadual do Arizona. No próximo artigo vamos mostrar como BC foi avaliada por reflectância e, depois disso, fizemos o ajuste entre TOTºBC e BC reflectância (RºBC). As incertezas de ambos os métodos foram levados em conta.
 
 %Discordância entre os alvos padrões antigos e novos foram entre 2 e 5, mas chegou 
 %até 18 em alvos poucos carregados. Problemas com alvos padrões BC são cohecidos e 
@@ -129,5 +176,7 @@ A massa foi medida em balança microanalítica +/- 1ug.
 \end{center}
 \end{figure}
   
+
+
 
 
