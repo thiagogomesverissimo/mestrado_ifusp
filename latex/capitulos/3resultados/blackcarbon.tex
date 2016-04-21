@@ -1,6 +1,125 @@
 %%%%
 \section{Black Carbon}
 
+Para conversão entre as refletâncias medidas em \% para massa de BC foi 
+realizada curva de calibração utilizando alvos padrões comerciais 
+com concentrações conhecidas de BC Monarch 71 (M71) suspendidos em 
+$CH_2Cl_2$ \citep{clarke1986}. 
+
+A tabela \ref{table:monarch21ifusp} (apêndice) mostra os valores de referência 
+dos alvos padrões com BC Monarch 71 (M71) do IFUSP bem como 3 medidas realizadas 
+na refletância do Lapat. 
+
+A curva de calibração com a refletâcnia média das 3 medidas da tabela 
+\ref{table:monarch21ifusp} encontra-se no gráfico da figura 
+\ref{fig:mocarch21calib}
+O logarítimo da refletância possui relação aproximadamente linear com a massa, 
+apesar de ter sido ajustado um equação de segundo grau, poderia ter sido de 
+primeiro. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
+  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
+          \label{fig:mocarch21calib}}
+\end{figure}
+
+Na tabela \ref{table:monarch21ifusp} dos alvos padrões com BC Monarch 71, 
+nota-se a refletância medidas variam entre 30\% e 85\%.
+
+%TODO: citar o clássico  \citep{quincey2007}, mas onde?
+Há uma limitação da técnica de refletância quando filtros de teflon são usados, 
+em altas concentrações, pois para R inferior a 20\%, ocorre saturação
+e a relação exponencial da equação \ref{eq:iso9835refletancia} 
+passa não valer mais\citep{taha2007}. Alvos muito carregados, 
+com Rs próximo de zero representam um problema para refletância. 
+
+No mesmo período de medidas das amostras de Gana (2010), foi realizada 
+experiência para avaliação da poluição em tuneis de São Paulo, 
+rodoanel e jânio Quadros, em que amostras super carregadas foram coletadas, 
+assim como as de Gana, porém em filtros de policarbonato.
+ 
+Para ampliar a curva de calibração de gráfico \ref{fig:mocarch21calib} 
+englobando refletâncias próximas de 0\% (alvos carregados) e poucos carregados
+(\% próximas de 100) produziu-se 27 filtros de policarbonato com
+BC de referência (ASTM -N762) usando amostrador dicotômico em uma câmara de 
+ressuspensão em CETESB (Agência Estado de São Paulo Ambiente). 
+A deposição foi feita por nebulização sobre a área total, 
+sem controle do diâmetro de partícula.
+
+A refletância desses filtros foi medida no refletometro e a massa foi medida 
+numa microbalança (± 1 g).
+A seguir a correlação entre BC e o log da reflectância encontrado.
+
+\begin{landscape}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoCetesb2012.pdf}
+  \caption{Calibração refletômetro do LAPAt usando alvos padrões CETESB}
+\end{figure}
+\end{landscape}
+
+Experimento dirigido para analisar as emissões veiculares no interior do 
+"Jânio Quadros" túnel na cidade de São Paulo, no Brasil, de 04 de maio 2011 
+até que May, 13, 2011. Amostras simultâneas de PM2.5 foram coletadas em 
+em filtros de quartz por amostrador MiniVol e em filtros de policarbonato 
+po amostrador Partisole. 
+
+
+A determinação BC por TOT (TOTºBC) nos filtros de quartzo foi conduzido pelo Dr. Pierre Herckes, no Departamento de Química e Bioquímica da Universidade Estadual do Arizona. No próximo artigo vamos mostrar como BC foi avaliada por reflectância e, depois disso, fizemos o ajuste entre TOTºBC e BC reflectância (RºBC). As incertezas de ambos os métodos foram levados em conta.
+
+
+
+%Assumimos como incerteza para os valores de reflectância (medido em percentagem),
+%o desvio padrão corrigido das medições fez para 7 filtros em branco 
+%(0,96\% x 1,11 = 1,06\%, corrigidos para as estatísticas poucos dados, 
+%utilizando 7 valores). 
+%A incerteza em massa acumulada foi de (2) 1/2. 
+
+Uma variação eficaz para medidas BC foi interativamente ajustada, adicionando, às próprias incertezas BC, a transposição linear das incertezas da reflectância, até que a convergência de crises sucessivas.
+
+Os parâmetros para este ajuste linear foram:
+
+%O texto da EPA
+%é bem ilustrado. Em geral o nome do arquivo dá uma idéia do que tem
+%dentro. No caso dos arquivos da Atmospheric Environment eu os indico com
+%&e e ano (trabalhos do Quincey, por exemplo). Na discussão sobre a
+%qualidade deste modo de calibração que adotamos, é importante você
+%destacar aquela calibração antiga do IAG, usando o Monarch21, apontando
+%as particularidades que mudam para as medidas de refletância - o filtro
+%usado, características regionais e temporais do BC etc. Do túnel do
+%Jânio para Ghana também há muita diferença - e ambos envolvem calibração
+%com TOT.
+
+%citar WHO.
+
+%Etapas:
+
+
+2) recebemos amostras super carregadas, mas os monarca tinha pouca carga.
+
+3) 
+
+Equações entre massa e refletância e evolução hostórica do perfil de BC:
+% Quincey, Paul; 2007. A relationship between Black Smoke Index and Black Carbon concentration, Atmospheric Environment, 41 7964-7968.
+% Quincey, Paul; Butterfield, David; Green, David; Coyle, Mhairi; Capre Neil J.; 2009. An evaluation of measurement methods for organic, elemental and black carbon in ambient air monitoring sites, Atmospheric Environment, 43 5085-5091.
+
+4) com aumento da massa (artigo do quince) a linearidade se perde. 
+
+5) Na experiência do tunel (tb carregado) houve medida em quartzo para medida
+em TOT em paralelo a policarbonato. Os policarbonato foram medidos por reflectancia
+calibrados com os Monarca. O TOT e a refletancia estava correlacionados, mas
+os valores abosolutos da refle. era 4 vezes maiores.
+Particula grossa tem menor superficie de absorção (ASTM -N762 Black). 
+explicação: a reflectance mede outras coisas que não BC, assim é importante
+fazer a comparação de metodo indireto com metodo direto, pois BC tem caracteristicas
+diferentes dependendo da região.
+
+calibraça; filtro, material.
+
+6) Em Gana, só TOT para amostras muito carregadas, o ponto zero (teórico)
+ajudou no ajuste.
+
 O padrão de calibração usado até então no laboratório usando Monarca 21 cobre refletância de 30\% a 100\%. 
 Os alvos de Ghana, por serem extremamente carregados, chegaram a quase 100\% o que nos impossibilitou de usar 
 essa curva de calibração.  
@@ -9,6 +128,12 @@ Para tentar contornar e recalibrar o refletância foi produzido 27 filtros (cete
 usando ASTM -N762 Black Carbon, com amostrador dicotomico, com refletância de 3,1 até 95,9\% (mais um de 100\%).
 
 A massa foi medida em balança microanalítica +/- 1ug.
+
+
+
+
+Este intercalibração veio de um experimento dirigido para analisar as emissões veiculares no interior do "Jânio Quadros" túnel na cidade de São Paulo, no Brasil, a partir de maio, 04, 2011, até que May, 13, 2011. amostras simultâneas de PM2.5 foram coletados por um MiniVol amostrador, em filtros de quartzo, e por um amostrador Partisol, em filtros de policarbonato. O MiniVol amostrados períodos 12h, com início às 08:00 eo Partisol amostrados sequencialmente dois períodos 6h, com início às 08:00 e outro período de 12 h com início às 20:00. As medidas nos dois primeiros períodos Partisol 6h foram calculados como sendo equivalente às medidas no primeiro período Mini Vol.
+A determinação BC por TOT (TOTºBC) nos filtros de quartzo foi conduzido pelo Dr. Pierre Herckes, no Departamento de Química e Bioquímica da Universidade Estadual do Arizona. No próximo artigo vamos mostrar como BC foi avaliada por reflectância e, depois disso, fizemos o ajuste entre TOTºBC e BC reflectância (RºBC). As incertezas de ambos os métodos foram levados em conta.
 
 %Discordância entre os alvos padrões antigos e novos foram entre 2 e 5, mas chegou 
 %até 18 em alvos poucos carregados. Problemas com alvos padrões BC são cohecidos e 
@@ -49,13 +174,13 @@ A massa foi medida em balança microanalítica +/- 1ug.
 %incerteza na medida do black carbon: calculado com os brancos e tirar o sd. 
 %erro absoluto , a mesma para todos .
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{../outputs/TOTrefletanciaCalibration.pdf}
-  \caption{}
-\end{center}
-\end{figure}
-  
+\begin{table}[H]
+  \centering
+  \begin{scriptsize}
+    \input{../outputs/TOTcalibration}
+  \end{scriptsize}
+\end{table}
+
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
@@ -63,10 +188,14 @@ A massa foi medida em balança microanalítica +/- 1ug.
 \end{center}
 \end{figure}
 
-\begin{table}[H]
-  \centering
-  \begin{scriptsize}
-    \input{../outputs/TOTcalibration}
-  \end{scriptsize}
-\end{table}
+\begin{figure}[H]
+\begin{center}
+  \includegraphics[width=0.5\textwidth]{../outputs/TOTrefletanciaCalibration.pdf}
+  \caption{}
+\end{center}
+\end{figure}
+  
+
+
+
 

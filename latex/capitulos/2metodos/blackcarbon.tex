@@ -1,76 +1,109 @@
 %%%%
-\section{Black Carbon}
+\section{Black Carbon (BC)}
 
-\textbf{Black Carbon} é um nome genérico que se da aos componetes
-absorvedores de luz que compoe o material particulado e é formado pela combustão
-incompleta de combustíveis fósseis, biocombustível e biomassa.. 
-É encontrado predominantemente na fração fina do material particulado 
-e dependendo da região, representa mais da metade da massa do $MP_{2,5}$. 
-Sua principal fonte em cidades são veículos automotores, 
-especialmente os movidos a diesel \citep{petzold2013}. 
+Medidas de BC podem ser realizadas de forma absoluta ou relativa.
+Medidas relativas são incomparavelmente mais simples 
+e de menor custo que medidas absolutas. 
+No caso de medidas relativas por refletância pode-se usar os mesmos filtros 
+da análise elementar por XRF-ED (teflon ou policarbonato), é não destrutiva e 
+é rádida, pois cada medida leva segundos, possibilitando medição de centenas de 
+amostras em poucos dias.
 
-Exposição a \textbf{Black Carbon} causa probelmas respiratórios, cardiovasculares 
-e morte prematura \citep{jacobson2014}.
+Outra medida relativa de BC é por Aetalômetro, mais antiga que reflectancia,
+onde um feixe colimado de  luz monocromática é incidido sobre
+filtro com amostra coletada medindo-se a a quantidade luz absorvida via 
+atenuação. Medida relativas de BC são realizadas desde 1980 e ainda hoje são 
+intensamente empregadas \citep{targino2016}.
+
+Medida abosutas, como Thermal Optical-Reflectance (TOR) ou 
+Thermal-Optical Transmittance (TOT), necessitam de filtro especial e portanto de 
+todo aparato de medida exclusivo, são destrutivas e portanto de alto custo.
 
 %%%%
 \subsection{Refletância}
 
-Concentrações de \textbf{Black Carbon BC} foram obtidas por um 
-refletômetro \textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D, 
-pertencente ao \textbf{LAPAt}.
+Concentrações de BC foram obtidas por refletômetro do tipo 
+\textit{Smoke Stain Reflectometer} modelo EEL43D da empresa Diffusion System.
+Devido a simplicidade, é tradicionamenbte usado medidas de BC em 
+amostras ambientais \citep{lack2014}. 
+
+A técnica baseia-se na propriedade ótica do composto BC possuir alta seção 
+de choque 
+de absorção de luz na região do visível e é assumido que não existe outras 
+partículas que absorvem a luz incidente que não as de BC.
+
+A refletância é uma técnica de medida de BC relativa, pois não mede diretamente
+o BC. 
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/refletometro.jpg}
-  \caption{Refletômetro \textbf{Smoke Stain Refletometer, DiffusionSystem} modelo M43D 
-           e peças auxiliares de fixação do filtro \textbf{LAPAt}}
+  \caption{Refletômetro Diffusion System modelo ELL43D 
+           e peças auxiliares de fixação LAPAt}
 \end{figure}
 
-A técnica baseia-se na propriedade do composto \textbf{Black Carbon} 
-possuir alta seção de choque de absorção de luz na região do visível.
+Na refletância, um ponto definido na amostra é ilumindado por lâmpada de 
+tungsténio. Parte da luz difusora incidente é absorvida pelas partículas
+do filtro e parte refletida. Uma fotocélula com orifício cicurlar, localizada
+entre a lâmpada e a amostra, mede a porcentagem da luz refletida (R).
+Um filtro branco é usado para fixar o 100\% das leituras a cada 3 medidas.
 
-A radiação emitida por uma lâmpada de tungstênio reflete nas amostras, 
-detectando-se o percentual de luz refletida. Este sistema é calibrado 
-com amostras padrões, o que permite a determinação da concentração de $BC$
-\citep{lack2014}.
+A luz incidente I decai $-dI/dx$ em qualquer parte camada de partículas na 
+amostra:
 
-Para calibração do refletômetro do \textbf{LAPAt} utilizou-se alvos padrões
-tipo \textbf{monarch 21} \citep{clarke1986}. Os valores de reflêtancia 
-desses filtros, bem como a massa de \textbf{Black Carbon} conhecida,
-etão na tabela \ref{table:monarch21ifusp}.
+\begin{equation}
+  \label{eq:dIdx}
+  -\frac{\delta I}{dx} = I
+\end{equation}
 
-\begin{table}[H]
- \centering
-  \begin{scriptsize}
-    \input{../outputs/CalibracaoRefletancia2007.tex}
-  \end{scriptsize}
-  \caption{Reflêtancia de filtros padrões tipo Monarch 21 \citep{clarke1986} 
-           do \textbf{IFUSP} usados na calibração do refletometro do 
-           \textbf{LAPAt} 2007 - \label{table:monarch21ifusp}}
-\end{table}
+Sendo x a espessura da camada de partículas coletas no filtro (e dx uma porção
+de x considerada). 
+Inserindo-se um coeficiente de proporcionalidade $\alpha$ na equação \ref{dIdx}
+e integrando os dois lados da equação, tem-se:
 
-O logarítimo da refletância possui relação linear com a massa.
-A calibração para refletância encontra-se no gráfico da figura 
-\ref{fig:mocarch21calib}. 
+\begin{equation}
+  \int_{I_0}^{I} \frac{dI}{I} = - \int_{0}^{x} \alpha dx
+\end{equation}
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
-  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
-          \label{fig:mocarch21calib}}
-\end{figure}
+Resultando em uma relação exponencial entre a transmissão do feixe de luz 
+que atravessa o filtro e o coeficiente de absorção das partículas:
+
+\begin{equation}
+  \label{eq:iso9835}
+  I = \frac{I_0}{exp(\alpha x)}
+\end{equation}
+
+A equação \ref{eq:iso9835} é regulamentada pela ISO 9835, sendo, I a intensidade 
+da luz transmitida, $I_0$ a intensidade da luz incidente, $\alpha$ o coeficiente
+de absorção das partículas da amostra e $x$ a espessura da camada de material
+depositada no filtro. 
+
+Considerando que a refletância é um caso especial da equação \ref{eq:iso9835} 
+em que a luz incidente (ou transmitida) atravessa a camada do material na 
+amostra e é refletida na superfície do filtro, passando pela camada de 
+partículas da superfície duas vezes, o que siginifica que pode-se
+multiplicar  por 2, obtendo-se a equação 
+\ref{eq:iso9835repletancia}, já com o coeficiente de absorção $\sigma$
+isolado.
+
+\begin{equation}
+  \label{eq:iso9835refletancia}
+  \sigma = \frac{1}{2l} ln\frac{R}{R_0}
+\end{equation}
+ 
+%As propriedades ópticas dos filtros de teflon variam sensivelmente. 
 
 %%%%
-\subsection{Thermal/Optical Transmittance (TOT)}
+\subsection{Thermal Optical Transmittance (TOT)}
 
-O \textbf{Thermal/Optical Transmittance (TOT)} é um método absoluto
+O Thermal/Optical Transmittance (TOT) é um método absoluto
 que mede carbono orgânico (OC) e carbono elementar (EC).
 É baseado no princípio  de que diferentes tipos de partículas
-compostas de carbono são convertidas para gás em diferentes temperaturas e condições
-de oxidação \citep{birch1998}.
+compostas de carbono são convertidas para gás em diferentes temperaturas e
+condições de oxidação \citep{birch1998}.
 
 Ao aumentar a temperatura, os compostos orgânicos do filtro são volatilizados 
-na atmosfera de $He$ não oxidada.
+em atmosfera de $He$ não oxidada.
 A evaporação do carbono elementar ocorre em temperaturas maiores que 
 $580 \degree C$ em atmosfera de $He$ oxidada.
 O sistema térmico consiste de um tubo de quartzo dentro de uma bobina aquecida, 
@@ -93,7 +126,7 @@ O gás formado com aumento da temperatura passa por uma placa de dióxido de mag
 aquecida e é oxidado para dióxido de carbono, passando por um catalizador de níquel, 
 que reduz o dióxido de carbono em metano $CH_4$.
 O $CH_4$ é quantificado com uma detector do tipo 
-\textbf{flame ionization detector (FID)}.
+Flame Ionization Detector.
 
 Durante a fase de volatilização do carbono orgânico, parte do carbono elementar
 é decomposto pelo processo de pirólise. 
@@ -104,11 +137,11 @@ decomposto nesta fase por transmitância.
 O carbono elementar total é resultado da soma EC1 + EC2 + EC3 + ECP,
 onde ECP é o carbono elementar formado por pirólise. 
 
-Para análises \textbf{TOT} é necessário fazer a coleta em filtros
+Para análises TOT é necessário fazer a coleta em filtros
 de quartzo, aumentando os custos e dificultando a logística das medidas, 
 pois é necessário montar ponto de medida paralelos.  
 
 Neste trabalho, coletou-se material particulado em filtros de 
 quartzo para $\pm 10\%$ dos dias de amostragem e utilizou-se
-dos resultados da medida de carbono elementar por \textbf{TOT} 
+dos resultados da medida de carbono elementar por TOT 
 para inter-calibrar os resultado das medidas de refletância. 
