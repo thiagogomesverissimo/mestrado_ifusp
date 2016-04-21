@@ -84,21 +84,25 @@ Harmatão, como proposto por \cite{aboh2009}. Entretanto, análise \textbf{PMF} 
 \textbf{Análise de Fatores} para as tabelas de concentrações completas podem
 ser consultadas no apêndice II. 
 
-\begin{figure}[H]
-\centering
-  \includegraphics[width=0.5\textwidth]{../outputs/RFcH_pmf_contribution_pizza5.pdf}
-  \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
-           residencial. 5 fatores extraídos.
-          \label{table:RFcH_contribution5}}
-\end{figure}
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/RFcH_pmf_contribution_pizza5.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
+               residencial. 5 fatores extraídos.
+               \label{table:RFcH_contribution5}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/RFcH_profiles_percent_species5.tex}
+      \captionof{table}{Perfis do fatores na área residencial $MP_{2,5}$ 
+                (seed=123, n= 197). 
+                \label{table:RFcH_profiles5}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
 
-\begin{table}[H]
-  \centering
-    \input{../outputs/RFcH_profiles_percent_species5.tex}
-    \caption{Perfis do fatores na área residencial $MP_{2,5}$ 
-             (seed=123, n= 197). 
-             \label{table:RFcH_profiles5}}
-\end{table}
 
 Refazendo-se a \textbf{Análise de Fatores} de $MP_{2,5}$ na área residencial, 
 porém excluindo-se os dias de Harmatão (número de amostra cai de 197 para 123), 
