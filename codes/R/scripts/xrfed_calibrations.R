@@ -1,7 +1,37 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
-#### Calibração Maio de 2010 ####
+#### Tabelas de Calibração Maio de 2010
+# Linha K
+medidos = read.csv('../../inputs/edxCalibration/americo/K2010MaioMedidosAkerr.csv')
+ajustados = read.csv('../../inputs/edxCalibration/americo/K2010MaioAjustadosAkerr.csv')
+edxCalibrationTable(medidos,ajustados,'maio2010K')
+# Linha L
+medidos = read.csv('../../inputs/edxCalibration/americo/L2010MaioMedidosAkerr.csv')
+ajustados = read.csv('../../inputs/edxCalibration/americo/L2010MaioAjustadosAkerr.csv')
+edxCalibrationTable(medidos,ajustados,'maio2010L') 
+
+#### Tabelas de Calibração Nov de 2010
+# Linha K
+medidos = read.csv('../../inputs/edxCalibration/americo/K2010NovMedidosAkerr.csv')
+ajustados = read.csv('../../inputs/edxCalibration/americo/K2010NovAjustadosAkerr.csv')
+edxCalibrationTable(medidos,ajustados,'nov2010K') 
+# Linha L
+medidos = read.csv('../../inputs/edxCalibration/americo/L2010NovMedidosAkerr.csv')
+ajustados = read.csv('../../inputs/edxCalibration/americo/L2010NovAjustadosAkerr.csv')
+edxCalibrationTable(medidos,ajustados,'nov2010L') 
+
+#### Tabelas de Calibração Abr de 2011
+# Linha K
+medidos = read.csv('../../inputs/edxCalibration/americo/K2011AbrMedidosAkerr.csv')
+ajustados = read.csv('../../inputs/edxCalibration/americo/K2011AbrAjustadosAkerr.csv')
+edxCalibrationTable(medidos,ajustados,'abr2011K') 
+# Linha L
+medidos = read.csv('../../inputs/edxCalibration/americo/L2011AbrMedidosAkerr.csv')
+ajustados = read.csv('../../inputs/edxCalibration/americo/L2011AbrAjustadosAkerr.csv')
+edxCalibrationTable(medidos,ajustados,'maio2011L')
+
+#### Plot Calibração Maio de 2010 ####
 
 # Linha K
 coefs1 = c(0.17052600,-0.02805800,0.00093775,0.00001916)
@@ -23,7 +53,7 @@ coefs1 = as.vector(coefs1)
 cores = col=c('blue','black')
 edxCalibration('2010MaiAkerr','L',file_medidos,cores,coefs1)
 
-#### Calibração Novembro de 2010 ####
+#### Plot Calibração Novembro de 2010 ####
 
 # Linha K
 coefs1 = c(0.15167500,-0.02464890,0.00077391,0.00001999)
@@ -38,7 +68,7 @@ file_medidos = '../../inputs/edxCalibration/americo/L2010NovMedidosAkerr.csv'
 cores = col=c('blue','black')
 edxCalibration('2010NovAkerr','L',file_medidos,cores,coefs1)
 
-#### Calibração Abril de 2011 ####
+#### PLot Calibração Abril de 2011 ####
 
 # Linha K
 coefs1 = c(0.15987616,-0.026726302,0.00095542146,0.000014469997)

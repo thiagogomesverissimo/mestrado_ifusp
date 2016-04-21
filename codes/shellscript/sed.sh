@@ -11,18 +11,13 @@ FILE='../../outputs/census_cookfuel.tex'
 sed -i s/cook/"Fontes de energia"/g $FILE
 sed -i s/year//g $FILE
 
-# \shortstack{aa \\ bb}
-
 ####  
-FILE='../../outputs/tabela_descritiva_com_harmatan.tex'
-sed -i s/RFcH/'Fino ($MP_{2,5}$) residencial'/g $FILE
-sed -i s/RIcH/'Inalável ($MP_{10}$) residencial'/g $FILE
-sed -i s/TFcH/'Fino ($MP_{2,5}$) avenida'/g $FILE
-sed -i s/TIcH/'Inalável ($MP_{10}$) avenida'/g $FILE
-sed -i s/\\./,/g $FILE
-
-####  calibração EDX 
-FILE='../../outputs/edxCalibrationnov2010K.tex'
+#FILE='../../outputs/tabela_descritiva_com_harmatan.tex'
+#sed -i s/RFcH/'Fino ($MP_{2,5}$) residencial'/g $FILE
+#sed -i s/RIcH/'Inalável ($MP_{10}$) residencial'/g $FILE
+#sed -i s/TFcH/'Fino ($MP_{2,5}$) avenida'/g $FILE
+#sed -i s/TIcH/'Inalável ($MP_{10}$) avenida'/g $FILE
+#sed -i s/\\./,/g $FILE
 
 ####  
 FILES=$(ls ../../outputs | grep descriptive_)
@@ -41,6 +36,12 @@ for i in $FILES; do
  sed -i s/'BC'/'BC ($ \\mu g \/ m^3$)'/g $FILE
 done
 
-#antigalinha='Z \& Rmedido \& Umedido \& Rajustado \& Uajustado \& razaoMedido \& razaoAjustado'
-#novalinha='Z & R experimental & Incerteza & R Ajustado & Incerteza & desvio percentual & desvio percentual \\ Z & $ cm^2 \/ s \mu A \mu g $ & $ cm^2 \/ s \mu A \mu g$ & $ cm^2 \/ s \mu A \mu g$ & $ cm^2 \/ s \mu A \mu g$ & medido \\% & ajustado \\% \\'
-#sed -i s/"^$antigalinha"/"$novalinha"/g $FILE
+####  
+FILE='../../outputs/BC_monarch71.tex'
+sed -i s/'\.'/','/g $FILE
+sed -i s/fabricante/'Fabricante ($  \\mu g \/ cm^2$)'/g $FILE
+sed -i s/ajustado/'Ajuste ($  \\mu g \/ cm^2$)'/g $FILE
+sed -i s/Ref1/'Refletância 1 (\\%)'/g $FILE
+sed -i s/Ref2/'Refletância 2 (\\%)'/g $FILE
+sed -i s/Ref3/'Refletânia 3 (\\%)'/g $FILE
+sed -i s/'rrrlr'/'ccccc'/g $FILE

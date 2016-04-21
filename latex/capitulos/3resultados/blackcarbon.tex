@@ -1,13 +1,11 @@
 %%%%
 \section{Black Carbon}
 
-Para conversão entre as refletâncias medidas em \% para massa de BC foi 
-realizada curva de calibração utilizando alvos padrões comerciais 
-com concentrações conhecidas de BC Monarch 71 (M71) suspendidos em 
-$CH_2Cl_2$ \citep{clarke1986}. 
-
-A tabela \ref{table:monarch21ifusp} (apêndice) mostra os valores de referência 
-dos alvos padrões com BC Monarch 71 (M71) do IFUSP bem como 3 medidas realizadas 
+Alvos padrões comerciais com concentrações conhecidas de BC de referência 
+Monarch 71 (M71) suspendidos em $CH_2Cl_2$ \citep{clarke1986} são usados na 
+refletância do LAPAt para calibração entre as medidas em porcentagem e a massa.
+Na tabela \ref{table:BCmonarch71} estão os valores de refletância 3 medidas realizadas 
+dos alvos padrões com BC Monarch 71 (M71) do IFUSP bem como
 na refletância do Lapat. 
 
 A curva de calibração com a refletâcnia média das 3 medidas da tabela 
@@ -17,15 +15,32 @@ O logarítimo da refletância possui relação aproximadamente linear com a mass
 apesar de ter sido ajustado um equação de segundo grau, poderia ter sido de 
 primeiro. 
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
-  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
-          \label{fig:mocarch21calib}}
-\end{figure}
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
+%%  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
+ %         \label{fig:mocarch21calib}}
+%\end{figure}
 
 Na tabela \ref{table:monarch21ifusp} dos alvos padrões com BC Monarch 71, 
 nota-se a refletância medidas variam entre 30\% e 85\%.
+
+
+\newpage
+\begin{table}[H]
+  \centering
+  \small
+    \input{../outputs/BC_monarch71.tex}
+    \caption{Reflêtancia de filtros padrões tipo Monarch 21 \citep{clarke1986} 
+           do IFUSP usados na calibração do refletometro do 
+           LAPAt 2007  erro de 0,25 ug/cm2 \label{table:BCmonarch71}}
+\end{table} 
+\newpage
+
+
+
+
+
 
 %TODO: citar o clássico  \citep{quincey2007}, mas onde?
 Há uma limitação da técnica de refletância quando filtros de teflon são usados, 

@@ -1,6 +1,7 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
+#### 2010
 # Pirâmide Etária
 people = read.csv('../../inputs/ghana/census2010-idade.csv')
 pdf('../../outputs/piramide_etaria.pdf')
