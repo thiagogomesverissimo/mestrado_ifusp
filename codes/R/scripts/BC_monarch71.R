@@ -62,6 +62,9 @@ ref2007 = cbind(ref2007,fabricante)
 ref2007$Monarch21 = sub('BC','',ref2007$Monarch21)
 ref2007$Monarch21 = as.integer(ref2007$Monarch21)
 
+#incerteza_relativa = (ref2007$ug_cm2 - ref2007$ajuste_thiago)/ref2007$ug_cm2
+#ref2007 = cbind(ref2007,incerteza_relativa)
+
 tabela = ref2007[,c(1,4,5,6,11,10)]
 
 colnames(tabela) = c('ID','Ref1','Ref2','Ref3','fabricante','ajustado')

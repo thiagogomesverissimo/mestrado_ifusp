@@ -30,6 +30,8 @@ all:
 	Rscript scripts/xrfed_calibrations.R
 	Rscript scripts/xrfed_calibrations_between_compares.R
 	Rscript scripts/BC_monarch71.R
+	Rscript scripts/BC_cetesb.R
+	Rscript scripts/TOTversusRefletancia.R
 
 clean:
 	rm -rf *~ 

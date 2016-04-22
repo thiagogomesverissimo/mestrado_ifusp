@@ -4,27 +4,27 @@
 Alvos padrões comerciais com concentrações conhecidas de BC de referência 
 Monarch 71 (M71) suspendidos em $CH_2Cl_2$ \citep{clarke1986} são usados na 
 refletância do LAPAt para calibração entre as medidas em porcentagem e a massa.
-Na tabela \ref{table:BCmonarch71} estão os valores de refletância 3 medidas realizadas 
-dos alvos padrões com BC Monarch 71 (M71) do IFUSP bem como
-na refletância do Lapat. 
+Na tabela \ref{table:monarch71} estão os valores de 3 medidas de refletância  
+realizadas nos alvos padrões Monarch 71 (M71) pertecentes ao IFUSP.
+Observa-se que os valores de refletância variam entre 30\% e 85\%, não cobrindo
+os extremosm, ou seja, alvos carregados, refletâncias próximas de 0\%, e alvos
+pouco carregados, refletâncias próximas de 100\%.
 
-A curva de calibração com a refletâcnia média das 3 medidas da tabela 
-\ref{table:monarch21ifusp} encontra-se no gráfico da figura 
-\ref{fig:mocarch21calib}
-O logarítimo da refletância possui relação aproximadamente linear com a massa, 
-apesar de ter sido ajustado um equação de segundo grau, poderia ter sido de 
-primeiro. 
+O logarítmo da média das 3 medidas apresenta relação aproximadamente linear 
+com a densidade ($\mu g /cm^2$) informada pelo fabricante dos filtros 
+conforme pode ser verificado no gráfico da figura \ref{fig:monarch71}.
 
-%\begin{figure}[H]
-%  \centering
-%  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
-%%  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
- %         \label{fig:mocarch21calib}}
-%\end{figure}
+Ajustando-se equação do primeiro grau em \ref{fig:monarch71} obtém-se 
+$a + bx$, possibilitando o cálculo dos novos valores de densidade para os 
+alvos padrões a partir da calibração, apresentados na última coluna da tabela 
+\ref{table:monarch71}.
 
-Na tabela \ref{table:monarch21ifusp} dos alvos padrões com BC Monarch 71, 
-nota-se a refletância medidas variam entre 30\% e 85\%.
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/BC_cetesb.pdf}
+  \caption{Calibração refletômetro do \textbf{LAPAt} usando alvos padrões Monarch 21
+         \label{fig:monarch71}}
+\end{figure}
 
 \newpage
 \begin{table}[H]
@@ -33,55 +33,52 @@ nota-se a refletância medidas variam entre 30\% e 85\%.
     \input{../outputs/BC_monarch71.tex}
     \caption{Reflêtancia de filtros padrões tipo Monarch 21 \citep{clarke1986} 
            do IFUSP usados na calibração do refletometro do 
-           LAPAt 2007  erro de 0,25 ug/cm2 \label{table:BCmonarch71}}
+           LAPAt 2007  erro de 0,25 ug/cm2 \label{table:monarch71}}
+\end{table} 
+\newpage
+
+%TODO: citar o clássico  \citet{quincey2007}, mas onde?
+
+Para ampliar a curva de calibração de gráfico \ref{fig:mocarch21calib} 
+englobando refletâncias nos extremos, próximas de 0\% ou próximas de 100, 
+produziu-se 27 filtros de policarbonato com BC de referência (ASTM-N762) 
+usando amostrador dicotômico em câmara de ressuspensão nos laboratórios da 
+Companhia Ambiental Do Estado De São Paulo (CETESB). 
+A deposição foi feita por nebulização sobre a área total, 
+sem controle do diâmetro de partícula.
+
+A refletância desses filtros foi realizada no refletômetro e a massa foi medida 
+em microbalança (± 1 g). A seguir a correlação entre BC e o log da reflectância
+encontrado.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/BC_cetesb.pdf}
+  \caption{Reflêtancia de filtros produzidos na cetesb}
+\end{figure}
+
+\citet{taha2007} aponta que há uma limitação da técnica de refletância quando 
+filtros de teflon são usados, pois em altas concentrações, isto é refletâncias
+inferiores a 20\%, ocorre saturação, e a relação exponencial da equação 
+\ref{eq:iso9835refletancia} passa a não valer mais. Assim, a técnica de
+refletância não é adequada para alvos muito carregados.
+
+\newpage
+\begin{table}[H]
+  \centering
+  \small
+    \input{../outputs/cetesb2012.tex}
+    \caption{Reflêtancia de filtros produzidos na cetesb}
 \end{table} 
 \newpage
 
 
 
-
-
-
-%TODO: citar o clássico  \citep{quincey2007}, mas onde?
-Há uma limitação da técnica de refletância quando filtros de teflon são usados, 
-em altas concentrações, pois para R inferior a 20\%, ocorre saturação
-e a relação exponencial da equação \ref{eq:iso9835refletancia} 
-passa não valer mais\citep{taha2007}. Alvos muito carregados, 
-com Rs próximo de zero representam um problema para refletância. 
-
-No mesmo período de medidas das amostras de Gana (2010), foi realizada 
-experiência para avaliação da poluição em tuneis de São Paulo, 
-rodoanel e jânio Quadros, em que amostras super carregadas foram coletadas, 
+No mesmo período das análises das amostras de Gana (2010), foi realizada 
+experiência para avaliação da poluição em túneis de São Paulo, 
+Rodoanel e Jânio Quadros, em que amostras super carregadas foram coletadas, 
 assim como as de Gana, porém em filtros de policarbonato.
- 
-Para ampliar a curva de calibração de gráfico \ref{fig:mocarch21calib} 
-englobando refletâncias próximas de 0\% (alvos carregados) e poucos carregados
-(\% próximas de 100) produziu-se 27 filtros de policarbonato com
-BC de referência (ASTM -N762) usando amostrador dicotômico em uma câmara de 
-ressuspensão em CETESB (Agência Estado de São Paulo Ambiente). 
-A deposição foi feita por nebulização sobre a área total, 
-sem controle do diâmetro de partícula.
 
-A refletância desses filtros foi medida no refletometro e a massa foi medida 
-numa microbalança (± 1 g).
-A seguir a correlação entre BC e o log da reflectância encontrado.
-
-%\begin{landscape}
-%  \begin{figure}
-%    \centering
-%    \begin{minipage}[b]{0.45\linewidth}
-%      \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoCetesb2012.pdf}
-%      \caption{Calibração refletômetro do LAPAt usando alvos padrões CETESB}
- %   \end{minipage}%\hfill
-%    \hspace{0.5cm}
-%    \begin{minipage}[b]{0.45\linewidth}
-%      \input{../outputs/RFcH_profiles_percent_species5.tex}
-%      \captionof{table}{Perfis do fatores na área residencial $MP_{2,5}$ 
- %               (seed=123, n= 197). 
-%                \label{table:RFcH_profiles5}}
-%    \end{minipage}
-%  \end{figure}
-%\end{landscape}
 
 Experimento dirigido para analisar as emissões veiculares no interior do 
 "Jânio Quadros" túnel na cidade de São Paulo, no Brasil, de 04 de maio 2011 
@@ -91,8 +88,6 @@ po amostrador Partisole.
 
 
 A determinação BC por TOT (TOTºBC) nos filtros de quartzo foi conduzido pelo Dr. Pierre Herckes, no Departamento de Química e Bioquímica da Universidade Estadual do Arizona. No próximo artigo vamos mostrar como BC foi avaliada por reflectância e, depois disso, fizemos o ajuste entre TOTºBC e BC reflectância (RºBC). As incertezas de ambos os métodos foram levados em conta.
-
-
 
 %Assumimos como incerteza para os valores de reflectância (medido em percentagem),
 %o desvio padrão corrigido das medições fez para 7 filtros em branco 
@@ -205,12 +200,6 @@ A determinação BC por TOT (TOTºBC) nos filtros de quartzo foi conduzido pelo 
   \end{scriptsize}
 \end{table}
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{../outputs/CalibracaoRefletancia2007Lapat.pdf}
-  \caption{Lapat }
-\end{center}
-\end{figure}
 
 \begin{figure}[H]
 \begin{center}

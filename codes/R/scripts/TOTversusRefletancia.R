@@ -2,7 +2,7 @@
 source("myfunctions/load.R")
 
 # Pontos experimentais
-dados = read.csv('../../inputs/BlackCarbon/calibration/TOT_Refletancia.csv')
+dados = read.csv('../../inputs/BlackCarbon/americo/TOT_Refletancia.csv')
 x = log10(dados$Refl)
 y = dados$EC.ug.sq.cm.
 y_erro = dados$EC.unc 
