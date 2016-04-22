@@ -45,3 +45,19 @@ sed -i s/Ref1/'Refletância 1 (\\%)'/g $FILE
 sed -i s/Ref2/'Refletância 2 (\\%)'/g $FILE
 sed -i s/Ref3/'Refletânia 3 (\\%)'/g $FILE
 sed -i s/'rrrlr'/'ccccc'/g $FILE
+
+####  
+FILE='../../outputs/BC_janio_quadros.tex'
+sed -i s/'\.'/','/g $FILE
+sed -i s/cetesb/'Refletância* (\\%)'/g $FILE
+sed -i s/tot/'TOT ($ \\mu g \/ cm^2$)'/g $FILE
+sed -i s/'lll'/'ccc'/g $FILE
+
+####  
+FILE='../../outputs/cetesb2012.tex'
+sed -i s/'\.'/','/g $FILE
+sed -i s/refletance/'Refletância (\\%)'/g $FILE
+sed -i s/balanca/'Balança ($ \\mu g \/ cm^2$)'/g $FILE
+sed -i s/efetivo/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE
+sed -i s/ajustado/'Ajuste ($ \\mu g \/ cm^2$)'/g $FILE
+sed -i s/'lrlrl'/'ccccc'/g $FILE

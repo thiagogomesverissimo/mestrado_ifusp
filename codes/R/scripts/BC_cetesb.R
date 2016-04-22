@@ -43,14 +43,23 @@ legenda = paste(legenda,'\n',sep='')
 legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
 legenda = paste('\n Coeficientes do ajuste linear: \n\n',legenda)
-#legenda = c(legenda,'Medidas')
 
-#legend("bottomright", legend = legenda, inset=c(-0.2,0), col=c('red','black'), pch = 15, cex=0.7, bty = "n")
 legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=0.8, bty = "n")
 dev.off()
 
 # Exporta tabela para Latex
-tabela = dados
+ajuste_thiago = p[1] + p[2]*log10(dados$refletancia)
+dados = cbind(dados,ajuste_thiago)
+
+ajustado = paste(format(dados$ajuste_thiago,digits=2,nsmall=2),
+                 dados$erro_matricial,sep='$\\pm$')
+dados = cbind(dados,ajustado)
+
+balanca = paste(dados$ug_cm2,dados$erro_massa,sep='$\\pm$')
+dados = cbind(dados,balanca)
+
+tabela = dados[,c(1,2,10,6,9)]
+colnames(tabela) = c('ID','refletance','balanca','efetivo','ajustado')
 
 print(xtable(tabela),
       type="latex", 

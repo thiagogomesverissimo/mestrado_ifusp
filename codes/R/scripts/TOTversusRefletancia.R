@@ -54,6 +54,16 @@ dados = dados[-1,-1]
 colnames(dados) = c('Quartzo','Teflon','ugcm2','erro','efetivo','efetivo8','refletancia','errorefl')
 
 tabela = dados
+
+#ajuste_thiago = p[1] + p[2]*ref2007$Log10Ref
+#ref2007 = cbind(ref2007,ajuste_thiago)
+
+#tot = paste(dados$TOT,dados$TOT_incerteza,sep='$\\pm$')
+#dados = cbind(dados,tot)
+
+#cetesb = paste(dados$cetesb,dados$cetesb_incerteza,sep='$\\pm$')
+#dados = cbind(dados,cetesb)
+
 print(xtable(tabela),
       type="latex", 
       floating = FALSE,

@@ -8,11 +8,10 @@ y = ref2007$ug_cm2
 y_erro = ref2007$erro_ug_cm2 
 
 # Ajuste polinomial, vou ajustar, mas vou mostrar a do Lapat
-#model <- lm(y ~ poly(x,2,raw=TRUE))
 model <- lm(y ~ poly(x,1,raw=TRUE))
 coefs_thiago = model$coefficients
 coefs_thiago = as.vector(coefs_thiago)
-#coefs_lapat = c(82.8046,72.8235,15.7169)
+#coefs_lapat = c(82.8046,72.8235,15.7169) ajuste de segundo grau.
 
 pdf('../../outputs/BC_monarch71.pdf')
 # Gráfico empty
