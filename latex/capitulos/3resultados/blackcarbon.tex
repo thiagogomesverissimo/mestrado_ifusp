@@ -121,7 +121,8 @@ confrontada com medidas abosolutas de TOT, os resultados são correlacionados,
 entretanto diferem de até um fator 5. 
 
 O TOT e a refletancia estão correlacionados, mas os valores obtidos via 
-reflectância é de até 5 vezes maiores que TOT.
+refletância é de 2 até 5 vezes maiores que TOT em alvos muitos carregados e 
+chegou até 18 vezes em alvos poucos carregados.
 
 \citet{taha2007} aponta que há uma limitação da técnica de refletância quando 
 filtros de teflon são usados, pois em altas concentrações (refletâncias
@@ -129,6 +130,8 @@ inferiores a 20\%), ocorre saturação, e a relação exponencial da equação
 \ref{eq:iso9835refletancia} passa a não valer mais. Assim, a técnica de
 refletância não é adequada para alvos muito carregados.
 
+Problemas com alvos padrões BC são conhecidos e neste caso, 
+provavelmente associado com diferentes distriições de tamanho das partículas.
 Possível causa para saturação pode estar relacionado a suferficie das partículas 
 de BC, pois BC de referência como o ASTM-N762 ou Monarch 71 contém partículas
 de BC mais grossas que as encontradas na atmosfera, o que influência a 
@@ -139,8 +142,9 @@ mede outras coisas que não BC, pois se baseia na propriedade de abosorção de 
 Por fim, as caracteristicas de tamanho, forma geométrica e seção de choque
 de abosorção de luz das partículas de BC variam de região para região.
 Por esses motivos, é importante fazer a comparação de metodo indireto com 
-metodo direto.
+metodo direto \citep{quincey2007}.
 
+\newpage
 %%%%
 \subsection{Intercalibração entre TOT e refletância em Acra}
 
@@ -151,123 +155,34 @@ para $MP_{2,5}$, analisados por TOT.
 Assim como no experimento do túnel Janio Quadros, os filtros de teflon 
 coletados em Acra apresentaram refletância próximas de 0\%, pois além 
 da alta poluição atmosférica o tempo de amostragem de 48 horas contribuiu 
-para coleta de amostras muitos carregadas. 
-Portanto, como constatado no túnel Janio Quadros, não é possível utilizar 
-curva de calibração com alvos BC de referência, pois em altas concentrações
-não hã relação linear entre massa e logarítimo da refletância.
+para coleta de amostras muitos carregadas, nesta situação não é possível 
+utilizar curva de calibração com alvos BC de referência, pois
+não hã relação linear entre a massa e logarítimo da refletância.
 
 Entretanto, como constatado, medidas de refletância e TOT são correlacionadas 
-a menos de um fator, assim é possível utilizar 
-Utilizou-se o resultado das medidas abosolutas do 52 filtros de quartzo
-analisada por TOT e seus correspondetes em teflon para criar uma curva de 
-calibração que permitisse converter as refletâncias em medidas de BC.
+a menos de um fator, assim optou-se por intercalibrar as medidas de 
+TOT e refletância, de forma a estimar os valores de BC em todos filtros
+de teflon. Curva mostrada na figura a seguir com imposição do ponto 0 no ajuste.
+A incerteza efetiva considera o erro do TOT e da refletância, além dos 8\% de 
+amostragem paralela. 
 
-Dada a saturação observada para filtros carregados e a correlação encontrada entre medidas TOT 
-
-impor o ponto 0 no ajuste.
-
-%Na refletância, considerou-se a incerteza como a desvio padrão da medidas de
-%10 alvos brancos de laboratórios, assim incorporamos a incerteza dos brancos 
-%e da variabilidade do equipamento  (0,1). 
-
- 
-
-Inter-calibrou-se a curva obtida pela refletância com um equipamento %
-Sunset para determinação de carbono orgânico e elementar, 
-por processo Térmico/Transmitância Óptica (EPA, 2012).
-
-incerteza na medida do black carbon: calculado com os brancos e tirar o sd. 
-erro absoluto , a mesma para todos .
-
-Assumimos como incerteza para os valores de reflectância (medido em percentagem),
-o desvio padrão corrigido das medições fez para 7 filtros em branco 
-(0,96\% x 1,11 = 1,06\%, corrigidos para as estatísticas poucos dados, 
-utilizando 7 valores). 
-A incerteza em massa acumulada foi de (2) 1/2. 
-
-Uma variação eficaz para medidas BC foi interativamente ajustada, adicionando, às próprias incertezas BC, a transposição linear das incertezas da reflectância, até que a convergência de crises sucessivas.
-
-Os parâmetros para este ajuste linear foram:
-
-
-
-
-
-
- 
-
-As medidas de refletância das amostras coletadas nos três experimentos, 
-túnel Rodoanel, túnel Jânio Quadros e Gana, oscilavam em torno dos 0\% e como
-a curva de calibração produzida a partir dos alvos com BC Monarch 71 não
-
-experiência para avaliação da poluição em túneis de São Paulo, 
-Rodoanel e Jânio Quadros, com coleta de   em que amostras super carregadas foram coletadas, 
-assim como as de Gana, porém em filtros de policarbonato.
-
-
-Discordância entre os alvos padrões antigos e novos foram entre 2 e 5, mas chegou 
-até 18 em alvos poucos carregados. Problemas com alvos padrões BC são cohecidos e 
-neste caso, provavelmente associado com diferentes distriições de tamanho das partículas.
-
-
-
-%O texto da EPA
-%é bem ilustrado. Em geral o nome do arquivo dá uma idéia do que tem
-%dentro. No caso dos arquivos da Atmospheric Environment eu os indico com
-%&e e ano (trabalhos do Quincey, por exemplo). Na discussão sobre a
-%qualidade deste modo de calibração que adotamos, é importante você
-%destacar aquela calibração antiga do IAG, usando o Monarch21, apontando
-%as particularidades que mudam para as medidas de refletância - o filtro
-%usado, características regionais e temporais do BC etc. Do túnel do
-%Jânio para Ghana também há muita diferença - e ambos envolvem calibração
-%com TOT.
-
-%citar WHO.
-
-Equações entre massa e refletância e evolução hostórica do perfil de BC:
-% Quincey, Paul; 2007. A relationship between Black Smoke Index and Black Carbon concentration, Atmospheric Environment, 41 7964-7968.
-% Quincey, Paul; Butterfield, David; Green, David; Coyle, Mhairi; Capre Neil J.; 2009. An evaluation of measurement methods for organic, elemental and black carbon in ambient air monitoring sites, Atmospheric Environment, 43 5085-5091.
-
-4) com aumento da massa (artigo do quince) a linearidade se perde. 
-
-
-
-6) Em Gana, só TOT para amostras muito carregadas, o ponto zero (teórico)
-ajudou no ajuste.
-
-O padrão de calibração usado até então no laboratório usando Monarca 21 cobre refletância de 30\% a 100\%. 
-Os alvos de Ghana, por serem extremamente carregados, chegaram a quase 100\% o que nos impossibilitou de usar 
-essa curva de calibração.  
-
-Para tentar contornar e recalibrar o refletância foi produzido 27 filtros (cetesb) com camera de ressuspensão
-usando ASTM -N762 Black Carbon, com amostrador dicotomico, com refletância de 3,1 até 95,9\% (mais um de 100\%).
-
-A massa foi medida em balança microanalítica +/- 1ug.
-
-
-
-
-
-
-
-1.2. The disagreement between the old and new standards reflectances are not less than 1.5 times, typically being around 2 to 5, but arriving till 18 times. Problems with BC standards are known and, in this case, probably was associated to different particles size distributions, other than the not precise and variable characteristics of what is called BC.
-
-
-%TODO: citar o clássico  \citet{quincey2007}, mas onde?
-
-
-
-\begin{table}[H]
-  \centering
-  \begin{scriptsize}
-    \input{../outputs/TOTcalibration}
-  \end{scriptsize}
-\end{table}
-
+Assumimos como incerteza para os valores de reflectância (medido em porcentagem)
+o desvio padrão corrigido das medições de 7 filtros em branco 
+(0,96\% x 1,11 = 1,06\%, corrigidos para as estatísticas de poucos dados, 
+utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
 
 \begin{figure}[H]
 \begin{center}
-  \includegraphics[width=0.5\textwidth]{../outputs/TOTrefletanciaCalibration.pdf}
-  \caption{}
+  \includegraphics[width=0.5\textwidth]{../outputs/Gana_TOT_Refletancia.pdf}
+  \caption{TOT e Refletância Gana}
 \end{center}
 \end{figure}
+
+\begin{table}[H]
+  \centering
+  \small
+   \input{../outputs/Gana_TOT_Refletancia.tex}
+   \caption{TOT e Refletância Gana}
+\end{table} 
+
+

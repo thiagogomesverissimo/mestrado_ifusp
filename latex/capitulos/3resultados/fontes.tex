@@ -1,13 +1,25 @@
 %%%%
 \section{Identificação das fontes}
 
-\citep{ARKU2008} e \citep{DIONISIO2010} foram pioneiros em conduzir  
-levantamento dos níveis de poluição, composição elementar e 
-distribuição espacial e temporal de poluentes.
+No artigo publicado em 2013 intitulado
+\textit{Chemical composition and sources of particle pollution in affluent and
+poor neighborhoods of Accra, Ghana} \citep{zhou2013} realizou-se levantamento de 
+fontes usando PMF com todas as 2898 amostras coletadas no XX sítios de 
+amostragem. As fonte encotradas com seus repectivos elementos foram: 
+queima de lixo sólido (Br, Pb), poeira de solo e veículo (Al, Si, Ca, Fe, Zn, 
+BC, Pb), solo (Al, Si, Mg, Ti, Mn, Fe), queima de biomassa (K, Cl, S, BC) e mar 
+(Na, Cl, S). Estas fontes foram encontradas para os 4 bairros (XX sítios de 
+coleta) do experimento e portanto a escolha desses fatores foi realizadas de 
+forma que fosse comuns as 4 regiões, portanto é um resultado genérico sobre 
+Acra. Segue-se análise detalhada de um dos bairros, Nima, que além do PMF
+também utiliza-se Análise de Fatores para levantamento de fontes principais. 
 
-Foi feito um levantamento das principais fontes poluídora de Acra.
-Na figura \ref{fg:acrasources} estão assinalados os dois pontos de 
-amostragem em Nima, fontes poluídoras levantadas, bem como a aeroporto
+\citet{ARKU2008} e \citet{DIONISIO2010} foram pioneiros em conduzir  
+levantamento dos níveis de poluição, composição elementar e 
+distribuição espacial e temporal de poluentes em Gana.
+
+Identificação de possíveis fontes poluídoras locais de Acra estão na figura 
+\ref{fg:acrasources} bem como a aeroporto
 (onde foram coletados os dados meteorológicos).
 
 \begin{figure}[H]
@@ -16,14 +28,13 @@ amostragem em Nima, fontes poluídoras levantadas, bem como a aeroporto
   \caption{Levantamento de algumas fontes poluídora de Accra \label{fg:acrasources}}
 \end{figure}
 
-
-A discriminação de fontes é complexa pois
-há uma mistura de elementos do deserto com fontes antropogênicas.
+A discriminação de fontes é complexa pois há uma mistura de elementos do 
+deserto do Saara trazido pelo Harmatão com fontes antropogênicas locais.
 
 O alto número de amostras coletadas possibilitou a exclusão dos dias de 
 ocorrência do Harmatão nas tabelas de concentrações sem comprometer as análises
-multivariadas. A alta concentração de poeira provinda do Harmatão dificulta a 
-identificação de fontes locais.
+multivariadas, pois a alta concentração do elementos componentes da poeira 
+do Harmatão dificulta a identificação de fontes locais.
 
 Nem todos os dias nos meses de ocorrência do Harmatão (Novembro-Março) 
 ocorrem altas concentrações, assim, se usássemos como critério de exclusão para 
@@ -31,42 +42,22 @@ influência do Harmatão todas amostras entre Novembro e Março, poderíamos
 perder informações de fontes locais nos dias em que a poeira do Harmatão fosse
 tão intensa. 
 
-Uso-se o critério sugerido por \cite{aboh2009}, que considera os dias de 
+Uso-se o critério sugerido por \citet{aboh2009}, que considera os dias de 
 ocorrência do Harmatão como os que tem concentrações de silício maiores que 
 10 $\mu g/m^3$ e estão entre Novembro e Março.
-
-
-
-%%# Fontes encontradas em Harvard:
-I assume you are talking about the paper "Chemical composition and sources of particle pollution in affluent and poor
-
-neighborhoods of Accra, Ghana". Both Pb and Zn were included in the PMF analysis. Based on our analysis, they showed up in two factors: Road dust and traffic particles and solid waste burning. As you may already know, the choice of the number of PM sources and labeling PM sources involve subjectivity. Since we were comparing four neighborhoods, we kept sources more or less consistent across neighborhoods. In your case, it might be reasonable to further break down the sources.
-%%#   Solid waste burning: Br. 
-%%#   Road dust & vehicle: Al, Si, Ca, Fe, Zn, BC.  
-%%#   Crustal: Al, Si, Mg, Ti, Mn, Fe.
-%%#   Aged biomass particles: K, Cl, S, BC
-%%   Fresh biomass burning: K, Cl, S, BC
-%%#   Sea salt: Na, Cl, S
-%%# Sal marinho, solo, emissões veiculares e combustão de biomassa
-%%# Zn/Cu podem representa veículos por causa do mencanismo interno do carro. 
-%%# Zn: Freio, pneu, peças.
 
 %%%%
 \subsection{Material Particulado Fino ($MP_{2,5}$)}
 
 Os \textbf{loadings} encontrados para \textbf{Análise de Fatores} de $MP_{2,5}$
-na área residencial estão na tabela \ref{table:loadings_RFcH5}. 
+na área residencial estão na tabela %\ref{table:beautifulFAdisplay_RFcH5}. 
 Nota-se que o primeiro fator sozinho explica 58 \% da variância e quase todos 
 elementos tem \textbf{loadings} altos nesse fator. 
 
 \begin{table}[H]
-  \input{../outputs/loadings_RFcH5.tex}
-  \caption{Análise de Fatores para $MP_{2,5}$ na região residencial.
-           Rotação varimax - 5 fatores retidos (n=197).
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)
-           \label{table:loadings_RFcH5}}
+  \centering
+  \input{../outputs/beautifulFAdisplay_RFcH5.tex}
+  \caption{}
 \end{table}
 
 Os perfis de fontes da análise \textbf{PMF} para a mesma base de dados é 
@@ -106,17 +97,17 @@ ser consultadas no apêndice II.
 
 Refazendo-se a \textbf{Análise de Fatores} de $MP_{2,5}$ na área residencial, 
 porém excluindo-se os dias de Harmatão (número de amostra cai de 197 para 123), 
-obtém-se os \textbf{loadings} da tabela \ref{table:loadings_RFsH6}. 
+obtém-se os \textbf{loadings} da tabela \ref{table:beautifulFAdisplay_RFsH6}. 
 
 \begin{table}[H]
-  \input{../outputs/loadings_RFsH6.tex}
+  \input{../outputs/beautifulFAdisplay_RFsH6.tex}
   \caption{Análise de Fatores para $MP_{2,5}$ na região residencial
            excluindo-se dias de ocorrência do Harmatão.
            Rotação varimax - 5 fatores retidos (n=123).
            (\textcolor{red}{h} : Comunalidade; 
            \textcolor{red}{S=1-h} : Singularidade; 
            \textcolor{red}{C} : Complexidade.)
-           \label{table:loadings_RFsH5}}
+           \label{table:beautifulFAdisplay_RFsH5}}
 \end{table}
 
 Apesar do fator com elementos de poeira continuar prepoderante, agora, os 
@@ -204,7 +195,7 @@ Esse elementos representam atividades de indústrias locais.
 \end{figure}
 
 Na avenida, o resultado da \textbf{Análise de Fatores} de $MP_{2,5}$ está na 
-tabela \ref{table:loadings_TFsH5}. Os 4 primeiros fatores principais extraídos 
+tabela \ref{table:beautifulFAdisplay_TFsH5}. Os 4 primeiros fatores principais extraídos 
 foram essencialmente os mesmos que na área residencial, apenas com mudanças nos 
 \textbf{loadings} de alguns elementos. O último fator, entretanto, de autovalor
 $1,29$, possui altos \textbf{loadings} de BC e K e representam a queima de 
@@ -212,14 +203,14 @@ biomassa \citep{reid2005}. Na avenida há intensas atividades comerciais,
 os estabelecimentos queimam biomassa para preparação de alimentos.   
 
 \begin{table}[H]
-  \input{../outputs/loadings_TFsH5.tex}
+  \input{../outputs/beautifulFAdisplay_TFsH5.tex}
   \caption{Análise de Fatores para $MP_{2,5}$ na avenida
            excluindo-se dias de ocorrência do Harmatão.
            Rotação varimax - 5 fatores retidos (n=123).
            (\textcolor{red}{h} : Comunalidade; 
            \textcolor{red}{S=1-h} : Singularidade; 
            \textcolor{red}{C} : Complexidade.)
-           \label{table:loadings_TFsH5}}
+           \label{table:beautifulFAdisplay_TFsH5}}
 \end{table}
 
 
@@ -289,25 +280,25 @@ a um pessoa de referência, que não tem contato com \textbf{e-waste}.
 O Harmatão foi presente tanto em MP10 quanto em MP2.5.
 
 \begin{table}[H]
-  \input{../outputs/loadings_RGsH4.tex}
+  \input{../outputs/beautifulFAdisplay_RGsH4.tex}
   \caption{Análise de Fatores para $MP_{2,5-10}$ na área residencial
            excluindo-se dias de ocorrência do Harmatão.
            Rotação varimax - 5 fatores retidos (n=).
            (\textcolor{red}{h} : Comunalidade; 
            \textcolor{red}{S=1-h} : Singularidade; 
            \textcolor{red}{C} : Complexidade.)
-           \label{table:loadings_RGsH4}}
+           \label{table:beautifulFAdisplay_RGsH4}}
 \end{table}
 
 \begin{table}[H]
-  \input{../outputs/loadings_TGsH4.tex}
+  \input{../outputs/beautifulFAdisplay_TGsH4.tex}
   \caption{Análise de Fatores para $MP_{2,5-10}$ na avenida
            excluindo-se dias de ocorrência do Harmatão.
            Rotação varimax - 5 fatores retidos (n=).
            (\textcolor{red}{h} : Comunalidade; 
            \textcolor{red}{S=1-h} : Singularidade; 
            \textcolor{red}{C} : Complexidade.)
-           \label{table:loadings_TGsH4}}
+           \label{table:beautifulFAdisplay_TGsH4}}
 \end{table}
 
 \begin{table}[H]

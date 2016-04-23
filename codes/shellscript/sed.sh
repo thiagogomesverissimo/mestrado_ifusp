@@ -61,3 +61,27 @@ sed -i s/balanca/'Balança ($ \\mu g \/ cm^2$)'/g $FILE
 sed -i s/efetivo/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE
 sed -i s/ajustado/'Ajuste ($ \\mu g \/ cm^2$)'/g $FILE
 sed -i s/'lrlrl'/'ccccc'/g $FILE
+
+####  
+FILE='../../outputs/Gana_TOT_Refletancia.tex'
+sed -i s/'\.'/','/g $FILE
+sed -i s/quartzo/'ID Quartzo'/g $FILE
+sed -i s/teflon/'ID Teflon'/g $FILE
+sed -i s/refletancia/'Refletância (\\%)'/g $FILE
+sed -i s/tot/'TOT ($ \\mu g \/ cm^2$)'/g $FILE
+sed -i s/efetiva/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE
+sed -i s/ajuste/'Ajuste ($ \\mu g \/ cm^2$)'/g $FILE
+sed -i s/'llllll'/'cccccc'/g $FILE
+
+
+####  
+FILES=$(ls ../../outputs | grep beautifulFAdisplay_)
+for i in $FILES; do
+ FILE='../../outputs/'$i
+ sed -i 's/^  explicada/\\hline explicada/g' $FILE
+ sed -i s/'\.'/','/g $FILE
+ #sed -i s/'rrlllll'/'ccccccc'/g $FILE
+ #sed -i s/'mass'/'massa ($ \\mu g \/ m^3$)'/g $FILE
+ #sed -i s/'BC'/'BC ($ \\mu g \/ m^3$)'/g $FILE
+done
+

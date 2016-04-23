@@ -19,8 +19,15 @@ FactorAnalysis <- function(current_base,nfactors){
   
   # Salva loading em csv
   loading_csv_file_name = paste('../../outputs/loadings_',current_base,nfactors,".csv",sep="")
-  capture.output( print(base.principal), file=loading_csv_file_name)
   write.csv(as.data.frame(unclass(base.principal$loadings)),file=loading_csv_file_name) 
+  
+  # Salva comunalidade em csv
+  comunalidade_csv_file_name = paste('../../outputs/comunalidade_',current_base,nfactors,".csv",sep="")
+  write.csv(as.data.frame(unclass(base.principal$communality)),file=comunalidade_csv_file_name) 
+  
+  # Salva autovalores em csv
+  autovalor_csv_file_name = paste('../../outputs/autovalor_',current_base,nfactors,".csv",sep="")
+  write.csv(as.data.frame(unclass(base.principal$values)),file=autovalor_csv_file_name) 
   
   #print(loadings(base.principal),cutoff=2e-1)
   loading_latex = fa2latex(base.principal,
@@ -93,11 +100,11 @@ FactorAnalysis <- function(current_base,nfactors){
     dev.off()
   }
   briefFA(current_base,nfactors)
+  beautifulFAdisplay(current_base,nfactors)
   return(base.principal)
 }
 
 ####
-
 briefFA <-function(sigla,nfactors){
   #sigla = 'RFcH'
   path_file = paste('../../outputs/loadings_',sigla,nfactors,'.csv',sep='')
@@ -129,4 +136,73 @@ briefFA <-function(sigla,nfactors){
     include.rownames = F, 
     sanitize.text.function = identity,
     file=path_output)
+}
+
+
+beautifulFAdisplay <- function(sigla,nfactors){
+  
+  # test:
+  #source("myfunctions/load.R")
+  #sigla = 'RFsH'; nfactors = 5
+  
+  # lê loadings
+  path_file = paste('../../outputs/loadings_',sigla,nfactors,'.csv',sep='')
+  loading <- read.csv(path_file)
+  n = ncol(loading)-1
+  colnames(loading) = c('especie',paste(rep('Fator'),seq(n),sep=""))
+  
+  # lê comunalidade
+  path_file = paste('../../outputs/comunalidade_',sigla,nfactors,'.csv',sep='')
+  comunalidade <- read.csv(path_file)
+  colnames(comunalidade) = c('especie','comunalidade')
+  
+  # lê autovalores. 
+  path_file = paste('../../outputs/autovalor_',sigla,nfactors,'.csv',sep='')
+  autovalor <- read.csv(path_file)
+  
+  # add communinality to loading table
+  data = merge(loading,comunalidade,by='especie')
+  
+  # ordena 
+  data = data[order(data$Fator1,data$Fator2,data$Fator3,data$Fator4,decreasing = T),]
+  
+  # add SSloaging
+  # Não sei se o cálculo da variância explicada é feito 
+  # com os SS loading ou com autovalor, por hora vou usar o ssloading
+  ssloading = function(x){sum(x^2)}
+  linha_ssloading = apply(data[,seq(2,n+1)],2,ssloading)
+  explicada = 100*(linha_ssloading/(nrow(data)))
+  total_explicada =  sum(explicada) 
+  
+  linha_ssloading = rbind(c('ssloading',linha_ssloading,''))
+  linha_explicada = rbind(c('explicada',explicada,total_explicada))
+  colnames(linha_ssloading) = colnames(data)
+  colnames(linha_explicada) = colnames(data)
+  #data = rbind(data,linha_ssloading)
+  data = rbind(data,linha_explicada)
+  
+  # add autovalor
+  linha_autovalor = rbind(c('autovalor',autovalor[seq(n),2],''))
+  colnames(linha_autovalor) = colnames(data)
+  #data = rbind(data,linha_autovalor)
+  
+  # duas casas decimais
+  data[,-1] = apply(data[,-1],2,as.numeric)
+  data[,-1] = round(data[,-1],2)
+  #data[,-1] = format(data[,-1],digits=1,nsmall=2)
+  
+  # coloca em vermelho, com erro
+  #x = data[,seq(2,n+1)]
+  #x[x>0.7] = paste('\\textcolor{red}{\\textbf{',x[x>=0.7],'}}',sep='')
+  #data[,seq(2,n+1)] = x
+
+  data[nrow(data),ncol(data)] = paste('total =',data[nrow(data),ncol(data)],'\\%')
+  
+  path_output = paste('../../outputs/beautifulFAdisplay_',sigla,nfactors,'.tex',sep='')
+  print(xtable(data,align = rep('c',ncol(data)+1)),
+        type="latex", 
+        floating = FALSE,
+        include.rownames = F, 
+        sanitize.text.function = identity,
+        file=path_output)
 }

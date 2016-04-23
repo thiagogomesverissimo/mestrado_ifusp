@@ -32,6 +32,7 @@ all:
 	Rscript scripts/BC_monarch71.R
 	Rscript scripts/BC_cetesb.R
 	Rscript scripts/TOTversusRefletancia.R
+	Rscript scripts/BC_Janio_Quadros.R
 
 clean:
 	rm -rf *~ 

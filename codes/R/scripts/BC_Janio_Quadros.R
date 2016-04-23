@@ -37,7 +37,7 @@ errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 # legenda
 legend("topleft", legend = expression(a + bx), cex=1.2, bty = "n")
 
-legenda = paste(letters[1:2],format(coefs_akerr, scientific=T),sep=' = ')
+legenda = paste(letters[1:2],format(coefs_thiago, scientific=T),sep=' = ')
 legenda = paste(legenda,'\n',sep='')
 legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
@@ -63,4 +63,4 @@ print(xtable(tabela),
       floating = FALSE,
       include.rownames = F, 
       sanitize.text.function = identity,
-     file="../../outputs/BC_janio_quadros.tex")
+      file="../../outputs/BC_janio_quadros.tex")
