@@ -19,15 +19,93 @@ também utiliza-se Análise de Fatores para levantamento de fontes principais.
 levantamento dos níveis de poluição, composição elementar e 
 distribuição espacial e temporal de poluentes em Gana.
 
-Identificação de possíveis fontes poluídoras locais de Acra estão na figura 
-\ref{fg:acrasources} bem como a aeroporto
-(onde foram coletados os dados meteorológicos).
+A tabela \ref{table:cookfuel} reporta fontes de energia usadas em Gana e em
+Acra usadas para preparação de alimentos e pode ajudar na identificação dos 
+fatores de PMF e Análise de Fatores.
+\begin{table}[H]
+ \centering
+  \input{../outputs/census_cookfuel.tex}
+  \caption{Fontes de energia usadas para cozimento de alimentos em 
+           Gana \citep{ghanacensus2013} \label{table:cookfuel}}
+\end{table}
+
+No mapa da figura \ref{fg:acrasources} foram marcadas possíveis fontes 
+poluídoras locais de Acra, também para ajudar na identificação dos fatores. 
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.9\textwidth]{../outputs/accra_sources.pdf}
   \caption{Levantamento de algumas fontes poluídora de Accra \label{fg:acrasources}}
+  \includegraphics[width=0.9\textwidth]{../outputs/accra_sources.pdf}
 \end{figure}
+
+%%%%
+\subsection{Análise dos Ventos}
+
+Para ajudar no levantamento das possíveis fontes, utilizou-se parâmetros 
+meteorológicos locais coletados na estação meteorológica do aeroporto de Acra 
+(Kotoka International Airport) disponibilizados no site da 
+National Oceanic and Atmospheric Administration - United States Department of 
+Commerce (NOAA)) via banco de dados com parâmetros meteorológicos 
+de mais de 500 estações meteorológicas espalhadas pelo mundo.
+
+A figura \ref{fg:rosaCompleta}, 
+mostra a distribuição de frequência da direção dos ventos bem, como a 
+intensidade. 
+Verifica-se que a direção predominante de origem dos ventos de superfície
+é de sudoeste. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.5\textwidth]{../outputs/windRoseNoaaHarvard.pdf}
+  \caption{Rosa do ventos entre
+           Setembro de 2006 e Junho de 2008. Utilizou-se dados 
+           do \textbf{Kotoka International Airport} de Acra 
+           \label{fg:rosaCompleta}}
+\end{figure}%
+%veja que você não está considerando ciclos anuais completos, ou seja, de junho a junho, setembro a setembro. Isso pode introduzir vícios na avaliação do vento local em termos sazonais. Precisamos refletir um pouco como tratar isso. 
+
+No gráfico da figura \ref{fg:rosaCompleta}%
+%precisa de legenda. É necessário explicitar se o período do ano é o mesmo
+ a observação horária da direção e 
+intensidade dos ventos, identifica-se um forte componente regional para o vento local, associável à brisa marinha, com ventos de sul (do oceano) quando o sol encontra-se alto,%
+
+%sol a pino significa sol no zênit, o que ocorre duas vezes ao ano naquela região e uma vez ao ano em SP.
+%Precisa colocar um mapa, ou referir-se ao mapa colocado em outro lugar da tese, para que o leitor possa ver que ao sul fica o oceano
+ mas deslocando-se à oeste na medida que as horas avançam (deslocamento à direita do sentido do movimento - ação típica do efeito de Coriolis no hemisfério Norte). 
+
+No gráfico de rosa dos ventos mensal \ref{fig:windRose_mensal}
+ nota-se 
+perceptível diferença entre os dois períodos climáticos, 
+pois no Verão temos maior quantidade de radiação solar, fortalecendo a 
+formação de brisa marinha e, consequentemente, havendo maior tempo para a velocidade do vento intensificar-se e para processar-se um deslocamento para oeste.
+
+Na maior parte do verão Ganha localiza-se no hemisfério sul em termos de padrão global 
+de circulação. Neste período as intensidades de vento são maiores e são menores as 
+frequências de calmarias. No período do inverno Ghana posiciona-se no hemisfério
+ norte em termos da circulação global. 
+Observa-se com isso maior incidência de vento norte (observe-se particularmente o mês 
+de janeiro), com velocidades médias do vento um pouco menores e maior percentual de 
+calmaria. É nesta época que Gana e o Saara situam-se no mesmo sistema de circulação 
+global, ocorrendo o Harmatão. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{../outputs/windRose_horaria.pdf}
+  \caption{ \citep{carslaw2012} \label{fig:windRose_horaria}}%
+  %precisa colocar legenda e período a que se refere
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1\textwidth]{../outputs/windRose_mensal.pdf}
+  \caption{ \citep{carslaw2012} \label{fig:windRose_mensal}}
+\end{figure}
+
+Nos meses de ocorrência do Harmatão (inverno), há um pequeno aumento da frequência de ventos de nordeste ao nível do solo (direção do Saara). Mas a maior parte do particulado que este vento transporta passa por Gana 
+em altitudes superiores \citep{breuning2005}, interferindo pouco no predomínio da brisa marinha na circulação local.%
+%
+%Aqui termina o trecho sobre meteorologia que deve ir para a discussão sobre modelos receptores. 
+Esse elementos representam atividades de indústrias locais. 
 
 %%%%
 \subsection{Harmatão}
@@ -96,11 +174,12 @@ como os disponíveis no banco de dados SPECIATE da EPA-US \citep{simon2010}.
 Ainda no primeiro fator, aparece secundariamente fósforo (P) e potássio (K), 
 indicando possível sobreposição de fontes ou solo contaminado. 
 Fósforo (P) e potássio (K), segundo SPECIATE, podem ser indicadores de 
-fertilizantes. Gana não produz nenhum tipo de feritizantes, mas importa para 
+fertilizantes. Gana não produz nenhum tipo de fertilizantes, mas importa para 
 uso em fazenda locais \citep{fianko2011}. 
 Vanádio, normalmente associado a queima de óleos pesados como o diesel, ao 
 aparecer na fonte solo, indica sobreposição de fontes com temporalidade próximas.
-\citet{aboh2009} também encontrou Vanádio no fator de poeira solo.
+\citet{aboh2009} também encontrou vanádio no fator de poeira solo em Acra, 
+indicação que o solo é contamindado por vánadio.
 
 As partículas que compõem poeira de solo estão em sua maioria na fração
 grossa do Material Particulado ($MP_{2,5-10}$), pois são geradas por processo 
@@ -144,9 +223,12 @@ do mundo, recebendo grande parte dos equipamentos descartados como lixo na
 Europa e que são derretidos para obtenção do cobre (Cu) em Agbogbloshie, 
 4 kilometros sudoeste de Nima.  
 
-O zinco (Zn) é o principal composto de baterias de eletrônicos e altas 
+O zinco (Zn) é o principal composto de baterias de eletrônicos.Altas 
 concentrações de Al, Co, Cu, Zn, Cd, In, Sb, Ba, e Pb foram encontradas
-no solo do \textit{e-waste} de Agbogbloshie por \citet{asante2012}. 
+no solo do \textit{e-waste} de Agbogbloshie por \citet{asante2012},
+que também observou altos nível de Fe, Sb, and Pb nas urinas de trabalhadores 
+do de Agbogbloshie quando comparada a um pessoa de referência
+(que não tenha tido contato com \textit{e-waste}).
 
 Como pode ser observado na rosa dos ventos para o ano de 2007 
 da figura \ref{fg:rosa2007} o vento predominante em Nima é de sudoeste, 
@@ -213,14 +295,14 @@ no apendice I tabela \ref{table:RFcH_profiles5} e gráfico
 \ref{fig:RFcH_contribution5}.
 
 Removendo-se o Harmatão o Fator 1 de perfil composto Black Carbon (BC), 
-chumbo (P), zinco (Zn), potássio (K), $MP_{2,5}$, vanádio (V) e manganês (Mn).
+chumbo (Pb), zinco (Zn), potássio (K), $MP_{2,5}$, vanádio (V) e manganês (Mn).
 Assim como na Análise de Fatores, representa fonte veicular, porém é que 
 contribui mais para massa total 39,98 $\pm$1,93. É o fator de maior peso, 
 o que é mais coerente do que se espera em $MP_{2,5}$, que o fator mais 
 significativo seja de fontes de processos de combustão, que geram partículas
 finas, e não solo, como encotrado na Análise de Fatores.
 
-O fator 2 com 73\% da massa de bromo, 15,1\% de Pb e 15,1\% Zn representa 
+O fator 2, com 73\% da massa de bromo, 15,1\% de Pb e 15,1\% Zn representa 
 queima de lixo sólido e outros materiais a céu aberto, não tendo contribuição
 muito expressiva na massa total 4,65 $\pm$ 0,43 \%.
 
@@ -236,12 +318,36 @@ feita pelo PMF no caso do vanádio faz mais sentido com a realidade, já que
 Contribuindo com 11,64 $\pm$ 0,89 \% da massa, o fator 4, composto por Na, Cl e
 16,7 \% da massa do enxofre (S) corresponde a fonte marinha. 
 
-O fator 5, mas o terceiro em contribuição na massa 21,55 $\pm$ 1,66), depois
+O fator 5, mas o terceiro em contribuição na massa 21,55 $\pm$ 1,66 \%, depois
 de veículo e poeira de solo, além do fósforo (P), potássio (K) e enxofre (S) 
-encontrados no fator vegetação da Análise de Fatores, possui expressiva 
-participação 
+encontrados no fator vegetação da Análise de Fatores, possui quase metade da 
+massa do sódio 40,4 \%.
 
+Os resultados para $MP_{2,5}$ do PMF para a avenida estão na tabela 
+\ref{table:TFsH_profiles5} e no gráfico da figura \ref{fig:TFsH_contribution5}.
 
+O fator 1 na avenida, quase que exclusivamente com toda massa do Bromo 68,4\%,
+representa queima de lixo sólido, explicando apenas 3,86$\pm$0,37 \% da massa 
+total.  
+
+O fator 2, de contribuição 13,64 $\pm$ 1,06 \% corresponde a fonte marinha. 
+
+O fator 3 é composto por elementos associados a ressuspensão de poeira de 
+solo e contribuiu 22,23 $\pm$ 2,14) \% para massa total, praticamente
+a mesma contribuição da área residencial. 
+
+O fator 4, associado anteriormente a vegetação, teve aumento da massa de BC, 
+de 19,6 \% para 31,6\% e também na contribuição da massa total, 
+de 21,55 $\pm$ 1,66 para 28,82 $\pm$ 1,86) \%. A avenida XX, possui comércios
+de venda de alimentos prontos para consumo, como churrasco, restaurantes, 
+salgados, etc, que são majoritariamento produzidos por queima de biomassa. 
+Para \citet{reid2005} K,P,S e BC segerem queima de biomassa, neste caso, 
+acreditamos que o fator 4 representação vegetação e queima de biomassa.   
+
+O fator 5, fonte veícular, teve sua contribuição na massa total relativa 
+dimunuída de 39,98 $\pm$ 1,93 para 31,45 $\pm$ 1,83 \%, mesmo a avenida contendo 
+movimentação de veículos superior a área residêncial,
+dimunuição esta provavelmente devido ao aparecimento da fonte queima de biomassa. 
 
 \begin{landscape}
   \begin{figure}
@@ -256,7 +362,7 @@ participação
     \begin{minipage}[b]{0.45\linewidth}
       \input{../outputs/RFsH_profiles_percent_species5.tex}
       \captionof{table}{Perfis do fatores na área residencial $MP_{2,5}$ 
-                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 122. 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 123. 
                 \label{table:RFsH_profiles5}}
     \end{minipage}
   \end{figure}
@@ -268,7 +374,7 @@ participação
     \begin{minipage}[b]{0.45\linewidth}
       \includegraphics[width=\textwidth]{../outputs/TFsH_pmf_contribution_pizza5.pdf}
       \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na avenida
-               excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 123.
+               excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 122.
                \label{fig:TFsH_contribution5}}
     \end{minipage}%\hfill
     \hspace{0.5cm}
@@ -281,167 +387,170 @@ participação
   \end{figure}
 \end{landscape}
  
-
-
-
-
-
 %%%%
 \subsection{Material Particulado Grosso $MP_{2,5-10}$}
 
-Fonte de energia para cozimento de alimentos em Gana \ref{table:cookfuel}.
+Nas publicações referentes a este estudos \citet{ARKU2008} e 
+\citet{DIONISIO2010} não houve separação entre $MP_{2,5}$ e $MP_{2,5-10}$. 
+Nas amostras de Nima, essa separação foi feita, possibilitando a identificação
+de fontes na fração grossa do material partículado. Lembra-se que o experimento
+em paralelo com coleta de filtros de quartzo e posterior intercalibração de BC
+só foi realizado para $MP_{2,5}$ e portanto não há medidas de BC para 
+$MP_{2,5-10}$.
+
+Os \textit{loadings} encontrados para Análise de Fatores de $MP_{2,5-10}$
+na área residencial estão na tabela \ref{table:AF_RGsH5}. Com 112 
+amostras explicou-se 93,36 \% da variância total dos dados, mas o número 
+fatores retidos foi 4 e não 5 como no caso do fino. A comunalidade foi maior 
+que $0,7$ para todos elementos.
+
+O fator 1 explica sozinho quase metade da variância 49,07\% e tem 
+projetados elementos componentes de poeira do solo Al, Si, Ti, Fe, Mn, Ca, 
+Mg, mais $MP_{2,5-10}$ e contaminação de vanádio. Como é comum em $MP_{2,5-10}$, 
+o solo é a fonte predominante. Nota-se que a poeira de solo foi presente 
+tanto em $MP_{2,5-10}$ quanto em $MP_{2,5}$.
+
+O fator 2 explica 24,25 \% da variância total e é formado por K, Zn, Pb, S, e 
+Br. \citet{aboh2009} identificou em Kwabenya um fator (explicando 17\% da 
+variância) composto por Zn, BC e Pb e o relacionou a uma mistura de 
+fonte de industria local e queima de biomassa. O fator 2 aqui também será 
+classificado como industria local e queima de biomassa. 
+
+O terceiro fator explica 13,55\% da variância com altos \textit{loadings} de 
+Na, Cl e S, representam se dúvida a fonte mar. 
+
+O quarto e último fator composto por P e Zn representa industria local. 
+
+Os resultados para Análise de Fatores de $MP_{2,5-10}$ na avenida expostos
+na tabela \ref{table:AF_RGsH5} não diferem quase em nada daqueles encontrados
+na área residencial, com pequenas mudaças nas projeções dos \textit{loadings}, 
+como o caso do fósforo que passou do fator industria para o fator solo. 
+
+\newpage
 \begin{table}[H]
- \centering
-  \input{../outputs/census_cookfuel.tex}
-  \caption{Fontes de energia usadas para cozimento de alimentos em 
-           Gana \citep{ghanacensus2013} \label{table:cookfuel}}
-\end{table}
-
-Os perfis dos fatores para $MP_{2,5-10}$ nos dois sítios de amostragem, 
-residencial e avenida, estão na tabela \ref{}.
-
-A contribuição por fator e a respectiva associação com fontes poluídoras
-estão no gráfico da figura \ref{}. 
-
-\citep{asante2012} analisou nível de elementos traços nas urinas de trabalhadores 
-do e-waste de Agbogbloshie e Fe, Sb, and Pb tiveram concentrações alta se comparada
-a um pessoa de referência, que não tem contato com \textbf{e-waste}.
-
-O Harmatão foi presente tanto em MP10 quanto em MP2.5.
-
-\begin{table}[H]
+  \centering
   \input{../outputs/beautifulFAdisplay_RGsH4.tex}
-  \caption{Análise de Fatores para $MP_{2,5-10}$ na área residencial
-           excluindo-se dias de ocorrência do Harmatão.
-           Rotação varimax - 5 fatores retidos (n=).
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)
-           \label{table:beautifulFAdisplay_RGsH4}}
+  \caption{Análise de Fatores na área residencial para $MP_{2,5-10}$
+           excluindo dias de ocorrência de vento Harmatão. n = 112.
+          \label{table:AF_RGsH5}}
 \end{table}
 
 \begin{table}[H]
+  \centering
   \input{../outputs/beautifulFAdisplay_TGsH4.tex}
-  \caption{Análise de Fatores para $MP_{2,5-10}$ na avenida
-           excluindo-se dias de ocorrência do Harmatão.
-           Rotação varimax - 5 fatores retidos (n=).
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)
-           \label{table:beautifulFAdisplay_TGsH4}}
+  \caption{Análise de Fatores na avenida para $MP_{2,5-10}$
+           excluindo dias de ocorrência de vento Harmatão. n = 116.
+          \label{table:AF_TGsH5}}
 \end{table}
+\newpage
 
-\begin{table}[H]
-  \centering
-    \input{../outputs/RGsH_profiles_percent_species4.tex}
-    \caption{residencial $MP_{2,5-10}$ removendo-se os dias do Harmatão 
-              seed=123; n=. 
-             \label{table:RGsH_profiles4}}
-\end{table}
+Os resultados de PMF para $MP_{2,5-10}$ na área residencial com extração de 
+quatro fatores estão na tabela \ref{table:RGsH_profiles4} e gráfico 
+\ref{fig:RGsH_contribution4}. Rápida olhada nos elementos dos fatores 1 e 2 
+percebe-se que o PMF fez a separação do solo em dois, o primeiro com elementos
+da crosta terrestre e um segundo solo contaminado com Zn, Pb e P. O terceiro 
+fator é exclusivamente mar e o último mistura de queima de biomassa 
+com industria. 
 
-\begin{table}[H]
-  \centering
-    \input{../outputs/TGsH_profiles_percent_species4.tex}
-    \caption{avenida $MP_{2,5-10}$ removendo-se os dias do Harmatão 
-              seed=123; n= . 
-             \label{table:TGsH_profiles4}}
-\end{table}
+Repetindo a análise PMF mas com extração de 5 fatores obtém-se a tabela 
+\ref{table:RGsH_profiles5} e o gráfico \ref{fig:RGsH_contribution5}.
+Com extração de 5 fatores foi possível separar a queima de biomassa (fator 5)
+das demais fontes e queima de lixo sólido (fator 1) das demais fontes. 
+Nota-se que o solo continua separado em dois (fator 3 e 4) e a fonte mar está 
+no fator 2. 
+
+Na avenida, com extração de 4 fatores (tabela \ref{table:TGsH_profiles4} 
+e gráfico \ref{fig:TGsH_contribution4}) apenas um solo é encontrados
+(fator 3). Assim como na área residencial, é possível discriminar melhor 
+os fatores relacionados a queima de biomassa ou lixo sólido se extrairmos 5
+fatores no PMF. 
+
+A tabela \ref{table:TGsH_profiles5} e e gráfico \ref{fig:TGsH_contribution5} 
+mostram os resultados para o caso de 5 fatores extraídos na avenida. 
+No fator 1 o mar ficou
+bem definido, no fator 2, Mg, Fe e V, representa industria local. 
+
+O fator 3 também reprenta alguma industria local (Zn, Pb e P).
+
+No fator 4 estão juntos queima de biomassa e queima de lixo sólido a céu aberto. 
+Por fim, o fator 5 representam poeira de ressuspensão de solo.  
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/RGsH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5-10}$ na área
+               residencial excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 123.
+               \label{fig:RGsH_contribution4}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/RGsH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores na área residencial $MP_{2,5-10}$ 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 112. 
+                \label{table:RGsH_profiles4}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/RGsH_pmf_contribution_pizza5.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5-10}$ na área
+               residencial excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 123.
+               \label{fig:RGsH_contribution5}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/RGsH_profiles_percent_species5.tex}
+      \captionof{table}{Perfis do fatores na área residencial $MP_{2,5-10}$ 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 112. 
+                \label{table:RGsH_profiles5}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+%%%%
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/TGsH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5-10}$ na avenida
+               excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 116.
+               \label{fig:TGsH_contribution4}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/TGsH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores avenida $MP_{2,5-10}$ 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 116. 
+                \label{table:TGsH_profiles4}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/TGsH_pmf_contribution_pizza5.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5-10}$ na avenida
+               excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 116.
+               \label{fig:TGsH_contribution5}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/TGsH_profiles_percent_species5.tex}
+      \captionof{table}{Perfis do fatores avenida $MP_{2,5-10}$ 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 116. 
+                \label{table:TGsH_profiles5}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
 
 
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/RGsH_pmf_contribution_pizza4.pdf}
-    \caption{Residencial}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/TGsH_pmf_contribution_pizza4.pdf}
-    \caption{Avenida}
-  \end{subfigure}
-  \caption{Contribuição $MP_{2,5-10}$ \label{qqq}}
-\end{figure}
-
-%Início de meteorologia a transferir
-
-Para avaliação do perfil dos parâmetros meteorológicos locais
-utilizou-se dados horários de Setembro de 2006 à Junho de 2008 
-coletados na estação meteorológica do aeroporto de Acra 
-(\textbf{Kotoka International Airport}) cadastrado na \textbf{NOAA}, 2015 (\textbf{National Oceanic 
-and Atmospheric Administration} - United States Department of Commerce)%
-%Você está fazendo uma tabela com acrônimos ou siglas. Isso é interessante para eliminar a inserção deles no texto e facilitar compreendê-los aonde quer que apareçam. Veja que corrigi a NOAA, de acordo como eles se referenciam.
-%Precisa pinças todos os acrônimos espalhados pelo texto, eliminar o nome por extenso e colocar nesta tabela. Atenção para o ajuste fino da frase quando fizer esta mudança. 
-. Esta mantém um banco de dados com parâmetros 
-meteorológicos do mundo inteiro, enviados por estações meteorológicas 
-cadastradas.
-
-A figura \ref{fg:rosaCompleta}, 
-mostra a distribuição de frequência da direção dos ventos bem, como a 
-intensidade. Verifica-se que a direção predominante de origem dos ventos de superfície
-é de sudoeste. 
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/windRoseNoaaHarvard.pdf}
-  \caption{Rosa do ventos entre
-           Setembro de 2006 e Junho de 2008. Utilizou-se dados 
-           do \textbf{Kotoka International Airport} de Acra 
-           \label{fg:rosaCompleta}}
-\end{figure}%
-%veja que você não está considerando ciclos anuais completos, ou seja, de junho a junho, setembro a setembro. Isso pode introduzir vícios na avaliação do vento local em termos sazonais. Precisamos refletir um pouco como tratar isso. 
-
-No gráfico da figura \ref{fg:rosaCompleta}%
-%precisa de legenda. É necessário explicitar se o período do ano é o mesmo
- a observação horária da direção e 
-intensidade dos ventos, identifica-se um forte componente regional para o vento local, associável à brisa marinha, com ventos de sul (do oceano) quando o sol encontra-se alto,%
-
-%sol a pino significa sol no zênit, o que ocorre duas vezes ao ano naquela região e uma vez ao ano em SP.
-%Precisa colocar um mapa, ou referir-se ao mapa colocado em outro lugar da tese, para que o leitor possa ver que ao sul fica o oceano
- mas deslocando-se à oeste na medida que as horas avançam (deslocamento à direita do sentido do movimento - ação típica do efeito de Coriolis no hemisfério Norte). 
-
-No gráfico de rosa dos ventos mensal \ref{fig:windRose_mensal}
- nota-se 
-perceptível diferença entre os dois períodos climáticos, 
-pois no Verão temos maior quantidade de radiação solar, fortalecendo a 
-formação de brisa marinha e, consequentemente, havendo maior tempo para a velocidade do vento intensificar-se e para processar-se um deslocamento para oeste.
-
-Na maior parte do verão Ganha localiza-se no hemisfério sul em termos de padrão global 
-de circulação. Neste período as intensidades de vento são maiores e são menores as 
-frequências de calmarias. No período do inverno Ghana posiciona-se no hemisfério
- norte em termos da circulação global. 
-Observa-se com isso maior incidência de vento norte (observe-se particularmente o mês 
-de janeiro), com velocidades médias do vento um pouco menores e maior percentual de 
-calmaria. É nesta época que Gana e o Saara situam-se no mesmo sistema de circulação 
-global, ocorrendo o Harmatão. 
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{../outputs/windRose_horaria.pdf}
-  \caption{ \citep{carslaw2012} \label{fig:windRose_horaria}}%
-  %precisa colocar legenda e período a que se refere
-\end{figure}
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=1\textwidth]{../outputs/windRose_mensal.pdf}
-  \caption{ \citep{carslaw2012} \label{fig:windRose_mensal}}
-\end{figure}
-
-Nos meses de ocorrência do Harmatão (inverno), há um pequeno aumento da frequência de ventos de nordeste ao nível do solo (direção do Saara). Mas a maior parte do particulado que este vento transporta passa por Gana 
-em altitudes superiores \citep{breuning2005}, interferindo pouco no predomínio da brisa marinha na circulação local.%
-%
-%Aqui termina o trecho sobre meteorologia que deve ir para a discussão sobre modelos receptores. 
-Esse elementos representam atividades de indústrias locais. 
-
-
-
-%
-%
-%%Zheng: 
-%%Possíveis fontes: ressuspensão da 
-%%biomassa: K,Cl,S
-%
-%%massa,Al,Si,K,Ca,Fe
-%%K e cl se relacionam
-%%K e S no período não harmathan 
-%%Na e Cl se descorrelacionam no harmathan
-%%Br, Zn, Pb no não harmathan (gasolina-Br e Pb) Pneu:Zn
