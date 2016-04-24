@@ -1,7 +1,7 @@
 #rm(list=ls())
 source("myfunctions/load.R")
 
-system('sh ../../codes/shellscript/sed_pmf.sh')
+system('sh ../../codes/shellscript/pmf.sh')
 
 # cores
 poeira = "#EECFA1"
@@ -80,3 +80,10 @@ pmf_profiles_latex('../../outputs/pmf/4factors/','RGcH',4)
 pmf_profiles_latex('../../outputs/pmf/4factors/','TFcH',4)
 pmf_profiles_latex('../../outputs/pmf/4factors/','TGcH',4)
 
+# Harmatão 
+RIeH_cores = c(lixo_solido,biomassa,mar,poeira)
+TIeH_cores = c(mar,poeira,biomassa,lixo_solido)
+pmf_contributions_latex('../../outputs/pmf/4factors/','TIeH',rainbow(4),nfactors=4)
+pmf_contributions_latex('../../outputs/pmf/4factors/','RIeH',rainbow(4),nfactors=4)
+pmf_profiles_latex('../../outputs/pmf/4factors/','TIeH',4)
+pmf_profiles_latex('../../outputs/pmf/4factors/','RIeH',4)

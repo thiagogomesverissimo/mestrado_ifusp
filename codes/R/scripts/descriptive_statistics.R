@@ -21,7 +21,8 @@ descriptive2latex(path,'TFsH')
 descriptive2latex(path,'TGsH')
 descriptive2latex(path,'TIsH')
 
-
+descriptive2latex(path,'RIeH')
+descriptive2latex(path,'TIeH')
 
 #### 
 #Cria um data.frame com a porcentagem dos elementos na Massa total

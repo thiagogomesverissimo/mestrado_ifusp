@@ -11,6 +11,9 @@ conditions<-c(residencial,traffic)
 # Inclui tabelas sem os meses do Harmathan
 conditions = c(conditions,gsub('c','s',conditions))
 
+# Inclui Harmatão only
+conditions <- c(conditions,'RIeH','TIeH')
+
 conditions_mass = list()
 conditions_unc = list()
 

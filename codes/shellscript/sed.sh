@@ -73,7 +73,6 @@ sed -i s/efetiva/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE
 sed -i s/ajuste/'Ajuste ($ \\mu g \/ cm^2$)'/g $FILE
 sed -i s/'llllll'/'cccccc'/g $FILE
 
-
 ####  
 FILES=$(ls ../../outputs | grep beautifulFAdisplay_)
 for i in $FILES; do
@@ -84,3 +83,9 @@ for i in $FILES; do
  sed -i s/'especie'/'Espécie'/g $FILE
 done
 
+####
+FILES=$(ls ../../outputs | grep _contribution | grep tex)
+for i in $FILES; do
+ FILE='../../outputs/'$i
+ sed -i s/'\.'/','/g $FILE
+done

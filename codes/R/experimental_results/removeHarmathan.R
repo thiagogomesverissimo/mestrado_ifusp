@@ -30,7 +30,9 @@ for(i in lista){
 ### Critérios: 
 # 1) definir que o harmatão ocorre somente nos meses de: Nov,Dez, Jan, Fev 
 harmathan<-c('November','December','January','February')
-# 2) definir que o harmatão os dias que ocorre concetração do Si > 10000 ng/m3
+
+# 2) definir que o harmatão os dias que ocorre concetração do Si  > 10000 ng/m3
+# (Aboh et al, 2010) não diz se este limite é para MP10 ou MP2.5, vou usar em ambos. 
 limiteSi = 10.0
 
 RIsH <- RIcH[ !(months(RIcH$Date) %in% harmathan) & RIcH$Si < limiteSi, ]
@@ -42,6 +44,9 @@ TFsH <- TFcH[ !(months(TFcH$Date) %in% harmathan) & TFcH$Si < limiteSi, ]
 RGsH <- RGcH[ !(months(RGcH$Date) %in% harmathan) & RGcH$Si < limiteSi, ]
 TGsH <- TGcH[ !(months(TGcH$Date) %in% harmathan) & TGcH$Si < limiteSi, ]
 
+RIeH <- RIcH[ (months(RIcH$Date) %in% harmathan) & RIcH$Si > limiteSi, ]
+TIeH <- TIcH[ (months(TIcH$Date) %in% harmathan) & TIcH$Si > limiteSi, ]
+
 # Exclusão dos meses do Harmathan nas incertezas
 RIsHunc = RIcHunc[rownames(RIsH),]
 TIsHunc = TIcHunc[rownames(TIsH),]
@@ -52,8 +57,12 @@ TFsHunc = TFcHunc[rownames(TFsH),]
 RGsHunc = RGcHunc[rownames(RGsH),]  
 TGsHunc = TGcHunc[rownames(TGsH),]
 
+RIeHunc = RIcHunc[rownames(RIeH),]
+TIeHunc = TIcHunc[rownames(TIeH),]
+
 # Salvando csv's com novas siglas
-conditions<-gsub('c','s',conditions)
+conditions <- gsub('c','s',conditions)
+conditions <- c(conditions,'RIeH','TIeH')
 for (i in conditions){
   code=paste("write.csv(",i,",'../../outputs/concentrations/",i,".csv',","row.names=FALSE)",sep="")
   code_unc=paste("write.csv(",i,"unc",",'../../outputs/concentrations/",i,"unc.csv',","row.names=FALSE)",sep="")

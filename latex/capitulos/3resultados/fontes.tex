@@ -115,8 +115,9 @@ multivariadas é um processo complexo, e no caso de Gana, mais ainda,
 pois há mistura fonte global, poeira do deserto do Saara trazido 
 pelo Harmatão e as fontes antropogênicas locais.
 
-No Harmatão praticamente dobra a quantidade de 
-material particulado total coletado na amostragem, isso é inclusive refletido na 
+No Harmatão praticamente dobra a quantidade de material particulado inalável 
+\red{table:RIeH_descriptive}. 
+ isso é inclusive refletido na 
 legislação ambiental de Gana que tem limites mais permissivos durante esse 
 período. 
 
@@ -144,6 +145,60 @@ ocorrência do Harmatão como os que tem concentrações de Silício maiores que
 
 Resultados da Análise de Fatores e PMF para as tabelas de concentrações 
 completas (com Harmatão) podem ser consultadas no apêndice II. 
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/descriptive_RIeH}
+  \caption{Estatística descritiva das concentrações de $MP_{10}$ na área 
+           residencial somente nos dias de ocorrência de vento Harmatão
+          \label{table:RIeH_descriptive}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/descriptive_TIeH}
+  \caption{Estatística descritiva das concentrações de $MP_{10}$ na área 
+           residencial somente nos dias de ocorrência de vento Harmatão
+           \label{table:TIeH_descriptive}}
+\end{table}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/RIeH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{10}$ na área
+               residencial somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 54.
+               \label{fig:RIeH_contribution4}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/RIeH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores para $MP_{10}$na área residencial,
+                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 54. 
+                \label{table:RIeH_profiles4}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/TIeH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{10}$ na avenida
+               somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 59.
+               \label{fig:TIeH_contribution4}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/TIeH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores na avenida $MP_{10}$ 
+                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 59. 
+                \label{table:TIeH_profiles4}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
 
 %%%%
 \subsection{Material Particulado Fino ($MP_{2,5}$)}
@@ -281,7 +336,8 @@ maior movimentação de veículos na avenida.
 
 Para melhorar o apuramento de fontes de $MP_{2,5}$ apresenta-se também os
 resultados das análises de PMF. Diversas parametrizações foram testadas no PMF 
-e as soluções estáveis com fatores de significados físicos foram retidas.
+e as soluções estáveis com fatores de significados físicos foram retidas. 
+Foi adicionado 8\% da concentração na incerteza devido a amostragem paralela. 
 
 A tabela \ref{table:RFsH_profiles5} apresenta o perfil dos fatores para a área
 residencial de $MP_{2,5}$ e o gráfico da figura \ref{fig:RFsH_contribution5}

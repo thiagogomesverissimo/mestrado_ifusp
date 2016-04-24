@@ -190,11 +190,6 @@ beautifulFAdisplay <- function(sigla,nfactors){
   data[,-1] = apply(data[,-1],2,as.numeric)
   data[,-1] = round(data[,-1],2)
   #data[,-1] = format(data[,-1],digits=1,nsmall=2)
-  
-  # coloca em vermelho, com erro
-  #x = data[,seq(2,n+1)]
-  #x[x>0.7] = paste('\\textcolor{red}{\\textbf{',x[x>=0.7],'}}',sep='')
-  #data[,seq(2,n+1)] = x
 
   data[nrow(data),ncol(data)] = paste('total =',data[nrow(data),ncol(data)],'\\%')
   
