@@ -35,6 +35,12 @@ pdf(file='../../outputs/windRose_daylight.pdf')
   windRose(noaa_harvard, statistic=my.statistic, angle=22.5, type="daylight")
 dev.off()
 
+## rosa dos ventos em 2007
+data2007 = subset(noaa_harvard, year(noaa_harvard$date) ==2007)
+pdf(file='../../outputs/windRose2007.pdf')
+windRose(data2007, statistic=my.statistic, angle=22.5)
+dev.off()
+
 pdf(file='../../outputs/windRose_horaria.pdf')
 par(mar=c(5,3,2,2)+0.1)
 windRose(noaa_harvard, 

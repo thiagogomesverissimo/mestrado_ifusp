@@ -3,7 +3,8 @@
 
 No artigo publicado em 2013 intitulado
 \textit{Chemical composition and sources of particle pollution in affluent and
-poor neighborhoods of Accra, Ghana} \citep{zhou2013} realizou-se levantamento de 
+poor neighborhoods of Accra, Ghana} \citep{zhou2013} e \citep{zhou2014} 
+realizou-se levantamento de 
 fontes usando PMF com todas as 2898 amostras coletadas no XX sítios de 
 amostragem. As fonte encotradas com seus repectivos elementos foram: 
 queima de lixo sólido (Br, Pb), poeira de solo e veículo (Al, Si, Ca, Fe, Zn, 
@@ -28,233 +29,262 @@ Identificação de possíveis fontes poluídoras locais de Acra estão na figura
   \caption{Levantamento de algumas fontes poluídora de Accra \label{fg:acrasources}}
 \end{figure}
 
-A discriminação de fontes é complexa pois há uma mistura de elementos do 
-deserto do Saara trazido pelo Harmatão com fontes antropogênicas locais.
+%%%%
+\subsection{Harmatão}
 
-O alto número de amostras coletadas possibilitou a exclusão dos dias de 
+A discriminação e identificação de fontes por análises estatísticas 
+multivariadas é um processo complexo, e no caso de Gana, mais ainda, 
+pois há mistura fonte global, poeira do deserto do Saara trazido 
+pelo Harmatão e as fontes antropogênicas locais.
+
+No Harmatão praticamente dobra a quantidade de 
+material particulado total coletado na amostragem, isso é inclusive refletido na 
+legislação ambiental de Gana que tem limites mais permissivos durante esse 
+período. 
+
+Estudos como \citet{aboh2009}, \citet{ofosu2013}, \citet{ofosu2012} sugerem que
+quando possível, isto é, com número de amostras suficientementes grande, excluir
+dias do Harmatão nas análises estatísticas multivariadas, pois quando 
+presentes, o Fator representante do Harmatão ofusca as fatores das fontes
+locais.
+
+O alto número de amostras coletadas neste experimento 
+possibilitou a exclusão dos dias de 
 ocorrência do Harmatão nas tabelas de concentrações sem comprometer as análises
-multivariadas, pois a alta concentração do elementos componentes da poeira 
-do Harmatão dificulta a identificação de fontes locais.
+multivariadas
 
-Nem todos os dias nos meses de ocorrência do Harmatão (Novembro-Março) 
-ocorrem altas concentrações, assim, se usássemos como critério de exclusão para 
-influência do Harmatão todas amostras entre Novembro e Março, poderíamos
-perder informações de fontes locais nos dias em que a poeira do Harmatão fosse
-tão intensa. 
+O critério de exclusão não é simples, pois a poeira do Harmatão não é contínua 
+e portanto não são todos os dias entre novembro e março que ocorre o Harmatão, 
+assim, usando esse critério corre-se o risco de perde informações da fontes
+locais durante esse período. 
+Também não é possivel classificar os dias como Harmatão usando a velocidade do 
+vento, já que o fenômeno ocorre em altas altitudes. 
 
 Uso-se o critério sugerido por \citet{aboh2009}, que considera os dias de 
-ocorrência do Harmatão como os que tem concentrações de silício maiores que 
+ocorrência do Harmatão como os que tem concentrações de Silício maiores que 
 10 $\mu g/m^3$ e estão entre Novembro e Março.
+
+Resultados da Análise de Fatores e PMF para as tabelas de concentrações 
+completas (com Harmatão) podem ser consultadas no apêndice II. 
 
 %%%%
 \subsection{Material Particulado Fino ($MP_{2,5}$)}
 
-Os \textbf{loadings} encontrados para \textbf{Análise de Fatores} de $MP_{2,5}$
-na área residencial estão na tabela %\ref{table:beautifulFAdisplay_RFcH5}. 
-Nota-se que o primeiro fator sozinho explica 58 \% da variância e quase todos 
-elementos tem \textbf{loadings} altos nesse fator. 
+Os \textit{loadings} encontrados para Análise de Fatores de $MP_{2,5}$
+na área residencial estão na tabela \ref{table:AF_RFsH5}, onde 83,58 \% 
+da variância total dos dados foi explicada com 5 fatores retidos 
+(o ideal é que se explique ao menos 80 \%) para uma base de dados de 123 amotras. 
+O mesmo resultado, mas incluindo os dias de Harmatão, elevando para 197 amostras, 
+disponível no apêndice II, tabela \ref{table:AF_RFcH5}, 90,8 \% da variância
+foi explicada, mas há praticamente um fator predominante 
+englobando a maioria dos elementos e explicando sozinho mais que 57,9 \% da 
+variância total.
 
-\begin{table}[H]
-  \centering
-  \input{../outputs/beautifulFAdisplay_RFcH5.tex}
-  \caption{}
-\end{table}
+Na tabela \ref{table:AF_RFsH5}, apesar do primeiro fator continuar prepoderante,
+ao menos os elementos estão melhor distribuídos entre os demais fatores.  
 
-Os perfis de fontes da análise \textbf{PMF} para a mesma base de dados é 
-apresentado na tabela \ref{table:RFcH_profiles5} e a contribuição na massa
-de cada fator é apresentada no gráfico da figura \ref{table:RFcH_contribution5}.
-Assim como na \textbf{Análise de Fatores}, há um fator se destacando de todos
-outros, pois sozinho contribuiu para 51,84\% da massa e carrega em seu perfil
-quase todos elementos. O fator que está ofuscando os demais fatores
-tanto no \textbf{PMF} quanto na \textbf{Análise de Fatores} está relacionado
-a poeira do Harmatão.
- 
-Assim, para melhor identificar as fontes locais, daqui em diante basearemos 
-nossa investigação de fontes excluindo-se os dias de ocorrência de ventos do 
-Harmatão, como proposto por \cite{aboh2009}. Entretanto, análise \textbf{PMF} e 
-\textbf{Análise de Fatores} para as tabelas de concentrações completas podem
-ser consultadas no apêndice II. 
-
-\begin{landscape}
-  \begin{figure}
-    \centering
-    \begin{minipage}[b]{0.45\linewidth}
-      \includegraphics[width=\textwidth]{../outputs/RFcH_pmf_contribution_pizza5.pdf}
-      \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
-               residencial. 5 fatores extraídos.
-               \label{table:RFcH_contribution5}}
-    \end{minipage}%\hfill
-    \hspace{0.5cm}
-    \begin{minipage}[b]{0.45\linewidth}
-      \input{../outputs/RFcH_profiles_percent_species5.tex}
-      \captionof{table}{Perfis do fatores na área residencial $MP_{2,5}$ 
-                (seed=123, n= 197). 
-                \label{table:RFcH_profiles5}}
-    \end{minipage}
-  \end{figure}
-\end{landscape}
-
-
-Refazendo-se a \textbf{Análise de Fatores} de $MP_{2,5}$ na área residencial, 
-porém excluindo-se os dias de Harmatão (número de amostra cai de 197 para 123), 
-obtém-se os \textbf{loadings} da tabela \ref{table:beautifulFAdisplay_RFsH6}. 
-
-\begin{table}[H]
-  \input{../outputs/beautifulFAdisplay_RFsH6.tex}
-  \caption{Análise de Fatores para $MP_{2,5}$ na região residencial
-           excluindo-se dias de ocorrência do Harmatão.
-           Rotação varimax - 5 fatores retidos (n=123).
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)
-           \label{table:beautifulFAdisplay_RFsH5}}
-\end{table}
-
-Apesar do fator com elementos de poeira continuar prepoderante, agora, os 
-elementos estão melhor distribuídos entre os demais fatores.  
-
-A \textbf{Análise de Fatores} para $MP_{2,5}$ na área residencial explicou 
-$84,0\%$ da variância total dos dados com 5 fatores retidos.
 A comunalidade, variável que indica o quão o ajuste explicou a variabilidade por 
 espécie, foi maior que $0,7$ para a maioria dos elementos,
 com exceção do bromo (Br) e zinco (Zn) que tiveram comunalidade de $0,59$ e 
 $0,44$, respectivamente.
 
-O fator predominante, isto é, que explica sozinho a maior parte da variância, 
-tem autovalor $7,88$ ou $44,0\%$ da variância total.
-Os elementos com maiores \textbf{loadings} neste fator são essencialmente 
-metais (Al, Si, Ti, V, Fe, Mn, Ca, Mg) e massa (\textbf{mass}).
-São oriundos de re-suspensão de poeira do solo e com exceção do Vanádio,
-são comumente encontrados em diversos tipos de solos, como os disponíveis no 
-banco de dados \textbf{SPECIATE} da \textbf{EPA-US} \citep{simon2010}.
-%ruas não pavimentadas
-Neste fator, aparece secundariamente fósforo (P) e potássio (K), indicando 
-possível sobreposição de fontes ou solo contaminado. 
+No fator predominante, isto é, que explica sozinho a maior parte da variância 
+43,78\%, tem altos \textit{loadings} para os metais (Al, Si, Ti, V, Fe, Mn, Ca, 
+Mg) e massa. São oriundos de re-suspensão de poeira do solo e com exceção do 
+Vanádio, são comumente encontrados em diversos tipos de solos, 
+como os disponíveis no banco de dados SPECIATE da EPA-US \citep{simon2010}.
+Ainda no primeiro fator, aparece secundariamente fósforo (P) e potássio (K), 
+indicando possível sobreposição de fontes ou solo contaminado. 
+Fósforo (P) e potássio (K), segundo SPECIATE, podem ser indicadores de 
+fertilizantes. Gana não produz nenhum tipo de feritizantes, mas importa para 
+uso em fazenda locais \citep{fianko2011}. 
 Vanádio, normalmente associado a queima de óleos pesados como o diesel, ao 
 aparecer na fonte solo, indica sobreposição de fontes com temporalidade próximas.
-\cite{aboh2009} também encontrou Vanádio no fator de poeira solo.
-As partículas que compõem poeira de solo estão em sua maioria na moda grossa 
-($MP_{2,5-10}$) do material particulado, pois são geradas por processo mecânico,
-entretanto, tamanha a quantidade de poeira em Acra que mesmo no $MP_{2,5}$ o 
-principal fator encontrado representa solo.  
+\citet{aboh2009} também encontrou Vanádio no fator de poeira solo.
 
-%TODO: é fertilizante? Gana não produz, mas importa bastante.
-%http://www.iaees.org/publications/journals/piaees/articles/2012-2%281%29/quality-control-analysis-of-imported-fertilizers.pdf
-%https://ifdcorg.files.wordpress.com/2015/04/ghana-fertilizer-assessment.pdf
-%http://file.scirp.org/pdf/JEP20110300013_26705603.pdf
-O segundo fator predominante, de autovalor $2,22$, contém alto \textbf{loadings}
-de fósforo (P), potássio (K) e enxofre (S). 
-vegetação / fertilizante?
+As partículas que compõem poeira de solo estão em sua maioria na fração
+grossa do Material Particulado ($MP_{2,5-10}$), pois são geradas por processo 
+mecânico. Assim, é notável que mesmo no $MP_{2,5}$ é o principal fator, 
+provavelmente explicável pelo grande número de ruas não pavimentadas em Acra. 
 
-O terceiro fator retido, de autovalor $2,02$, é composto por Black Carbon (BC), 
-chumbo (P), zinco (Zn), potássio (K) e massa.
-\cite{aboh2009} encontrou o mesmo fator em Kwabenya e o considerou como fonte
-veicular, pois $BC$ e $Zn$ estão associados a veículos, devido a combustão 
+O segundo fator predominante explica 12,36 \% da variância total. 
+Agrupa basicamente fósforo (P), potássio (K) e enxofre (S) e está relacionado
+vegetação local, manipulação da terra e uso fertizantes. 
+\citet{reid2005} aponta que o aparecimento de K,P,S e BC indicam queima de
+biomassa, entretanto, o \textit{loading} do BC neste fator foi zero, o que nos
+impede de supor que este fator esteja relacionado a queima de biomassa. 
+
+O terceiro fator retido representa fonte veicular e explica 11,24\% da variância
+total. É composto por Black Carbon (BC), chumbo (P), zinco (Zn), potássio (K) e 
+massa. \citet{aboh2009} encontrou o mesmo fator em Kwabenya, 12km noroeste de 
+Nima. BC e Zn estão associados a veículos, devido a combustão 
 incompleta e desgaste das pastilhas de freio e dos pneus dos automóveis, 
-respectivamente.
-
-O chumbo (Pb) foi banido da gasolina em Gana em 2003 devido a acordo 
-internacional \citep{epa2015}.  
+respectivamente. O chumbo (Pb) foi banido da gasolina em Gana em 2003 devido 
+a acordo internacional \citep{epa2015}.  
 Na tabela \ref{table:RFcH_descriptive} a concentração média de $Pb$ 
-foi $18,6 \pm 0,8 n g /m^3$, próxima de valores típicos de São Paulo 
+foi $18,6 \pm 0,8 n g /m^3$, próximo de valores típicos encontrados em São Paulo 
 $16 \pm 13 n g /m^3$ \citep{andrade2012}.
 
-Entretanto, Acra tem um dos maiores lixões de eletrônicos (\textbf{e-waste}) 
-do mundo, recebendo grande parte dos equipamentos descartados como lixo na 
-Europa e que são derretidos para obtenção do cobre (Cu) em \textbf{Agbogbloshie},
-bairro de Acra a 4 kilometros sudoeste de Nima.  
-
-Altas concentrações de Al, Co, Cu, Zn, Cd, In, Sb, Ba, e Pb foram encontradas
-no solo do \textbf{e-waste} de \textbf{Agbogbloshie} \citep{asante2012}. 
-O zinco (Zn) é o principal composto de baterias de eletrônicos. 
-
-O vento predominante em Nima é de sudoeste e portanto pode carregar material 
-de \textbf{Agbogbloshie} para Nima, distante apenas 4 kilômetros. 
-Assim, é possível que no fator 3 esteja representada duas fontes, a veicular e 
-e queima de lixo eletrônico, pois as duas emitem grande quantidade de partículas
-na atmosfera do mesmo tipo. 
-
-O quarto fator predominante, de autovalor $1,59$, com Sódio (Na) e Cloro (Cl)
-representa indubitavelmente a fonte mar. 
+O quarto fator explica 8,81\% da variância, com Sódio (Na), Cloro (Cl) e
+secundariamente enxofre (S) representa indubitavelmente a fonte mar. 
 Partículas de Sódio (Na) e Cloro (Cl) geradas no mar estão mais concentradas 
-na moda grossa, mas pela proximidade do ponto de amostragem com mar, obteu-se
-concentrações suficientes que permitiram a geração de um fator. 
+na moda grossa ($MP_{2,5-10}$), mas pela proximidade do ponto de amostragem 
+com mar, obteu-se concentrações suficientes que permitiram a geração de um fator. 
 Em pouco tempo de residência na atmosfera, o Cloro do sal marinho envelhecido 
 é substituído por $SO_4^{2-}$ como resultado da reação com ácido sulfúrico e 
-ácido nítrico \citep{mcinnes1994}, o que explica o \textbf{loading} $0,29$ 
-neste fator.
+ácido nítrico \citep{mcinnes1994}, o que explica a projeção do enxofre neste
+fator (\textit{loading} de $0,29$).
 
-O quinto e último fator predominante retido teve autovalor $1,33$. 
-Os elementos com altos \textbf{loadings} foram Vanádio, Sódio, Bromo e Chumbo.
-Esse elementos representam atividades de indústrias locais. 
+O quinto e último fator retido explicou 7,40 \% da variância e agrupou
+Bromo e Chumbo e representa queima de lixo sólido e outros materiais a céu 
+aberto. 
+
+Acra comporta um dos maiores lixões de eletrônicos (\textit{e-waste}) 
+do mundo, recebendo grande parte dos equipamentos descartados como lixo na 
+Europa e que são derretidos para obtenção do cobre (Cu) em Agbogbloshie, 
+4 kilometros sudoeste de Nima.  
+
+O zinco (Zn) é o principal composto de baterias de eletrônicos e altas 
+concentrações de Al, Co, Cu, Zn, Cd, In, Sb, Ba, e Pb foram encontradas
+no solo do \textit{e-waste} de Agbogbloshie por \citet{asante2012}. 
+
+Como pode ser observado na rosa dos ventos para o ano de 2007 
+da figura \ref{fg:rosa2007} o vento predominante em Nima é de sudoeste, 
+e portanto pode carregar material de Agbogbloshie para Nima. 
+Assim, é possível que no fator 5, além da queima de lixo sólido local, 
+também esteja representada pequena porção de contaminação do 
+\textit{e-waste} de Agbogbloshie.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{../outputs/scores_RFsH5.pdf}
-  \caption{RGsH factor scores}
-\end{figure}
+  \includegraphics[width=0.5\textwidth]{../outputs/windRose2007.pdf}
+  \caption{Rosa do ventos para dados horários de 2007 do 
+           Kotoka International Airport em Acra 
+           \label{fg:rosa2007}}
+\end{figure}%
 
-Na avenida, o resultado da \textbf{Análise de Fatores} de $MP_{2,5}$ está na 
-tabela \ref{table:beautifulFAdisplay_TFsH5}. Os 4 primeiros fatores principais extraídos 
-foram essencialmente os mesmos que na área residencial, apenas com mudanças nos 
-\textbf{loadings} de alguns elementos. O último fator, entretanto, de autovalor
-$1,29$, possui altos \textbf{loadings} de BC e K e representam a queima de 
-biomassa \citep{reid2005}. Na avenida há intensas atividades comerciais, 
-os estabelecimentos queimam biomassa para preparação de alimentos.   
+%TODO: avaliar se usaremos o factor score para alguma coisa. 
+%\newpage
+%\begin{figure}[H]
+%  \centering
+%  \includegraphics[width=\textwidth]{../outputs/scores_RFsH5.pdf}
+%  \caption{RGsH factor scores}
+%\end{figure}
+
+Na avenida, os resultados da Análise de Fatores de $MP_{2,5}$ estão na 
+tabela \ref{table:AF_TFsH5}. Os fatores principais extraídos 
+foram essencialmente os mesmos que na área residencial, apenas com mudanças nas
+distribuições dos \textit{loadings} de alguns elementos, mas que não alteram 
+as indicações de fontes já discutidas. Há um leve aumento do \textit{loading} 
+do BC de 0,81 para 0,94 no fator de veículos, possivelmente relacionado a
+maior movimentação de veículos na avenida.
+
+\newpage
+\begin{table}[H]
+  \centering
+  \input{../outputs/beautifulFAdisplay_RFsH5.tex}
+  \caption{Análise de Fatores na área residencial para $MP_{2,5}$
+           excluindo dias de ocorrência de vento Harmatão. n = 123.
+          \label{table:AF_RFsH5}}
+\end{table}
 
 \begin{table}[H]
+  \centering
   \input{../outputs/beautifulFAdisplay_TFsH5.tex}
-  \caption{Análise de Fatores para $MP_{2,5}$ na avenida
-           excluindo-se dias de ocorrência do Harmatão.
-           Rotação varimax - 5 fatores retidos (n=123).
-           (\textcolor{red}{h} : Comunalidade; 
-           \textcolor{red}{S=1-h} : Singularidade; 
-           \textcolor{red}{C} : Complexidade.)
-           \label{table:beautifulFAdisplay_TFsH5}}
+  \caption{Análise de Fatores na avenida para $MP_{2,5}$
+           excluindo dias de ocorrência de vento Harmatão. n = 122.
+          \label{table:AF_TFsH5}}
 \end{table}
+\newpage
 
+Para melhorar o apuramento de fontes de $MP_{2,5}$ apresenta-se também os
+resultados das análises de PMF. Diversas parametrizações foram testadas no PMF 
+e as soluções estáveis com fatores de significados físicos foram retidas.
 
-Diversas parametrizações foram testadas no \textbf{PMF} e as soluções estáveis 
-com fatores de significados físicos foram escolhida. 
 A tabela \ref{table:RFsH_profiles5} apresenta o perfil dos fatores para a área
-residencial e $MP_{2,5}$. 
-fator1: veiculos
-fator2: lixo solido
-fator3: solo
-fator4: mar
-fator5: vegetação.
+residencial de $MP_{2,5}$ e o gráfico da figura \ref{fig:RFsH_contribution5}
+as respectivas contribuições do fatores na massa total. 
 
-\begin{table}[H]
-  \centering
-    \input{../outputs/RFsH_profiles_percent_species5.tex}
-    \caption{residencial $MP_{2,5}$ removendo-se os dias do Harmatão 
-              seed=123; n= 123. 
-             \label{table:RFsH_profiles5}}
-\end{table}
+Assim como na Análise de Fatores, quando inclusos dias do Harmatão, 
+o fator com elementos de poeira de solo se destaca de todos outros, 
+pois sozinho contribuiu para 55,05\% da massa 
+e carrega em seu perfil quase todos elementos, como pode ser observado 
+no apendice I tabela \ref{table:RFcH_profiles5} e gráfico 
+\ref{fig:RFcH_contribution5}.
 
-A tabela \ref{table:TFsH_profiles5} apresenta o perfil dos fatores para a avanida
-e $MP_{2,5}$.
+Removendo-se o Harmatão o Fator 1 de perfil composto Black Carbon (BC), 
+chumbo (P), zinco (Zn), potássio (K), $MP_{2,5}$, vanádio (V) e manganês (Mn).
+Assim como na Análise de Fatores, representa fonte veicular, porém é que 
+contribui mais para massa total 39,98 $\pm$1,93. É o fator de maior peso, 
+o que é mais coerente do que se espera em $MP_{2,5}$, que o fator mais 
+significativo seja de fontes de processos de combustão, que geram partículas
+finas, e não solo, como encotrado na Análise de Fatores.
 
-\begin{table}[H]
-  \centering
-    \input{../outputs/TFsH_profiles_percent_species5.tex}
-    \caption{residencial $MP_{2,5}$ removendo-se os dias do Harmatão 
-              seed=123; n= 123. 
-             \label{table:TFsH_profiles5}}
-\end{table}
+O fator 2 com 73\% da massa de bromo, 15,1\% de Pb e 15,1\% Zn representa 
+queima de lixo sólido e outros materiais a céu aberto, não tendo contribuição
+muito expressiva na massa total 4,65 $\pm$ 0,43 \%.
 
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/RFsH_pmf_contribution_pizza5.pdf}
-    \caption{Residencial}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/TFsH_pmf_contribution_pizza5.pdf}
-    \caption{Avenida}
-  \end{subfigure}
-  \caption{Contribuição $MP_{2,5}$ \label{a:kkk}}
-\end{figure}
+O fator 3 é o segundo que mais contribui para massa (22,18 $\pm$ 2,84 \%) 
+e agrega os elementos identificados como poeira de solo Al, Si, Ti, V, Fe, Mn, 
+Ca, Mg. Também aparece secundariamente fósforo (P), possível identificador de
+fertilizantes. Enquanto que na Análise de Fatores o vanádio aparecia
+quase que exclusivamente no fator poeira de solo no PMF sua massa está dividida
+entre veículos (31,0\%) e solo (34,4\%), o que mostra que a distribuição
+feita pelo PMF no caso do vanádio faz mais sentido com a realidade, já que
+é normal encontrar vanánio em veículos movido a óleo pesado.
+
+Contribuindo com 11,64 $\pm$ 0,89 \% da massa, o fator 4, composto por Na, Cl e
+16,7 \% da massa do enxofre (S) corresponde a fonte marinha. 
+
+O fator 5, mas o terceiro em contribuição na massa 21,55 $\pm$ 1,66), depois
+de veículo e poeira de solo, além do fósforo (P), potássio (K) e enxofre (S) 
+encontrados no fator vegetação da Análise de Fatores, possui expressiva 
+participação 
+
+
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/RFsH_pmf_contribution_pizza5.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
+               residencial excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 123.
+               \label{fig:RFsH_contribution5}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/RFsH_profiles_percent_species5.tex}
+      \captionof{table}{Perfis do fatores na área residencial $MP_{2,5}$ 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 122. 
+                \label{table:RFsH_profiles5}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/TFsH_pmf_contribution_pizza5.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na avenida
+               excluindo dias de ocorrência de vento Harmatão. seed = 123 n = 123.
+               \label{fig:TFsH_contribution5}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/TFsH_profiles_percent_species5.tex}
+      \captionof{table}{Perfis do fatores avenida $MP_{2,5}$ 
+                 excluindo dias de ocorrência de vento Harmatão. seed=123 e n= 122. 
+                \label{table:TFsH_profiles5}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+ 
+
+
+
+
 
 %%%%
 \subsection{Material Particulado Grosso $MP_{2,5-10}$}
@@ -400,7 +430,7 @@ Nos meses de ocorrência do Harmatão (inverno), há um pequeno aumento da frequ
 em altitudes superiores \citep{breuning2005}, interferindo pouco no predomínio da brisa marinha na circulação local.%
 %
 %Aqui termina o trecho sobre meteorologia que deve ir para a discussão sobre modelos receptores. 
-
+Esse elementos representam atividades de indústrias locais. 
 
 
 

@@ -2,8 +2,10 @@ rm(list=ls())
 source("myfunctions/load.R")
 
 # Testes
-print(FactorAnalysis('RFsH',5)$loadings,cutoff=4e-1)
-file=read.csv('../../outputs/pmf_fa/RFsH.csv')
+print(FactorAnalysis('TFcH',5)$loadings,cutoff=4e-1)
+
+# Conta amostras
+file=read.csv('../../outputs/pmf_fa/RFcH.csv')
 nrow(file)
 
 ## Residencial Fino

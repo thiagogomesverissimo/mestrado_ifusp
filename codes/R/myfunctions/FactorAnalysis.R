@@ -154,7 +154,7 @@ beautifulFAdisplay <- function(sigla,nfactors){
   # lê comunalidade
   path_file = paste('../../outputs/comunalidade_',sigla,nfactors,'.csv',sep='')
   comunalidade <- read.csv(path_file)
-  colnames(comunalidade) = c('especie','comunalidade')
+  colnames(comunalidade) = c('especie','Comunalidade')
   
   # lê autovalores. 
   path_file = paste('../../outputs/autovalor_',sigla,nfactors,'.csv',sep='')

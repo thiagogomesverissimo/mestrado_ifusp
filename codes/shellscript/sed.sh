@@ -80,8 +80,7 @@ for i in $FILES; do
  FILE='../../outputs/'$i
  sed -i 's/^  explicada/\\hline explicada/g' $FILE
  sed -i s/'\.'/','/g $FILE
- #sed -i s/'rrlllll'/'ccccccc'/g $FILE
- #sed -i s/'mass'/'massa ($ \\mu g \/ m^3$)'/g $FILE
- #sed -i s/'BC'/'BC ($ \\mu g \/ m^3$)'/g $FILE
+ sed -i s/'explicada'/'Variância Explicada (\\%)'/g $FILE
+ sed -i s/'especie'/'Espécie'/g $FILE
 done
 
