@@ -1,6 +1,6 @@
-\documentclass[a4paper,12pt,twoside]{report}
-\include{geral/packages}
-  
+\documentclass[a4paper,12pt,twoside]{book} % ou report?
+
+\include{geral/packages}  
 \begin{document}
 
 \input{geral/inicio}
@@ -10,8 +10,7 @@
 \input{capitulos/4conclusao/principal}
 \input{capitulos/5apendice/principal}
 
-\bibliographystyle{apalike}
-%\bibliographystyle{chicago}
-\bibliography{bibliografia/mestrado,bibliografia/MyArticles}
+\bibliographystyle{apalike} % chicago ou abntex são boas opções
+\bibliography{bibliografia/mestrado,bibliografia/my_articles}
 
 \end{document}

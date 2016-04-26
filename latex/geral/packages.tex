@@ -1,6 +1,7 @@
 %%% Pacotes utilizados %%%
 
 % Modificado a partir de http://nelas.github.io/mestre-em-latex/
+% thanks guy!
 
 % Remove 'Capítulo N' no início de cada capítulo
 \usepackage{titlesec}
@@ -16,19 +17,24 @@
 % Uso de símbolo para graus celsius
 \usepackage{gensymb}
 
-% uso de citações tipo \citep, \citet
+% uso de citações tipo \citep, \citet etc
+% toda opções de citação: http://merkel.zoneo.net/Latex/natbib.php
 \usepackage{natbib}
 
+%
 \usepackage[font=small,skip=0pt]{caption}
 \captionsetup[figure]{font=small,skip=0pt}
 
+% figuras lado-a-lado com subfigure
 \usepackage{subcaption}
 
 % Inserção de figuras ao longo do texto
 \usepackage{graphicx} 
+
+% Inserção de figuras com texte envolto
 \usepackage{wrapfig}
 
-% Fixar as figuras exatamente onde elas foram definidas no códido
+% Fixar as figuras exatamente onde elas foram definidas no códido. Opção [H].
 \usepackage{float}
 
 % O latex por padrão nãp preenche a página inteira
@@ -38,7 +44,7 @@
 \usepackage{epigraph}
 
 % Codificação dos arquivos *.tex
-\usepackage[utf8]{inputenc}
+\usepackage[utf8x]{inputenc}
 
 % Suporte para português (hifenação e caracteres especiais)
 \usepackage[brazil,english,portuguese]{babel}
@@ -52,55 +58,48 @@
 % Usa a lmodern por padrão (caso cm-super não esteja instalada).
 \usepackage{lmodern}
 
-%% Microtipografia
-% Utiliza recursos como espaçamento entre letras e entre linhas
-\usepackage{microtype}
-
-% Habilita protrusão e expansão, ignorando compatibilidade
-\microtypesetup{activate={true,nocompatibility}}
-
-% factor=1100 aumenta a protrusão (default 1000)
-% stretch=10 diminui o valor máximo de expansão (default 20)
-% shrink=10 diminui o valor máximo de encolhimento (default 20)
-\microtypesetup{factor=1100, stretch=10, shrink=10}
-
-% Tracking, espaçamento entre palavras, kerning
-\microtypesetup{tracking=true, spacing=true, kerning=true}
-
-% Remover tracking para Small Caps
-\SetTracking{encoding={T1}, shape=sc}{0}
-
-% Remove ligaduras para o 'f'. Se necessário, adicionar letras
-% separadas por vírgulas
-\DisableLigatures[f]{encoding={T1}}
-
-% Documento em versão "final", suporte para outros idiomas
-\microtypesetup{final, babel}
-
 % Essencial para colocar funções e outros símbolos matemáticos
 \usepackage{amsmath,amssymb,amsfonts,textcomp}
 
-%% Layout
+% Microtipografia. Espaçamento entre letras e entre linhas
+\usepackage{microtype}
+ % Habilita protrusão e expansão, ignorando compatibilidade
+ \microtypesetup{activate={true,nocompatibility}}
+
+ % factor=1100 aumenta a protrusão (default 1000)
+ % stretch=10 diminui o valor máximo de expansão (default 20)
+ % shrink=10 diminui o valor máximo de encolhimento (default 20)
+ \microtypesetup{factor=1100, stretch=10, shrink=10}
+
+ % Tracking, espaçamento entre palavras, kerning
+ \microtypesetup{tracking=true, spacing=true, kerning=true}
+
+ % Remover tracking para Small Caps
+ \SetTracking{encoding={T1}, shape=sc}{0}
+
+ % Remove ligaduras para o 'f'. Se necessário, adicionar letras
+ % separadas por vírgulas
+ \DisableLigatures[f]{encoding={T1}}
+
+ % Documento em versão "final", suporte para outros idiomas
+ \microtypesetup{final, babel}
+
 % Margens espelhadas
 \usepackage[a4paper,twoside,margin=2cm,footskip=1cm]{geometry}
+ % Aumenta as margens internas para espiral
+ \geometry{bindingoffset=10pt}
 
-% Aumenta as margens internas para espiral
-\geometry{bindingoffset=10pt}
+ % Só pra ajustar o layout
+ \setlength{\marginparwidth}{90pt}
 
-% Só pra ajustar o layout
-\setlength{\marginparwidth}{90pt}
-
-% Para definir espaçamento entre as linhas
+% Espaçamento entre as linhas
 \usepackage{setspace}
-
-% Espaçamento
 \setstretch{1.5}
-
-% Espaçamento do texto para o frame
-\setlength{\fboxsep}{1em}
+ % Espaçamento do texto para o frame
+ %\setlength{\fboxsep}{1em}
 
 % Faz com que as margens tenham o mesmo tamanho horizontalmente
-%\geometry{hcentering}
+\geometry{hcentering}
 
 % Suporte a cores
 \usepackage{color}
@@ -180,6 +179,13 @@
 % Formatar as unidades com as distâncias corretas
 \usepackage[tight]{units}
 
+%
+\usepackage{url}
+
+% Numeração não deve aparecer na página de rosto: \thispagestyle{empty}
+\usepackage{layout}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Controlar os cabeçalhos e rodapés
 \usepackage{fancyhdr}
 %\setlength{\headsep}{0.9in}
@@ -209,14 +215,13 @@
 %\fancyfoot{}
 
 % Omitir linha de separação entre cabeçalho e conteúdo
-\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\headrulewidth}{0pt}
 
 % Omitir linha de separação entre rodapé e conteúdo
-\renewcommand{\footrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0pt}
 
 % Altura do cabeçalho
 %\headheight 13.6pt
-\headheight 15pt
 
 % Dados do projeto
 %\newcommand{\nomedoaluno}{Nome Completo do Aluno}
@@ -244,24 +249,3 @@
 % Numeração em elementos pré-textuais é opcional (ativada por padrão).
 % Para desativá-la comente a linha abaixo.
 %\pagestyle{fancy}
-
-% Numeração não deve aparecer na página de rosto.
-%\thispagestyle{empty}
-%\usepackage{url}
-%\usepackage{layout}
-
-
-
-%\setlength{\textfloatsep}{0pt}
-%\setlength{\floatsep}{0pt}
-%\setlength{\intextsep}{0pt}
-%\setlength{\belowcaptionskip}{0pt}
-%\setlength{\abovecaptionskip}{0pt}
-%\setlength\intextsep{0pt}
-%\floatsep: space left between floats (12.0pt plus 2.0pt minus 2.0pt).
-%\textfloatsep: space between last top float or first bottom float and the text (20.0pt plus 2.0pt minus 4.0pt).
-%\intextsep : space left on top and bottom of an in-text float (12.0pt plus 2.0pt minus 2.0pt).
-%\dbltextfloatsep is \textfloatsep for 2 column output (20.0pt plus 2.0pt minus 4.0pt).
-%\dblfloatsep is \floatsep for 2 column output (12.0pt plus 2.0pt minus 2.0pt).
-%\abovecaptionskip: space above caption (10.0pt).
-
