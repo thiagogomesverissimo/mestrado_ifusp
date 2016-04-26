@@ -5,13 +5,14 @@ source("myfunctions/load.R")
 # Banco mundial 
 
 PIB = read.csv('../../inputs/BancoMundial/PIBeditado.csv')
+PIB[,2:3] = PIB[,2:3]/1000
 
 pdf('../../outputs/PIBGhanaBrazil.pdf')
 mar.default <- c(5,4,4,2) 
 par(mar = mar.default + c(0, 1, 0, 0))
 plot(PIB[,1],PIB$Brazil,type='n',
      xlab = 'Ano',
-     ylab = '$ USD')
+     ylab = 'Bilhões de $ USD')
 lines(PIB[,1],PIB$Brazil,col='red')
 lines(PIB[,1],PIB$Ghana,col='blue')
 
