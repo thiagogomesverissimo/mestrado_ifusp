@@ -1,28 +1,29 @@
 %%%%
 \section{Fluorescência de Raios X}
 
-Para determinação e quantificação das composição química (número atômico 
-$ 10 < Z < 82$) das amostras foi utilizada a técnica não-destrutiva de 
-\textbf{Fluorescência de Raios X (XRF)}.
+Para quantificar a composição elementar (número atômico $ 10 < Z < 82$) das 
+amostras foi utilizada a técnica não-destrutiva de Fluorescência de Raios X 
+(XRF), um método analítico quali-quantitativo, multielementar, 
+que mede os raios X característicos emitidos pelos átomos da amostra, 
+depois de também serem excitados por raios X. Permite análise simultânea dos 
+elementos químicos e não exige pré-tratamento químico dos alvos.
 
-\textbf{XRF} é um método analítico quali-quantitativo, 
-multielementar, que mede os raios X característicos emitidos dos átomos da amostra, 
-depois de também serem excitados por raios X. Não exige pré-tratamento químico
-das amostras e permite análise simultânea dos elementos químicos.
-
-Há basicamente 3 etapas envolvida na técnica de \textbf{XRF}:
-excitação da amostra, emissão de raios x pelos átomos da amostra
+Há basicamente 3 etapas envolvida na técnica de medida de raios X 
+característicos de uma amostra:
+excitação da amostra, emissão de raios X pelos átomos da amostra
 e detecção. A excitação pode ocorrer por feixe de raios X (ou raios gamas) 
-produzido em fontes radioativas, por partículas aceleradas ou 
-por tubos geradores de raios x quando submetidos a diferença de potencial
-\citep{jenkins1988}. 
+produzido em fontes radioativas, por partículas aceleradas 
+(elétrons, prótons, alfas etc) ou por tubos geradores de raios X 
+quando submetidos a diferença de potencial \citep{jenkins1988}. 
 
-O feixe de raios X incidente expulsa os elétrons das camadas mais 
-internas $K$ e $L$, produzindo vacâncias. Para tal, a energia do feixe
-incidente deve ser maior que a energia de ligação dos elétrons nessas camadas. 
-
-Um átomo com vacância é instável e rapidamente elétrons das camadas 
-mais externas preenchem as vacâncias, liberando energia e estabilizando o átomo.  
+No caso da XRF, a excitação ocorre por um feixe de raios X incidente, que  
+expulsa os elétrons das camadas mais internas do átomo (K,L e M) 
+produzindo vacâncias. Para tal, a energia do feixe incidente deve ser maior 
+que a energia de ligação dos elétrons nessas camadas. Um átomo com vacância é 
+instável e rapidamente elétrons das camadas mais externas preenchem as vacâncias,
+liberando fotóns e estabilizando o átomo, sendo a energia destes fótons 
+correspondem às energias de transição entre camadas do átomos, 
+características de cada elemento químico.
 
 A figura \ref{fig:shimadzu_atomo} ilustra classicamente o que ocorre com
 o átomo ao ser excitado.
@@ -37,15 +38,16 @@ o átomo ao ser excitado.
 \end{center}
 \end{figure}
 
-As transições dos elétrons entre o nível quântico $L$ e
-$K$ liberam raios X característicos do átomo em questão. 
+As transições dos elétrons entre o nível quântico K, L e M encontram-se 
+tipicamente na faixa dos raios X, tendendo a UV e luz visível conforme ocorram 
+em transições atômicas de menor energia no átomo.
 
-Transições da camada $L$ para $K$ são do tipo $K_{\alpha}$, de $M$ para $K$ 
-são $K_{\beta}$ e de $M$ para $L$ são $L_{\alpha}$ ou $L_{\beta}$. 
-As camadas $L$ e $M$ possuem ainda subníveis de energia, o que resulta em diversas
-combinações de transições, sendo algumas transições proibidas, e outras 
-com diferenças de energia indistinguíveis para os tipos de 
-detectores utilizados.
+Transições da camada L para K são do tipo $K_{\alpha}$, de M para K 
+são $K_{\beta}$ e de M para L são $L_{\alpha}$ ou $L_{\beta}$. 
+As camadas L e M possuem ainda subníveis de energia, o que resulta em diversas
+combinações de transições, sendo algumas delas proibidas, e outras 
+com diferenças de energia indistinguíveis para os detectores utilizados 
+neste método analítico.
 
 A \textbf{notação de Siegbahn} \citep{jenkins1991} permite identificarmos 
 melhor os subníveis de origen e destino. 
@@ -60,18 +62,21 @@ tipo $L_{\beta_1}$, outras transições possíveis estão na figura \ref{fig:sie
 \end{center}
 \end{figure}
 
-Na prática, agrupa-se transições dos subníveis e trabalha-se com 
-as denominações de linhas $K$ e $L$ apenas. 
+Na prática, dependendo do modo de detecção dos raios-X, agrupa-se transições 
+dos subníveis e trabalha-se com as denominações de linhas K e L apenas. 
 
-No modelo de \textbf{XRF} usado, considerou-se elementos da 
-linha K do sódio (Na) até Molibdênio (Mo) e linha L do 
-Molibdênio (Mo) até chumbo (Pb).  
+As linha $K_{\alpha}$ são as mais intensas, oferecendo melhor limite de detecção
+para um elemento. Mas elas também são as mais energéticas, podendo ultrapassar a
+faixa de sensibilidade do detector empregado. Nestes casos as linhas L passam a 
+ser analisadas. No modelo de XRF usado, analisou-se as linhas K, desde o sódio 
+(Na) até molibdênio (Mo), e as linha L, desde o molibdênio (Mo) até o chumbo 
+(Pb).  
  
 %%%%
-\subsection{Tipos de \textbf{XRF}}
+\subsection{Tipos de XRF}
 
-Há diferentes tipos de equipamentos de \textbf{XRF} que se diferenciam 
-como os raios x são detectados, os mais comuns são:
+Há essencialmente dois tipos principais de equipamentos de XRF que se 
+diferenciam pelo modo que os raios X são detectados:
 
 \begin{itemize}
   \item \textbf{ED-XRF}: fluorescência de raios X por dispersão em energia;
