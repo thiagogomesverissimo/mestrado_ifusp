@@ -5,11 +5,33 @@
 \begin{document}
 
 \input{geral/inicio}
-\input{capitulos/1introducao/principal}
-\input{capitulos/2metodos/principal}
-\input{capitulos/3resultados/principal}
-\input{capitulos/4conclusao/principal}
-\input{capitulos/5apendice/principal}
+
+\chapter{Introdução}
+  %\epigraph{Vou colocar alguma epigrape?}{Saramago}
+  \input{capitulos/1introducao/africa}
+  \input{capitulos/1introducao/poluicao}
+  \input{capitulos/1introducao/objetivos}
+
+\chapter{Materiais e Métodos}
+  \input{capitulos/2metodos/amostragem}
+  \input{capitulos/2metodos/xrf}
+  \input{capitulos/2metodos/blackcarbon}
+  \input{capitulos/2metodos/modelosreceptores}
+
+\chapter{Resultados e Discussão}
+  \input{capitulos/3resultados/xrfed}
+  \input{capitulos/3resultados/blackcarbon}
+  \input{capitulos/3resultados/concentracoes}
+  \input{capitulos/3resultados/fontes}
+
+\chapter{Conclusão}
+  \input{capitulos/4conclusao/conclusao}
+  \input{capitulos/4conclusao/sugestoes}
+
+\chapter{Apêndice}
+  \input{capitulos/5apendice/PMFepa}
+  \input{capitulos/5apendice/analise_fatores}
+  \input{capitulos/5apendice/PMF}
 
 \bibliographystyle{apalike} % chicago ou abntex são boas opções
 \bibliography{bibliografia/mestrado,bibliografia/my_articles}
