@@ -65,24 +65,43 @@ aumentar a quantidade de pontos do ajuste polinomial.
 
 As tabelas \ref{fig:edx_calib_KLnov2010} e \ref{fig:edx_calib_KLabr2011}
 apresentam a calibração de novembro de 2010 e abril de 2011, respectivamente.
- 
-Percebe-se que a incerteza percentual ajustada é menor que 
-a incerteza percentual medida. 
+
+Os fatores de resposta para cada elemento disponível nos alvos padrões, as 
+respectivas incertezas propagadas para os mesmos, os fatores de respostas 
+calculados a partir das curvas de calibração ajustadas e as respectivas 
+incertezas ajustadas usando MQM podem ser conferidos na tabela 
+\ref{table:edxAllCalibration}, que mostra também a incerteza percentual de 
+cada medida. A incerteza do ajuste é dada pela diagonal da matriz de covariância 
+de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}, onde [Y] 
+são os fatores de respostas [R] e [X] os números atômicos [Z].
+
+O uso do MQM, além de permitir estimar a incerteza do ajuste, ofereceu incerteza
+percentual para os alvos padrões comercias, em muitos casos, menores que a 
+do próprio fabricante. Na calibração da linha K de maio de 2010 a 
+incerteza percentual para o Cálcio (20) no alvo padrão, depois de propagada,
+foi de 3,5\%, enquanto que a ajustada com MQM foi 1,4\%. Para o Ferro (26), os
+mesmo valores foram 5,0\% e 2,6\%, respectivamente. Elementos com número atômico
+muito baixos e portanto alto limite de detecção neste equipamento, a diferença 
+na incerteza percentual foi baixa, no caso do Sódio (11), aumento 0,1\% e no 
+do Magnésio (12), diminuiu 0,5\%. Esse comportamento foi repetido nas outras 
+duas calibrações.
+
+Na linha L...
+
+Uma vez que o PMF pondera sua estimativa pelas incertezas das concentrações a
+qualidade das incertezas interfere na determinação da contribuição das fontes.
+
 
 \begin{landscape}
 \begin{table}[H]
+  \begin{small}
   \centering
     \input{../outputs/edxAllCalibration.tex}
   \caption{Calibração da Fluorescência de Raiox X - Maio de 2010 - linha K
-  \label{table:edx_calib_Kmaio2010}}
+  \label{table:edxAllCalibration}}
+  \end{small}
 \end{table}
 \end{landscape}
-
-Usando \textbf{Ajuste dos Mínimos Quadrados Matricial} foi possível
-reduzir a incerteza percentual. 
-A incerteza é dada pela diagonal da matriz de covariância 
-de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}.
-Onde $[Y]$ são os fatores de respostas $[R]$ e $[X]$ os números atômicos $[Z]$.
 
 %TODO: inclir comparações entre calibrações
 \begin{table}[H]
@@ -145,5 +164,5 @@ de amostragem foi incluído
 
 
 
-Uma vez que o PMF pondera sua estimativa pelas incertezas das concentrações a qualidade das incertezas interfere na determinação da contribuição das fontes.
+
 

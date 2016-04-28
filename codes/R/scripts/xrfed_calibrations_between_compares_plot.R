@@ -1,3 +1,5 @@
+rm(list=ls())
+source("myfunctions/load.R")
 
 #### Calibração Maio de 2010 ####
 
@@ -66,11 +68,6 @@ coefs1_abril2011 = c(-0.71619926,0.07987028,-0.003424948,0.00006946821,-0.000000
 p1_abril2011 = polynomial(coefs1_abril2011)
 
 pdf('../../outputs/CalibrationLcomparacao.pdf')
-
-#rm(list=ls())
-source("myfunctions/load.R")
-
-# Gráfico 'vazio'
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
 
@@ -91,3 +88,4 @@ lines(p1_abril2011,xlim = c(29,82),col=cores[3])
 
 legend("topleft", legend = legenda, col=cores, pch = 15)
 dev.off()
+

@@ -1,53 +1,46 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 # A função describe está no pacote Hmisc e psych, saudades do python...
 detach("package:Hmisc", unload=TRUE) 
 
+# Massa comparando com limites WHO
 massa_temporal('RFcH','pm2.5')
 massa_temporal('TFcH','pm2.5')
 
-
-RFcH = read.csv('../../outputs/pmf_fa/RFcH.csv')
-RFcH$Date = strptime(RFcH$Date,format="%d/%m/%Y %H:%M")
-
-hist(RFcH$mass,main="PM10 - Distribuição da massa", xlab=expression(mu* "g/m" ^3),col="lightblue")
-
-#função densidade
-densidade<-density(RFcH$Fe,na.rm=TRUE)
-plot(densidade,main="PM2.5 densidade ")
-
-
-#Histograma: Fazer para todos elementos?
-#png(file='../../latex/images/pm/pm10distr_massa1.png')
-#par(mfrow=c(2,4))
-#for (i in seq(2,16,by=2)) {
-#  hist(pm10[,i],
-#       main=substitute("elemento: " *num,list(num=names(pm10)[i])), 
-#       xlab=expression(mu* "g/m" ^3),
-#       col="lightblue")
-#}
-#dev.off()
-
-#png(file='../../latex/images/pm/pm25distr_massa1.png')
-#par(mfrow=c(2,4))
-#for (i in seq(18,32,by=2)) {
-#  hist(pm10[,i],
-#       main=substitute("elemento: " *num,list(num=names(pm2.5)[i])), 
-#      xlab=expression(mu* "g/m" ^3),
-#       col="lightblue")
-#}
-#dev.off()
-
-#png(file='../../latex/images/pm/pm10totalmass.png')
-#hist(pm10$MassConc,main="PM10 - Distribuição da massa", xlab=expression(mu* "g/m" ^3),col="lightblue")
-#dev.off()
+# Correlações
+RFsH = read.csv('../../outputs/pmf_fa/RFsH.csv')
+pairs(RFsH[,c(2,4,6,8,10,12)], lower.panel = panel.smooth,upper.panel = NULL, col="skyblue3")
 
 # por dia da semana
-plot(as.factor(format(RFcH$Date,"%A")),RFcH[,7],col="lightpink")
+data = read.csv('../../outputs/pmf_fa/RFsH.csv')
+data$date = as.POSIXct(strptime(data$Date,format="%d/%m/%Y %H:%M"))
+timeVariation(RFsH,pollutant = 'Fe')
 
-#médias por mês
-#meansFE<-aggregate(RFcH$S,format(RFcH$Date,"%Y-%m"),mean)
+scatterPlot(data,x='Fe',y='Si',linear = TRUE,type = c("season", "weekend"))
+
+
+  dias_semana = read.csv('../../inputs/traducoes/weekdays.csv',header=F)
+match(days,dias_semana[,1])
+dias_semana[match(days,dias_semana),2]
+
+
+
+plot(as.factor(format(data$Date,"%Y-%m")),RFcH[,7],col="lightpink")
+
+days = format(data$Date,"%A")
+days[match(teses$grau,map_grau$antigo),2]
+
+RFcH[,7]
+teses$grau = map_grau[match(teses$grau,map_grau$antigo),2]
+
+pairs(data[sample(1:nrow(data), 500), c(1, 2, 3, 4, 5)],
+      lower.panel = panel.smooth,
+      upper.panel = NULL,
+      col = "skyblue3")
+
+
+meansFE<-aggregate(data$S,format(data$Date,"%Y-%m"),mean)
 #meansFE$Date<-seq(min(pm10$StartTime),max(pm10$StartTime),length=nrow(meansFE))
 #plot(meansFE$StartTime,meansFE$FE,type="l")
 
@@ -97,11 +90,7 @@ plot(as.factor(format(RFcH$Date,"%A")),RFcH[,7],col="lightpink")
 #plot(as.factor(format(pm10$StartTime,"%m")),pm10$FE)
 #plot(as.factor(format(pm10$StartTime,"%m-%Y")),pm10$FE,col="lightpink")
 
-#plotar uma amostra dos dados
-#pairs(pm10[sample(1:nrow(pm10),50),c(2,4,6)], lower.panel = panel.smooth,upper.panel = NULL, col="skyblue3")
 
-#plotar com TODOS dados
-#pairs(pm10[,c(2,4,6,8,10,12)], lower.panel = panel.smooth,upper.panel = NULL, col="skyblue3")
 
 #implemtar:
 # Qual recorte do harmatan, ditribuição da velocidade do vento, subtrair pm10-pm25 corrigir erro

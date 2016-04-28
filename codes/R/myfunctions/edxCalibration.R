@@ -79,6 +79,7 @@ montaColuna = function(data){
   data[,1:2] = data[,1:2]*1000
   data = cbind(data,incerteza_relativa = 100*(data[,2]/data[,1]))
   data = format(round(data,1),digits=1,nsmall=1,scientic=F) 
-  data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],' ( ',data[,3],'\\%)',sep=''))
+  #data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],' ( ',data[,3],'\\%)',sep=''))
+  data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],'(',data[,3],')',sep=''))
   data[,4]
 }
