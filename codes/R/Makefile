@@ -26,9 +26,9 @@ all:
 	Rscript scripts/PIB.R
 	Rscript scripts/samples.R
 	Rscript scripts/tabelas_pmf.R
-	Rscript scripts/plot_fatorResposta.R
 	Rscript scripts/xrfed_calibrations.R
-	Rscript scripts/xrfed_calibrations_between_compares.R
+	Rscript scripts/xrfed_calibrations_between_compares_plot.R
+	Rscript scripts/xrfed_calibrations_between_compares_table.R
 	Rscript scripts/BC_monarch71.R
 	Rscript scripts/BC_cetesb.R
 	Rscript scripts/TOTversusRefletancia.R

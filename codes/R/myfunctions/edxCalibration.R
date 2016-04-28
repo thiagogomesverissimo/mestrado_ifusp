@@ -1,5 +1,5 @@
-edxCalibration = function(name,line,file_medidos,cores,coefs1,coefs2=c(-999)) {
-  
+edxCalibration = function(name,line,pontos,cores,coefs1,coefs2=c(-999)) {
+
   filename_pdf = paste('../../outputs/Calibration',line,name,'.pdf',sep='')
   pdf(filename_pdf)
   
@@ -41,9 +41,7 @@ edxCalibration = function(name,line,file_medidos,cores,coefs1,coefs2=c(-999)) {
     p <- polynomial(coefs2)
     lines(p,xlim = c(22,43),col=cores[2])
   }
-  
-  # Adiciona pontos
-  pontos = read.csv(file_medidos)
+
   errbar(pontos$Z,pontos$R, pontos$R + pontos$Uncert, pontos$R - pontos$Uncert,pch=20, add=TRUE)
   
   # legenda
@@ -77,29 +75,10 @@ edxCalibration = function(name,line,file_medidos,cores,coefs1,coefs2=c(-999)) {
   dev.off()
 }
 
-edxCalibrationTable = function(medidos,ajustados,name) {
-
-  colnames(medidos) = c('Z','Rexperimental','IncertezaE')
-  colnames(ajustados) = c('Z','Rajustado','IncertezaA')
-  
-  tabela = merge(medidos,ajustados,all=T)
-  
-  tabela = cbind(tabela,'desvioPercentualExperimental'=100*(tabela$IncertezaE/tabela$Rexperimental))
-  tabela = cbind(tabela,'desvioPercentualAjustado'=100*(tabela$IncertezaA/tabela$Rajustado))
-  
-  tabela[,2:5] = format(tabela[,2:5], scientific=T,digits=2,nsmall = 2,na.encode=F)
-  tabela[,6:7] = format(tabela[,6:7], digits=2,nsmall = 2,na.encode=F)
-  
-  tabela = apply(tabela,2, gsub,pattern='NA',replacement='-')
-  
-  tabela[,6] = ifelse( grepl("-",tabela[,6]),'-',paste(tabela[,6], '\\%', sep=""))
-  tabela[,7] = ifelse( grepl("-",tabela[,7]),'-',paste(tabela[,7], '\\%', sep=""))
-  
-  name = paste('../../outputs/edxCalibration',name,'.tex',sep='')
-  print(xtable(tabela),
-        type="latex", 
-        floating = FALSE,
-        include.rownames = F, 
-        sanitize.text.function = identity,
-        file=name)
+montaColuna = function(data){
+  data[,1:2] = data[,1:2]*1000
+  data = cbind(data,incerteza_relativa = 100*(data[,2]/data[,1]))
+  data = format(round(data,1),digits=1,nsmall=1,scientic=F) 
+  data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],' ( ',data[,3],'\\%)',sep=''))
+  data[,4]
 }
