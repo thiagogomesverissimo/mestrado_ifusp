@@ -24,6 +24,22 @@ descriptive2latex(path,'TIsH')
 descriptive2latex(path,'RIeH')
 descriptive2latex(path,'TIeH')
 
+#### média de MP2.5 para comparação com outras cidades
+RFsH = read.csv('../../outputs/pmf_fa/RFsH.csv')
+TFsH = read.csv('../../outputs/pmf_fa/TFsH.csv')
+fino_sH = merge(RFsH,TFsH,all=T)
+fino_sH = fino_sH[,-1]
+fino_sH = fino_sH*1000
+write.csv(file="/tmp/media.csv",describe(fino_sH)[,c(3,4)])
+
+#### média de MP2.5 para comparação com outras cidades com Harmatão
+RFcH = read.csv('../../outputs/pmf_fa/RFcH.csv')
+TFcH = read.csv('../../outputs/pmf_fa/TFcH.csv')
+fino_cH = merge(RFcH,TFcH,all=T)
+fino_cH = fino_cH[,-1]
+fino_cH = fino_cH*1000
+write.csv(file="/tmp/media.csv",describe(fino_cH)[,c(3,4)])
+  
 #### 
 #Cria um data.frame com a porcentagem dos elementos na Massa total
 #contrib_elementos_na_massa = c()

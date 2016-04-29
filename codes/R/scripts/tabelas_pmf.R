@@ -4,14 +4,14 @@ source("myfunctions/load.R")
 system('sh ../../codes/shellscript/pmf.sh')
 
 # cores
-poeira = "#EECFA1"
-biomassa = "#006400"
-veiculo = "#CDCDC1"
-lixo_solido = "#FFD700"
-mar = "#87CEFF"
-metal = '#9C9C9C'
-vegetacao = '#FFA54F'
-industria = '#FF6AA7'
+poeira = adjustcolor( "#EECFA1", alpha.f = 0.4)
+biomassa =  adjustcolor( "#006400", alpha.f = 0.4)
+veiculo =  adjustcolor( "#CDCDC1", alpha.f = 0.4)
+lixo_solido = adjustcolor( "#FFD700", alpha.f = 0.4)
+mar =  adjustcolor( "#EECFA1", alpha.f = 0.4)
+metal = adjustcolor( '#9C9C9C', alpha.f = 0.4)
+vegetacao = adjustcolor( '#FFA54F', alpha.f = 0.4)
+industria = adjustcolor( '#FF6AA7', alpha.f = 0.4)
 
 RFsH_cores = c(veiculo,lixo_solido,poeira,mar,vegetacao)
 TFsH_cores = c(lixo_solido,mar,poeira,veiculo,vegetacao)

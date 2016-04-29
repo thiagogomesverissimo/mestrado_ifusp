@@ -29,3 +29,6 @@ a variabilidade das fontes de Acra (por ser uma região muito poluída).
 Mas o tempo de amostragem de 48 horas e foi empregado antes da 
 entrada da USP no projeto.
 
+silicon or calcium concentrations are adequate to
+capture all the dust events observed in the region.
+

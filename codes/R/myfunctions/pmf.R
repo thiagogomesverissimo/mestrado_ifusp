@@ -230,7 +230,7 @@ pmf_contributions_latex <- function(path,sigla,colors,nfactors) {
     legenda<-paste(rownames(contribution2latex),' = ',contribution2latex[,1],'(', contribution2latex[,2],') %', sep='')
     porcentagens <- paste(pieval,'%')
     #lp<-pie3D(pieval,radius=0.7,labels=porcentagens,explode=0.15,labelrad=1.4,col=colors,labelcex=1)
-    lp<-pie3D(pieval,radius=0.7,labels=porcentagens,explode=0.15,col=colors,labelcex=1)
+    lp<-pie3D(pieval,radius=0.6,labels=porcentagens,explode=0.1,col=colors,labelcex=1)
     par(mar=c(0, 0, 0, 0))
     legend('bottom',  legenda, cex=1.3,fill=colors, horiz=F)  
    
