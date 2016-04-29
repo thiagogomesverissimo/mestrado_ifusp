@@ -15,32 +15,26 @@ pairs(RFsH[,c(2,4,6,8,10,12)], lower.panel = panel.smooth,upper.panel = NULL, co
 # por dia da semana
 data = read.csv('../../outputs/pmf_fa/RFsH.csv')
 data$date = as.POSIXct(strptime(data$Date,format="%d/%m/%Y %H:%M"))
-timeVariation(RFsH,pollutant = 'Fe')
+#timeVariation(RFsH,pollutant = 'Fe')
 
-scatterPlot(data,x='Fe',y='Si',linear = TRUE,type = c("season", "weekend"))
-
-
-  dias_semana = read.csv('../../inputs/traducoes/weekdays.csv',header=F)
-match(days,dias_semana[,1])
-dias_semana[match(days,dias_semana),2]
+#scatterPlot(data,x='Fe',y='Si',linear = TRUE,type = c("season", "weekend"))
 
 
-
-plot(as.factor(format(data$Date,"%Y-%m")),RFcH[,7],col="lightpink")
-
-days = format(data$Date,"%A")
-days[match(teses$grau,map_grau$antigo),2]
-
-RFcH[,7]
-teses$grau = map_grau[match(teses$grau,map_grau$antigo),2]
-
-pairs(data[sample(1:nrow(data), 500), c(1, 2, 3, 4, 5)],
-      lower.panel = panel.smooth,
-      upper.panel = NULL,
-      col = "skyblue3")
+#dias_semana = read.csv('../../inputs/traducoes/weekdays.csv',header=F)
+#match(days,dias_semana[,1])
+#dias_semana[match(days,dias_semana),2]
 
 
-meansFE<-aggregate(data$S,format(data$Date,"%Y-%m"),mean)
+
+#plot(as.factor(format(data$Date,"%Y-%m")),RFcH[,7],col="lightpink")
+
+#days = format(data$Date,"%A")
+#days[match(teses$grau,map_grau$antigo),2]
+
+#RFcH[,7]
+#teses$grau = map_grau[match(teses$grau,map_grau$antigo),2]
+
+#meansFE<-aggregate(data$S,format(data$Date,"%Y-%m"),mean)
 #meansFE$Date<-seq(min(pm10$StartTime),max(pm10$StartTime),length=nrow(meansFE))
 #plot(meansFE$StartTime,meansFE$FE,type="l")
 
