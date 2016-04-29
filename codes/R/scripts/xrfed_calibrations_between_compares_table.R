@@ -41,8 +41,6 @@ print(xtable(tabela),
         sanitize.text.function = identity,
         file='../../outputs/edxAllCalibration.tex')
 
-
-
 #### Linha K
 mai2010 = read.csv('../../inputs/edxCalibration/americo/K2010MaioAjustadosAkerr.csv')
 nov2010 = read.csv('../../inputs/edxCalibration/americo/K2010NovAjustadosAkerr.csv') 

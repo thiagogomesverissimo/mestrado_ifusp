@@ -1,13 +1,8 @@
-descriptive2latex <- function(path,sigla){
+descriptive2latex <- function(data,sigla){
   
   #detach("package:Hmisc", unload=TRUE) 
-  #path = '../../outputs/pmf_fa/'
-  #sigla = 'RIcH'
-  pathfile = paste(path,sigla,'.csv',sep='')
-  base = read.csv(pathfile)
-  
   # Tabela describe
-  tabela = describe(base[,-1])
+  tabela = describe(data[,-1])
   tabela = tabela[,c(2,3,13,5,8,9)]
   tabela[,c(2:6)] = tabela[,c(2:6)]*1000
   tabela[c("mass"),c(2:6)] = tabela[c("mass"),c(2:6)]/1000
