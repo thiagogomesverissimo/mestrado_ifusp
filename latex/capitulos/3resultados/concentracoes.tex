@@ -17,7 +17,7 @@ com padrões sugeridos pela OMS, e na próxima seção, serão aplicados método
 estatísticos multivariados, AF e PMF, para levantamento das fontes. 
 
 A campanha de amostragem nos quatro bairros resultou em um total de 2898 
-amostras, analisadas por refletância e XRF-ED no LAPAt. Concentrações médias, 
+amostras que analisadas por refletância e XRF-ED no LAPAt. Concentrações médias, 
 análises estatísticas gerais e levantamento de fontes, para os onze locais em 
 conjuto, isto é, sem considerar as especifidades de cada bairro, foram 
 apresentados em 2011 no \textit{23th Congress of the International Society 
@@ -37,15 +37,16 @@ Nima Road como avenida, para melhor refletir as características de ambas.
 Os padrões de qualidade do ar são fixados em níveis que quando 
 ultrapassados podem afetar o meio ambiente ou a saúde da população, porém, 
 como são definidos na legislação, dependem também de aspectos políticos, 
-sociais e econômicos da realidade de cada país e por isso variam são diferentes.
+sociais e econômicos da realidade de cada país, motivo pelo qual cada nação
+tem limites de concetração e espécies legisladas diferentes.
 
 O padrão de qualidade do ar para $MP_{10}$ ambiental vigente em Gana referendado
-e monitorado pela EPA-GH \citeyearpar{epa2015} é apresentado na tabela
-\ref{table:padroesgana}, possuindo limites diferentes para os meses em que
-ocorre o Harmantão, refletindo o efeito que o fenômeno no MP local. 
-Regiões consideradas como zonas industriais ou de comércio possuem limites mais
+pela EPA-GH \citeyearpar{epa2015} é apresentado na tabela 
+\ref{table:padroesgana}. Nota-se limites específicos para os meses em que 
+ocorre o Harmantão, refletindo o efeito do fenômeno no MP local. 
+Regiões consideradas como zonas industriais ou de comércio têm limites mais
 permissivos, revelando uma priorização do Governo com o desenvolvimento 
-econômico do País em detrimento da saúde da população.
+econômico do País em detrimento da saúde e bem estar da população.
 
 \begin{table}[H]
 \centering
@@ -55,8 +56,8 @@ econômico do País em detrimento da saúde da população.
 \end{table}
 
 Na tabela \ref{table:pm10standards} compara-se os padrões de $MP_{10}$ entre 
-Brasil, Gana e OMS, sendo que em Gana, a média anual é calculada geometricamente
-e é portanto matematicamente menor que a aritmética. 
+Brasil, Gana e OMS, com a observação de que em Gana a média anual é calculada 
+geometricamente (ligeiramente menor que a aritmética). 
 
 \begin{table}[H]
 \centering
@@ -65,26 +66,122 @@ e é portanto matematicamente menor que a aritmética.
            Gana \citep{epa2015} e OMS \citep{who}. \label{table:pm10standards}}
 \end{table}
 
-A tabela \ref{table:RIcH_descriptive} apresenta a média, desvio padrão da média,
-mediana, mínimo e máximo para as concentrações de MP Inalável, $MP_{10}$,  
-encontradas na área residencial. Esses resultados possibilitam comparações com 
-padrões de qualidade do ar para avaliação de atendimento ou não dos mesmos.    
 
-\newpage
 \begin{table}[H]
   \centering
-    \input{../outputs/descriptive_fino_sH}
-  \caption{Estatística descritiva das concentrações de  $MP_{10}$ na área 
-           residencial \label{table:descriptive_fino_sH}}
+  \input{../outputs/descriptive_inalavel_harmatao}
+  \caption{Estatística descritiva das concentrações de $MP_{10}$ conjunta
+           (área residencial e avenida) somente para os dias de ocorrência 
+           de vento do Harmatão. 54 amostras na área residencial e 59 na avenida 
+          \label{table:descriptive_inalavel_harmatao}}
 \end{table}
 
-\newpage
+A separação dos dias que ocorrem ventos do Harmatão dos outros dias é importante,
+pois além de ser previsto na lei, torna a comparação dos resultados de 
+concentrações com outros países que não sofrem do fenômeno mais justa. 
+O critério de identificação dos dias de Harmatão não é simples, pois o fenômeno 
+não é ininterrupto durante os meses em que ocorre. Classificando todos dias
+de novembro até março como Harmantão, corre-se o risco de perde informações 
+importantes de fontes locais com atividades nesse período, compromente análises
+estatísticas de AF e PMF. 
+As velocidades e direções do vento medidas na estação meteorologia mais próxima
+(aeroporto) também não podem ser usadas, pois mesmo nos dias de Harmatão, 
+não há ventos nordeste frequentes e intensos, já que o fenômeno ocorre em 
+altas altitudes. 
+Considerando o fato dos silicatos serem os principais constituintes da crosta
+terrestre, \citet{aboh2009} sugere como critério para identificação dos dias 
+de ocorrência do Harmatão os de concentrações de silício no $MP_{10}$ maiores 
+que 10 $\mu g/m^3$ entre novembro e março. 
+
+A tabela \ref{table:descriptive_inalavel_harmatao} apresenta a média, 
+desvio padrão da média, mediana, mínimo e máximo para as concentrações de 
+MP Inalável, $MP_{10}$ para dias de ocorrência do Harmatão, classificados
+segundo sugestão de \citet{aboh2009}. A massa total média foi 269,2 $\pm$ 23,0
+$\mu g/ m^3$, tendo como elemento mais representativo o Si, 11,3 \% da massa total. 
+A ambiguidade (talvez estratégica) da lei define um intervalo de média diária 
+de $MP_{10}$ no Harmantão de 100 à 500 $\mu g/ m^3$, dependendo de como a região
+é classificada: sensível, residencial, rural, industrial ou comercial, abrindo
+brechas que permitem definir regiões baseado em interesses puramente econômicos,
+pois limites de 500 $\mu g/ m^3$ mesmo com a poeira pesade do Harmatão serão
+dificilmente alcançados. A mediana, que representa melhor um conjunto de dados
+com valores no extremo, foi 154,7 $\mu g/ m^3$, e indica que apesar da média 
+de 269,2 $\mu g/ m^3$ e máximo 1255,8 $\mu g/ m^3$, no geral apenas alguns
+dias tiveram concentrações extremamentes altas. 
+
+A tabela \ref{table:descriptive_inalavel_sH} apresenta a média, 
+desvio padrão da média, mediana, mínimo e máximo para as concentrações de 
+MP Inalável, $MP_{10}$, porém, excluíndo-se os dias de ocorrência do Harmantão.
+Observa-se, que para verificação do atendimento ou não destas médias com os 
+limites previstos 
+na legislação seria necessário remover as amostras de 2006 e 2008, mantendo
+somente as 2007, pois foi o único ano deste experimento com medidas em todos 
+meses, além de outras exigências da lei, como o número máximo de 
+filtros faltantes possível para considerar a média anual como válida. 
+O mesmo procedimento deveria ser realizado para 
+comparação com limites brasileiros ou da OMS, seguindo as respectivas normas. 
+Entretanto, a intenção é verificar
+relativamente os níveis de poluição durante o período de 
+coleta, sendo a confrontação com parâmetros legais realizada somente para dar
+noção relativa e qualitativa dos resultados obtidos na campanha, 
+e não para observância estrita de atendimento ou não da lei.
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/descriptive_inalavel_sH}
+  \caption{Estatística descritiva das concentrações de $MP_{10}$ conjunta 
+           (Sam Road e Nima Road) excluíndo-se os dias do Harmantão
+            \label{table:descriptive_inalavel_sH}}
+\end{table}
+
+A média aritmética da massa total de $MP_{10}$ durante a campanha de amostragem 
+foi de 57,1 $\pm$ 2,5 $\mu g/ m^3$, abaixo dos limites permitidos no país 
+para qualquer tipo de zona, e também próxima da mediana, 53,7 $\mu g/ m^3$, 
+pois agora os dias de Harmatão, eventos extremos, foram excluídos.  
+
+Comparando com RMSP, em 2013, a média de $MP_{10}$ variou entre 
+29 $\mu g / m^3$ (Ibirapuera) e 44 $\mu g / m^3$ (Parelheiros), segundo 
+relatório da Companhia Ambiental Do Estado De São Paulo (CETESB), que possui 
+rede de monitoramento de qualidade do ar no estado \citep{cetesb2014}. 
+\citet{souza2014} em estudo realizado em 2008 na RMSP reportou média de 
+$MP_{10}$ de 64 $\mu g / m^3$. 
+
+Em Kwabenya, região periférica e semi-rural de Acra, 11 $km$ a noroeste de Nima, 
+\citet{aboh2009} realizou medidas de $MP_{10}$ em 2006 e 2007 resultaram em 179 $\mu g / m^3$ de massa 
+de $MP_{10}$ e 77 $\mu g / m^3$ quando removidos os dias de ocorrências
+de ventos do Harmatão .
+
+
+No gráfico da figura \ref{fig:plot_RFcH_massa} percebe-se que no período 
+do harmatão tanto o padrão nacional de Gana quanto a recomendação da OMS 
+são ultrapassados.
+
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/inalavel_2sitios}
+  \caption{}
+\end{table}
+
+
 \begin{table}[H]
   \centering
     \input{../outputs/fino_2sitios}
   \caption{}
 \end{table}
 
+Na área residencial de Nima, a concentração média da massa total de $MP_{10}$ 
+durante este estudo foi $114\pm 11 \mu g / m^3$ e na avenida 
+$134\pm 12 \mu g / m^3$. Na avenida, como esperado, a concentração média 
+foi maior que na região residencial, já que possui maior movimentação de 
+veículos, que além de emitirem grande quantidades de poluentes, levantam 
+poeira local. 
+
+No Harmatão, a massa total de $MP_{10}$ mais que 500\%. Na área residencial, 
+vai de 46,9 $\pm$ 1,4 $\mu g / m^3$ para 266,0 $\pm$ 34,0 $\mu g / m^3$
+com a chegada do Harmatão (tabelas \ref{table:RIsH_descriptive} 
+e \ref{table:RIeH_descriptive}) e na avenida de 67,1 $\pm$ 4,6 $\mu g / m^3$ 
+para 272,0 $\pm$ 31,4 $\mu g / m^3$ (tabelas \ref{table:TIsH_descriptive} 
+e \ref{table:TIeH_descriptive}).
 
 
 \citep{kaku2016} Golfo Pérsico apresenta altas concentrações devido a poeira do 
@@ -96,70 +193,9 @@ Mn (65), Ti (196+35), V(16)
 \cite{engelbrecht2009a} e \citep{engelbrecht2009b} estudaram a composição 
 da poeira do deserto.
 
-%The average PM 2.5 /PM 10 aerosol mass fraction for the period of study
-%was 0.28
 
 
 
-
-Na área residencial de Nima, a concentração média da massa total de $MP_{10}$ 
-durante este estudo foi $114\pm 11 \mu g / m^3$ e na avenida 
-$134\pm 12 \mu g / m^3$. Na avenida, como esperado, a concentração média 
-foi maior que na região residencial, já que possui maior movimentação de 
-veículos, que além de emitirem grande quantidades de poluentes, levantam 
-poeira local. 
-
-A CETESB (Companhia Ambiental Do Estado De São Paulo) possui uma rede de 
-monitoramento de qualidade do ar no estado de São Paulo e em seu relatório 
-de 2014 \citep{cetesb2014} a estação com menor média anual da RMSP 
-de concentração média da massa total de $MP_{10}$ foi a Ibirapuera 
-(29 $\mu g / m^3$) e a maior em Parelheiros 44 $\mu g / m^3$.  
-
-Em estudo realizado em XXXX \cite{souza2014} encontrou 64 $\mu g / m^3$.
-
-Em termos gerais, em Nima a concentração é de 2 a 3 vezes maior do que 
-tipicamente encontrado em São Paulo. 
-
-Excluindo-se os dias de ocorrência do Harmatão da tabela 
-\ref{table:RIcH_descriptive} obtém-se a tabela \ref{table:RIsH_descriptive}.
-Assim, é possível avaliar com melhor precisão o impacto de fontes locais.  
-
-\begin{table}[H]
-  \centering
- % \begin{scriptsize}
-    \input{../outputs/descriptive_RIsH}
- % \end{scriptsize}
-  \caption{Estatística descritiva das concentrações de  $MP_{10}$ na área 
-           residencial excluíndo-se os dias do Harmantão
-            \label{table:RIsH_descriptive}}
-\end{table}
-
-Removendo-se o Harmatão, as médias são próximas das tipicamente
-encontradas em São Paulo. 
-
-Em Kwabenya, região periférica e semi-rural de Acra 11 $km$ a noroeste de Nima, 
-medidas realizadas durante 2006 e 2007 resultaram em 179 $\mu g / m^3$ de massa 
-de $MP_{10}$ e 77 $\mu g / m^3$ quando removidos os dias de ocorrências
-de ventos do Harmatão \citep{aboh2009}.
-
-\begin{table}[H]
-  \centering
-    \input{../outputs/descriptive_TIcH}
-  \caption{Estatística descritiva das concentrações de $MP_{10}$ na 
-           avenida \label{table:TIcH_descriptive}}
-\end{table}
-
-\begin{table}[H]
-  \centering
-    \input{../outputs/descriptive_TIsH}
-  \caption{Estatística descritiva das concentrações de $MP_{10}$ na 
-           avenida removendo-se o Harmatão
-           \label{table:TIsH_descriptive}}
-\end{table}
-
-No gráfico da figura \ref{fig:plot_RFcH_massa} percebe-se que no período 
-do harmatão tanto o padrão nacional de Gana quanto a recomendação da OMS 
-são ultrapassados.
 
 \begin{figure}[H]
   \centering
@@ -179,6 +215,17 @@ mas principalmente na avenida
 
 %%%%
 \subsection{Material Particulado Fino ($MP_{2,5}$)}
+
+
+%The average PM 2.5 /PM 10 aerosol mass fraction for the period of study
+%was 0.28
+
+\begin{table}[H]
+  \centering
+    \input{../outputs/descriptive_fino_sH}
+  \caption{Estatística descritiva das concentrações de  $MP_{10}$ na área 
+           residencial \label{table:descriptive_fino_sH}}
+\end{table}
 
 Para $MP_{2,5}$ Acrescenta-se ainda outra 
 recomendação da OMS de que a concentração de  não ultrapasse 25 $\mu g/m^3$ 
@@ -227,39 +274,12 @@ elementos, no caso o $BC$.
 
 \begin{table}[H]
   \centering
- % \begin{scriptsize}
-    \input{../outputs/descriptive_RFcH}
- % \end{scriptsize}
+    \input{../outputs/descriptive_fino_sH}
+
   \caption{Estatística descritiva para $MP_{2,5}$ na área residencial
             \label{table:RFcH_descriptive}}
 \end{table}
 
-\begin{table}[H]
-  \centering
- % \begin{scriptsize}
-    \input{../outputs/descriptive_RFsH}
- % \end{scriptsize}
-  \caption{Estatística descritiva para $MP_{2,5}$ na área residencial
-           removendo-se harmatão \label{table:RFsH_descriptive}}
-\end{table}
-
-\begin{table}[H]
-  \centering
- % \begin{scriptsize}
-    \input{../outputs/descriptive_TFcH}
- % \end{scriptsize}
-  \caption{Estatística descritiva para $MP_{2,5}$ na avenida
-            \label{table:TFcH_descriptive}}
-\end{table}
-
-\begin{table}[H]
-  \centering
- % \begin{scriptsize}
-    \input{../outputs/descriptive_TFsH}
- % \end{scriptsize}
-  \caption{Estatística descritiva para $MP_{2,5}$ na avenida
-           removendo-se harmatão \label{table:TFsH_descriptive}}
-\end{table}
 
 
 Já na avenida \ref{table:TFcH_descriptive} o BC
@@ -279,6 +299,18 @@ representa 4.7 \% da massa total.
 % Comparar com outras cidades
 % histograma do elemento
 % cidades: polônia, china, méxico, Kenia , india, 
+
+\citet{dotse2012} mediu BC em Ashaiman
+PM 2.5 mass concentrations determined averaged 23.26 : g/m 3 (3.85 - 46.43 : g/m 3 ) and that of PM 10 was 96.56
+: g/m 3 (37.10-293.06 : g/m 3 ).
+
+The results of the current study showed higher concentrations
+of PM 2.5 at SPA site (winter) than those found in the same
+season in Ghent (25 μg/m 3 ) and in Barcelona (26 μg/m 3 ).
+In the summer the concentrations were comparable (Ghent,
+12 μg/m 3 ; Barcelona, 16 μg/m 3 ). PM 10 mass concentration
+was higher at SPA in the winter than other sites.
+
 
 %%%%
 \subsection{Comparação dos resultados com os da EPA-US}
@@ -307,3 +339,5 @@ correlação, com pode ser observado no gráfico da figura \ref{fig:epa}
 \end{figure}
 
 Verificação da qualidade dos resultado obtidos por XRF.
+
+

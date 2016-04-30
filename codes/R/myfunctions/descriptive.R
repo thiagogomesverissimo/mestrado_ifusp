@@ -1,13 +1,17 @@
 descriptive2latex <- function(data,sigla){
   
+  # Teste
+  #sigla = 'RIeH'
+  #source("myfunctions/load.R")
   #detach("package:Hmisc", unload=TRUE) 
-  # Tabela describe
+  #data = read.csv('../../outputs/pmf_fa/RIeH.csv')
+  
   tabela = describe(data[,-1])
   tabela = tabela[,c(2,3,13,5,8,9)]
   tabela[,c(2:6)] = tabela[,c(2:6)]*1000
   tabela[c("mass"),c(2:6)] = tabela[c("mass"),c(2:6)]/1000
   if(grepl('F',sigla)) tabela[c("BC"),c(2:6)] = tabela[c("BC"),c(2:6)]/1000
-  tabela[,c(2:6)] = format(tabela[,c(2:6)], scientific=F,digits=1,nsmall=2)
+  tabela[,c(2:6)] = format(round(tabela[,c(2:6)],1), scientific=F,nsmall=1,decimal.mark = ',')
   tabela[,1] = as.integer(tabela[,1])
 
   latex_file = paste('../../outputs/descriptive_',sigla,'.tex',sep='')
@@ -46,8 +50,8 @@ massa_temporal <- function(sigla,moda='pm2.5') {
     abline(h=log10(10),col='red') 
     abline(h=log10(20),col='blue')
   }
-  legend("bottom",c('Padrão média diária em Gana',
-                    'Padrão média diária da OMS'),
-         col=c('blue','red'),bty = "n",pch = 15)
+  legend("bottom",c('Média diária em Gana/Brasil (EPA/CONAMA)',
+                    'Média diária da OMS'),
+         col=c('blue','red'),bty = "n",pch = 15,cex=1.3)
   dev.off()
 }
