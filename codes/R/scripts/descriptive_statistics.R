@@ -7,8 +7,8 @@ detach("package:Hmisc", unload=TRUE)
 #### médias de MP2.5 para comparação com outras cidades
 RFsH = read.csv('../../outputs/pmf_fa/RFsH.csv')
 TFsH = read.csv('../../outputs/pmf_fa/TFsH.csv')
-fino_sH = merge(RFsH,TFsH,all=T)
-descriptive2latex(fino_sH,'fino_sH')
+Fino_sH = merge(RFsH,TFsH,all=T)
+descriptive2latex(Fino_sH,'Fino_sH')
 # for copies
 #fino_sH = fino_sH[,-1]
 #fino_sH = fino_sH*1000
@@ -44,7 +44,7 @@ inalavel_cH = merge(RIcH,TIcH,all=T)
 100*sum(TIcH$mass>150)/nrow(TIcH) #EPA/CONAMA
 100*sum(RIcH$mass>50)/nrow(RIcH) # OMS
 100*sum(TIcH$mass>50)/nrow(TIcH) # OMS
-100*mean(RFcH$mass)/mean(RIcH$mass)
+100*mean(fino_cH$mass)/mean(inalavel_cH$mass)
 
 #### MP10 sem harmatão
 RIsH = read.csv('../../outputs/pmf_fa/RIsH.csv')
@@ -56,7 +56,7 @@ descriptive2latex(inalavel_sH,'inalavel_sH')
 100*sum(TIsH$mass>150)/nrow(TIsH) #EPA/CONAMA
 100*sum(RIsH$mass>50)/nrow(RIsH) # OMS
 100*sum(TIsH$mass>50)/nrow(TIsH) # OMS
-100*mean(RFsH$mass)/mean(RIsH$mass)
+100*mean(fino_sH$mass)/mean(inalavel_sH$mass)
 
 #### Comparação de MP2.5 na avenida e residências com e sem Harmatão ####
 data = read.csv('../../outputs/pmf_fa/RFcH.csv');elementos = colnames(data)[-1]

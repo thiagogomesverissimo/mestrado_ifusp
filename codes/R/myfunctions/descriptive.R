@@ -11,7 +11,7 @@ descriptive2latex <- function(data,sigla){
   tabela[,c(2:6)] = tabela[,c(2:6)]*1000
   tabela[c("mass"),c(2:6)] = tabela[c("mass"),c(2:6)]/1000
   if(grepl('F',sigla)) tabela[c("BC"),c(2:6)] = tabela[c("BC"),c(2:6)]/1000
-  tabela[,c(2:6)] = format(round(tabela[,c(2:6)],1), scientific=F,nsmall=1,decimal.mark = ',')
+  tabela[,c(2:6)] = format(round(tabela[,c(2:6)],2), scientific=F,nsmall=2,decimal.mark = ',')
   tabela[,1] = as.integer(tabela[,1])
 
   latex_file = paste('../../outputs/descriptive_',sigla,'.tex',sep='')
