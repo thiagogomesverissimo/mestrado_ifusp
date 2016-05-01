@@ -43,15 +43,16 @@ massa_temporal <- function(sigla,moda='pm2.5') {
        col="darkorange2")
   grid()
   if (moda=='pm2.5') {
-    abline(h=log10(50),col='red') 
-    abline(h=log10(150),col='blue')
+    abline(h=log10(25),col='red') 
+    legend("bottom",c('OMS'),col=c('red'),bty = "n",pch = 15,cex=1.3)
   }
   if (moda=='pm10') {
-    abline(h=log10(10),col='red') 
-    abline(h=log10(20),col='blue')
+    abline(h=log10(150),col='blue')
+    abline(h=log10(50),col='red')
+    legend("bottom",c('Média diária em Gana/Brasil (EPA-GH/CONAMA)',
+                      'Média diária da OMS'),
+           col=c('blue','red'),bty = "n",pch = 15,cex=1.25)
   }
-  legend("bottom",c('Média diária em Gana/Brasil (EPA/CONAMA)',
-                    'Média diária da OMS'),
-         col=c('blue','red'),bty = "n",pch = 15,cex=1.3)
+
   dev.off()
 }

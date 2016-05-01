@@ -32,3 +32,6 @@ entrada da USP no projeto.
 silicon or calcium concentrations are adequate to
 capture all the dust events observed in the region.
 
+Na/Cl with chloride depletion indicating
+several sources beyond sea salt
+
