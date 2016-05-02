@@ -3,24 +3,20 @@
 
 Modelo receptor é uma abordagem matemática para determinar e 
 quantificar o efeito das fontes poluidoras do ar em amostras.
-
-\textbf{Análise de Fatores (AF)} e 
-\textbf{Positive Matrix Fatorization (PMF)} são técnicas matemáticas
-de análise multivariada usadas em modelos receptores e 
+Análise de Fatores (AF) e Positive Matrix Fatorization (PMF) são técnicas 
+matemáticas de análise multivariada usadas em modelos receptores e 
 permitem a identificação de fontes quando os seus perfis são desconhecidos.
 
-Outra técnica que resolve os modelos receptores é 
-o Balanço Químico de Massa (CMB), usando quando se conhece 
+Outro modelo receptor é Balanço Químico de Massa (CMB), usado quando se conhece 
 o perfil das fontes locais e permite verificar o impacto das fontes 
-nas concetrações medidas no amostrador. 
-O CMB não foi usado nesta pesquisa, já que não medimos os perfis 
-das fontes. 
+nas concetrações medidas no amostrador. O CMB não foi usado nesta pesquisa, 
+por falta de perfis de fontes adequados para a região.
 
 A análise multivariada é uma técnica estatística utilizada para 
 reduzir a dimensão de dados matriciais. 
 Permite manter a quantidade de informação contida inicialmente nos dados, 
 armazenada na variância e covariância. 
-Nomeia-se de fator as novas variáveis reduzidas, que são
+Nomeia-se de fator às novas variáveis reduzidas, que são
 ortogonais entre si. 
 O fator é uma variável latente, pois não é uma grandeza diretamente
 medida, mas sim obtida a partir de outras variáveis observáveis. 
@@ -37,7 +33,7 @@ O conhecimento do pesquisador é imprescindível para fazer o relacionamento
 entre fator e fonte(s), avaliando o significado físico das fontes. 
 Informações das possíveis fontes poluidoras próximas ao ponto 
 receptor, dados meteorológicos do período de coleta, inventário de emissões 
-e outras informações ajudam no mapeamento fator-fonte(s).
+e outras informações ajudam na associação fator-fonte(s).
 Assim, o principal desafio em análises multivariada é identificar 
 se o fator de fato existe enquanto fonte(s) poluídora(s). 
 
@@ -52,9 +48,8 @@ Os poluentes que são emitidos pelas fontes em uma bacia aérea devem chegar no
 receptor, podendo-se, assim, usar o princípio de conservação da massa 
 no modelo receptor. 
 
-Aplicando-se a equação de conservação da massa para uma amostragem que se 
-coletou $i$ amostras e mediu-se $j$ poluentes tem-se a 
-equação \ref{eq:conservacaomassa}.
+Aplicando-se a equação de conservação da massa para uma amostragem em que se 
+coletou $i$ amostras e se mediu $j$ poluentes, tem-se:
 
 \begin{equation}
   \label{eq:conservacaomassa}
@@ -77,16 +72,16 @@ para uma nova base contendo a menor dimensão possível,
 relativamente à dimensão dos dados originais.
 
 A redução é feita de tal forma que estas novas variáveis (Fatores) 
-sejam combinação linear das anteriores e que representem a máxima fração possível da 
-variabilidade contida naquelas variáveis. 
+sejam combinação linear das anteriores e que representem a máxima fração possível
+da variância contida naquelas variáveis.
 
 Popularizada após a publicação do trabalho de Lourenz em 1956, que chamou 
 a técnica de Análise de Funções Ortogonais Empíricas, 55 anos após a 
 descoberta da mesma por Karl Pearson \citep{bartholomew2011}.
 
-Dado as variáveis observáveis ($x_1,\dots,x_j$) com 
+Dadas as variáveis observáveis ($x_1,\dots,x_j$) com 
 respectivas médias $\mu_1,\dots,\mu_j$ a equação da análise de fatores 
-pode ser escrita como em \ref{eq:af}. 
+pode ser escritas como: 
  
 \begin{equation}
   \label{eq:af}
@@ -99,25 +94,25 @@ da variável $i$ no fator $p$.
 Um problema comum em AF é a de multicolinearidade, assim, 
 deve-se evitar amostras medidas em paralelo. 
 
-A comunalidade é igual a soma dos $loading$ ao quadradro 
-para cada variável e indica como cada variável foi explicada pelo ajuste. 
+A comunalidade é igual a soma dos \textit{loading} ao quadradro 
+para cada variável e indica como ela foi explicada pelo ajuste. 
 $0$ indica que a variável não foi nada explicada pelos fatores extraídos 
 no ajuste e $1$ indica que foi completamente explicada.
 
-Deve-se checar sempre a variância total da explicada que indica 
-o quanto da variabilidade dos dados inicais foi explica pelo ajuste. 
-Ajuste com 80\% de variância total da explicada são considerados bons. 
+Deve-se checar sempre a o total da variância explicada, o que indica 
+o quanto da variabilidade dos dados iniciais foi explica pelo modelo. 
+Ajustes com valores acima de 80\% são considerados bons. 
 
 A rotação tipo Varimax dos resultados da AF 
 para um novo sistema de eixos foi feita para maximizar as variâncias 
-e melhorar entendimento dos resultados \citep{kaiser1958}.
+e melhorar a interpretação dos resultados \citep{kaiser1958}.
 
-Por fim, os critérios usados para retenção dos fatores foram:
-1. reter um número de componentes suficientes para explicar 85\% da 
-   variância total da explicada;
-2. reter os componentes cujos autovalores são maiores que 1;
-3. usar um gráfico scree exibindo os autovalores associados aos fator e
-   verificar se o fator não está degenerado. 
+O estratégia usada para retenção dos fatores compreendeu em selecionar 
+componentes suficientes para explicar 80\% da variância total explicada, 
+reter somentes fatores com autovalores maiores que 1 e não degenerados 
+(o gráfico scree, que 
+exibe os autovalores associados aos fatores, facilita a investigação para 
+verificiar se há fatores degenerados). 
 
 %TODO: não sei ainda se voo colocar a discussão de fatores absolutos 
 
@@ -154,9 +149,15 @@ em modelos receptores e permite determinar um conjunto de fatores $p$,
 o perfil $f$ das espécies de cada fonte e a contribuição da massa $g$ de cada fator 
 para cada amostra individual \citep{norris2014}. 
 
-O PMF resolve a equação de conservação de massa usando a resolução por 
-mínimos quadrados, diferente da AF, que reduz a dimensão dos 
+O PMF resolve a equação de conservação de massa usando mínimos 
+quadrados, diferentemente da AF, que reduz a dimensão dos 
 dados decompondo a matriz de correlação em autovalores e autovetores. 
+
+O usuário informa a quantidade de fatores desejados $p$ e o PMF 
+tentará encontrar uma solução para a quantidade de fatores inseridos, 
+torna-se necessário a verificação do significado físico da solução, pois 
+o PMF sempre tentará retornar um ajuste matematicamente consistente,
+independente de fazer sentido ou não.
 
 O usuário informa a quantidade de fatores desejados $p$ e o PMF 
 tentará encontrar uma solução para quantidade de fatores inseridos e 
@@ -174,43 +175,73 @@ minimizam a função objeto $Q$ da equação \ref{eq:pmfobject}.
   \label{eq:pmf}
 \end{equation}
 
-Onde,
-\begin{itemize}
-  \item $c_{ij}$ matriz de concentração
-  \item $u_{ij}$ matriz de incertezas (experimentais e analíticas)
-  \item $p$: O número de fatores informado pelo usuário.
-  \item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Score}).
-  \item $f_{kj}$: Perfil da fonte ou assinatura da fonte, ou seja, 
-        a distribuição das espécies nos fatores. (\textit{Factor Loadings}).
-  \item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas.
-\end{itemize}
+e
 
 \begin{equation}
   Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{e_{ij}} {u_{ij}} \right] ^2
   \label{eq:pmfobject}
 \end{equation}
 
+Onde,
+\begin{itemize}
+  \begin{spacing}{1.0}
+	\item $c_{ij}$ Matriz de concentração;
+	\item $u_{ij}$ Matriz de incertezas (experimentais e analíticas);
+	\item $p$: Número de fatores informado pelo usuário;
+	\item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Score};
+	\item $f_{kj}$: Perfil da fonte ou assinatura da fonte, ou seja, 
+	a distribuição das espécies nos fatores. (\textit{Factor Loadings}).
+	\item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas;
+  \end{spacing}
+\end{itemize}
+
 O método PMF tem sido muito utilizado em pesquisas de poluição 
 atmosférica, pois inclue um algoritmo robusto desenvolvido por \citep{paatero1994}
-que impede o aparecimento de valores negativos no perfil e na contribuição de fontes.
-
-Diferente da AF, pondera o ajuste pelas incertezas das concentrações, 
-diminuíndo assim o peso de espécies com incertezas altas \ref{eq:pmfobject}.
-Por isso é necessário que os resultados e de XRF e \textit{Black Carbon}
-tenham incerteza que englobem .
+que impede o aparecimento de valores negativos no perfil e na contribuição de fontes
+e diferentemente da AF, pondera o ajuste pelo inverso das incertezas nas 
+concentrações, diminuindo assim o peso de espécies com incertezas altas 
+(equação \ref{eq:pmfobject}).
+Daí a importância de uma adequada definição para as incertezas dos parâmetros 
+medidos, como feito para a XRF-ED e para as medidas de BC, considerando, ainda, 
+todos os demais fatores que causem variabilidades nestas ou outras medidas 
+empregadas.
 
 %%%%
 \subsubsection{Função Objeto}
 
-Na matemática, função objeto é uma função que precisa ser minimizada 
+Função objeto, em matemática, é uma função que precisa ser minimizada 
 ou maximizada usando métodos numéricos para equações não lineares, pois não 
-tem solução analítica. A matriz de resíduo ${e_{ij}}$ da equação \ref{eq:pmf}
-pode ser substítuida em \ref{eq:pmfobject} obtendo-se \ref{eq:pmfobjectfull}.
+tem uma solução analítica. A matriz de resíduo ${e_{ij}}$ da equação \ref{eq:pmf}
+pode ser substítuida em \ref{eq:pmfobject} obtendo-se:
 
 \begin{equation}
   Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{c_{ij} - \sum_{k=i}^p g_{ik}f_{kj}} {u_{ij}} \right] ^2
   \label{eq:pmfobjectfull}
 \end{equation}
+
+A solução para \ref{eq:pmfobjectfull} foi inicialmente implementada usando 
+o método de Gauss-Newton \citep{paatero1994}, mas na 
+versão atual do software (PMF EPA 5.0) é usado o 
+Método do Gradiente Conjugado \citep{norris2014}.
+
+Os valores de $g_{ik}$ e $f_{kj}$ são iniciados randomicamente e
+ajustados até se chegar no menor $Q$. O PMF EPA 5.0 nos oferece dois valores 
+para $Q$: $Q_{verdadeiro}$ e 
+$Q_{robusto}$, onde o primeiro é calculado considerando todos os valores 
+de concentração e no segundo remove-se os \textit{outliers}.
+Assim, quando há poucos \textit{outliers}, $Q_{verdadeiro}$ e $Q_{robusto}$ 
+são próximos. Incertezas muitos altas resultam em $Q_{verdadeiro}$ e 
+$Q_{robusto}$ similares.
+
+
+
+
+
+
+
+
+
+
 
 A solução para \ref{eq:pmfobjectfull} foi inicialmente implementada usando 
 o método de Gauss-Newton \citep{paatero1994}, mas na 
