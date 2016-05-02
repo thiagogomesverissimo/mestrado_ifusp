@@ -56,3 +56,26 @@ massa_temporal <- function(sigla,moda='pm2.5') {
 
   dev.off()
 }
+
+#### 
+plot_epa <-function(x,y,elemento) {
+  filepath = paste('../../outputs/','epa_iag_',elemento,'.pdf',sep='')
+  pdf(filepath)
+  maximo = max(c(x,y),na.rm = T)
+  limite = round(1.1*maximo)
+  reg <- lm(y ~ x)
+  coefficients(reg)
+  #mar.default <- c(5,4,4,2) + 0.5
+  #par(mar = mar.default + c(0, 2, 0, 0))
+  plot(x,y,
+  #     main = elemento,
+       xlim = c(0,limite),
+       ylim = c(0,limite),
+       pch=1,
+       col='blue',
+       ylab = expression("(EPA-US) " ~ n*g ~ cm^-2),
+       xlab = expression("(LAPAt) " ~ n*g ~ cm^-2))
+  abline(0, 1,col="red")
+  legend("topleft", legend = elemento,  pch = 15,cex=2)
+  dev.off()
+}

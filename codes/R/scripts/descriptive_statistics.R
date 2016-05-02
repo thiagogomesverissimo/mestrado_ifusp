@@ -56,7 +56,7 @@ descriptive2latex(inalavel_sH,'inalavel_sH')
 100*sum(TIsH$mass>150)/nrow(TIsH) #EPA/CONAMA
 100*sum(RIsH$mass>50)/nrow(RIsH) # OMS
 100*sum(TIsH$mass>50)/nrow(TIsH) # OMS
-100*mean(fino_sH$mass)/mean(inalavel_sH$mass)
+#100*mean(fino_sH$mass)/mean(inalavel_sH$mass)
 
 #### Comparação de MP2.5 na avenida e residências com e sem Harmatão ####
 data = read.csv('../../outputs/pmf_fa/RFcH.csv');elementos = colnames(data)[-1]
@@ -89,12 +89,14 @@ TFsH = data
 
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Residencial} & \\multicolumn{2}{c}{Avenida} \\\\\n',
-                      'Z & com Harmatão & sem Harmatão & com Harmatão & sem Harmatão \\\\\n')
+addtorow$command <- c('& \\multicolumn{2}{c}{Residencial (ng/m$^3$)} & \\multicolumn{2}{c}{Avenida (ng/m$^3$)} \\\\\n',
+                      ' & com Harmatão & sem Harmatão & com Harmatão & sem Harmatão \\\\\n')
 
 tabela = cbind(elementos,RFcH,RFsH,TFcH,TFsH)
+tabela[1,1] = '$MP_{2,5} (\\mu g /m^3)$'
+tabela[nrow(tabela),1] = 'BC $(\\mu g /m^3)$'
 
-print(xtable(tabela),
+print(xtable(tabela,align=rep('c',6)),
       type="latex", 
       floating = FALSE,
       include.rownames = F,
@@ -134,12 +136,13 @@ TIsH = data
 
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Residencial} & \\multicolumn{2}{c}{Avenida} \\\\\n',
-                      'Z & com Harmatão & sem Harmatão & com Harmatão & sem Harmatão \\\\\n')
+addtorow$command <- c('& \\multicolumn{2}{c}{Residencial (ng/m$^3$)} & \\multicolumn{2}{c}{Avenida (ng/m$^3$)} \\\\\n',
+                      ' & com Harmatão & sem Harmatão & com Harmatão & sem Harmatão \\\\\n')
 
 tabela = cbind(elementos,RIcH,RIsH,TIcH,TIsH)
+tabela[1,1] = '$MP_{10} (\\mu g /m^3)$'
 
-print(xtable(tabela),
+print(xtable(tabela,align=rep('c',6)),
       type="latex", 
       floating = FALSE,
       include.rownames = F,
