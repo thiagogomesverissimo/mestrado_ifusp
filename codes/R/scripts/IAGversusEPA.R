@@ -1,4 +1,4 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 # análise da EPA
@@ -36,66 +36,26 @@ rownames(iag) = iag$SampleID
 amostras = rownames(epa)
 iag = iag[amostras,]
 
-# "Na","Mg","Al","Si","P","S","Cl","K","Ca","Ti","V","Cr","Mn","Fe","Ni","Cu","Zn","Br","Rb","Sr","Zr","Pb","Rh","Ba","Ce","Se","Y","Co","Nb","Lu","Th","Ga","Hf"
+# plots
+plot_epa(epa$Al,iag$Al,'Al')
+plot_epa(epa$Si,iag$Si,'Si')
+plot_epa(epa$P,iag$P,'P') #
+plot_epa(epa$S,iag$S,'S')
+plot_epa(epa$Cl,iag$Cl,'Cl')
+plot_epa(epa$K,iag$K,'K')
+plot_epa(epa$Ca,iag$Ca,'Ca')
+plot_epa(epa$Ti,iag$Ti,'Ti')
+plot_epa(epa$V,iag$V,'V')
+plot_epa(epa$Mn,iag$Mn,'Mn')
+plot_epa(epa$Fe,iag$Fe,'Fe')
+plot_epa(epa$Zn,iag$Zn,'Zn')
+plot_epa(epa$Br,iag$Br,'Br')
+plot_epa(epa$Pb,iag$Pb,'Pb')
 
-# Incluir: Al, Si
-
-## P
-x = epa$P
-y = iag$P
-reg <- lm(y ~ x)
-coefficients(reg)
-par(cex=.8)
-
-pdf('../../outputs/EPA_P.pdf')
-mar.default <- c(5,4,4,2) + 0.5
-par(mar = mar.default + c(0, 2, 0, 0))
-plot(x,y,
-     main = 'Fósforo (P)',
-     xlim = c(0,2000),
-     ylim = c(0,2000),
-     pch=20,
-     xlab = expression(frac(n*g,cm^2)),
-     ylab = expression(frac(n*g,cm^2)))
-abline(0, 1)
-dev.off()
-
-## Fe
-x = epa$Fe
-y = iag$Fe
-reg <- lm(y ~ x)
-coefficients(reg)
-par(cex=.8)
-
-pdf('../../outputs/EPA_Fe.pdf')
-mar.default <- c(5,4,4,2) + 0.5
-par(mar = mar.default + c(0, 2, 0, 0))
-plot(x,y,
-     main = 'Ferro (F)',
-     xlim = c(0,35000),
-     ylim = c(0,35000),
-     pch=20,
-     xlab = expression(frac(n*g,cm^2)),
-     ylab = expression(frac(n*g,cm^2)))
-abline(0, 1)
-dev.off()
-
-## Si
-x = epa$Si
-y = iag$Si
-reg <- lm(y ~ x)
-coefficients(reg)
-par(cex=.8)
-
-pdf('../../outputs/EPA_Si.pdf')
-mar.default <- c(5,4,4,2) + 0.5
-par(mar = mar.default + c(0, 2, 0, 0))
-plot(x,y,
-     main = 'Fósforo (P)',
-     xlim = c(0,70000),
-     ylim = c(0,70000),
-     pch=20,
-     xlab = expression(frac(n*g,cm^2)),
-     ylab = expression(frac(n*g,cm^2)))
-abline(0, 1)
-dev.off()
+# Não sei se vou usar
+plot_epa(epa$Cr,iag$Cr,'Cr')
+plot_epa(epa$Ni,iag$Ni,'Ni')
+plot_epa(epa$Cu,iag$Cu,'Cu')
+plot_epa(epa$Rb,iag$Rb,'Rb')
+plot_epa(epa$Sr,iag$Sr,'Sr')
+plot_epa(epa$Zr,iag$Zr,'Zr')

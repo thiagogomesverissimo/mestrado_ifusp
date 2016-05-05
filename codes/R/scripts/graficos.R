@@ -18,7 +18,9 @@ pairs(RFsH[,c(2,4,6,8,10,12)], lower.panel = panel.smooth,upper.panel = NULL, co
 # por dia da semana
 data = read.csv('../../outputs/pmf_fa/RFsH.csv')
 data$date = as.POSIXct(strptime(data$Date,format="%d/%m/%Y %H:%M"))
-#timeVariation(RFsH,pollutant = 'Fe')
+#timeVariation(data,pollutant = 'Fe',period = 'year')
+#trendLevel(data,pollutant = "Fe")
+#linearRelation(data,x= 'Fe',y='mass')
 
 #scatterPlot(data,x='Fe',y='Si',linear = TRUE,type = c("season", "weekend"))
 
