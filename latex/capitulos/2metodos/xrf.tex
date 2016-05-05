@@ -225,47 +225,45 @@ presente no espectro obtido, com a sua massa na amostra irradiada:
 
 onde $R(Z)$ é chamado fator de resposta, $I$ é a corrente de excitação do tubo 
 de raios X, determinando, portanto, o fluxo de raios X que chegam à amostra, 
-$\Delta t$ é o tempo vivo de irradiação e $m(Z)/A$ é a massa por unidade de 
-área do elemento Z na amostra. Note-se que isso pressupõe uma distribuição 
-uniforme da massa na superfície do filtro.
+$\Delta t$ é o tempo vivo de irradiação e $m(Z)/A$ é a densidade 
+(massa por unidade de área) do elemento Z na amostra. 
+Nota-se pressupõe-se distribuição uniforme da massa na superfície do filtro.
 
 O termo $R(Z)$ depende da seção de choque de cada elemento com o feixe de 
 raios X incidente (incluindo modificações por eventuais filtros moduladores 
 de suas características), da curva de eficiência do detector de raios X, 
 da eficiência de operação do tubo de raios X e da geometria do sistema, 
-incluindo os diâmetros de colimadores selecionados. Mantidos estes parâmetros 
+incluindo os diâmetros de colimadores selecionados. Mantendo estes parâmetros 
 fixos, pode-se calcular $R(Z)$ a partir da equação \ref{eq:contagem}, 
-irradiando-se alvos padrões que tenham densidades ($m(Z)/A$) conhecidas:
+irradiando-se alvos padrões com densidades ($d(Z) = m(Z)/A$) conhecidas:
 
 \begin{equation}
   \label{eq:fator_de_resposta}
-  R(Z) = \frac{N(Z)}{[\frac{m(Z)}{A}].I \Delta t}
+  R(Z) = \frac{N(Z)}{d(Z) \cdot I \Delta t}
 \end{equation}
 
 Considerando que a incerteza da corrente e do tempo vivo são desprezíveis 
 perto da incerteza da densidade e da contagem, a incerteza no fator de resposta
 pode ser calculada por propagação de erro destas variáveis:
 
-% Use m(Z)/A como uma variável, pois é isso que a micromatter fornece. Vai ficar com dois termos apenas na expressão.
-
 \begin{equation}
   \label{eq:erro_fator_de_resposta}
-  \sigma_{R(Z)}^2 = {R(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
-                                  \left(\frac{\sigma_\frac{m(Z)}{A}}{\frac{m(Z)}{A}}\right)^2 
-                             \right)
+  \sigma_{R(Z)}^2 = {R(Z)}^2 \cdot \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                      \left(\frac{\sigma_{d(Z)}}{d(Z)}\right)^2 
+                                   \right)
 \end{equation}
 
-Dados ambientais são reportados em medidas de concentração,
-razão da massa $m(Z)$ pelo volume amostrado ($\mu g/m^3$).
-Conhecendo-se o fator de resposta $R(Z)$, pode-se calcular a massa $m(Z)$ depositada na amostra, usando a equação \ref{eq:contagem}, tomando como valor de $A$ a área de deposição no filtro de aerossol: 
+Dados ambientais são reportados em medidas de concentração ($\mu g/m^3$),
+razão da massa $m(Z)$ pelo volume amostrado .
+Conhecendo-se o fator de resposta $R(Z)$, pode-se calcular a massa $m(Z)$ depositada na amostra, usando a equação \ref{eq:contagem}, tomando como valor de $A$ a área de deposição no filtro de aerossol:
 
 \begin{equation}
   \label{eq:xrfedmassa}
-  m(Z) = \frac{N(Z) A}{ R(Z)I \Delta t}
+  m(Z) = \frac{N(Z) \cdot A}{ R(Z) \cdot I \cdot \Delta t}
 \end{equation}
 
-Empregando-se novamente a expressão da propagação de erro para variáveis independentes, 
-a incerteza na massa será:
+Empregando-se novamente a expressão da propagação de erro para variáveis 
+independentes, a incerteza na massa será:
 
 \begin{equation}
   \label{eq:erro_massa}
