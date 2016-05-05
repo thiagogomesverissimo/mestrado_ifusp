@@ -35,3 +35,51 @@ capture all the dust events observed in the region.
 Na/Cl with chloride depletion indicating
 several sources beyond sea salt
 
+
+
+
+O PIXE (Particle Induced X-Ray Emission) é outro método comumente usado 
+em análises ambientais e usa feixe de íons (prótons ou alfas) para excitação dos 
+átomos das amostras.
+
+\begin{figure}[H]
+\begin{center} 
+  \includegraphics[width=0.5\textwidth]{../inputs/images/arranjopixe.png}
+  \caption{Arranjo experimental básico para análise de método PIXE 
+           \citep{tabacniks2000} \label{fig:arranjopixe}}
+\end{center}
+\end{figure}
+
+Dado o arranjo experimental da figura \ref{fig:arranjopixe} e
+considerando a amostra fina (alguns $\mu m$),
+\citep{tabacniks2000} chega na equação \ref{eq:npixe} para 
+quantidade de raios X $N$ contadas no detector. 
+
+\begin{equation}
+  \label{eq:npixe}
+  N(Z) = \frac{\Omega}{4\pi} \sigma \zeta T t_z \frac{Q}{qe}
+\end{equation}
+
+Sendo $Z$ a espécie química, o número de raios X detectados 
+$N(Z)$ é proporcional à densidade (massa ou átomos por área) $t_Z$ 
+e a carga coletada $Q$.
+$\zeta$ é a eficiência do detector, $\sigma_x$ é a secção de choque, 
+$\Omega$ é o ângulo sólido, $T$ é a transmitância para raios-X em 
+caso de uso de absorvedores (colocados entre a amostra e o detector), 
+$q$ é o estado de carga da partícula incidente e 
+$e$ é a carga do elétron \citep{tabacniks1983}.
+
+Para resolver a equação \ref{eq:npixe}, parâmetros do arranjo experimental
+($\Omega$, $\sigma$, $\zeta$ e $T$) deveriam ser conhecidos. 
+
+Na prática, é mais comum é irradiar alvos de calibração com $t_z$ conhecidos,
+e encontrar uma variável única proporcional aos parâmetros do arranjo experimental.
+Da-se o nome de fator de resposta $R(Z)$ a essa variável.
+
+
+Assim, adaptando a nomenclatura da equação \ref{eq:npixe} para o contexto 
+da \textbf{ED-XRF} e incluindo o fator de resposta $R(Z)$ chegamos na equação 
+\ref{eq:contagem}.
+
+%PIXE -retirar até aqui
+

@@ -1,4 +1,5 @@
 %%%%
+\newpage
 \section{Fluorescência de Raios X}
 
 Para quantificar a composição elementar (número atômico $ 10 < Z < 82$) das 
@@ -8,13 +9,13 @@ que mede os raios X característicos emitidos pelos átomos da amostra,
 depois de também serem excitados por raios X. Permite análise simultânea dos 
 elementos químicos e não exige pré-tratamento dos alvos.
 
-Há basicamente três etapas envolvidas na técnica de medida de raios X 
-característicos de uma amostra: excitação da amostra, emissão de raios X pelos 
-átomos da amostra e detecção. 
-A excitação pode ocorrer por feixe de raios X (ou raios gamas) 
-produzidos em fontes radioativas, por partículas aceleradas 
-(elétrons, prótons, alfas etc) ou por tubos geradores de raios X 
-quando submetidos a diferença de potencial \citep{jenkins1988}. 
+Há basicamente 3 etapas envolvida na técnica de medida de raios X 
+característicos: excitação da amostra, emissão de raios X pelos átomos da amostra
+e detecção. A excitação pode ocorrer por feixe de raios X (ou raios gamas) 
+produzido em fontes radioativas, por partículas aceleradas 
+(elétrons, prótons, alfas etc) ou 
+por tubos geradores de raios X quando submetidos a diferença de potencial
+\citep{jenkins1988}. 
 
 No caso da XRF, a excitação ocorre por um feixe de raios X incidente, que  
 expulsa os elétrons das camadas mais internas do átomo (K,L e M) 
@@ -25,17 +26,17 @@ liberando fotóns e estabilizando o átomo, sendo a energia destes fótons
 correspondentes às energias de transição entre camadas do átomos, 
 característica de cada elemento químico. O processo de excitação do átomo 
 é ilustrado classicamente na figura \ref{fig:shimadzu_atomo}.
+
 \begin{figure}[H]
-\begin{center} 
+  \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/shimadzu_atomo.jpg}
   \caption{Ilustração clássica do fenômeno de fluorescência de raios X no átomo. 
            Figura acompanha o manual da Shimadzu da série de equipamentos
            EDX 700 \label{fig:shimadzu_atomo}}
-\end{center}
 \end{figure}
 
 As transições dos elétrons entre os níveis quânticos K, L e M encontram-se 
-tipicamente na faixa dos raios X, tendendo a ultravioleta UV e luz visível,
+tipicamente na faixa dos raios X, tendendo a ultravioleta (UV) e luz visível,
 conforme ocorram em transições atômicas de menor energia no átomo.
 
 Transições da camada L para K são do tipo $K_{\alpha}$, de M para K 
@@ -43,19 +44,18 @@ são $K_{\beta}$ e de M para L são $L_{\alpha}$ ou $L_{\beta}$.
 As camadas L e M possuem ainda subníveis de energia, o que resulta em diversas
 combinações de transições, sendo algumas delas proibidas, e outras 
 com diferenças de energia indistinguíveis para os detectores utilizados 
-neste método analítico.
+neste método analítico (XRF-ED).
 
-A notação desenvolvida por Siegbahn \citep{jenkins1991} permite identificarmos 
-melhor os subníveis de origen e destino, por exemplo, a transição de $M_{IV}$ 
-para $L_{III}$ é uma transição do tipo $L_{\beta_1}$, sintetização das 
-principais transições possíveis estão na figura \ref{fig:siegbahn}. 
+A notação desenvolvida por Siegbahn \citep{jenkins1991}, 
+com as principais transições possíveis sintetizada na figura \ref{fig:siegbahn},
+permite identificarmos melhor os subníveis de origen e destino, por exemplo, 
+a transição de $M_{IV}$ para $L_{III}$ é uma transição do tipo $L_{\beta_1}$,  . 
 
 \begin{figure}[H]
-\begin{center} 
+  \centering 
   \includegraphics[width=0.5\textwidth]{../inputs/images/Siegbahn.jpg}
   \caption{Transições de elétrons entre os subníveis das camadas K, L e M. 
            Figura extraída de \citet{jenkins1991} \label{fig:siegbahn}}
-\end{center}
 \end{figure}
 
 Na prática, dependendo do modo de detecção dos raios-X, agrupa-se transições 
@@ -64,122 +64,259 @@ $K_{\alpha}$ são as mais intensas, oferecendo melhor limite de detecção
 para um elemento. Mas elas também são as mais energéticas, podendo ultrapassar a
 faixa de sensibilidade do detector empregado. Nestes casos as linhas L passam a 
 ser analisadas. No modelo de XRF usado nesta pesquisa, analisou-se as linhas K, 
-desde o sódio (Na) até molibdênio (Mo), e as linha L, desde o molibdênio (Mo)
+desde o sódio (Na) até molibdênio (Mo), e as linha L, do molibdênio (Mo)
 até o chumbo (Pb).  
  
 %%%%
 \subsection{Tipos de XRF}
 
 Há essencialmente dois tipos principais de equipamentos de XRF que se 
-diferenciam pelo modo que os raios X são detectados:
+diferenciam pelo modo como os raios X são detectados: fluorescência de raios 
+X dispersivo em comprimento de onda (WD-XRF) e fluorescência de raios X 
+dispersivo em energia (ED-XRF).
 
-\begin{itemize}
-  \item \textbf{ED-XRF}: fluorescência de raios X por dispersão em energia;
-  \item \textbf{WD-XRF}: fluorescência de raios X por dispersão em comprimento de onda;
-  \item \textbf{EDP-XRF}: fluorescência de raios X polarizada;
-  \item \textbf{T-XRF}: fluorescência de raios X por reflexão total;
-\end{itemize}
-
-%TODO: explicar resumidamente cada um dos tipos de XRF 
-
-A \textbf{XRF-ED} usa detectores de semicondutores capazes de
-discriminar energias próximas. 
-O detector mais empregado é o de silício ativado com lítio $Si(Li)$. 
-
-A distinção dos fótons é feita pela amplitude do pulso 
-eletrônico produzido no detector, pois os pulsos eletrônicos são
-proporcionais às energias dos raios X incidentes. O sistema eletrônico do 
-equipamento armazena o pulso em um multicanal.
-
-%TODO: fazer esquema do ED-XRF igual http://usp.br/faepah/sites/default/files/Fluoresc%C3%AAncia%20de%20Raio%20X_1.jpg
-
-Na \textbf{WD-XRF} os raios X da amostra atravessam um cristal 
-e identifica-se os elementos químicos pelo o ângulo de difração $\theta$, segundo 
-a \textbf{Lei de Bragg} \ref{eq:bragg}. 
+Na XRF-WD os raios X da amostra sofrem difração em um cristal, quantificando-se
+os elementos químicos pela contagem de fótons nos ângulo de difração $\theta$, 
+característicos dos elementos, segundo a lei de Bragg:
 
 \begin{equation}
-  \label{eq:bragg}
-  2d sen(\theta) = n \lambda
+	\label{eq:bragg}
+	2d sen(\theta) = n \lambda
 \end{equation}
 
-Sendo $d$ a distância entre planos do cristal, $\theta$ o ângulo de incidência em 
-relação ao plano considerado, $\lambda$ o comprimento de onda (e portanto a energia) 
-da radiação incidente e $n$ um inteiro. 
+Onde, $d$ a distância entre planos do cristal, $\theta$ o ângulo de incidência 
+em relação ao plano considerado, $\lambda$ o comprimento de onda 
+(e, portanto, a energia) da radiação incidente e $n$ um inteiro.
+Esse tipo de equipamento permite uma grande resolução dos comprimentos de onda 
+(energia) característicos dos elementos, facilitando detectá-los e, geralmente, 
+com bom limite de detecção (LD).
+Entretanto apresentam diversos problemas práticos quando empregados em filtros 
+de aerossol atmosférico. Em função disso há uma preferência pelos sistemas 
+dispersivos em energia nesse campo de análise. 
+
+A XRF-ED usa detectores de semicondutores capazes de discriminar energias 
+próximas com alta resolução temporal, viabilizando a detecção simultânea dos 
+elementos químicos através da amplitude do pulso eletrônico produzido no 
+detector, proporcional à energia do fóton incidente. O sistema eletrônico do 
+equipamento faz a conversão analógica-digital da intensidade do pulso, 
+acumulando a contagem por energia em um multicanal. O detector mais empregado é 
+o de silício ativado com lítio Si(Li). 
+
+Neste sistema o LD das análises é particularmente limitado pelos raios-X de 
+excitação que sofrem reflexão na amostra e também chegam ao detector. 
+Formam assim uma contagem de fundo (\textit{background}) que concorre com 
+aquela proveniente dos picos característicos. 
+Fluorescência de raios X polarizada (EDP-XRF) e fluorescência de raios X por 
+reflexão total (T-XRF) são dois sistemas que têm sido empregados 
+para reduzir o \textit{background} e melhorar significativamente o LD.
+
+Em EDP-XRF, se excita a amostra com raios X polarizados e se ajusta o ângulo 
+de detecção a 90 $\degree$ deste feixe \cite{dzubay1974}. Nesta direção a 
+reflexão do feixe incidente polarizado é pequena, obtendo-se grande redução 
+na intensidade do fundo e, consequentemente, no LD, tipicamente fator 2 a 10
+dependendo do elemento e das condições de irradiação comparadas 
+(Meel K. V., 2009).
+
+%Meel, 2009
+%Meel, Katleen Van, 2009. Application of high-energy polarized-beam energy-dispersive X-ray fluorescence for industrial and environmental purposes. Doctoral Thesis, Universiteit Antwerpen, Faculteit Wetenschappen, Departement Chemie. Orientador: René Van Grieken; p. 154.  
+
+Para T-XRF emprega a propriedade da radiação eletromagnética incidente abaixo do
+ângulo crítico sobre uma superfície. Incidindo-se um feixe que resvale a amostra
+com um ângulo bem pequeno, este excitará uma fina camada da superfície, 
+penetrando muito pouco no suporte. Desta forma um detector posicionado 
+perpendicularmente à superfície receberá muitos fótons característicos gerados 
+pela amostra e pouco fundo refletido no suporte, melhorando o LD
+\citep{yoneda1971} e \citep{aiginger1974}.
 
 %%%%
 \subsection{\textbf{ED-XRF} do \textbf{LAPAt}}
 
 %TODO: Colocar área do detector, corrent
 
-Neste trabalho foi utilizado uma \textbf{ED-XRF} da marca \textbf{Shimadzu} 
-modelo \textbf{EDX 720HS} \ref{fig:xrfed_iag} pertencente ao 
-\textbf{Laboratório de Análise dos Processos Atmosféricos - LAPAt}
-no \textbf{Instituto de Astronomia, Geofísica e Ciências Atmosféricas - IAG-USP}.
+Neste trabalho foi utilizado uma ED-XRF da marca Shimadzu modelo EDX 720HS, 
+apresentado na figura \ref{fig:xrfed_iag},
+pertencente ao Laboratório de Poluição atmosférica Experimental (LAPAE) 
+da Faculade de Medicina da USP e instalado no LAPAt. 
 
 \begin{figure}[H]
-\begin{center}
+  \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/xrf-ed-IAG-USP.jpg}
-  \caption{\textbf{ED-XRF Shimadzu 720HS} do \textbf{Laboratório de Análise dos Processos Atmosféricos - LAPAt} do
-           \textbf{Instituto de Astronomia, Geofísica e Ciências Atmosféricas - IAG-USP} \label{fig:xrfed_iag}}
-\end{center}
+  \caption{ED-XRF Shimadzu modelo EDX 720HS - LAPAt \label{fig:xrfed_iag}}
 \end{figure}
 
-Um tubo de ródio $Rh$ submetido a uma diferença de potencial 
-de $50 kV$ foi utilizado para geração do feixe de raios X.
-O detector de silício ativado com lítio $Si(Li)$ possui sensibilidade
-para medida de $0$ a $20 keV$ e o sistema eletrônico conta com multicanal 
-de 2048 canais.
-Um filtro de alumínio $Al$ foi posto entre o feixe e a amostra para remover
-a radiação da linha $L$ dos raios X do tubo de ródio, para melhorar o limite
-de detecção dos elementos com energia menores que $2,6 keV$ (energia da linha
-$L$ do feixe incidente).
+Um tubo de ródio (Rh) submetido a uma diferença de potencial 
+de 50 kV foi utilizado para geração do feixe de raios X.
+O detector de silício ativado com lítio Si(Li) possui sensibilidade
+para medida de fótons com energia entre 1 e 20 keV e o sistema eletrônico 
+conta com um multicanal de 2048 canais, permitindo quantificar simultaneamente 
+os elementos desde o Na até o Pb.
+Um filtro de alumínio Al foi posto entre o feixe e a amostra para remover
+a radiação da linha L dos raios X do tubo de ródio, ~2,6 keV, melhorando o 
+limite de detecção dos elementos com energia igual ou menor que esta. 
+O diâmetro do feixe de raios X era definido por um colimador de 10 mm, 
+garantindo a irradiação de uma área representativa e homogênea da amostra. 
 
-Tipicamente, o tempo de irradiação de cada amostra foi $\pm 18$ minutos com 
-13\% de tempo morto. Como as amostra estavam completamente carregadas, 
-a corrente foi de 1000 $\mu A$. 
+O tempo vivo de irradiação de cada amostra foi $\pm$ 960 minutos, ajustando-se 
+a corrente para manter o tempo morto em 20\%. Desejava-se desta forma fixar a 
+taxa de contagem, obtendo-se ao final o mesmo número total de fótons contados 
+em cada espectro. Esse mecanismo permite melhorar o LD dos elementos presentes 
+em amostras menos carregadas. Isso nem sempre foi possível já que a corrente 
+máxima no tubo gerador de raios X era de 1000 $\mu A$. 
 
-Na imagem \ref{fig:xrfed_software} extraída do software que acompanha o equipamento
-\textbf{ED-XRF Shimadzu 720HS} pode-se verificar em tempo real características da
-análise como: voltagem e corrente no tubo, filtro, informação se câmera está 
-em vácuo ou não, dentre outros dados que ajudam o pesquisador a conferir se 
-a análise está sendo realizada como planejada. 
+Na figura \ref{fig:xrfed_software}, extraída do software que acompanha o 
+equipamento da Shimadzu, pode-se verificar em tempo real características da
+análise como:  voltagem e corrente no tubo, filtro, informação sobre o vácuo na
+câmera, dentre outros dados que ajudam o pesquisador a conferir se 
+a análise está sendo realizada como planejado. 
 
 \begin{figure}[H]
-\begin{center}
+  \centering
   \includegraphics[scale=0.4]{../inputs/images/edx_iag_monitor.png}
-  \caption{\textbf{ED-XRF Shimadzu 720HS}. Imagem gerada pelo software que 
-           acompanha equipamento e mostra o status do mesmo. \label{fig:xrfed_software}}
-\end{center}
+  \caption{Software da ED-XRF Shimadzu 720HS, tela de verificação 
+           do estado do equipamento. \label{fig:xrfed_software}}
 \end{figure}
 
-O \textbf{EDX 720HS} aceita carrossel de 8 ou 16 posições, mas o \textbf{LAPAt}
-contava apenas com o carrossel de 16 posições, que não cabia os filtros de Teflon, 
-usados nesta pesquisa, devido ao diâmetro. Assim, foi adquirido da \textbf{Shimadzu} 
-o carrossel da figura \ref{fig:carrossel8} de 8 posições.
+O EDX 720HS permite análise automática de amostras encaixadas em carrosséis 
+de 8 ou 16 posições. O LAPAt contava então apenas com o carrossel de 16 
+posições. Foi necessário adquirir um com 8 posições, cujos receptáculos admitiam
+o maior diâmetro dos filtros de PTFE, que não podem ser cortados e remontados 
+como os de policarbonatos (figura \ref{fig:carrossel8}).
 
 \begin{figure}[H]
-\begin{center}
+  \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/carrossel8.jpg}
-  \caption{Carrossel de 8 posições para \textbf{ED-XRF Shimadzu 720HS} \label{fig:carrossel8}}
-\end{center}
+  \caption{Carrossel de 8 posições para do XRF-ED da Shimadzu 720HS
+           - LAPAt. \label{fig:carrossel8}}
 \end{figure}
 
-Como a análise é feita em vácuo, foi necessário criar o suporte 
-da figura \ref{fig:suporte8} que segurasse o filtro de Teflon no 
-carrossel de 8 posições durante o vácuo. 
-Os suportes de alumínio foram criados pela oficina do \textbf{Instituto de
-Física da USP} e permitiram 
+Para eliminar as ondulações típicas que ocorrem nos filtros de PTFE, 
+projetou-se um suporte de aço inox que comprimia sua moldura, mantendo plana 
+a superfície a ser analisada. Ao mesmo tempo, o peso deste suporte impedia que 
+o filtro "voasse" quando era feito ou quebrado o vácuo na câmera 
+(figura \ref{fig:suporte8}).
 
 \begin{figure}[H]
-\begin{center}
+  \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/suporte8.jpg}
-  \caption{Suporte desenvolvido para carrossel de 8 posições pela oficina
-           do \textbf{Instituto de Física da USP} \label{fig:suporte8}}
-\end{center}
+  \caption{Suporte para filtros de PTFE, projetado no LAPAt para carrossel de 
+           8 posições e produzido pela oficina da FAP no 
+           Instituto de Física da USP. \label{fig:suporte8}}
 \end{figure}
+
+% Thiago, esse suporte é para filtros de 47 mm e não para os nossos, de 37 mm. 
+% Caberia colocar uma imagem (a) e (b), com o de 37 mm aberto e fechado.
 
 %%%%
-\subsection{Calibração do \textbf{ED-XRF}}
+\subsection{Calibração do ED-XRF}
+
+A massa por unidade de área, depositada sobre os filtros tipicamente usados em 
+pesquisas de aerosol atmosférico, permite tratá-los como amostras finas,
+ou seja, os efeitos de matriz, interações dos raios X característicos com os 
+elementos da amostras causando absorção ou reforço do número de fótons de 
+raios X característicos, são pequenos diante da precisão do método,
+podendo-se desconsiderá-los. Nesta aproximação, pode-se relacionar de modo 
+simples o número de fótons contados sob o pico característico de um elemento, 
+presente no espectro obtido, com a sua massa na amostra irradiada:
+
+\begin{equation}
+  \label{eq:contagem}
+  N(Z) = R(Z) \cdot I \cdot \Delta t  \cdot \frac{m(Z)}{A} ,
+\end{equation}
+
+onde $R(Z)$ é chamado fator de resposta, $I$ é a corrente de excitação do tubo 
+de raios X, determinando, portanto, o fluxo de raios X que chegam à amostra, 
+$\Delta t$ é o tempo vivo de irradiação e $m(Z)/A$ é a massa por unidade de 
+área do elemento Z na amostra. Note-se que isso pressupõe uma distribuição 
+uniforme da massa na superfície do filtro.
+
+O termo $R(Z)$ depende da seção de choque de cada elemento com o feixe de 
+raios X incidente (incluindo modificações por eventuais filtros moduladores 
+de suas características), da curva de eficiência do detector de raios X, 
+da eficiência de operação do tubo de raios X e da geometria do sistema, 
+incluindo os diâmetros de colimadores selecionados. Mantidos estes parâmetros 
+fixos, pode-se calcular $R(Z)$ a partir da equação \ref{eq:contagem}, 
+irradiando-se alvos padrões que tenham densidades ($m(Z)/A$) conhecidas:
+
+\begin{equation}
+  \label{eq:fator_de_resposta}
+  R(Z) = \frac{N(Z)}{[\frac{m(Z)}{A}].I \Delta t}
+\end{equation}
+
+Considerando que a incerteza da corrente e do tempo vivo são desprezíveis 
+perto da incerteza da densidade e da contagem, a incerteza no fator de resposta
+pode ser calculada por propagação de erro destas variáveis:
+
+% Use m(Z)/A como uma variável, pois é isso que a micromatter fornece. Vai ficar com dois termos apenas na expressão.
+
+\begin{equation}
+  \label{eq:erro_fator_de_resposta}
+  \sigma_{R(Z)}^2 = {R(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                  \left(\frac{\sigma_\frac{m(Z)}{A}}{\frac{m(Z)}{A}}\right)^2 
+                             \right)
+\end{equation}
+
+Dados ambientais são reportados em medidas de concentração,
+razão da massa $m(Z)$ pelo volume amostrado ($\mu g/m^3$).
+Conhecendo-se o fator de resposta $R(Z)$, pode-se calcular a massa $m(Z)$ depositada na amostra, usando a equação \ref{eq:contagem}, tomando como valor de $A$ a área de deposição no filtro de aerossol: 
+
+\begin{equation}
+  \label{eq:xrfedmassa}
+  m(Z) = \frac{N(Z) A}{ R(Z)I \Delta t}
+\end{equation}
+
+Empregando-se novamente a expressão da propagação de erro para variáveis independentes, 
+a incerteza na massa será:
+
+\begin{equation}
+  \label{eq:erro_massa}
+  \sigma_{m(Z)}^2 = {m(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                  \left(\frac{\sigma_A}{A}\right)^2 + 
+                                  \left(\frac{\sigma_{R(Z)}}{R(Z)}\right)^2 
+                             \right)
+\end{equation}
+
+
+Vê-se, entretanto, que para cada espécie química de interesse, seria necessário ao menos um alvo de calibração para calcular seu $R(Z)$. Alvos padrões finos, com densidade elementar conhecida, podem ser comprados ou produzidos, dependendo da precisão desejada. Neste projeto foram comprados alvos padrões da \textbf{Micromatter}, que promete uma incerteza de 5\%.
+
+Mas esta empresa não produz alvos com proporção estequiométrica quantificada para todas espécies químicas.%
+%
+%Você sabe o que isso significa?
+%
+ Assim, trouxemos para o \textbf{ED-XRF} o conceito proposto por \citep{tabacniks2000}
+para o sistema \textbf{PIXE (Particle Induced X-Ray Emission)}, que permite obter uma calibração abrangendo elementos de número atômico 
+$ 10 < Z < 83$ %
+%
+%você sabe explicar o porquê destes limites em Z?
+%
+nas análises de \textbf{ED-XRF}. 
+Empregou-se, ainda, uma metodologia estatística robusta para estimativa das incertezas para a calibração.
+
+Essa preocupação em definir adequadamente as incertezas deve-se, particularmente, ao fato de que elas ponderam o peso das variáveis na modelagem por PMF.
+
+No gráfico da figura \ref{fg:edxrfcalib} estão plotados os $R(Z)$ 
+dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010. 
+
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010K.pdf}
+    \caption{Linha K}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010L.pdf}
+    \caption{Linha L}
+  \end{subfigure}
+  \caption{Fatores de respostas $R(Z)$ dos para alvos padrões da 
+           \textbf{Micromatter} irradiados em Maio de 2010. 
+           \label{fg:edxrfcalib}}
+\end{figure}
+
+Nota-se que é possível fazer um ajuste polinomial sobre esses dados, o que tanto melhora a precisão para todos os $R$, quanto fornece seu valor para elementos que não possuem alvos padrões.
+
+Como o fator de resposta reflete o arranjo experimental, mudanças físicas
+nesse arranjo alteram o valor de R, assim como a progresiva fadiga do detector
+ou do tubo. Portanto, a calibração deve ser realizada periodicamente.
+
+
 
 Amostra espessas apresentam o efeito matriz, ou seja, interações dos 
 raios X característicos com os elementos da amostras, causando 
