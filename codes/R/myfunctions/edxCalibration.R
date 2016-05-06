@@ -78,7 +78,7 @@ edxCalibration = function(name,line,pontos,cores,coefs1,coefs2=c(-999)) {
 montaColuna = function(data){
   data[,1:2] = data[,1:2]*1000
   data = cbind(data,incerteza_relativa = 100*(data[,2]/data[,1]))
-  data = format(round(data,1),digits=1,nsmall=1,scientic=F) 
+  data = format(round(data,1),digits=1,nsmall=1,scientic=F,decimal.mark = ',') 
   #data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],' ( ',data[,3],'\\%)',sep=''))
   data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],'(',data[,3],')',sep=''))
   data[,4]
