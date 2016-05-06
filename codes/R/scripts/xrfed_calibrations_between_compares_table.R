@@ -45,7 +45,7 @@ direfenca_relativa_abr2011 = format(round(direfenca_relativa_abr2011,2),nsmall=2
 tabela = cbind(rownames(maio2010),maio2010[,c(4,3)],nov2010[,c(4,3)],abr2011[,c(4,3)],
                direfenca_relativa_nov2010,direfenca_relativa_abr2011)
 
-last_line = matrix(c('\\hline',rep(' ',5),'Médio(Desvio Padrão)',dr_nov2010,dr_abr2011),ncol = 9)
+last_line = matrix(c('\\hline',rep(' ',5),'Média(Desvio Padrão)',dr_nov2010,dr_abr2011),ncol = 9)
 colnames(last_line) = colnames(tabela[2,])
 tabela = rbind(tabela,last_line)
 
@@ -109,7 +109,7 @@ direfenca_relativa_abr2011 = format(round(direfenca_relativa_abr2011,2),nsmall=2
 tabela = cbind(rownames(maio2010),maio2010[,c(4,3)],nov2010[,c(4,3)],abr2011[,c(4,3)],
                direfenca_relativa_nov2010,direfenca_relativa_abr2011)
 
-last_line = matrix(c('\\hline',rep(' ',5),'Médio(Desvio Padrão)',dr_nov2010,dr_abr2011),ncol = 9)
+last_line = matrix(c('\\hline',rep(' ',5),'Média(Desvio Padrão)',dr_nov2010,dr_abr2011),ncol = 9)
 colnames(last_line) = colnames(tabela[2,])
 tabela = rbind(tabela,last_line)
 
@@ -123,6 +123,7 @@ print(xtable(tabela),
       type="latex", 
       floating = FALSE,
       include.rownames = F,
+      tabular.environment = 'longtable',
       add.to.row = addtorow,
       include.colnames = F,
       sanitize.text.function = identity,
