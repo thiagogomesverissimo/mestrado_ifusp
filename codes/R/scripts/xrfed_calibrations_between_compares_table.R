@@ -49,18 +49,33 @@ last_line = matrix(c('\\hline',rep(' ',5),'Média(Desvio Padrão)',dr_nov2010,dr
 colnames(last_line) = colnames(tabela[2,])
 tabela = rbind(tabela,last_line)
 
+# DR: diferença relativa
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença Relativa a Maio 2010} \\\\\n
-                       Z & medido & ajustado & medido & ajustado & medido & ajustado  & Novembro 2010 & Abril 2011 \\\\\n',
-                      '\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (\\% incerteza/valor)} & \\multicolumn{2}{c}{\\%}  \\\\\n')
+addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{DR* a Maio 2010} \\\\\n
+                       Z & medido & ajustado & medido & ajustado & medido & ajustado  & N2010 & A2011 \\\\\n',
+                      '\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (\\% incerteza/valor)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+\\endfirsthead
+\\multicolumn{9}{c}
+{{\\bfseries \\tablename\\ \\thetable{} -- Continuação da página anterior}} \\\\\n
+\\hline 
+\\endhead
+\\hline \\multicolumn{9}{|c|}{Continua na próxima paǵina} \\\\\n
+\\hline
+\\endfoot
+\\hline
+\\endlastfoot')
 
-print(xtable(tabela),
+legenda = 'Calibração da Fluorescência de Raiox X linha K'
+
+print(xtable(tabela, caption=legenda),
         type="latex", 
         floating = FALSE,
         include.rownames = F,
+        tabular.environment = 'longtable',
         add.to.row = addtorow,
         include.colnames = F,
+        size="small",
         sanitize.text.function = identity,
         file='../../outputs/edxAllCalibrationK.tex')
 
@@ -115,17 +130,29 @@ tabela = rbind(tabela,last_line)
 
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença Relativa a Maio 2010} \\\\\n
+addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{DR a Maio 2010} \\\\\n
                        Z & medido & ajustado & medido & ajustado & medido & ajustado  & Novembro 2010 & Abril 2011 \\\\\n',
-                      '\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (\\% incerteza/valor)} & \\multicolumn{2}{c}{\\%}  \\\\\n')
+                      '\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (\\% incerteza/valor)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+\\endfirsthead
+\\multicolumn{9}{c}
+{{\\bfseries \\tablename\\ \\thetable{} -- Continuação da página anterior}} \\\\\n
+\\hline 
+\\endhead
+\\hline \\multicolumn{9}{|c|}{Continua na próxima paǵina} \\\\\n
+\\hline
+\\endfoot
+\\hline \\hline
+\\endlastfoot')
 
-print(xtable(tabela),
+legenda = 'Calibração da Fluorescência de Raiox X  linha L'
+print(xtable(tabela,caption =legenda),
       type="latex", 
       floating = FALSE,
       include.rownames = F,
       tabular.environment = 'longtable',
       add.to.row = addtorow,
       include.colnames = F,
+      size="small",
       sanitize.text.function = identity,
       file='../../outputs/edxAllCalibrationL.tex')
 
