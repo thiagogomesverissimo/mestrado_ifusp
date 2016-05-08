@@ -79,7 +79,6 @@ print(xtable(tabela, caption=legenda,align = rep('c',10),label='table:edxAllCali
         include.rownames = F,
         tabular.environment = 'longtable',
         add.to.row = addtorow,
-        align = rep('c',9),
         include.colnames = F,
         size="small",
         sanitize.text.function = identity,

@@ -1,4 +1,4 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 #################################################################
@@ -79,9 +79,38 @@ legend("topright",
        pch=1)
 dev.off()
 
-#Escrevendo saídas - TODO
+# Escrevendo saídas em csv
 write.csv(ACC386Kout,"../../outputs/detectionLimitACC386K.csv",row.names=TRUE)
 write.csv(ACC386Lout,"../../outputs/detectionLimitACC386L.csv",row.names=TRUE)
 write.csv(ACC957Kout,"../../outputs/detectionLimitACC957K.csv",row.names=TRUE)
 write.csv(ACC957Lout,"../../outputs/detectionLimitACC957L.csv",row.names=TRUE)
 
+# tabela periódica
+pt = read.csv('../../inputs/constants/periodic_table.csv')
+
+# exporta latex ACC386(Branco)  ACC957(carregado)
+branco = rbind(ACC386Kout,ACC386Lout[ACC386Lout$Z>42,])
+row.names(branco) = as.character(pt[match(branco$Z, pt$Z),2])
+branco$limite = format(round(branco$limite,3),nsmall = 3,decimal.mark = ',')
+
+carregado = rbind(ACC957Kout,ACC957Lout[ACC957Lout$Z>42,])
+row.names(carregado) = as.character(pt[match(carregado$Z, pt$Z),2])
+carregado$limite = format(round(carregado$limite,3),nsmall = 3,decimal.mark = ',')
+
+tabela = cbind(row.names(carregado),branco$limite,carregado$limite)
+
+# DR: diferença relativa
+addtorow <- list()
+addtorow$pos <- list(0, 0)
+addtorow$command <- c('Elemento & Amostra branca & Amostra carregada \\\\\n',
+                      ' & \\multicolumn{2}{c}{$\\mu g / m^3$}        \\\\\n')
+
+print(xtable(tabela, align = rep('c',4)),
+        type="latex", 
+        floating = FALSE,
+        include.rownames = F,
+        add.to.row = addtorow,
+        include.colnames = F,
+ #       size="small",
+        sanitize.text.function = identity,
+        file='../../outputs/LD.tex')

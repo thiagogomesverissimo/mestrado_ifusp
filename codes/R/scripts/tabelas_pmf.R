@@ -92,3 +92,13 @@ pmf_contributions_latex('../../outputs/pmf/4factors/','TFeH',rainbow(4),nfactors
 pmf_contributions_latex('../../outputs/pmf/4factors/','RFeH',rainbow(4),nfactors=4)
 pmf_profiles_latex('../../outputs/pmf/4factors/','TFeH',4)
 pmf_profiles_latex('../../outputs/pmf/4factors/','RFeH',4)
+
+pmf_contributions_latex('../../outputs/pmf/5factors/','TGeH',rainbow(5),nfactors=5)
+pmf_contributions_latex('../../outputs/pmf/5factors/','RGeH',rainbow(5),nfactors=5)
+pmf_profiles_latex('../../outputs/pmf/5factors/','TGeH',5)
+pmf_profiles_latex('../../outputs/pmf/5factors/','RGeH',5)
+
+pmf_contributions_latex('../../outputs/pmf/5factors/','TFeH',rainbow(5),nfactors=5)
+pmf_contributions_latex('../../outputs/pmf/5factors/','RFeH',rainbow(5),nfactors=5)
+pmf_profiles_latex('../../outputs/pmf/5factors/','TFeH',5)
+pmf_profiles_latex('../../outputs/pmf/5factors/','RFeH',5)

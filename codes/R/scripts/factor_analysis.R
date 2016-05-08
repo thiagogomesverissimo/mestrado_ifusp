@@ -49,3 +49,9 @@ FactorAnalysis('TGeH',4)
 
 FactorAnalysis('RFeH',4)
 FactorAnalysis('TFeH',4)
+
+FactorAnalysis('RGeH',5)
+FactorAnalysis('TGeH',5)
+
+FactorAnalysis('RFeH',5)
+FactorAnalysis('TFeH',5)

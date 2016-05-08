@@ -142,8 +142,9 @@ briefFA <-function(sigla,nfactors){
 beautifulFAdisplay <- function(sigla,nfactors){
   
   # test:
-  #source("myfunctions/load.R")
-  #sigla = 'RFsH'; nfactors = 5
+  source("myfunctions/load.R")
+  sigla = 'RFsH'
+  nfactors = 5
   
   # lê loadings
   path_file = paste('../../outputs/loadings_',sigla,nfactors,'.csv',sep='')
@@ -163,8 +164,17 @@ beautifulFAdisplay <- function(sigla,nfactors){
   # add communinality to loading table
   data = merge(loading,comunalidade,by='especie')
   
-  # ordena 
-  data = data[order(data$Fator1,data$Fator2,data$Fator3,data$Fator4,decreasing = T),]
+  # ordena pelo Z
+  pt = read.csv('../../inputs/constants/periodic_table.csv')
+  row.names(data) = data[,1]
+  elementos = data[data$especie %in% pt$code,1]
+  elementos_classificados = pt[pt$code %in% elementos,1:2]   
+  data[c('mass','BC',as.character(elementos_classificados$code)),]
+  
+  # mass sigla latex
+  if(grepl('F',sigla)) data[data[,1] == 'mass',1] = '$MP_{2,5}$'
+  if(grepl('G',sigla)) data[data[,1] == 'mass',1] = '$MP_{2,5-10}$'
+  if(grepl('I',sigla)) data[data[,1] == 'mass',1] = '$MP_{10}$'
   
   # add SSloaging
   # Não sei se o cálculo da variância explicada é feito 

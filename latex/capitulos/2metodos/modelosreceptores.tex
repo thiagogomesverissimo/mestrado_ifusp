@@ -62,17 +62,16 @@ sendo,
 %%%%
 \subsection{Análise de Fatores}
 
-A técnica Análise de Fatores (AF) consiste na redução da dimensionalidade 
-dos dados, para uma nova base contendo a menor dimensão possível, 
-relativamente à dimensão dos dados originais, baseando-se para tal na 
-decomposição da matriz de correlação ou covariância em autovalores e autovetores. 
-A redução é feita de forma que as novas variáveis 
-(fatores) sejam combinação linear das anteriores e que representem a máxima 
-fração possível da variância contida naquelas variáveis.
-
-Popularizada após a publicação do trabalho de Lourenz em 1956, que chamou 
+A técnica estatística de Análise de Fatores (AF) foi popularizada em diversas 
+áreas das ciências após publicação do trabalho de Lourenz em 1956, que chamou 
 a técnica de Análise de Funções Ortogonais Empíricas, 55 anos após a 
-descoberta da mesma por Karl Pearson \citep{bartholomew2011}.
+descoberta da mesma por Karl Pearson \citep{bartholomew2011}. Consiste 
+conceitualmente na redução da dimensionalidade dos dados, para uma nova base 
+contendo a menor dimensão possível relativamente à dimensão dos dados originais, 
+baseando-se na decomposição da matriz de correlação ou covariância em 
+autovalores e autovetores, de forma que as novas variáveis (fatores) sejam 
+combinação linear das anteriores e que representem a máxima fração possível da 
+variância contida naquelas variáveis.
 
 Dadas as variáveis observáveis ($x_1,\dots,x_j$) com 
 respectivas médias $\mu_1,\dots,\mu_j$ a equação da AF pode ser escritas como: 
@@ -82,15 +81,15 @@ respectivas médias $\mu_1,\dots,\mu_j$ a equação da AF pode ser escritas como
   x_i-\mu_i = l_{i1} F_1 + \cdots + l_{ip} F_p + \varepsilon_i 
 \end{equation}
 
-Sendo F os fatores extraídos e $l_{ip}$ o peso ou \textit{loading} 
+Sendo F os fatores extraídos e $l_{ip}$ o peso (ou \textit{loading})
 da variável $i$ no fator $p$.
 
-Deve-se evitar amostras medidas em paralelo na mesma rodada de AF devido a 
-multicolinearidade e consequente piora ou não solução do ajuste.  
+Deve-se evitar amostras medidas em paralelo ou repetidas na mesma rodada de AF 
+devido ao efeito multicolinearidade e consequente piora na solução do ajuste.  
 A comunalidade é igual a soma dos \textit{loading} ao quadradro 
-para cada variável e indica como ela foi explicada pelo ajuste, sendo que o zero
-indica que a variável não foi nada explicada pelos fatores extraídos 
-e um que foi completamente explicada. 
+para cada variável e indica como ela foi explicada pelo atual ajuste, 
+sendo que o zero indica que a variável não foi nada explicada pelos fatores 
+extraídos e um que foi completamente explicada. 
 O quanto da variabilidade global dos dados iniciais foi explica pelo modelo está 
 contida na variância total explicada, sendo que os ajustes com valores 
 acima de 80\% são considerados bons. 
