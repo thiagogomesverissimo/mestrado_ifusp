@@ -92,36 +92,3 @@ de nova curva de calibração.
 \begin{landscape}
   \input{../outputs/edxAllCalibrationL.tex}
 \end{landscape}
-
-%%%%
-\subsection{Limite de detecçção}
-
-O limite de detecção (LD) foi estimado para uma amostra branca e outra carregada
-a partir da contagem de fundo de cada pico nos respectivos espectros.
-Os LDs encontrados estão apresentados nos gráficos da figura \ref{table:ld} 
-em termos de concentrações típicas ($\mu g / m^3$) para o volume médio 
-de 13,9 $m^3$. Na linha K o LD é alto para elementos de baixo número atômico, 
-dificultando a detecção desses elementos, mas melhora com o aumento de Z. 
-Em amostras muito carregadas, o fundo do espectro aumenta, aumentando o LD para 
-todos elementos, atrapalhando a detecção de elementos com baixas concetrações
-na mesma amostra. 
-
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/limitDetectionK.pdf}
-    \caption{linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/limitDetectionL.pdf}
-    \caption{linha L}
-  \end{subfigure}
-  \caption{Limite de detecção em termos de concentrações típicas 
-           ($\mu g / m^3$) para amostra branca e carregada.
-           \label{table:ld}}
-\end{figure}
-
-\begin{table}[H]
-  \centering
-  \input{../outputs/LD.tex}
-  \caption{LD. \label{table:LD}}
-\end{table}

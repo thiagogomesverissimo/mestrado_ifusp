@@ -183,17 +183,23 @@ pmf_profiles_latex <- function(path,sigla,nfactors) {
   # Tests
   #nfactors = 4
   #path='../../outputs/pmf/4factors/'
-  #sigla = 'RGsH'
+  #sigla = 'RFsH'
   
   profiles = pmf_profiles(path,sigla)
   x = profiles$fp_percent_species
   x = round(x,1)
-  x = x[order(x$Fator1,x$Fator2,x$Fator3,decreasing = T),]
+  #x = x[order(x$Fator1,x$Fator2,x$Fator3,decreasing = T),]
   x[x>=30.0] = paste('\\textcolor{red}{\\textbf{',x[x>=30.0],'}}',sep='')
   x=gsub('\\.',',',as.matrix(x))
-
+  
+  # mass sigla latex
+  rownames(x)[1]
+  if(grepl('F',sigla)) rownames(x)[1] = '$MP_{2,5}$'
+  if(grepl('G',sigla)) rownames(x)[1] = '$MP_{2,5-10}$'
+  if(grepl('I',sigla)) rownames(x)[1] = '$MP_{10}$'
+  
   latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species',nfactors,'.tex',sep='')
-  print(xtable(x), 
+  print(xtable(x,align = rep('c',ncol(x)+1)), 
       type="latex", 
       include.rownames = T, 
       floating = FALSE,

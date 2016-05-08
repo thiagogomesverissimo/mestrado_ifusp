@@ -147,12 +147,12 @@ de 50 kV foi utilizado para geração do feixe de raios X.
 O detector de silício ativado com lítio Si(Li) possui sensibilidade
 para medida de fótons com energia entre 1 e 20 keV acoplado a um sistema 
 eletrônico com multicanal de 2048 canais capaz de quantificar simultaneamente 
-os elementos desde o Na até o Pb.
-Um filtro de alumínio Al foi posto entre o feixe e a amostra para remover
-a radiação da linha L dos raios X do tubo de ródio, ~2,6 keV, melhorando o 
-limite de detecção dos elementos com energia igual ou menor que esta. 
-O diâmetro do feixe de raios X era definido por um colimador de 10 mm, 
-garantindo a irradiação de uma área representativa e homogênea da amostra. 
+os elementos desde o Na até o Pb. Para remoção da radiação da linha L do feixe 
+de raios X do tubo de ródio, de energia próxima de 2,6 keV, um filtro de 
+alumínio foi posto entre o feixe e a amostra, melhorando o limite de detecção 
+dos elementos com energia igual ou menor que 2,6 keV. O diâmetro do feixe de 
+raios X é definido por um colimador de 10 mm, garantindo a irradiação de uma 
+área representativa e homogênea da amostra. 
 
 O tempo vivo de irradiação de cada amostra foi $\pm$ 960 minutos, ajustando-se 
 a corrente para manter o tempo morto em 20\%. Desejava-se desta forma fixar a 
@@ -161,10 +161,10 @@ em cada espectro. Esse mecanismo permite melhorar o LD dos elementos presentes
 em amostras menos carregadas. Isso nem sempre foi possível já que a corrente 
 máxima no tubo gerador de raios X era de 1000 $\mu A$. 
 
-Na figura \ref{fig:xrfed_software}, extraída do software que acompanha o 
-equipamento da Shimadzu, pode-se verificar em tempo real características da
-análise como:  voltagem e corrente no tubo, filtro, informação sobre o vácuo na
-câmera, dentre outros dados que ajudam o pesquisador a conferir se 
+A figura \ref{fig:xrfed_software} foi extraída do software que acompanha o 
+equipamento da Shimadzu e permite verificar em tempo real características
+da análise como a voltagem e corrente no tubo, se há filtro e qual, 
+informação sobre o vácuo na câmera, dentre outros dados que ajudam a conferir se 
 a análise está sendo realizada como planejado. 
 
 \begin{figure}[H]
@@ -183,8 +183,8 @@ como os de policarbonatos (figura \ref{fig:carrossel8}).
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/carrossel8.jpg}
-  \caption{Carrossel de 8 posições para do XRF-ED da Shimadzu 720HS
-           - LAPAt. \label{fig:carrossel8}}
+  \caption{Carrossel de 8 posições adquirido para XRF-ED Shimadzu 720HS. 
+           \label{fig:carrossel8}}
 \end{figure}
 
 Para eliminar as ondulações típicas que ocorrem nos filtros de PTFE, 
@@ -206,10 +206,10 @@ o filtro "voasse" quando era feito ou quebrado o vácuo na câmera
 
 A massa por unidade de área, depositada sobre os filtros tipicamente usados em 
 pesquisas de aerosol atmosférico, permite tratá-los como amostras finas,
-ou seja, os efeitos de matriz, interações dos raios X característicos com os 
+ou seja, o efeito de matriz, interações dos raios X característicos com os 
 elementos da amostras causando absorção ou reforço do número de fótons de 
 raios X característicos, são pequenos diante da precisão do método,
-podendo-se desconsiderá-los. Nesta aproximação, pode-se relacionar de modo 
+podendo-se desconsiderá-lo. Nesta aproximação, pode-se relacionar de modo 
 simples o número de fótons contados sob o pico característico de um elemento, 
 presente no espectro obtido, com a sua massa na amostra irradiada:
 
@@ -218,19 +218,19 @@ presente no espectro obtido, com a sua massa na amostra irradiada:
   N(Z) = R(Z) \cdot I \cdot \Delta t  \cdot \frac{m(Z)}{A} ,
 \end{equation}
 
-onde $R(Z)$ é chamado fator de resposta, $I$ é a corrente de excitação do tubo 
+onde R(Z) é chamado de fator de resposta, I é a corrente de excitação do tubo 
 de raios X, determinando, portanto, o fluxo de raios X que chegam à amostra, 
-$\Delta t$ é o tempo vivo de irradiação e $m(Z)/A$ é a densidade 
-(massa por unidade de área) do elemento Z na amostra. 
+$\Delta t$ é o tempo vivo de irradiação e m(Z)/A é a densidade 
+(massa por unidade de área) dos elementos Z presentas na amostra. 
 Nota-se pressupõe-se distribuição uniforme da massa na superfície do filtro.
 
-O termo $R(Z)$ depende da seção de choque de cada elemento com o feixe de 
+O termo R(Z) depende da seção de choque de cada elemento com o feixe de 
 raios X incidente (incluindo modificações por eventuais filtros moduladores 
 de suas características), da curva de eficiência do detector de raios X, 
 da eficiência de operação do tubo de raios X e da geometria do sistema, 
 incluindo os diâmetros de colimadores selecionados. Mantendo estes parâmetros 
-fixos, pode-se calcular $R(Z)$ a partir da equação \ref{eq:contagem}, 
-irradiando-se alvos padrões com densidades ($d(Z) = m(Z)/A$) conhecidas:
+fixos e irradiando-se alvos padrões com densidades (d(Z) = m(Z)/A) 
+conhecidas, pode-se calcular R(Z):
 
 \begin{equation}
   \label{eq:fator_de_resposta}
@@ -249,8 +249,10 @@ pode ser calculada por propagação de erro destas variáveis:
 \end{equation}
 
 Dados ambientais são reportados em medidas de concentração ($\mu g/m^3$),
-razão da massa $m(Z)$ pelo volume amostrado .
-Conhecendo-se o fator de resposta $R(Z)$, pode-se calcular a massa $m(Z)$ depositada na amostra, usando a equação \ref{eq:contagem}, tomando como valor de $A$ a área de deposição no filtro de aerossol:
+razão da massa m(Z) pelo volume amostrado. Conhecendo-se o fator de resposta 
+R(Z) pode-se calcular a massa m(Z) depositada na amostra, usando a equação 
+\ref{eq:contagem}, tomando como valor da área A com deposição de aerossol
+no filtro:
 
 \begin{equation}
   \label{eq:xrfedmassa}
@@ -269,25 +271,24 @@ independentes, a incerteza na massa será:
 \end{equation}
 
 
-Vê-se, entretanto, que para cada espécie química de interesse, seria necessário ao menos um alvo de calibração para calcular seu $R(Z)$. Alvos padrões finos, com densidade elementar conhecida, podem ser comprados ou produzidos, dependendo da precisão desejada. Neste projeto foram comprados alvos padrões da \textbf{Micromatter}, que promete uma incerteza de 5\%.
+Vê-se, entretanto, que para cada espécie química de interesse, seria necessário
+ao menos um alvo de calibração para calcular seu R(Z). Alvos padrões finos, 
+com densidade elementar conhecida, podem ser comprados ou produzidos, dependendo
+da precisão desejada. Neste projeto foram adquiridos alvos padrões da 
+Micromatter, com incerteza nominal de 5\%. Mas esta empresa não produz alvos 
+com proporção estequiométrica quantificada para todas espécies químicas.
+Assim, trouxemos para a XRF-ED o conceito proposto por \citep{tabacniks2000}
+para o sistema PIXE (Particle Induced X-Ray Emission) que permite obter uma 
+calibração abrangendo elementos de número atômico no intervalo 10 < Z < 83. 
+ 
+Empregou-se, ainda, uma metodologia estatística robusta para estimativa das 
+incertezas para a calibração usando MQM. Essa preocupação em definir 
+adequadamente as incertezas deve-se, particularmente, ao fato de que elas 
+ponderam o peso das variáveis na modelagem por PMF.
 
-Mas esta empresa não produz alvos com proporção estequiométrica quantificada para todas espécies químicas.%
-%
-%Você sabe o que isso significa?
-%
- Assim, trouxemos para o \textbf{ED-XRF} o conceito proposto por \citep{tabacniks2000}
-para o sistema \textbf{PIXE (Particle Induced X-Ray Emission)}, que permite obter uma calibração abrangendo elementos de número atômico 
-$ 10 < Z < 83$ %
-%
-%você sabe explicar o porquê destes limites em Z?
-%
-nas análises de \textbf{ED-XRF}. 
-Empregou-se, ainda, uma metodologia estatística robusta para estimativa das incertezas para a calibração.
-
-Essa preocupação em definir adequadamente as incertezas deve-se, particularmente, ao fato de que elas ponderam o peso das variáveis na modelagem por PMF.
-
-No gráfico da figura \ref{fg:edxrfcalib} estão plotados os $R(Z)$ 
-dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010. 
+Como exemplo para conhecer o forma da curva de calibração, o gráfico da figura 
+\ref{fg:edxrfcalib} apresenta os R(Z) dos alvos padrões da Micromatter 
+irradiados em Maio de 2010. 
 
 \begin{figure}[H]
   \begin{subfigure}[b]{0.45\textwidth}
@@ -303,174 +304,22 @@ dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010.
            \label{fg:edxrfcalib}}
 \end{figure}
 
-Nota-se que é possível fazer um ajuste polinomial sobre esses dados, o que tanto melhora a precisão para todos os $R$, quanto fornece seu valor para elementos que não possuem alvos padrões.
-
-Como o fator de resposta reflete o arranjo experimental, mudanças físicas
-nesse arranjo alteram o valor de R, assim como a progresiva fadiga do detector
+Nota-se que é possível fazer um ajuste polinomial sobre esses dados, 
+o que tanto melhora a precisão para todos os R(Z), quanto fornece seu valor
+para elementos que não possuem alvos padrões. Como o fator de resposta reflete 
+o arranjo experimental, mudanças físicas
+nesse arranjo alteram o valor de R(Z), assim como a progresiva fadiga do detector
 ou do tubo. Portanto, a calibração deve ser realizada periodicamente.
 
-
-
-Amostra espessas apresentam o efeito matriz, ou seja, interações dos 
-raios X característicos com os elementos da amostras, causando 
-absorção do raios X ou mesmo reforço de raios X. 
-Para os filtros usados na amostragem, Teflon, será considerado filtro
-fino, ou seja, fino o suficiente para desconsiderarmos o efeito matriz.
-
-Alvos padrões, com densidade elementar conhecida, podem ser 
-comprados ou produzidos, dependendo da precisão desejada.
-Neste projeto foram comprados alvos padrões da \textbf{Micromatter}
-com incerteza de 5\%. 
-Não há alvos para todas espécies possíveis de se encontrar na atmosfera. 
-
-Assim, usou-se um método de calibração proposto por \citep{tabacniks2000}
-para sistema \textbf{PIXE (Particle Induced X-Ray Emission)} com pequenas
-adaptações no contexto da \textbf{ED-XRF}.   
-A calibração permitiu abrangência de todos elementos de número atômico 
-$ 10 < Z < 83$ nas análises de \textbf{ED-XRF}. 
-Desensolve-se ainda, uma metodologia para estimativa das incertezas
-para a calibração.   
-
-O \textbf{PIXE (Particle Induced X-Ray Emission)} é
-outro método comumente usado em análises ambientais. 
-Usa feixe de íons (prótons ou alfas) para excitação dos 
-átomos das amostras.
-
-\begin{figure}[H]
-\begin{center} 
-  \includegraphics[width=0.5\textwidth]{../inputs/images/arranjopixe.png}
-  \caption{Arranjo experimental básico para análise de método PIXE 
-           \citep{tabacniks2000} \label{fig:arranjopixe}}
-\end{center}
-\end{figure}
-
-Dado o arranjo experimental da figura \ref{fig:arranjopixe} e
-considerando o filtro fino (alguns $\mu m$),
-\citep{tabacniks2000} chega na equação \ref{eq:npixe} para 
-quantidade de raios X $N$ contadas no detector. 
-
-\begin{equation}
-  \label{eq:npixe}
-  N(Z) = \frac{\Omega}{4\pi} \sigma \zeta T t_z \frac{Q}{qe}
-\end{equation}
-
-Sendo $Z$ a espécie química, o número de raios X detectados 
-$N(Z)$ é proporcional à densidade (massa ou átomos por área) $t_Z$ 
-e a carga coletada $Q$.
-$\zeta$ é a eficiência do detector, $\sigma_x$ é a secção de choque, 
-$\Omega$ é o ângulo sólido, $T$ é a transmitância para raios-X em 
-caso de uso de absorvedores (colocados entre a amostra e o detector), 
-$q$ é o estado de carga da partícula incidente e 
-$e$ é a carga do elétron \citep{tabacniks1983}.
-
-Para resolver a equação \ref{eq:npixe}, parâmetros do arranjo experimental
-($\Omega$, $\sigma$, $\zeta$ e $T$) deveriam ser conhecidos. 
-
-Na prática, é mais comum é irradiar alvos de calibração com $t_z$ conhecidos,
-e encontrar uma variável única proporcional aos parâmetros do arranjo experimental.
-Da-se o nome de fator de resposta $R(Z)$ a essa variável.
-
-Assim, adaptando a nomenclatura da equação \ref{eq:npixe} para o contexto 
-da \textbf{ED-XRF} e incluindo o fator de resposta $R(Z)$ chegamos na equação 
-\ref{eq:contagem}.
-
-\begin{equation}
-  \label{eq:contagem}
-  N(Z) = R(Z) I\Delta t \frac{m(Z)}{A}
-\end{equation}
-
-$R(Z)$ é o fator de resposta, $I\Delta t$ é a carga efetiva expressa
-em termos da corrente e do tempo efetivo de análise.
-A densidade $t_z$ está representada pela razão da massa $m(Z)$ pela 
-área de deposição $A$ (suposição: a massa está uniformemente distríbuida 
-na superfície do filtro).
-
-Isolando-se $R(Z)$ em \ref{eq:contagem} obtém-se a equação para cálculo 
-do fator de respota \ref{eq:fator_de_resposta}.
-Irradiando-se alvos padrões - que possuem densidades $m(Z)/A$ conhecidas - 
-mede-se $N(Z)$ e $I \Delta t$. Assim, são calculados fatores de repostas $R(Z)$ 
-para os respectivos alvos padrões. 
-
-\begin{equation}
-  \label{eq:fator_de_resposta}
-  R(Z) = \frac{N(Z) A}{m(Z)I \Delta t}
-\end{equation}
-
-Considerando que a incerteza da corrente e do tempo vivo são
-desprezíveis perto da incerteza da massa, da contagem e da área, 
-a incerteza do fator de resposta pode ser calculada usando a expressão
-de propagação de erro para variáveis independentes conforme equação 
-\ref{eq:erro_fator_de_resposta}.
-
-\begin{equation}
-  \label{eq:erro_fator_de_resposta}
-  \sigma_{R(Z)}^2 = {R(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
-                                  \left(\frac{\sigma_A}{A}\right)^2 + 
-                                  \left(\frac{\sigma_{m(Z)}}{m(Z)}\right)^2 
-                             \right)
-\end{equation}
-
-Dados ambientais são reportados em medidas de concentração,
-razão da massa $m(Z)$ pelo volume amostrado ($\mu g/m^3$).
-Conhecendo-se o fator de resposta $R(Z)$, pode-se calcular a massa $m(Z)$ 
-pela equação \ref{eq:xrfedmassa}, que nada mais é que o isolamento de $m(Z)$ na 
-\ref{eq:contagem}. 
-
-\begin{equation}
-  \label{eq:xrfedmassa}
-  m(Z) = \frac{N(Z) A}{ R(Z)I \Delta t}
-\end{equation}
-
-Empregando-se novamente a expressão da propagação de erro para variáveis independentes, 
-a incerteza na massa pode ser calculada pela equação \ref{eq:erro_massa}.
-
-\begin{equation}
-  \label{eq:erro_massa}
-  \sigma_{m(Z)}^2 = {m(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
-                                  \left(\frac{\sigma_A}{A}\right)^2 + 
-                                  \left(\frac{\sigma_{R(Z)}}{R(Z)}\right)^2 
-                             \right)
-\end{equation}
-
-
-Entretanto, para cada espécie química de interesse, seria necessário 
-o alvo de calibração correspondente.
-
-Nem sempre é possível adiquirir alvos de calibração para todos elementos
-químicos e a incerteza garantida pela \textbf{Micromatter}) é de 5\%. 
-
-No gráfico da figura \ref{fg:edxrfcalib} estão plotados os $R(Z)$ 
-dos alvos padrões da \textbf{Micromatter} irradiados em Maio de 2010. 
-
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010K.pdf}
-    \caption{Linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010L.pdf}
-    \caption{Linha L}
-  \end{subfigure}
-  \caption{Fatores de respostas $R(Z)$ dos para alvos padrões da 
-           \textbf{Micromatter} irradiados em Maio de 2010. 
-           \label{fg:edxrfcalib}}
-\end{figure}
-
-Nota-se que é possível fazer um ajuste polinomial nos dados, o que 
-permite encontrar $R$ para elementos que não possuem alvos padrões.
-
-O fator de resposta reflete o arranjo experimental. Mudanças físicas
-nesse arranjo alteram o valor de R, assim como desgates no detector
-ou tubo. Portanto, a calibração deve ser realizada com frequência.
-
 %%%%
-\subsection{Estimativa das incertezas}
+\subsection{Incertezas dos ajustes com Mínimos Quadrados Matricial}
 
-Utilizou-se o \textbf{Ajuste dos Mínimos Quadrados Matricial} 
-para a estimativa do erro do ajuste \citep{helene2006}.
+As incertezas dos ajustes polinomiais das calibrações do XRF-ED e da 
+intercalibração de TOT e refletância de BC foram estimadas usando o ajuste de 
+Mínimos Quadrados Matricial (MQM) desenvolvida por \citet{helene2006}
+e parcialmente reproduzida a seguir (com adaptações).
 
-Dada as variáveis $Y_i$ e $X_i$ relacionadas polinomialmente, 
-conforme \ref{eq:polinomio}.
+Dada as variáveis $Y_i$ e $X_i$ relacionadas polinomialmente:
 
 \begin{equation}
   \label{eq:polinomio}
@@ -481,50 +330,56 @@ conforme \ref{eq:polinomio}.
   \end{split}
 \end{equation}
 
-A representação matricial da equação \ref{eq:polinomio} pode 
-ser escrita como \ref{eq:polinomioMatriz}.
+A representação matricial da equação \ref{eq:polinomio} pode ser escrita como:
 
 \begin{equation}
   \label{eq:polinomioMatriz}
   [Y] = [A][X]
 \end{equation}
 
-Os coeficientes ajustados $[Ã]$ são dados pela equação \ref{eq:coeficientesajustados},
-que depende da matriz de covariância dos coeficientes $[V_{Ã}]$, 
-dada pela equação \ref{eq:matrizcovariancia}.
+Os coeficientes ajustados [Ã] são dados pela equação por:
 
 \begin{equation}
   \label{eq:coeficientesajustados}
   [Ã] = [V_{Ã}] ([X]^T {[V_Y]}^{-1} [Y])
 \end{equation}
 
+Sendo [V_{Ã}] a matriz de covariância dos coeficientes, dada por:
+
 \begin{equation}
   \label{eq:matrizcovariancia}
   [V_{Ã}] = ([X]^T [V_Y]^{-1} [X])^{-1}
 \end{equation}
 
-Com o coeficientes ajustados $[Ã]$ pode-se calcular os 
-$[\tilde{Y}]$ ajustado \ref{eq:polinomioajustado}.
+A partir dos coeficientes ajustados [Ã] na equação \ref{eq:coeficientesajustados} 
+pode-se calcular os $[\tilde{Y}]$ ajustados,
 
 \begin{equation}
   \label{eq:polinomioajustado}
   [\tilde{Y}] = [Ã][X]
 \end{equation}
 
-Por fim, a incerteza é dada pela diagonal da matriz de covariância 
-de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}.
+Por fim, a incerteza dos valores ajustados é dada pela diagonal da matriz de 
+covariância de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$:
 
 \begin{equation}
   \label{eq:matrizcovarianciaY}
   [V_{\tilde{Y}}] = [X] [V_{Ã}]^{-1} [X]^{-1}
 \end{equation}
 
+No caso da XRF-ED, quando calcula-se R(Z) apenas a partir do alvo de 
+calibração do elemento Z, é a incerteza de produção deste alvo que determina 
+a precisão de R(Z). Mas com o procedimento de ajuste por MQM, sob os 
+R(Z) disponíveis, é o conjunto destes valores e de suas incertezas, bem como a 
+qualidade do ajuste que determina a incerteza ajustada, oferecendo uma 
+melhora significativa na precisão e na exatidão dos R(Z).
+
 %%%%
 \subsection{Fontes de erro no branco}
 
-A massa depositada no filtro amostrado $m(Z)_{medido}$ para um certo 
-elemento $Z$, é composta pela massa coletada na amostragem $m(Z)$ 
-mais a massa do filtro branco $m_{B}(Z)$. 
+A massa depositada no filtro amostrado $m(Z)_{medido}$ para um certo elemento Z,
+é composta pela massa coletada na amostragem m(Z) mais a massa do filtro 
+branco $m_{B}(Z)$.
 
 Um conjunto de 10 amostras brancas (campo e laboratório) foram analisadas, 
 para eliminação da contaminação dos próprios filtros, assim como de 
@@ -553,7 +408,6 @@ Isolando-se $m_B(Z)$ em \ref{eq:contagembranco} e substituindo em
   N(Z) = N(Z)_{medido} - I\Delta t \left( \frac{N_B}{I_B \Delta t_B} \right)
 \end{equation}
 
-
 A incerteza da contagem corrigida \ref{eq:contagemcorrigida}, 
 usando-se propagação de erros para variáveis independentes fica
 \ref{eq:erro_contagemcorrigida}.
@@ -565,32 +419,6 @@ usando-se propagação de erros para variáveis independentes fica
 
 Usa-se a média da razão $\frac{N_B}{I_B \Delta t_B}$ dos $n$ alvos brancos
 selecionados para o experimento. 
-
-%TODO: incluir discussão sobre incerteza do Otaviano
-
-%Temos duas fontes possíveis de erro.
-
-%1) Erro estatístico. Quando se tem N brancos, a concentração do elemento considerado será a média sobre os N dados. O erro será o desvio padrão (p não é o desvio padrão da média), porque é a chance de termos esse erro em cada filtro analisado e não sobre a média. Para considerar o sentido do desvio padrão (68,3\% de chance de pertencer ao amostral) ainda precisa haver um fator de correção quando N for pequeno. Seria bom corrigir para N<=10. Dai em diante pode usar fator 1, porque a correção seria pequena.
-
-%$\sigma_{pc} = fatorr x \sigma_p$
-
-%\begin{table}[]
-%\centering
-%\caption{My caption}
-%\label{my-label}
-%\begin{tabular}{lllllllllll}
-%N     & 2    & 3    & 4    & 5    & 6    & 7    & 8    & 9    & 10   & 20   \\
-%Fator & 1,84 & 1,32 & 1,20 & 1,14 & 1,12 & 1,11 & 1,09 & 1,08 & 1,06 & 1,03
-%\end{tabular}
-%\end{table}
-
-%2) Erro da integração do espectro. Esse erro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração - em µg/cm - tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
-
-%\sigma_e = \sqrt{\frac{\Sigma \sigma_i}{N} }
-
-%3) Erro total no branco. O erro final em cada elemento do branco é obtido considerando que 1 e 2 (acima) são independentes, logo:
-
-%$\sigma_{r} = \sqrt{\sigma_e^2 + \sigma_pc^2} $
 
 %%%%
 \subsection{Integração dos Espectros}
@@ -637,10 +465,6 @@ Os picos característicos de elementos químicos encontrados estão indicados na
   \caption{Espectros amostra branca e carregada \label{fig:winqxas}}
 \end{figure}
 
-O fundo do espectro, gerado pela radiação emitida no tubo de ródio
-devido a aceleração e desaceleração de elétrons, dificulta a distinção 
-dos picos e altera o limite de detecção. 
-
 Na análise feita nos espectros, feita um a um, deve-se ter atenção 
 para identificação e correção dos seguintes eventos: 
 
@@ -651,48 +475,60 @@ para identificação e correção dos seguintes eventos:
         e é contato com a energia de incidência menos a energia usada para excitar o silício. 
 \end{itemize}
 
-Calibração do multicanal (ajuste linear entre canal e energia 
-encontrado a partir de dois elemento conhecidos do espectros.): 
+Calibração do multicanal (ajuste linear entre canal e energia encontrado a 
+partir de pelo menos dois elemento conhecidos do espectros):
 
-E = 0,0101 Canal - 0,1335 (keV)
+\begin{equation}
+  E = 0,0101 Canal - 0,1335 (keV)
+\end{equation}
 
 %%%%
-\subsection{Limite de Detecção}
+\subsection{Limite de detecção}
 
-O limite de detecção é a densidade mínima para haver 
-detecção da espécie no tipo de filtro e \textbf{ED-XRF} considerados. 
-
+O limite de detecção (LD) é a intensidade mínima do pico de um elemento para haver 
+detecção da espécie considerando-se o tipo de filtro e XRF-ED empregados. 
 Irradiando-se uma amostra branca obtém-se o número de contagens 
-medidas ($N_{fundo}$) sob o pico (fundo do espectro) de todo elementos.
-
-A medida realizada pelo detector segue uma \textbf{distribuição de Poisson}
-pois realiza contagens aleatórias em torno do valor médio da energia 
-no pico. O desvio padrão da contagem $N$ é portanto $\sqrt{N}$.
-
-Dada a natureza do detector, o número mínimo de contagens para se 
-distiguir um pico é $N_{LD}$, calculado usando \ref{eq:limitedeteccao} 
-(distribuição de Poisson).
+medidas ($N_{fundo}$) sob o pico (fundo do espectro) de cada um dos elementos
+medidos.
+As contagens de fundo do espectro seguem uma distribuição de Poisson e portanto 
+a incerteza para o valor de N contagens é $\sqrt{N}$.
+Desta forma, adota-se como LD para um elemento, que as contagens de seu pico 
+característico seja pelo menos três vezes a incerteza na contagem de fundo:
 
 \begin{equation}
   \label{eq:limitedeteccao}
-  N_{LD} = 3 x \sqrt{N_{fundo}}
+  N_{LD} = 3 \sqrt{N_{fundo}}
 \end{equation}
 
-Pode-se calcular o limite de detecção em termos da massa 
-elementar usando \ref{eq:xrfedmassa}.
-O limite de detecção muda conforme a quantidade de material coletado,
-pois em amostras carregadas, a radiação gerada no tubo aumenta, e 
-portanto aumenta o fundo, aumentando o limite de detecção. 
-Assim, o ideal é calcular o limite de detecção
-em amostra branca e carregada.
+Pode-se calcular o LD em termos da massa elementar com a 
+equação \ref{eq:xrfedmassa}. O limite de detecção muda conforme a quantidade de 
+material coletado, sendo maior em amostras carregadas, devido à sobreposição de 
+picos e a maior reflexão do feixe na amostra.
 
-O limite de detecçãodo branco foi usado para preechimento dos valores faltantes.  
-Os valores faltantes foram preenchidos com o valor da metade do 
-limite de detecção $(LD/2)$, pois supoe-se que a concentração não 
-detectada de um elemento que aparece frequentemente nas demais amostras 
-esteja entre 0 e o limite de detecção, com igual probabilidade de ocorrência 
-para cada valor. Assim, $LD/2$ seria a média e, portanto, o valor mais 
-provável entre estes valores não detectados. 
+Assim, o ideal é calcular o LD em cada amostra, mas ele deve situar-se entre 
+aquele medido em um filtro branco e uma amostra com bastante carga.
+Os LDs encontrados para os dois tipos de amostras estão apresentados 
+nos gráficos da figura \ref{table:ld} em termos de concentrações típicas 
+($\mu g / m^3$) para o volume médio de 13,9 $m^3$. 
+Note-sa que na linha K o LD é alto para elementos de baixo número atômico, 
+dificultando a detecção desses elementos, mas melhora com o aumento de Z. 
 
-Para a incerteza das concentrações, usou-se o valor proposto por
-\citep{polissar1998} de $5LD/6$.
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/limitDetectionK.pdf}
+    \caption{linha K}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/limitDetectionL.pdf}
+    \caption{linha L}
+  \end{subfigure}
+  \caption{Limite de detecção em termos de concentrações típicas 
+           ($\mu g / m^3$) para amostra branca e carregada.
+           \label{table:ld}}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \input{../outputs/LD.tex}
+  \caption{LD. \label{table:LD}}
+\end{table}

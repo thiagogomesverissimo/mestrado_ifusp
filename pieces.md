@@ -1,5 +1,11 @@
 ## Trechos que podem ser úteis
 
+
+%O filtro não é fino! Você analisa o que está depositado sobre ele, que é a poluição do ar! Essa é a matriz. Por isso você coloca a face amostrada do filtro voltada para o feixe e para o detector. Se colocar o filtro voltado para baixo, vai haver absorção de fotons pelo PTFE. Mas ele em si é uma matriz composta por C e F, que absorvem pouco e geram fótons de energia baixa, entrando pouco no detector, pois são barrados pela janela de Be. É a massa de aerossol depositada que representa alvo espesso ou fino. Alvos muito grossos (muita massa) provavelmente pediriam uma correção pequena de matriz, para os elementos leves - baixo Z - cuja energia é menor e são mais absorvidos pela matriz do aerossol amostrado. A tese que coloquei acima, sobre ED-XRF polarizada discute esse problema. 
+%Neste caso, não há o que discutir sobre PTFE. Por isso podemos usar filtros de calibração depositados sobre policarbonato ou mylar. Não se deve usar filtro de quartzo no EDX porque tem Si e aí explode as contagens dele, que tem energia dentro da faixa de elementos que medimos - o próprio Si. 
+
+
+
 As análises de \textbf{PMF} são ponderadas pelas incertezas, assim 
 tentou-se incluir todas fontes possíveis de erro, além do erro instrínseco 
 do método analítico.
@@ -94,4 +100,32 @@ da \textbf{ED-XRF} e incluindo o fator de resposta $R(Z)$ chegamos na equação
 \ref{eq:contagem}.
 
 %PIXE -retirar até aqui
+
+
+
+%TODO: incluir discussão sobre incerteza do Otaviano
+
+%Temos duas fontes possíveis de erro.
+
+%1) Erro estatístico. Quando se tem N brancos, a concentração do elemento considerado será a média sobre os N dados. O erro será o desvio padrão (p não é o desvio padrão da média), porque é a chance de termos esse erro em cada filtro analisado e não sobre a média. Para considerar o sentido do desvio padrão (68,3\% de chance de pertencer ao amostral) ainda precisa haver um fator de correção quando N for pequeno. Seria bom corrigir para N<=10. Dai em diante pode usar fator 1, porque a correção seria pequena.
+
+%$\sigma_{pc} = fatorr x \sigma_p$
+
+%\begin{table}[]
+%\centering
+%\caption{My caption}
+%\label{my-label}
+%\begin{tabular}{lllllllllll}
+%N     & 2    & 3    & 4    & 5    & 6    & 7    & 8    & 9    & 10   & 20   \\
+%Fator & 1,84 & 1,32 & 1,20 & 1,14 & 1,12 & 1,11 & 1,09 & 1,08 & 1,06 & 1,03
+%\end{tabular}
+%\end{table}
+
+%2) Erro da integração do espectro. Esse erro é calculado pelo erro na integração de cada espectro de branco e, obviamente, tem que ser calculado sem branco, só com o fator de resposta (ou seja, a rotina que calcula a concentração - em µg/cm - tem que ser igual para o alvo comum e para o branco; mas o alvo comum tem que ter uma complementação no cálculo para subtrair o branco e adicionar o erro, devido ao branco). Havendo N alvos brancos, com erro  i de integração para cada um deles, o erro transferido para a média deve ser:
+
+%\sigma_e = \sqrt{\frac{\Sigma \sigma_i}{N} }
+
+%3) Erro total no branco. O erro final em cada elemento do branco é obtido considerando que 1 e 2 (acima) são independentes, logo:
+
+%$\sigma_{r} = \sqrt{\sigma_e^2 + \sigma_pc^2} $
 
