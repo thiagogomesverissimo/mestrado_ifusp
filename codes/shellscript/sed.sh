@@ -84,8 +84,8 @@ for i in $FILES; do
 done
 
 ####
-FILES=$(ls ../../outputs | grep _contribution | grep tex)
-for i in $FILES; do
- FILE='../../outputs/'$i
- sed -i s/'\.'/','/g $FILE
-done
+#FILES=$(ls ../../outputs | grep _contribution | grep tex)
+#for i in $FILES; do
+# FILE='../../outputs/'$i
+# sed -i s/'\.'/','/g $FILE
+#done

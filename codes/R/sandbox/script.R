@@ -1,3 +1,19 @@
+rm(list=ls())
+source("myfunctions/load.R")
+
+detach("package:Hmisc", unload=TRUE) 
+RGeH = read.csv('../../outputs/pmf_fa/RGeH.csv')
+describe(RGeH)
+
+RGsH = read.csv('../../outputs/pmf_fa/RGsH.csv')
+describe(RGsH)
+
+RFeH = read.csv('../../outputs/pmf_fa/RFeH.csv')
+describe(RFeH)
+
+RFsH = read.csv('../../outputs/pmf_fa/RFsH.csv')
+describe(RFsH)
+
 # Distribuição da massa
 RFsH = read.csv('../../outputs/pmf_fa/RFsH.csv')
 RFsH$Date = strptime(RFsH$Date,format="%d/%m/%Y %H:%M")

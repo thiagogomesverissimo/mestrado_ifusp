@@ -180,12 +180,17 @@ pmf_residuals <- function(path,sigla){
 
 pmf_profiles_latex <- function(path,sigla,nfactors) {
   
-  #sigla = 'RFsH'
+  # Tests
+  #nfactors = 4
+  #path='../../outputs/pmf/4factors/'
+  #sigla = 'RGsH'
+  
   profiles = pmf_profiles(path,sigla)
   x = profiles$fp_percent_species
   x = round(x,1)
-  x = x[order(x$Factor.1,x$Factor.2,x$Factor.3,decreasing = T),]
+  x = x[order(x$Fator1,x$Fator2,x$Fator3,decreasing = T),]
   x[x>=30.0] = paste('\\textcolor{red}{\\textbf{',x[x>=30.0],'}}',sep='')
+  x=gsub('\\.',',',as.matrix(x))
 
   latex_percent_species = paste('../../outputs/',sigla,'_profiles_percent_species',nfactors,'.tex',sep='')
   print(xtable(x), 
@@ -198,15 +203,32 @@ pmf_profiles_latex <- function(path,sigla,nfactors) {
 
 pmf_contributions_latex <- function(path,sigla,colors,nfactors) {
   
+  # Tests
+  #colors = rainbow(4)
+  #nfactors = 4
+  #path='../../outputs/pmf/4factors/'
   #sigla = 'RGsH'
+  
   contributions <- pmf_contributions(path,sigla)
-
   x = contributions$factor_contribution_conc_units
   x = x[,seq(3,ncol(x))]
   medias = colMeans(x)/sum(colMeans(x))*100
   erros = (colStdevs(x)/sqrt(nrow(x)))/sum(colMeans(x))*100
   contribution2latex = cbind(Contribuição=medias,Incerteza=erros)
   contribution2latex = round(contribution2latex,2)
+  
+  # Plota gráfico de pizza, assim como na ide do pmf:  
+  pizza_name = paste('../../outputs/',sigla,'_pmf_contribution_pizza',nfactors,'.pdf',sep="")
+  pdf(file=pizza_name) 
+    pieval<-contribution2latex[,1]
+    legenda<-paste(rownames(contribution2latex),' = ',contribution2latex[,1],'(', contribution2latex[,2],') %', sep='')
+    legenda = gsub('\\.',',',legenda)
+    porcentagens <- paste(pieval,'%')
+    porcentagens = gsub('\\.',',',porcentagens)
+    lp<-pie3D(pieval,radius=0.6,labels=porcentagens,explode=0.1,col=colors,labelcex=1.4,labelrad=1.7)
+    par(mar=c(1, 1, 1, 1))
+    legend('bottom',  legenda, cex=1.3,fill=colors, horiz=F)  
+  dev.off()
   
   latex_contribution = paste('../../outputs/',sigla,'_contribution',nfactors,'.tex',sep='')
   print(xtable(contribution2latex), 
@@ -215,29 +237,6 @@ pmf_contributions_latex <- function(path,sigla,colors,nfactors) {
         floating = FALSE,
         sanitize.text.function = identity,
         file=latex_contribution)
-
-  # Plotar contributions
-  # factor_contribution = contributions$factor_contribution
-  # plot(factor_contribution$`Factor 1`)
-  # Incluir gráficos com elementos no fator
- 
-  # Plota gráfico de pizza, assim como na ide do pmf:  
-  pizza_name = paste('../../outputs/',sigla,'_pmf_contribution_pizza',nfactors,'.pdf',sep="")
-  #pdf(file=pizza_name,onefile=T, paper='A4r') 
-  pdf(file=pizza_name) 
-  #tikz( pizza_name )
-    pieval<-contribution2latex[,1]
-    legenda<-paste(rownames(contribution2latex),' = ',contribution2latex[,1],'(', contribution2latex[,2],') %', sep='')
-    porcentagens <- paste(pieval,'%')
-    #lp<-pie3D(pieval,radius=0.7,labels=porcentagens,explode=0.15,labelrad=1.4,col=colors,labelcex=1)
-    lp<-pie3D(pieval,radius=0.6,labels=porcentagens,explode=0.1,col=colors,labelcex=1)
-    par(mar=c(0, 0, 0, 0))
-    legend('bottom',  legenda, cex=1.3,fill=colors, horiz=F)  
-   
-    #pie(pieval, col=colors, labels=porcentagens, cex=0.7)
-    #legend('bottom',  legenda, cex=0.5,fill=colors, horiz=F) 
-    
-  dev.off()
 }
 
 ### Testes ###

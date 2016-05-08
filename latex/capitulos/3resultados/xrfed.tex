@@ -1,108 +1,51 @@
 %%%%
 \section{Calibração da Fluorescência de Raiox X}
 
-Alvos padrões comerciais (Micromatter) com incertezas 5\% foram utilizados para 
-realização do ajuste funcional da calibração do sistema XRF-ED, estratégia esta, 
-que permitiu a medição de elementos com alvos padrões inexistentes. Calibrações 
-periódicas permitem identificar variações na eficiência do equipamento conforme 
-o uso, em particular, no tubo de raios X e no detector. Durante o período de 
-irradiação das amostras, maio de 2010 até julho de 2011, uma primeira calibração 
-foi feita antes do início das análises, em maio de 2010, uma intermediária, 
-em novembro de 2010 e a última próximo do fim, em abril de 2011, totalizando três. 
+Alvos padrões comerciais da Micromatter com incertezas de 5\% nas densidades 
+foram utilizados no ajuste funcional da calibração do sistema XRF-ED, 
+permitindo medição de elementos com alvos padrões inexistentes. Três
+calibrações foram realizadas no período de análises, maio de 2010 até julho de 
+2011, sendo a primeira antes do início das irradiações, em maio de 2010, 
+uma intermediária, em novembro de 2010 e a última próximo do fim, em abril de 
+2011.
 
-Depois de irradiar os alvos de calibração, calculou-se os fatores de respostas 
+Após irradiação dos alvos de calibração, calculou-se os fatores de respostas 
 correspondentes a partir da equação \ref{eq:fator_de_resposta}, bem como as 
 respectivas incertezas analíticas com a equação \ref{eq:erro_fator_de_resposta}.
 Um ajuste polinomial foi suficiente para descrever os pontos experimentais,
-sendo que na linha K foi necessário fazer dois ajustes de grau 3, um de Z 
-(número atômico) 11 até 26 e o outro de 22 até 42. Para linha L um único 
-polinômio de grau 5 foi suficiente para descrever todos pontos.
+sendo que na linha K foi necessário fazer dois ajustes de grau 3, de Z 
+(número atômico) 11 até 26 e de 22 até 42. Para linha L um polinômio de grau 
+5 foi suficiente para descrever todos pontos.
 
-As curvas de calibração das linhas K e L para maio de 2010 estão plotada no 
-gráfico da figura \ref{fig:edx_calib_KLmaio2010}, bem como os respectivos 
-ajustes e coeficientes encontrados. Elementos com Z 29 entre 42 apresentam
-picos no espectro tanto na linha K quanto L, porém são mais intensos e melhores
-definidos na linha K e só foram incluídos no gráfico da linha L no intuito de 
-aumentar a quantidade de pontos do ajuste polinomial.
+Os fatores de resposta medidos para cada elemento com alvo padrão 
+correspondente, as respectivas incertezas propagadas para os mesmos, 
+os fatores de respostas calculados ajustados e as respectivas incertezas 
+ajustadas com MQM podem ser conferidos nos 
+gráficos da figura \ref{fig:edx_calib3} e nas tabelas 
+\ref{table:edxAllCalibrationK} e \ref{table:edxAllCalibrationL}, que 
+apresentam tmabém a incerteza percentual de cada medida. 
+Elementos com Z entre 29 e 42 apresentam picos no espectro tanto na linha K 
+quanto L, porém são mais intensos e melhores
+definidos na linha K e só foram incluídos nos gráficos da linha L no intuito de 
+aumentar a quantidade de pontos para o ajuste polinomial.
 
-\newpage
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationK2010MaiAkerr.pdf}
-    \caption{linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationL2010MaiAkerr.pdf}
-    \caption{linha L}
-  \end{subfigure}
-  \caption{Calibração XRF-ED em maio de 2010 \label{fig:edx_calib_KLmaio2010}}
-\end{figure}
+A incerteza do ajuste foi estimada usando MQM e é dada pela diagonal da matriz 
+de covariância de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$, da equação 
+\ref{eq:matrizcovarianciaY}, onde [Y] são os fatores de respostas [R] e 
+[X] os números atômicos [Z]. 
 
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.5\textwidth}
-   \includegraphics[width=\textwidth]{../outputs/CalibrationK2010NovAkerr.pdf}
-    \caption{linha K}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationL2010NovAkerr.pdf}
-    \caption{linha L}
-  \end{subfigure}
-  \caption{Calibração XRF-ED em novembro de 2010 \label{fig:edx_calib_KLnov2010}}
-\end{figure}
-
-\newpage
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationK2011AbrAkerr.pdf}
-    \caption{linha K}
-  \end{subfigure}
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationL2011AbrAkerr.pdf}
-    \caption{linha L}
-  \end{subfigure}
-\caption{Calibração XRF em  abril de 2011 \label{fig:edx_calib_KLabr2011}}
-\end{figure}
-
-As tabelas \ref{fig:edx_calib_KLnov2010} e \ref{fig:edx_calib_KLabr2011}
-apresentam a calibração de novembro de 2010 e abril de 2011, respectivamente.
-
-Os fatores de resposta para cada elemento disponível nos alvos padrões, as 
-respectivas incertezas propagadas para os mesmos, os fatores de respostas 
-calculados a partir das curvas de calibração ajustadas e as respectivas 
-incertezas ajustadas usando MQM podem ser conferidos na tabela 
-\ref{table:edxAllCalibration}, que mostra também a incerteza percentual de 
-cada medida. A incerteza do ajuste é dada pela diagonal da matriz de covariância 
-de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$ em \ref{eq:matrizcovarianciaY}, onde [Y] 
-são os fatores de respostas [R] e [X] os números atômicos [Z].
-
-O uso do MQM, além de permitir estimar a incerteza do ajuste, ofereceu incerteza
-percentual para os alvos padrões comercias, em muitos casos, menores que a 
-do próprio fabricante. Na calibração da linha K de maio de 2010 a 
+Mesmo para os elementos com alvo padrão correspondente, as incertezas 
+percentuais ajustadas com MQM foram em muitos casos, menores que a 
+do próprio fabricante, por exemplo, na linha K em maio de 2010 a 
 incerteza percentual para o Cálcio (20) no alvo padrão, depois de propagada,
 foi de 3,5\%, enquanto que a ajustada com MQM foi 1,4\%. Para o Ferro (26), os
 mesmo valores foram 5,0\% e 2,6\%, respectivamente. Elementos com número atômico
 muito baixos e portanto alto limite de detecção neste equipamento, a diferença 
 na incerteza percentual foi baixa, no caso do Sódio (11), aumento 0,1\% e no 
-do Magnésio (12), diminuiu 0,5\%. Esse comportamento foi repetido nas outras 
-duas calibrações.
-
-Na linha L...
-
-Uma vez que o PMF pondera sua estimativa pelas incertezas das concentrações a
+do Magnésio (12), diminuiu 0,5\%. Esse padrão de comportamento foi repetido nas
+outras duas calibrações para linhas K e L. Uma vez que o PMF pondera sua 
+estimativa pelas incertezas das concentrações a
 qualidade das incertezas interfere na determinação da contribuição das fontes.
-
-\begin{landscape}
-  \input{../outputs/edxAllCalibrationK.tex}
-\end{landscape}
-
-\begin{landscape}
-  \input{../outputs/edxAllCalibrationL.tex}
-\end{landscape}
-
-
-O queda de desempenho no uso da fluorescência de Raios X pode ser observada 
-na figura \ref{fig:compara_calibracao}. 
-Possíveis motivos para queda de desempenho: desgaste do tubo ou desgaste do detector. 
 
 \begin{figure}[H]
   \begin{subfigure}[b]{0.5\textwidth}
@@ -113,35 +56,66 @@ Possíveis motivos para queda de desempenho: desgaste do tubo ou desgaste do det
     \includegraphics[width=\textwidth]{../outputs/CalibrationLcomparacao.pdf}
     \caption{linha L}
   \end{subfigure}
-  \caption{Calibrações de Fluorescência de Raiox X em 3 períodos \label{fig:compara_calibracao}}
+  \caption{Comparação das calibrações da XRF-ED nos 3 períodos. 
+          \label{fig:compara_calibracao}}
 \end{figure}
 
+Calibrações periódicas permitem identificar variações na eficiência 
+do equipamento ou mesmo possíveis avarias. Observou-se queda do desempenho da 
+XRF-ED durante esta análise como pode ser observado nos gráficos da figura 
+\ref{fig:compara_calibracao} que compara as três calibrações. 
+A diferença média no fator de resposta em relação a maio de 2010 foi de 
+-4,41(0,43) para novembro 2010 e -9,22(0,36) para abril de 2011 na linha K, 
+e -2,02(0,22) e -7,48(0,18) na linha L, respectivamente. Desgaste no tubo 
+de Rh ou no detector são as possíveis causas na queda no fator de respota 
+e poderão ser confirmadas no futuro quando das trocas dessas peça e realização
+de nova curva de calibração.
+
+\begin{landscape}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.33\linewidth]{../outputs/CalibrationK2010MaiAkerr.pdf}
+    \includegraphics[width=0.33\linewidth]{../outputs/CalibrationK2010NovAkerr.pdf}
+    \includegraphics[width=0.33\linewidth]{../outputs/CalibrationK2011AbrAkerr.pdf}
+    \includegraphics[width=0.33\linewidth]{../outputs/CalibrationL2010MaiAkerr.pdf}
+    \includegraphics[width=0.33\linewidth]{../outputs/CalibrationL2010NovAkerr.pdf}
+    \includegraphics[width=0.33\linewidth]{../outputs/CalibrationL2011AbrAkerr.pdf}
+    \caption{Comparação das calibrações do XRF-ED nos 3 períodos. 
+            \label{fig:edx_calib3}}
+\end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \input{../outputs/edxAllCalibrationK.tex}
+\end{landscape}
+
+\begin{landscape}
+  \input{../outputs/edxAllCalibrationL.tex}
+\end{landscape}
+
 %%%%
-\subsection{Limite de Detecçção}
+\subsection{Limite de detecçção}
+
+O limite de detecção (LD) foi estimado para uma amostra branca e outra carregada
+a partir da contagem de fundo de cada pico nos respectivos espectros.
+Os LDs encontrados estão apresentados nos gráficos da figura \ref{table:ld} 
+em termos de concentrações típicas ($\mu g / m^3$) para o volume médio 
+de 13,9 $m^3$. Na linha K o LD é alto para elementos de baixo número atômico, 
+dificultando a detecção desses elementos, mas melhora com o aumento de Z. 
+Em amostras muito carregadas, o fundo do espectro aumenta, aumentando o LD para 
+todos elementos, atrapalhando a detecção de elementos com baixas concetrações
+na mesma amostra. 
 
 \begin{figure}[H]
-  \caption{}
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{../outputs/limitDetectionK.pdf}
-    \caption{k}
+    \caption{linha K}
   \end{subfigure}%
   \begin{subfigure}[b]{0.5\textwidth}
     \includegraphics[width=\textwidth]{../outputs/limitDetectionL.pdf}
-    \caption{l}
+    \caption{linha L}
   \end{subfigure}
+  \caption{Limite de detecção em termos de concentrações típicas 
+           ($\mu g / m^3$) para amostra branca e carregada.
+           \label{table:ld}}
 \end{figure}
-
-A incerteza do ajuste foi calculada usando MQM e foram menores que as garantidas
-pelo fabricante nos alvos padrões.  precisão dos elementos com alvo padrão. 
-
-O limite de detecção é pior para elementos de baixo número atômico e há
-altos valores de incerteza quando a medida está próxima do limite de detecção.
-
-Pegue no endereço do site os textos e artigos sobre XRF e BC.
-Para o XRF há revisões nos textos gerais, como na tese sobre o Epsilon5.
-As análises de \textbf{PMF} são ponderadas pelas incertezas, assim 
-tentou-se incluir todas fontes possíveis de erro, além do erro instrínseco 
-do método analítico. Um erro percentual fixo de 8\% atribuído ao método 
-de amostragem foi incluído 
-(erro médio observado em amostragens em paralelo com o amostrador Harvard)
-\citep{santos2014}.

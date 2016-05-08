@@ -42,6 +42,12 @@ poluídoras locais de Acra, também para ajudar na identificação dos fatores.
 %%%%
 \subsection{Análise dos Ventos}
 
+Formação da brisa marinha (pois acra é costeira) ao 12:00 e virada ao longo 
+do dia por causa do coriolis.
+
+No verão (do HN), gana está no... 
+
+
 Para ajudar no levantamento das possíveis fontes, utilizou-se parâmetros 
 meteorológicos locais coletados na estação meteorológica do aeroporto de Acra 
 (Kotoka International Airport) disponibilizados no site da 
@@ -57,10 +63,10 @@ Verifica-se que a direção predominante de origem dos ventos de superfície
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/windRoseNoaaHarvard.pdf}
+  \includegraphics[width=0.5\textwidth]{../outputs/windRose2007.pdf}
   \caption{Rosa do ventos entre
            Setembro de 2006 e Junho de 2008. Utilizou-se dados 
-           do \textbf{Kotoka International Airport} de Acra 
+           do  de Acra 
            \label{fg:rosaCompleta}}
 \end{figure}%
 %veja que você não está considerando ciclos anuais completos, ou seja, de junho a junho, setembro a setembro. Isso pode introduzir vícios na avaliação do vento local em termos sazonais. Precisamos refletir um pouco como tratar isso. 
@@ -172,21 +178,54 @@ Os valores para a intensidade média do vento em cada um dos mapas correspondem 
            em 875 hPa}
 \end{figure}
 
+\newpage
+\begin{table}[H]
+  \centering
+  \input{../outputs/beautifulFAdisplay_RFeH4.tex}
+  \caption{Análise de Fatores na área residencial para $MP_{2,5}$
+           somente do dias de ocorrência de vento Harmatão. n = 51.
+          \label{table:AF_RFsH5}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \input{../outputs/beautifulFAdisplay_TFeH4.tex}
+  \caption{Análise de Fatores na avenida para $MP_{2,5}$
+           somente dias de ocorrência de vento Harmatão. n = 59.
+          \label{table:AF_TFsH5}}
+\end{table}
+
+\newpage
+\begin{table}[H]
+  \centering
+  \input{../outputs/beautifulFAdisplay_RGeH4.tex}
+  \caption{Análise de Fatores na área residencial para $MP_{2,5-10}$
+           somente do dias de ocorrência de vento Harmatão. n = 49.
+          \label{table:AF_RFsH5}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \input{../outputs/beautifulFAdisplay_TGeH4.tex}
+  \caption{Análise de Fatores na avenida para $MP_{2,5-10}$
+           somente dias de ocorrência de vento Harmatão. n = 58.
+          \label{table:AF_TFsH5}}
+\end{table}
 
 \begin{landscape}
   \begin{figure}
     \centering
     \begin{minipage}[b]{0.45\linewidth}
-      \includegraphics[width=\textwidth]{../outputs/RIeH_pmf_contribution_pizza4.pdf}
-      \caption{Contribuição dos fatores na massa total para $MP_{10}$ na área
-               residencial somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 54.
+      \includegraphics[width=\textwidth]{../outputs/RGeH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5-10}$ na área
+               residencial somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 49.
                \label{fig:RIeH_contribution4}}
     \end{minipage}%\hfill
     \hspace{0.5cm}
     \begin{minipage}[b]{0.45\linewidth}
-      \input{../outputs/RIeH_profiles_percent_species4.tex}
-      \captionof{table}{Perfis do fatores para $MP_{10}$na área residencial,
-                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 54. 
+      \input{../outputs/RGeH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores para $MP_{2,5-10}$ na área residencial,
+                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 49. 
                 \label{table:RIeH_profiles4}}
     \end{minipage}
   \end{figure}
@@ -196,17 +235,55 @@ Os valores para a intensidade média do vento em cada um dos mapas correspondem 
   \begin{figure}
     \centering
     \begin{minipage}[b]{0.45\linewidth}
-      \includegraphics[width=\textwidth]{../outputs/TIeH_pmf_contribution_pizza4.pdf}
-      \caption{Contribuição dos fatores na massa total para $MP_{10}$ na avenida
-               somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 59.
+      \includegraphics[width=\textwidth]{../outputs/TGeH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{10-2,5}$ na avenida
+               somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 58.
                \label{fig:TIeH_contribution4}}
     \end{minipage}%\hfill
     \hspace{0.5cm}
     \begin{minipage}[b]{0.45\linewidth}
-      \input{../outputs/TIeH_profiles_percent_species4.tex}
-      \captionof{table}{Perfis do fatores na avenida $MP_{10}$ 
-                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 59. 
+      \input{../outputs/TGeH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores na avenida $MP_{10-2,5}$ 
+                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 58. 
                 \label{table:TIeH_profiles4}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/RFeH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na área
+               residencial somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 51.
+               \label{fig:RFeH_contribution4}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/RFeH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores para $MP_{2,5}$ na área residencial,
+                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 51. 
+                \label{table:RFeH_profiles4}}
+    \end{minipage}
+  \end{figure}
+\end{landscape}
+
+\begin{landscape}
+  \begin{figure}
+    \centering
+    \begin{minipage}[b]{0.45\linewidth}
+      \includegraphics[width=\textwidth]{../outputs/TFeH_pmf_contribution_pizza4.pdf}
+      \caption{Contribuição dos fatores na massa total para $MP_{2,5}$ na avenida
+               somente nos dias de ocorrência de vento Harmatão. seed = 123 n = 59.
+               \label{fig:TFeH_contribution4}}
+    \end{minipage}%\hfill
+    \hspace{0.5cm}
+    \begin{minipage}[b]{0.45\linewidth}
+      \input{../outputs/TFeH_profiles_percent_species4.tex}
+      \captionof{table}{Perfis do fatores na avenida $MP_{2,5}$ 
+                 somente nos de ocorrência de vento Harmatão. seed=123 e n= 59. 
+                \label{table:TFeH_profiles4}}
     \end{minipage}
   \end{figure}
 \end{landscape}

@@ -1,4 +1,4 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 system('sh ../../codes/shellscript/pmf.sh')
@@ -13,10 +13,10 @@ metal = adjustcolor( '#9C9C9C', alpha.f = 0.4)
 vegetacao = adjustcolor( '#FFA54F', alpha.f = 0.4)
 industria = adjustcolor( '#FF6AA7', alpha.f = 0.4)
 
-RFsH_cores = c(veiculo,lixo_solido,poeira,mar,vegetacao)
-TFsH_cores = c(lixo_solido,mar,poeira,veiculo,vegetacao)
-RGsH_cores = c(poeira,metal,mar,vegetacao,industria)
-TGsH_cores = c(poeira,metal,industria,vegetacao,mar)
+RFsH_cores = rainbow(4)# c(veiculo,lixo_solido,poeira,mar,vegetacao)
+TFsH_cores = rainbow(4)#c(lixo_solido,mar,poeira,veiculo,vegetacao)
+RGsH_cores = rainbow(4)#c(poeira,metal,mar,vegetacao,industria)
+TGsH_cores = rainbow(4)#c(poeira,metal,industria,vegetacao,mar)
 
 # Contributions
 pmf_contributions_latex('../../outputs/pmf/6factors/','RFsH',rainbow(6),nfactors=6)
@@ -81,9 +81,14 @@ pmf_profiles_latex('../../outputs/pmf/4factors/','TFcH',4)
 pmf_profiles_latex('../../outputs/pmf/4factors/','TGcH',4)
 
 # Harmatão 
-RIeH_cores = c(lixo_solido,biomassa,mar,poeira)
-TIeH_cores = c(mar,poeira,biomassa,lixo_solido)
-pmf_contributions_latex('../../outputs/pmf/4factors/','TIeH',rainbow(4),nfactors=4)
-pmf_contributions_latex('../../outputs/pmf/4factors/','RIeH',rainbow(4),nfactors=4)
-pmf_profiles_latex('../../outputs/pmf/4factors/','TIeH',4)
-pmf_profiles_latex('../../outputs/pmf/4factors/','RIeH',4)
+#RIeH_cores = c(lixo_solido,biomassa,mar,poeira)
+#TIeH_cores = c(mar,poeira,biomassa,lixo_solido)
+pmf_contributions_latex('../../outputs/pmf/4factors/','TGeH',rainbow(4),nfactors=4)
+pmf_contributions_latex('../../outputs/pmf/4factors/','RGeH',rainbow(4),nfactors=4)
+pmf_profiles_latex('../../outputs/pmf/4factors/','TGeH',4)
+pmf_profiles_latex('../../outputs/pmf/4factors/','RGeH',4)
+
+pmf_contributions_latex('../../outputs/pmf/4factors/','TFeH',rainbow(4),nfactors=4)
+pmf_contributions_latex('../../outputs/pmf/4factors/','RFeH',rainbow(4),nfactors=4)
+pmf_profiles_latex('../../outputs/pmf/4factors/','TFeH',4)
+pmf_profiles_latex('../../outputs/pmf/4factors/','RFeH',4)

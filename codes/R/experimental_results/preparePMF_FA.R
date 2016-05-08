@@ -1,4 +1,4 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 # Siglas
@@ -12,7 +12,7 @@ conditions<-c(residencial,traffic)
 conditions = c(conditions,gsub('c','s',conditions))
 
 # Inclui Harmatão only
-conditions <- c(conditions,'RIeH','TIeH')
+conditions <- c(conditions,'RIeH','RIeH','TIeH','RGeH','TGeH','RFeH','TFeH')
 
 conditions_mass = list()
 conditions_unc = list()

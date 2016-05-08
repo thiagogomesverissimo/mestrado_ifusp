@@ -1,5 +1,17 @@
 ## Trechos que podem ser úteis
 
+As análises de \textbf{PMF} são ponderadas pelas incertezas, assim 
+tentou-se incluir todas fontes possíveis de erro, além do erro instrínseco 
+do método analítico.
+
+Um erro percentual fixo de 8\% atribuído ao método 
+de amostragem foi incluído 
+(erro médio observado em amostragens em paralelo com o amostrador Harvard)
+\citep{santos2014}.
+
+Pegue no endereço do site os textos e artigos sobre XRF e BC.
+Para o XRF há revisões nos textos gerais, como na tese sobre o Epsilon5.
+
 Lixo doméstico compreende uma mistura de orgânico 
 (por exemplo, alimentares e de jardim detritos)
 e resíduos não-orgânicos (por exemplo, invólucros plastificados e

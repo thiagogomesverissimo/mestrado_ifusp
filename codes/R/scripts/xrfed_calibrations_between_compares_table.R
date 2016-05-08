@@ -29,6 +29,7 @@ direfenca_relativa_nov2010 = as.data.frame(100*(nov2010$R-maio2010$R)/maio2010$R
 media_nov2010 = apply(direfenca_relativa_nov2010,2,mean)
 media_nov2010 = format(round(media_nov2010,2),nsmall=2,scientic=F,decimal.mark = ',')
 desvio_nov2010 = apply(direfenca_relativa_nov2010,2,sd)
+desvio_nov2010 = desvio_nov2010/sqrt(nrow(direfenca_relativa_nov2010))
 desvio_nov2010 = format(round(desvio_nov2010,2),nsmall=2,scientic=F,decimal.mark = ',')
 dr_nov2010 = paste(media_nov2010,'(',desvio_nov2010,')',sep='')
 direfenca_relativa_nov2010 = format(round(direfenca_relativa_nov2010,2),nsmall=2,scientic=F,decimal.mark = ',')
@@ -38,6 +39,7 @@ direfenca_relativa_abr2011 = as.data.frame(100*(abr2011$R-maio2010$R)/maio2010$R
 media_abr2011 = apply(direfenca_relativa_abr2011,2,mean)
 media_abr2011 = format(round(media_abr2011,2),nsmall=2,scientic=F,decimal.mark = ',')
 desvio_abr2011 = apply(direfenca_relativa_abr2011,2,sd)
+desvio_abr2011 = desvio_abr2011/sqrt(nrow(direfenca_relativa_abr2011))
 desvio_abr2011 = format(round(desvio_abr2011,2),nsmall=2,scientic=F,decimal.mark = ',')
 dr_abr2011 = paste(media_abr2011,'(',desvio_abr2011,')',sep='')
 direfenca_relativa_abr2011 = format(round(direfenca_relativa_abr2011,2),nsmall=2,scientic=F,decimal.mark = ',')
@@ -45,16 +47,18 @@ direfenca_relativa_abr2011 = format(round(direfenca_relativa_abr2011,2),nsmall=2
 tabela = cbind(rownames(maio2010),maio2010[,c(4,3)],nov2010[,c(4,3)],abr2011[,c(4,3)],
                direfenca_relativa_nov2010,direfenca_relativa_abr2011)
 
-last_line = matrix(c('\\hline',rep(' ',5),'Média(Desvio Padrão)',dr_nov2010,dr_abr2011),ncol = 9)
+last_line = matrix(c('\\hline',rep(' ',4),'\\multicolumn{1}{r}{\\textbf{Média}}','\\textbf{(Desvio Padrão)}',dr_nov2010,dr_abr2011),ncol = 9)
 colnames(last_line) = colnames(tabela[2,])
 tabela = rbind(tabela,last_line)
 
 # DR: diferença relativa
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{DR* a Maio 2010} \\\\\n
-                       Z & medido & ajustado & medido & ajustado & medido & ajustado  & N2010 & A2011 \\\\\n',
-                      '\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (\\% incerteza/valor)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+addtorow$command <- c('
+& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença relativa a Maio 2010} \\\\\n
+Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 2011 \\\\\n',
+'
+\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
 \\endfirsthead
 \\multicolumn{9}{c}
 {{\\bfseries \\tablename\\ \\thetable{} -- Continuação da página anterior}} \\\\\n
@@ -64,16 +68,18 @@ addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{No
 \\hline
 \\endfoot
 \\hline
-\\endlastfoot')
+\\endlastfoot
+')
 
 legenda = 'Calibração da Fluorescência de Raiox X linha K'
 
-print(xtable(tabela, caption=legenda),
+print(xtable(tabela, caption=legenda,align = rep('c',10),label='table:edxAllCalibrationK'),
         type="latex", 
         floating = FALSE,
         include.rownames = F,
         tabular.environment = 'longtable',
         add.to.row = addtorow,
+        align = rep('c',9),
         include.colnames = F,
         size="small",
         sanitize.text.function = identity,
@@ -108,6 +114,7 @@ direfenca_relativa_nov2010 = as.data.frame(100*(nov2010$R-maio2010$R)/maio2010$R
 media_nov2010 = apply(direfenca_relativa_nov2010,2,mean)
 media_nov2010 = format(round(media_nov2010,2),nsmall=2,scientic=F,decimal.mark = ',')
 desvio_nov2010 = apply(direfenca_relativa_nov2010,2,sd)
+desvio_nov2010 = desvio_nov2010/sqrt(nrow(direfenca_relativa_nov2010))
 desvio_nov2010 = format(round(desvio_nov2010,2),nsmall=2,scientic=F,decimal.mark = ',')
 dr_nov2010 = paste(media_nov2010,'(',desvio_nov2010,')',sep='')
 direfenca_relativa_nov2010 = format(round(direfenca_relativa_nov2010,2),nsmall=2,scientic=F,decimal.mark = ',')
@@ -117,6 +124,7 @@ direfenca_relativa_abr2011 = as.data.frame(100*(abr2011$R-maio2010$R)/maio2010$R
 media_abr2011 = apply(direfenca_relativa_abr2011,2,mean)
 media_abr2011 = format(round(media_abr2011,2),nsmall=2,scientic=F,decimal.mark = ',')
 desvio_abr2011 = apply(direfenca_relativa_abr2011,2,sd)
+desvio_abr2011 = desvio_abr2011/sqrt(nrow(direfenca_relativa_abr2011))
 desvio_abr2011 = format(round(desvio_abr2011,2),nsmall=2,scientic=F,decimal.mark = ',')
 dr_abr2011 = paste(media_abr2011,'(',desvio_abr2011,')',sep='')
 direfenca_relativa_abr2011 = format(round(direfenca_relativa_abr2011,2),nsmall=2,scientic=F,decimal.mark = ',')
@@ -124,15 +132,17 @@ direfenca_relativa_abr2011 = format(round(direfenca_relativa_abr2011,2),nsmall=2
 tabela = cbind(rownames(maio2010),maio2010[,c(4,3)],nov2010[,c(4,3)],abr2011[,c(4,3)],
                direfenca_relativa_nov2010,direfenca_relativa_abr2011)
 
-last_line = matrix(c('\\hline',rep(' ',5),'Média(Desvio Padrão)',dr_nov2010,dr_abr2011),ncol = 9)
+last_line = matrix(c('\\hline',rep(' ',4),'\\multicolumn{1}{r}{\\textbf{Média}}','\\textbf{(Desvio Padrão)}',dr_nov2010,dr_abr2011),ncol = 9)
 colnames(last_line) = colnames(tabela[2,])
 tabela = rbind(tabela,last_line)
 
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{DR a Maio 2010} \\\\\n
-                       Z & medido & ajustado & medido & ajustado & medido & ajustado  & Novembro 2010 & Abril 2011 \\\\\n',
-                      '\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (\\% incerteza/valor)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+addtorow$command <- c('
+& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença relativa a Maio 2010} \\\\\n
+Z & medido & ajustado & medido & ajustado & medido & ajustado  & Novembro 2010 & Abril 2011 \\\\\n',
+'
+\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
 \\endfirsthead
 \\multicolumn{9}{c}
 {{\\bfseries \\tablename\\ \\thetable{} -- Continuação da página anterior}} \\\\\n
@@ -141,11 +151,12 @@ addtorow$command <- c('& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{No
 \\hline \\multicolumn{9}{|c|}{Continua na próxima paǵina} \\\\\n
 \\hline
 \\endfoot
-\\hline \\hline
-\\endlastfoot')
+\\hline 
+\\endlastfoot
+')
 
 legenda = 'Calibração da Fluorescência de Raiox X  linha L'
-print(xtable(tabela,caption =legenda),
+print(xtable(tabela,caption =legenda,align = rep('c',10)),
       type="latex", 
       floating = FALSE,
       include.rownames = F,
