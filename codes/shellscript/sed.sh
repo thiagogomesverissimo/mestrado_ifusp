@@ -66,7 +66,7 @@ sed -i s/'lrlrl'/'ccccc'/g $FILE
 FILE='../../outputs/Gana_TOT_Refletancia.tex'
 sed -i s/'\.'/','/g $FILE
 sed -i s/quartzo/'ID Quartzo'/g $FILE
-sed -i s/teflon/'ID Teflon'/g $FILE
+sed -i s/teflon/'ID PTFE'/g $FILE
 sed -i s/refletancia/'Refletância (\\%)'/g $FILE
 sed -i s/tot/'TOT ($ \\mu g \/ cm^2$)'/g $FILE
 sed -i s/efetiva/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE

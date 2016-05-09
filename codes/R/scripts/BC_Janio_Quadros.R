@@ -43,7 +43,7 @@ legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
 legenda = paste('\n Coeficientes do ajuste linear: \n\n',legenda)
 
-legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=1, bty = "n")
+legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=1.4, bty = "n")
 dev.off()
 
 # Exporta tabela para Latex

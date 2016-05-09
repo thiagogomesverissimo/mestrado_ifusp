@@ -215,10 +215,10 @@ presente no espectro obtido, com a sua massa na amostra irradiada:
 
 \begin{equation}
   \label{eq:contagem}
-  N(Z) = R(Z) \cdot I \cdot \Delta t  \cdot \frac{m(Z)}{A} ,
+  N(Z) = R(Z) \cdot I \cdot \Delta t  \cdot \frac{m(Z)}{A}
 \end{equation}
 
-onde R(Z) é chamado de fator de resposta, I é a corrente de excitação do tubo 
+Onde R(Z) é chamado de fator de resposta, I é a corrente de excitação do tubo 
 de raios X, determinando, portanto, o fluxo de raios X que chegam à amostra, 
 $\Delta t$ é o tempo vivo de irradiação e m(Z)/A é a densidade 
 (massa por unidade de área) dos elementos Z presentas na amostra. 
@@ -293,14 +293,14 @@ irradiados em Maio de 2010.
 \begin{figure}[H]
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010K.pdf}
-    \caption{Linha K}
+    \caption{linha K}
   \end{subfigure}%
   \begin{subfigure}[b]{0.45\textwidth}
     \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010L.pdf}
-    \caption{Linha L}
+    \caption{linha L}
   \end{subfigure}
-  \caption{Fatores de respostas $R(Z)$ dos para alvos padrões da 
-           \textbf{Micromatter} irradiados em Maio de 2010. 
+  \caption{Fatores de respostas (R(Z)) dos para alvos padrões da 
+           Micromatter irradiados em maio de 2010. 
            \label{fg:edxrfcalib}}
 \end{figure}
 
@@ -344,7 +344,7 @@ Os coeficientes ajustados [Ã] são dados pela equação por:
   [Ã] = [V_{Ã}] ([X]^T {[V_Y]}^{-1} [Y])
 \end{equation}
 
-Sendo [V_{Ã}] a matriz de covariância dos coeficientes, dada por:
+Sendo $[V_{Ã}]$ a matriz de covariância dos coeficientes, dada por:
 
 \begin{equation}
   \label{eq:matrizcovariancia}
@@ -420,15 +420,20 @@ usando-se propagação de erros para variáveis independentes fica
 Usa-se a média da razão $\frac{N_B}{I_B \Delta t_B}$ dos $n$ alvos brancos
 selecionados para o experimento. 
 
+Por fim, foi criado colaborativamente por pesquisadores do LAPAt um programa 
+em liguagem C que implementa o cálculo teórico de concentrações apresentado, 
+com as devidas correções de branco e propagações de incertezas \footnote{
+O código está disponível no repositório de versionamento git da USP 
+e pode ser acessado pelo endereço: 
+\url{https://git.uspdigital.usp.br/5385361/xrfdensid}}.
+
 %%%%
-\subsection{Integração dos Espectros}
+\subsection{Integração dos espectros}
 
-Realizou-se a integração de todos os espectro obtidos na \textbf{ED-XRF} no
-WinQxas \textbf{Quantitative X-Ray Analysis System for Widows},
-programa desenvolvido para integração numérica de espectros. 
-
-O \textbf{WinQxas} foi elaborado sob o patrocínio da Agência Internacional 
-de Energia Atômica (IAEA) \citep{capote2000}.
+Realizou-se a integração de todos os espectro obtidos na XRF-ED no
+Quantitative X-Ray Analysis System for Windows (WinQxas),
+programa desenvolvido para integração numérica de espectros sob o patrocínio 
+da Agência Internacional de Energia Atômica (IAEA) \citep{capote2000}.
 
 Obtém-se os parâmetros iniciais da relação linear entre canal e energia,
 conhecendo-se ao menos dois picos no espectro, normalmente Ferro e Cálcio, 
@@ -436,21 +441,20 @@ no caso de poluição do ar ambiental.
 
 Os parâmetros iniciais entre a largura do pico à meia altura (FWHM),
 dependente da energia (E), do nível geral de ruído (NOISE) no espectro 
-e de um termo (FANO), dado pela relação \ref{eq:fwhm}. 
+e de um termo (FANO), dado pela relação: 
 
 \begin{equation}
   \label{eq:fwhm}
-   FWHM^2 = NOISE^2 + 2,35 x FANO  x E
+   {FWHM}^2 = {NOISE}^2 + 2,35 \cdot FANO  \cdot E
 \end{equation}
 
-A largura à meia altura (FWHM) para o Ferro $K\alpha$ foi 138.32 eV
-Cálcio 129.14
+Os parâmetros iniciais foram determinados a partir de espectros com picos 
+bem definidos, como o Ferro, que teve largura à meia altura (FWHM) para 
+$K\alpha$ de 138,32 eV ou o cálcio com 129,14 eV.
 
-Os parâmetros iniciais foram determinados a partir de espectros com picos bem definidos.
-
-Na figura \ref{fig:winqxas} há dois exemplos de espectros abertos no \textbf{WinQxas}, 
-um de uma amostra branca e outro de uma amostra carregada. 
-Os picos característicos de elementos químicos encontrados estão indicados na figura.
+Na figura \ref{fig:winqxas} há dois exemplos de espectros abertos no WinQxas, 
+um de uma amostra branca e outro de uma amostra carregada. Os picos 
+característicos de elementos químicos encontrados estão indicados na figura.
 
 \begin{figure}[H]
   \centering
@@ -465,21 +469,26 @@ Os picos característicos de elementos químicos encontrados estão indicados na
   \caption{Espectros amostra branca e carregada \label{fig:winqxas}}
 \end{figure}
 
-Na análise feita nos espectros, feita um a um, deve-se ter atenção 
-para identificação e correção dos seguintes eventos: 
+Na análise feita nos espectros, pico a pico, deve-se ter atenção 
+para identificação e correção dos seguintes eventos quando há picos com 
+muitas contagens: 
 
 \begin{itemize}
+  \begin{spacing}{1.0}
   \item pico soma: quando fotóns do diferente elementos são contados
         juntos pelo detector. 
   \item pico escape: quando o fóton incidente excita o silício do detector
-        e é contato com a energia de incidência menos a energia usada para excitar o silício. 
+        e é contato com a energia menor, pois parte foi usada na excitação 
+        do silício. 
+  \end{spacing}
 \end{itemize}
 
-Calibração do multicanal (ajuste linear entre canal e energia encontrado a 
-partir de pelo menos dois elemento conhecidos do espectros):
+A seguir, apresenta-se a calibração do multicanal, ajuste linear entre canal 
+e energia encontrado a partir de pelo menos dois elemento conhecidos do 
+espectros:
 
 \begin{equation}
-  E = 0,0101 Canal - 0,1335 (keV)
+  E = 0,0101 \cdot Canal - 0,1335 (keV)
 \end{equation}
 
 %%%%
@@ -530,5 +539,6 @@ dificultando a detecção desses elementos, mas melhora com o aumento de Z.
 \begin{table}[H]
   \centering
   \input{../outputs/LD.tex}
-  \caption{LD. \label{table:LD}}
+  \caption{Limite de detecção para XRF-ED calculado com amostra branca e
+           carregada. \label{table:LD}}
 \end{table}

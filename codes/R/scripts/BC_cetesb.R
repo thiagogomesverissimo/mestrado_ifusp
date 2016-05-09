@@ -36,7 +36,7 @@ lines(p,xlim = c(0.4,2.2),col='red')
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
 # legenda
-legend("topleft", legend = expression(a + bx), cex=0.8, bty = "n")
+legend("topleft", legend = expression(a + bx), cex=1.3, bty = "n")
 
 legenda = paste(letters[1:2],format(coefs_akerr, scientific=T),sep=' = ')
 legenda = paste(legenda,'\n',sep='')
@@ -44,14 +44,14 @@ legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
 legenda = paste('\n Coeficientes do ajuste linear: \n\n',legenda)
 
-legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=0.8, bty = "n")
+legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=1.3, bty = "n")
 dev.off()
 
 # Exporta tabela para Latex
 ajuste_thiago = p[1] + p[2]*log10(dados$refletancia)
 dados = cbind(dados,ajuste_thiago)
 
-ajustado = paste(format(dados$ajuste_thiago,digits=2,nsmall=2),
+ajustado = paste(format(dados$ajuste_thiago,digits=2,nsmall=2,decimal.mark = ','),
                  dados$erro_matricial,sep='$\\pm$')
 dados = cbind(dados,ajustado)
 

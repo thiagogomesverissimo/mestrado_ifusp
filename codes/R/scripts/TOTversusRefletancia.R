@@ -36,7 +36,7 @@ lines(p,xlim = c(0.4,2),col='red')
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
 # legenda
-legend("topleft", legend = expression(a + bx + cx^2 + dx^3 + ex^4), cex=0.8, bty = "n")
+legend("topleft", legend = expression(a + bx + cx^2 + dx^3 + ex^4), cex=1, bty = "n")
 
 legenda = paste(letters[1:5],format(coefs_akerr, scientific=T,digits=3,nsmall=3),sep=' = ')
 legenda = paste(legenda,'\n',sep='')
@@ -46,7 +46,7 @@ legenda = paste('\n Coeficientes do ajuste \n polinomial grau 4: \n\n',legenda)
 #legenda = c(legenda,'Medidas')
 
 #legend("bottomright", legend = legenda, inset=c(-0.2,0), col=c('red','black'), pch = 15, cex=0.7, bty = "n")
-legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1),pch = 15, cex=0.8, bty = "n")
+legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1),pch = 15, cex=1, bty = "n")
 
 dev.off()
 

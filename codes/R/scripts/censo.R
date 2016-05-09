@@ -21,7 +21,7 @@ fuel[,1] = c('não cozinha','biomassa','gás','eletricidade','querosene','carvã
   'pó de serra','esterco', 'outro')
 print(xtable(fuel), 
       type="latex", 
-      include.rownames = T, 
+      include.rownames = F, 
       floating = FALSE,
       sanitize.text.function = identity,
       file='../../outputs/census_cookfuel.tex')
