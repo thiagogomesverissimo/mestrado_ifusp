@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,twoside]{book} % ou report?
+\documentclass[a4paper,12pt,twoside]{report} % ou report?
 
 \include{geral/packages}  
 
@@ -30,10 +30,14 @@
   \input{capitulos/4conclusao/conclusao}
   \input{capitulos/4conclusao/sugestoes}
 
-\chapter{Apêndice}
-  \input{capitulos/5apendice/PMFsoftware}
-  \input{capitulos/5apendice/analise_fatores}
-  \input{capitulos/5apendice/PMF}
+%\begin{appendices}
+\appendix
+ \chapter{Apêndice}   
+    \input{capitulos/5apendice/PMFsoftware}
+    %\input{capitulos/5apendice/analise_fatores}
+    %\input{capitulos/5apendice/PMF}
+%\end{appendices}
+
 
 \bibliographystyle{apalike}
 \bibliography{bibliografia/mestrado,bibliografia/my_articles}

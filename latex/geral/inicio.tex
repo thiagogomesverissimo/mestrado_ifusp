@@ -1,7 +1,8 @@
 \pagenumbering{roman}
 
 \input{geral/capa}
-\input{geral/ficha}
+%\input{geral/ficha}
+\input{geral/dedicatoria}
 \input{geral/agradecimentos}
 
 \pagenumbering{arabic}
@@ -13,10 +14,12 @@
 \microtypesetup{protrusion=false}
 
 % Lista de figuras
-\listoffigures
+%\listoffigures
 
 % Lista de tabelas
-\listoftables
+%\listoftables
+
+{\let\cleardoublepage\clearpage \listoffigures \let\cleardoublepage\clearpage \listoftables}
 
 % Abreviações
 \input{geral/siglas}

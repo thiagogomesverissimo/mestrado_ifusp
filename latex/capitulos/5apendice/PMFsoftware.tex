@@ -1,115 +1,103 @@
-\section{Apêndice II - Software PMF}
+\section{Software PMF EPA 5.0}
 
-O PMF EPA 5.0 nos oferece dois valores 
-para $Q$: $Q_{verdadeiro}$ e 
-$Q_{robusto}$, onde o primeiro é calculado considerando todos os valores 
-de concentração e no segundo remove-se os \textit{outliers}.
+Segue-se roteiro desenvolvido para utilização do software PMF EPA 5.0, 
+bem como algumas dicas e detalhes destacadas durante o intenso uso desse 
+programa realizado nessa pesquisa.  
+
+Sendo $c_{ij}$ e $u_{ij}$ as matrizes de concentração e incerteza, 
+respectivamente, ao se iniciar o programa, os seguintes itens devem ser 
+satisfeitos antes de rodar análise:
+
+\begin{itemize}
+  \begin{spacing}{1.0}
+  \item $c_{ij}$ e $u_{ij}$ não devem ter valores negativos;
+  \item células vazias não são aceitas;
+  \item nomes das colunas(espécies) e linhas(amostras) devem ser únicos;
+  \item é ideal (mas não obrigatório) que os dados já estejam classificados 
+        pela data em ordem crescente.
+  \end{spacing}
+\end{itemize}
+
+É importante adequar as incertezas, dimunuindo ou aumetando as mesmas por um 
+fator constante, pois o PMF pondera pelas mesmas, assim deve-se diminuir o peso
+das medidas com incertezas muito altas. Para tal, é possível usar o 
+Signal Noise (S/N), que indica se a variabilidade nas medidas é real ou faz 
+parte do ruído dos dados, e é calculado da seguinte forma: 
+
+\begin{itemize}
+  \begin{spacing}{1.0}
+    \item Se, $c_{ij} >  u_{ij}$, então $ S/N = (c_{ij} - u_{ij})/u_{ij}$.
+    \item Se, $c_{ij} <  u_{ij}$, então $ S/N = 0 $.
+  \end{spacing}
+\end{itemize}
+
+Espécie com a concentração menor que a incerteza, não apresentam ruído, e devem 
+ser removidas da análise e espécies com valores muito próximos da incerteza, 
+portanto com S/N próximo de zero (< 0,5) também devem ser removidas da 
+análise. Espécie nas quais a concentração é pelo menos duas vezes o valor da 
+incerteza, isto é, S/N é maior ou igual à 1, são as ideais para análise, 
+e não altera-se as incertezas.
+Quando S/N está entre 0,5 e 1, diminuímos o peso da espécie aumentando a 
+incerteza em um fator 3, diretamento na planilha, ou na interface do PMF EPA.   
+
+Após carregado as planilhas corretamente, já é possível rodar a análise, 
+mas é aconselhável inspecionar e até alterar os dados se necessário. Segue
+uma lista de itens para se averiguar após carregamento dos dados: 
+
+\begin{itemize}
+\begin{spacing}{1.0}
+  \item Há relação tipicamente linear entre concentração e incerteza?  
+        Se não, investigar o motivo;
+  \item Adequação das incertezas baseado no S/N (bem como do conhecimento da 
+        espécie e do limite de detecção do método de medida); 
+  \item Marcar a massa total como \textit{Total Variable};
+  \item Inspecionar gráficos de dispersão entre espécies nas quais se espera 
+        correlação, anti-correlação ou não correlação; 
+  \item Inspecionar gráficos de séries temporais para identificação de padrões 
+        temporais e removeção de \textit{outliers}; 
+  \end{spacing}
+\end{itemize}
+
+Por questões de reprodutibilidade da análise é importante fixar um seed antes 
+de cada rodada. Devido ao inicio randômico é recomendado uma rodada de pelo 
+menos 100 iterações para solução final e 10 para as rodadas testes. 
+
+Cada rodada que converge fornece dois valores para a função objeto Q, 
+$Q_{verdadeiro}$ e $Q_{robusto}$, sendo o primeiro calculado considerando 
+todos os valores, mesmo os marcados para remoção, e o segundo os removendo.
 Assim, quando há poucos \textit{outliers}, $Q_{verdadeiro}$ e $Q_{robusto}$ 
-são próximos. Incertezas muitos altas resultam em $Q_{verdadeiro}$ e 
+são próximos, mas incertezas muitos altas resultam em $Q_{verdadeiro}$ e 
 $Q_{robusto}$ similares.
 
-Além do conhecimento da espécie, o \textbf{Signal Noise (S/N)} é um bom 
-indicador de quais amostra deve-se aumentar as incerteza.
+Escolhe-se a solução com menor $Q_{robusto}$, devendo-se testar se o ajuste 
+resultou em Q mínimo global e não local. Pode-se rodar o software para 
+diferentes valores de seed e acompanhar a estabilidade do Q, que se for mantida, 
+significa que o Q é mínimo global.  
 
-\begin{itemize}
-  \item Se, $c_{ij} >  u_{ij}$, então $ S/N = (c_{ij} - u_{ij})/u_{ij}$.
-  \item Se, $c_{ij} <  u_{ij}$, então $S/N = 0 $.
-\end{itemize}
-
-O \textbf{S/N} indica se a variabilidade nas medidas é real ou faz parte do 
-ruído dos dados. 
-Espécie com a concentração menor que a incerteza, não apresentam ruído, e devem 
-ser removidas da análise. Espécies com valores muito próximos da incerteza, 
-portanto com $S/N$ próximo de zero (< 0,5) também devem ser removidas da 
-análise. 
-Espécie nas quais a concentração é pelo menos duas vezes o valor da incerteza, 
-isto é, $S/N$ é maior ou igual à 1, são as ideais para análise, 
-e não altera-se as incertezas. 
-
-Quando $S/N$ está entre 0,5 e 1, diminuímos o peso da espécie aumentando a 
-incerteza em um fator 3.  
-
-Os dados de concentração, $c_{ij}$, e incertezas, $u_{ij}$, devem seguir 
-alguns pré-requisitos antes da realização do ajuste:
-
-\begin{itemize}
-  \item Não é permitido valores negativos em $c_{ij}$ ou em $u_{ij}$.
-  \item células vazias não são aceitas.
-  \item nomes das colunas(espécies) e linhas(amostras) devem ser únicos.
-  \item é ideal (não obrigatório) que os dados já estejam classificados 
-        pela data em ordem crescente.
-\end{itemize}
-
-%%%%
-\paragraph{Inspeção dos dados de entrada}
-
-É necessário fazer ainda inspeções ou alterações antes de fazer o ajuste.
-\begin{itemize}
-  \item Espera-se uma relação tipicamente linear entre 
-        \textbf{Concentração} $\times$ \textbf{Incerteza}.  
-        Investigar o motivo caso isso não ocorra. 
-  \item Adequação das incertezas baseado no \textbf{Signal Noise (S/N)} e 
-        conhecimento da espécie. 
-  \item Marcar a Massa Total como \textbf{Total Variable}
-  \item Inspecionar gráficos de dispersão entre espécies nas quais se espera 
-        correlação, anti-correlação ou não correlação. 
-  \item Inspecionar gráficos de séries temporais, para:
-    \begin{itemize}
-      \item Identificar padrões temporais em espécies individuais ou em grupo 
-            de espécies.
-      \item Remover \textbf{outliers} 
-    \end{itemize}
-\end{itemize}
-
-Devido ao inicio randômico é recomendado uma rodada de pelo menos 100 iterações 
-como solução final, escolhendo-se a do menor $Q_{robusto}$, para termos assim 
-mais esperança de encontrarmos um $Q$ mínimo global e não local. 
-O \textbf{PMF} minimiza a função objeto $Q$ e converge quando encontra um $Q$ 
-mínimo local ou global.% o que é local e global?
-
-Como sempre estamos interessados no mínimo global, precisa-se verificar se a 
-solução gerou um $Q$ mínimo local ou global. A estratégica para identificar
-o tipo de mínimo é rodar o \textbf{PMF} para diferentes valores de 
-\textbf{Random Seed} e acompanhar a estabilidade de $Q$.
-
-Uma vez que apresentamos os conceitos necessários o entendimento do jargão 
-usado no método \textbf{PMF}, apresentamos as etapas escolhidas para realização 
-do ajuste.
+Realizadas as adaptações necessárias nos dados, segue-se com a realização 
+do ajuste na sequência a seguir:
 
 \begin{enumerate}
-  \item Rodar o \textbf{base run} com 20 iterações, encolhendo o número de 
-        fatores variando de 3 até 10. 
-        Verificar a quantidade de fatores com melhor significado físico. 
-        As matrizes soluções $g_{ik}$ e $f_{kj}$ sairão nos arquivos: 
-        \textbf{profiles.csv} e \textbf{contributions.csv}.
-  \item Verificar a estabilidade do $Q_{verdadeiro}$ e $Q_{robusto}$ que 
-        convergiram, se $Q$ não for estável, então não foi um bom ajuste.
+\begin{spacing}{1.0}
+  \item Rodar o \textit{base run} com 20 iterações, encolhendo o número de 
+        fatores variando de 3 até 10.
+        Verificar a quantidade de fatores com significado físico;
+  \item Verificar a estabilidade dos $Q_{verdadeiro}$ e $Q_{robusto}$ que 
+        convergiram, se os Q's não forem estáveis, então não foi um bom ajuste
+        (o mínimo não é global);
   \item Regressão linear simples das concentrações das espécies ajustadas 
-        versus medidas, que devem estar correlacionas. 
+        pelas medidas, que devem estar correlacionas; 
         Remover amostras ou aumentar as incertezas das amostras que não foram 
-        bem ajustadas. Rodar novamente o \textbf{base run}.  
+        bem ajustadas e rodar novamente o \textit{base run}.  
   \item Série temporal das concentrações das espécies ajustadas sobreposta
         as medidas. 
         Identificar pontos não bem ajustados, devido a fontes infrequentes, 
-        por exemplo.
-        Removê-los ou aumentar a incerteza. Rodar novamente o \textbf{base run}.
-  \item Análise residual. Verificar se a distribuição do resíduo é normal 
-        (usando o \textbf{Teste de Kolmogorov–Smirnov}). 
-        Quando não é normal há a indicação que o ajusto foi pobre para essa 
-        espécie. 
-        Pode-se diminuir o peso da espécie na análise aumentando sua incerteza, 
-        ou até mesmo remover a espécie da análise.
-  \item Verificação se $Q$ é mínimo global ou Local usando 10 valores 
-        diferentes de \textbf{Random Seed}.
-  \item Avaliação da \textbf{Ambiguidade Rotacional} usando os 
-        gráficos \textbf{G-Space}.
-  \item Série temporal de $g_{ik}$. Avaliação do significado físico.
+        por exemplo, remover ou aumentar a incerteza desses dias e rodar novamente 
+        o \textit{base run};
+  \item Análise residual. Verificar se a distribuição do resíduo é normal, 
+        usando o teste de Kolmogorov–Smirnov. Quando não é normal, há a 
+        indicação que o ajuste foi pobre para essa espécie. 
+        Novamente, diminuir o peso da espécie aumentando sua incerteza, 
+        ou remover a espécie da análise.
+  \end{spacing}
 \end{enumerate}
-
-Em termos de reprodutibilidade da pesquisa científica o \textbf{PMF EPA 5.0} 
-nos fornece os seguintes recursos:
-
-\begin{itemize}
-  \item Fixação de \textbf{Random Seed}.%o que significa isso? Porque este detalhe destaca-se dos demais?
-  \item Arquivo \textbf{XML} com as configurações usadas na rodada. 
-\end{itemize} 
