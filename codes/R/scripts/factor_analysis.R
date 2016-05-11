@@ -2,10 +2,10 @@ rm(list=ls())
 source("myfunctions/load.R")
 
 # Testes
-#print(FactorAnalysis('TIeH',4)$loadings,cutoff=4e-1)
+print(FactorAnalysis('RFsH',5)$loadings,cutoff=4e-1)
 
 # Conta amostras
-file=read.csv('../../outputs/pmf_fa/TFeH.csv')
+file=read.csv('../../outputs/pmf_fa/RFsH.csv')
 nrow(file)
 
 ## Residencial Fino
