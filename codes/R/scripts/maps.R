@@ -15,7 +15,7 @@ location_google = c(-0.28,5.5,0.09,5.7)
 
 # Fetch the map
 #accra = get_map(location = location, source = "osm",filename = '/tmp/accra',zoom = 10)
-accra = get_map(location = location_google, source = "google",filename = '/tmp/accra')
+accra = get_map(location = location_google, source = "google",filename = '/tmp/accra',language = 'pt')
 
 pdf('../../outputs/accra_sources.pdf')
 # Draw the map
@@ -29,7 +29,3 @@ accraMap = accraMap + geom_point(data = amostragem, aes(x = longitude, y = latit
 accraMap + geom_text(data = pontos, aes(label = name, x = longitude+.001, y = latitude), hjust = -0.15)
 
 dev.off()
-#map <- get_map(location = "accra",source='osm',  zoom = 6)
-#ggmap(map)
-
-
