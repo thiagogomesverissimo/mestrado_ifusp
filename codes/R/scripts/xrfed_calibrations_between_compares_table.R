@@ -6,22 +6,22 @@ source("myfunctions/load.R")
 # maio de 2010
 medidos = read.csv('../../inputs/edxCalibration/americo/K2010MaioMedidosAkerr.csv', row.names = 1)
 ajustados = read.csv('../../inputs/edxCalibration/americo/K2010MaioAjustadosAkerr.csv', row.names = 1)
-medidos = cbind(medidos,medidos = montaColuna(medidos))
-ajustados = cbind(ajustados,ajustados = montaColuna(ajustados))
+medidos = cbind(medidos,medidos = montaColuna(fix_significativos(medidos*1000)))
+ajustados = cbind(ajustados,ajustados = montaColuna(fix_significativos(ajustados*1000)))
 maio2010 = cbind(ajustados,medidos = medidos[rownames(ajustados),3])
 
 # novembro de 2010
 medidos = read.csv('../../inputs/edxCalibration/americo/K2010NovMedidosAkerr.csv', row.names = 1)
 ajustados = read.csv('../../inputs/edxCalibration/americo/K2010NovAjustadosAkerr.csv', row.names = 1)
-medidos = cbind(medidos,medidos = montaColuna(medidos))
-ajustados = cbind(ajustados,ajustados = montaColuna(ajustados))
+medidos = cbind(medidos,medidos = montaColuna(fix_significativos(medidos*1000)))
+ajustados = cbind(ajustados,ajustados = montaColuna(fix_significativos(ajustados*1000)))
 nov2010 = cbind(ajustados,medidos = medidos[rownames(ajustados),3])
 
 # abril 2011
 medidos = read.csv('../../inputs/edxCalibration/americo/K2011AbrMedidosAkerr.csv', row.names = 1)
 ajustados = read.csv('../../inputs/edxCalibration/americo/K2011AbrAjustadosAkerr.csv', row.names = 1)
-medidos = cbind(medidos,medidos = montaColuna(medidos))
-ajustados = cbind(ajustados,ajustados = montaColuna(ajustados))
+medidos = cbind(medidos,medidos = montaColuna(fix_significativos(medidos*1000)))
+ajustados = cbind(ajustados,ajustados = montaColuna(fix_significativos(ajustados*1000)))
 abr2011 = cbind(ajustados,medidos = medidos[rownames(ajustados),3])
 
 # Mês de referência: maio2010. diferença relativa = (atual-anterior)/anterior
