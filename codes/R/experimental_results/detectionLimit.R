@@ -14,7 +14,6 @@ volume = 13.9
 #ACC957 é o mais carregado de Nima
 ACC957K<-read.csv("../../inputs/detectionLimit/ACC957K_CARREGADO.csv")
 ACC957Kout<-DetectionLimit(ACC957K,"K",I,tempo,area,volume)
-ACC957Kout$limite = ACC957Kout$limite*1000
 
 pdf(file='../../outputs/limitDetectionK.pdf')
 
@@ -23,7 +22,7 @@ par(mar = mar.default + c(0, 3, 0, 0))
 y_legenda = expression(mu~g~m^-3)
 
 plot(ACC957Kout$Z,
-     ACC957Kout$limite,
+     ACC957Kout$limite*1000,
      log="y",
      col=c("red"),
      pch=1,
@@ -34,9 +33,8 @@ plot(ACC957Kout$Z,
 #ACC386 é branco
 ACC386K<-read.csv("../../inputs/detectionLimit/ACC386K_BR.csv")
 ACC386Kout<-DetectionLimit(ACC386K,"K",I,tempo,area,volume)
-ACC386Kout$limite = ACC386Kout$limite*1000
 
-points(ACC386Kout$Z,ACC386Kout$limite,col=c("blue"),pch=1)
+points(ACC386Kout$Z,ACC386Kout$limite*1000,col=c("blue"),pch=1)
 
 legend("topright",
        legend=c("Amostra carregada","Amostra branca"),
@@ -48,7 +46,6 @@ dev.off()
 #ACC957 é o mais carregado de Nima
 ACC957L<-read.csv("../../inputs/detectionLimit/ACC957L_CARREGADO.csv")
 ACC957Lout<-DetectionLimit(ACC957L,"L",I,tempo,area,volume)
-ACC957Lout$limite = ACC957Lout$limite * 1000
 
 pdf(file='../../outputs/limitDetectionL.pdf')
 
@@ -57,7 +54,7 @@ par(mar = mar.default + c(0, 3, 0, 0))
 y_legenda = expression(mu~g~m^-3)
 
 plot(ACC957Lout$Z,
-     ACC957Lout$limite,
+     ACC957Lout$limite*1000,
      log="y",
      col=c("red"),
      pch=1,
@@ -69,9 +66,8 @@ plot(ACC957Lout$Z,
 #ACC386 é branco
 ACC386L<-read.csv("../../inputs/detectionLimit/ACC386L_BR.csv")
 ACC386Lout<-DetectionLimit(ACC386L,"L",I,tempo,area,volume)
-ACC386Lout$limite = ACC386Lout$limite*1000
 
-points(ACC386Lout$Z,ACC386Lout$limite,col=c("blue"),pch=1)
+points(ACC386Lout$Z,ACC386Lout$limite*1000,col=c("blue"),pch=1)
 
 legend("topright",
        legend=c("Amostra carregada","Amostra branca"),

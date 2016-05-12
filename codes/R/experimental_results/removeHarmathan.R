@@ -44,7 +44,6 @@ TFsH <- TFcH[ !(months(TFcH$Date) %in% harmathan) & TFcH$Si < limiteSi, ]
 RGsH <- RGcH[ !(months(RGcH$Date) %in% harmathan) & RGcH$Si < limiteSi, ]
 TGsH <- TGcH[ !(months(TGcH$Date) %in% harmathan) & TGcH$Si < limiteSi, ]
 
-
 # Exclusão dos meses do Harmathan nas incertezas
 RIsHunc = RIcHunc[rownames(RIsH),]
 TIsHunc = TIcHunc[rownames(TIsH),]

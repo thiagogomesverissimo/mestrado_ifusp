@@ -76,9 +76,42 @@ edxCalibration = function(name,titulo,line,pontos,cores,coefs1,coefs2=c(-999)) {
   dev.off()
 }
 
+# Function took from http://stackoverflow.com/questions/5173692/how-to-return-number-of-decimal-places-in-r
+decimalplaces <- function(x) {
+  if ((x %% 1) != 0) {
+    nchar(strsplit(sub('0+$', '', as.character(x)), ".", fixed=TRUE)[[1]][[2]])
+  } else {
+    return(0)
+  }
+}
+
 montaColuna = function(data){
+  #test 
+  data = read.csv('../../inputs/edxCalibration/americo/K2010MaioAjustadosAkerr.csv', row.names = 1)
+  
   data[,1:2] = data[,1:2]*1000
   data = cbind(data,incerteza_relativa = 100*(data[,2]/data[,1]))
+
+  # ajusta as incertezas para dois significativos
+  data$Uncert = signif(data$Uncert,digits = 2)
+  
+  # ajusta as medidas de acordo com as incertezas
+  for (i in 1:nrow(data)) {
+    data[i,1] = round(data[i,1],digits = decimalplaces(data[i,2]))
+  }
+
+  # remove zero da direita
+  data$R = prettyNum(data$R)
+  data$Uncert = prettyNum(data$Uncert)
+
+  # zero a direita qdo menor q 10
+  for (i in 1:nrow(data)) {
+    print(decimalplaces(data[i,2]))
+  }
+    
+  #> mynumber = 1001
+  # as.numeric(unlist(strsplit(as.character(mynumber),"")))
+  
   data = format(round(data,1),digits=1,nsmall=1,scientic=F,decimal.mark = ',') 
   #data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],' ( ',data[,3],'\\%)',sep=''))
   data = cbind(data,new=paste(data[,1],'$\\pm$' ,data[,2],'(',data[,3],')',sep=''))
