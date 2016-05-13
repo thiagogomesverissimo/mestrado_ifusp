@@ -1,5 +1,11 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
+
+####
+#TODO: Intercalibração com Pierre
+#read.csv('../../inputs/BlackCarbon/americo/Pierre_calib_TJQuadros.csv')
+
+####
 
 # Copiado do Américo
 dados = read.csv('../../inputs/BlackCarbon/americo/janio_quadros.csv')
@@ -22,8 +28,8 @@ plot(0,0,
      xlim = c(0,60),
      ylim = c(0,60),
      type = "n",
-     xlab = expression(paste('Refletância CETESB (',frac(mu*g,cm^2),')')),
-     ylab = expression(paste('TOT (',frac(mu*g,cm^2),')')),
+     xlab = expression('Massa calculada com alvos padrões produzidos na CETESB (' ~ mu*g ~cm^-2 ~')' ),
+     ylab = expression('Alvos paralelos quartzo TOT (' ~ mu*g ~cm^-2 ~ ')'),
      axes=F)
 
 axis(side=1, at=seq(0, 60, by=10))
@@ -47,7 +53,9 @@ legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=1.4
 dev.off()
 
 # Exporta tabela para Latex
-dados[,2:5] = format(dados[,2:5],digits=2,nsmall=2)
+dados = read.csv('../../inputs/BlackCarbon/americo/janio_quadros.csv')
+dados[,2:3] = fix_significativos(dados[,2:3])
+dados[,4:5] = fix_significativos(dados[,4:5])
 
 tot = paste(dados$TOT,dados$TOT_incerteza,sep='$\\pm$')
 dados = cbind(dados,tot)
@@ -56,11 +64,17 @@ cetesb = paste(dados$cetesb,dados$cetesb_incerteza,sep='$\\pm$')
 dados = cbind(dados,cetesb)
 
 tabela = dados[,c(1,6,7)]
-colnames(tabela) = c('ID','tot','cetesb')
 
-print(xtable(tabela),
+addtorow <- list()
+addtorow$pos <- list(0, 0)
+addtorow$command <- c('ID &  TOT$^1$ & CETESB$^2$   \\\\\n',
+                      '   & \\multicolumn{2}{c}{$\\mu g/cm^2$ }  \\\\\n')
+
+print(xtable(tabela,align = rep('c',ncol(tabela)+1)),
       type="latex", 
       floating = FALSE,
       include.rownames = F, 
+      include.colnames = F,
+      add.to.row = addtorow,
       sanitize.text.function = identity,
       file="../../outputs/BC_janio_quadros.tex")

@@ -1,4 +1,4 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 # Pontos experimentais
@@ -74,3 +74,99 @@ print(xtable(tabela),
       include.rownames = F, 
       sanitize.text.function = identity,
       file="../../outputs/Gana_TOT_Refletancia.tex")
+
+#### Comparação da nova calibração com monarch71
+
+acc = read.csv('../../inputs/BlackCarbon/refletancia/ACC.csv',header=F)
+gha = read.csv('../../inputs/BlackCarbon/refletancia/GHA.csv',header=F)
+gpe = read.csv('../../inputs/BlackCarbon/refletancia/gpe.csv',header=F)
+afr = read.csv('../../inputs/BlackCarbon/refletancia/afr.csv',header=F)
+
+# agrega
+refletancias = rbind(afr,gha,gpe,acc)
+refletancias = TrataID(refletancias,1)
+rownames(refletancias) = refletancias[,1]
+
+# Nima MP2.5
+nima = read.csv('../../outputs/pmConc.csv')
+nima = subset(nima,nima$SampleType == 'PM2.5')
+rownames(nima) = nima[,1]
+
+# refletâncias em Nima
+refletancias_nima = refletancias[rownames(nima),]
+refletancias_nima = refletancias_nima[,-3:-4]
+refletancias_nima = refletancias_nima[refletancias_nima[,2]>10,]
+
+# ajustes com Monarch71 linear
+x=log10(refletancias_nima$V2)
+p = c(34.14473,-17.39258)
+calibM71_linear = p[1] + p[2]*x
+
+# ajustes com Monarch71 segundo grau lapat
+x=log10(refletancias_nima$V2)
+p = c(82.8046,-72.8235,15.7169) #lapat
+calibM71_lapat = p[1] + p[2]*x + p[3]*x^2
+
+# ajuste com tot
+p = c(96.0195,-174.675,139.44272,-53.08335,7.51411)
+calibTOT = p[1] + p[2]*x + p[3]*x^2 + p[4]*x^3 + p[5]*x^4
+
+pdf('../../outputs/BC_compara_calibs.pdf')
+
+#mar.default <- c(5,4,4,2) + 0.5
+#par(mar = mar.default + c(0, 3, 0, 0))
+
+plot(0,0,
+     xlim = c(0,100),
+     ylim = c(0.5,2.7),
+     type = "n",
+     xlab = 'Refletância (%)',
+     ylab = 'Calibração antiga com M71 / Calibração nova com TOT',
+     axes=F)
+
+axis(side=1, at=seq(0, 100, by=10))
+axis(side=2, at=seq(0.5,2.7, by=0.1))
+
+points(refletancias_nima[,2],calibM71_linear/calibTOT,col='blue')
+points(refletancias_nima[,2],calibM71_lapat/calibTOT,col='red')
+legenda=c('M71 com ajuste de 1° Grau',
+         'M71 com ajuste de 2° Grau')
+legend('topright',legenda, ncol=1,col=c('blue','red'),bty='n',pch = 15, cex=1)
+
+dev.off()
+
+# recife 
+recife = read.csv('../../inputs/BlackCarbon/americo/recife.csv')
+recife = recife[!is.na(recife$refletancia),]
+recife = recife[recife$refletancia<95,]
+x = log10(recife$refletancia)
+p = c(16.9023755079,-8.451187754) # TOT recife
+recife_TOT = p[1] + p[2]*x 
+
+p = c(82.8046,-72.8235,15.7169) #lapat
+recife_lapat = p[1] + p[2]*x + p[3]*x^2
+
+# thiago
+p = c(34.14473,-17.39258)
+recife_lapat_linear = p[1] + p[2]*x 
+
+pdf('../../outputs/BC_compara_calibs_recife.pdf')
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 3, 0, 0))
+plot(0,0,
+     xlim = c(0,100),
+     ylim = c(0.5,2.7),
+     type = "n",
+     xlab = 'Refletância (%)',
+     ylab = 'Calibração antiga com M71 / Calibração nova com TOT',
+     axes=F)
+
+axis(side=1, at=seq(0, 100, by=10))
+axis(side=2, at=seq(0.5,2.7, by=0.1))
+
+#points(recife$refletancia,recife_lapat_linear/recife_TOT,col='blue')
+points(recife$refletancia,recife_lapat/recife_TOT,col='red')
+legenda=c('M71 com ajuste de 2° Grau')
+legend('topright',legenda, ncol=1,col=c('red'),bty='n',pch = 15, cex=1)
+
+dev.off()

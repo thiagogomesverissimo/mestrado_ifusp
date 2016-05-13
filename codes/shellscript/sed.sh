@@ -37,43 +37,6 @@ for i in $FILES; do
 done
 
 ####  
-FILE='../../outputs/BC_monarch71.tex'
-sed -i s/'\.'/','/g $FILE
-sed -i s/fabricante/'Fabricante ($  \\mu g \/ cm^2$)'/g $FILE
-sed -i s/ajustado/'Ajuste ($  \\mu g \/ cm^2$)'/g $FILE
-sed -i s/Ref1/'Refletância 1 (\\%)'/g $FILE
-sed -i s/Ref2/'Refletância 2 (\\%)'/g $FILE
-sed -i s/Ref3/'Refletânia 3 (\\%)'/g $FILE
-sed -i s/'rrrlr'/'ccccc'/g $FILE
-
-####  
-FILE='../../outputs/BC_janio_quadros.tex'
-sed -i s/'\.'/','/g $FILE
-sed -i s/cetesb/'Refletância* (\\%)'/g $FILE
-sed -i s/tot/'TOT ($ \\mu g \/ cm^2$)'/g $FILE
-sed -i s/'lll'/'ccc'/g $FILE
-
-####  
-FILE='../../outputs/cetesb2012.tex'
-sed -i s/'\.'/','/g $FILE
-sed -i s/refletance/'Refletância (\\%)'/g $FILE
-sed -i s/balanca/'Balança ($ \\mu g \/ cm^2$)'/g $FILE
-sed -i s/efetivo/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE
-sed -i s/ajustado/'Ajuste ($ \\mu g \/ cm^2$)'/g $FILE
-sed -i s/'lrlrl'/'ccccc'/g $FILE
-
-####  
-FILE='../../outputs/Gana_TOT_Refletancia.tex'
-sed -i s/'\.'/','/g $FILE
-sed -i s/quartzo/'ID Quartzo'/g $FILE
-sed -i s/teflon/'ID PTFE'/g $FILE
-sed -i s/refletancia/'Refletância (\\%)'/g $FILE
-sed -i s/tot/'TOT ($ \\mu g \/ cm^2$)'/g $FILE
-sed -i s/efetiva/'$ \\sigma\_\{efetivo\}  (\\mu g \/ cm^2) $'/g $FILE
-sed -i s/ajuste/'Ajuste ($ \\mu g \/ cm^2$)'/g $FILE
-sed -i s/'llllll'/'cccccc'/g $FILE
-
-####  
 FILES=$(ls ../../outputs | grep beautifulFAdisplay_)
 for i in $FILES; do
  FILE='../../outputs/'$i
@@ -82,10 +45,3 @@ for i in $FILES; do
  sed -i s/'explicada'/'Variância Explicada (\\%)'/g $FILE
  sed -i s/'especie'/'Espécie'/g $FILE
 done
-
-####
-#FILES=$(ls ../../outputs | grep _contribution | grep tex)
-#for i in $FILES; do
-# FILE='../../outputs/'$i
-# sed -i s/'\.'/','/g $FILE
-#done

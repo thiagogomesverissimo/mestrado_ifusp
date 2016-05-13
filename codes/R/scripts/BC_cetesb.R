@@ -2,7 +2,7 @@
 source("myfunctions/load.R")
 
 # Copiado do Américo
-coefs_akerr = c(-42.96398,88.3336)
+coefs_akerr = c(88.3336,-42.96398)
 dados = read.csv('../../inputs/BlackCarbon/americo/amostras_Cetesb2012.csv')
 
 # Pontos experimentais
@@ -48,22 +48,44 @@ legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=1.3
 dev.off()
 
 # Exporta tabela para Latex
-ajuste_thiago = p[1] + p[2]*log10(dados$refletancia)
-dados = cbind(dados,ajuste_thiago)
-
-ajustado = paste(format(dados$ajuste_thiago,digits=2,nsmall=2,decimal.mark = ','),
-                 dados$erro_matricial,sep='$\\pm$')
+dados = read.csv('../../inputs/BlackCarbon/americo/amostras_Cetesb2012.csv')
+ajustado = p[1] + p[2]*log10(dados$refletancia)
 dados = cbind(dados,ajustado)
 
+# Ajustado
+dados[,c(8,7)] = fix_significativos(dados[,c(8,7)])
+ajustado_com_erro=paste(dados$ajustado,dados$erro_matricial,sep="$\\pm$")
+dados = cbind(dados,ajustado_com_erro)
+
+# Medido
+dados[,c(4,5)] = fix_significativos(dados[,c(4,5)])
 balanca = paste(dados$ug_cm2,dados$erro_massa,sep='$\\pm$')
 dados = cbind(dados,balanca)
 
-tabela = dados[,c(1,2,10,6,9)]
-colnames(tabela) = c('ID','refletance','balanca','efetivo','ajustado')
+#efetivo
+tmp = fix_significativos(dados[,c(8,6)])
+dados$erro_efetivo = tmp$erro_efetivo
 
-print(xtable(tabela),
+# ref
+dados$refletancia = sprintf('%.1f',dados$refletancia)
+
+# vírgulas
+tabela = dados[,c(1,2,10,6,9)] 
+tabela[,2] = str_replace_all(tabela[,2],'\\.',',')
+tabela[,3] = str_replace_all(tabela[,3],'\\.',',')
+tabela[,4] = str_replace_all(tabela[,4],'\\.',',')
+tabela[,5] = str_replace_all(tabela[,5],'\\.',',')
+
+addtorow <- list()
+addtorow$pos <- list(0, 0)
+addtorow$command <- c('ID & Refletância (\\%) & Gravimetria & $\\sigma_{efetivo}$ & Ajustado \\\\\n',
+                      '& $\\pm$ 1,1\\% & $\\mu g/cm^2$ & $\\mu g/cm^2$ & $\\mu g/cm^2$   \\\\\n')
+
+print(xtable(tabela,align = rep('c',ncol(tabela)+1)),
       type="latex", 
       floating = FALSE,
       include.rownames = F, 
+      include.colnames = F,
+      add.to.row = addtorow,
       sanitize.text.function = identity,
       file="../../outputs/cetesb2012.tex")

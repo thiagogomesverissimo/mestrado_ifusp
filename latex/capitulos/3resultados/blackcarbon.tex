@@ -24,21 +24,21 @@ $a + bx$, possibilitando o cálculo dos novos valores de densidade para os
 alvos padrões a partir da calibração, apresentados na última coluna da tabela 
 \ref{table:monarch71}.
 
-\begin{figure}
+\begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/BC_cetesb.pdf}
+  \includegraphics[width=0.5\textwidth]{../outputs/BC_monarch71.pdf}
   \caption{Calibração refletômetro do LAPAt usando alvos padrões Monarch 71.
          \label{fig:monarch71}}
 \end{figure}
 
 \newpage
-\begin{table}
+\begin{table}[H]
   \centering
   \small
     \input{../outputs/BC_monarch71.tex}
-    \caption{Reflêtancia de filtros padrões tipo Monarch 21 \citep{clarke1986} 
-           do IFUSP usados na calibração do refletometro do 
-           LAPAt 2007  erro de 0,25 ug/cm2 \label{table:monarch71}}
+    \caption{Reflêtancia de 2007 dos filtros padrões tipo Monarch 71 
+             do IFUSP usados na calibração do refletômetro do 
+             LAPAt.  \label{table:monarch71}}
 \end{table} 
 
 %%%%
@@ -102,18 +102,22 @@ túnel Jânio Quadros, foi realizado ajuste da regressão linear
 entre medidas de TOT e refletância usando calibração dos filtros produzidos na 
 CETESB.
 
-\begin{figure}
+\begin{figure}[H]
   \centering
   \begin{minipage}[b]{0.5\linewidth}
     \includegraphics[width=\textwidth]{../outputs/BC_janio_quadros.pdf}
-    \caption{Intercalibração entre TOT e refletância no túnel Jânio Quadros}
+    \caption{Comparação da massa de BC das amostras do túnel Jânio Quadros 
+             calculada usando calibração por TOT(1) versus calibração a partir dos 
+             alvos produzidos na CETESB(2).}
   \end{minipage}%\hfill
   \hspace{0.5cm}
   \begin{minipage}[b]{0.45\linewidth}
     \begin{small}
       \input{../outputs/BC_janio_quadros.tex}
     \end{small}
-    \captionof{table}{Intercalibração entre TOT e refletância no túnel Jânio Quadros)}
+    \captionof{table}{Comparação da massa de BC das amostras do túnel Jânio Quadros 
+             calculada usando calibração por TOT versus calibração a partir dos 
+             alvos produzidos na CETESB.}
   \end{minipage}
 \end{figure}
 
@@ -173,6 +177,21 @@ o desvio padrão corrigido das medições de 7 filtros em branco
 (0,96\% x 1,11 = 1,06\%, corrigidos para as estatísticas de poucos dados, 
 utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
 
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs_recife.pdf}
+    \caption{Recife}
+  \end{subfigure}%
+  \hspace{0.3cm}
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs.pdf}
+    \caption{Gana}
+  \end{subfigure}
+  \caption{}
+\end{figure}
+
+\newpage
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../outputs/Gana_TOT_Refletancia.pdf}
