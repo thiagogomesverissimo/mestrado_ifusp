@@ -12,7 +12,8 @@ edxCalibration = function(name,titulo,line,pontos,cores,coefs1,coefs2=c(-999)) {
   if (line=='L') 
     xylim = as.data.frame(cbind('x'=c(25,85),'y'=c(0,0.2)))
   
-  y_legenda = expression(frac(1,mu*A * s * frac(mu*g,cm^2)))
+  #y_legenda = expression(frac(1,mu*A * s * frac(mu*g,cm^2)))
+  y_legenda = expression( '[' ~ mu*A ~ s ~ '('*mu*g/cm^2 ~ ")]"^-1)
   plot(0,0,
        xlim = xylim$x,
        ylim = xylim$y,
@@ -25,10 +26,12 @@ edxCalibration = function(name,titulo,line,pontos,cores,coefs1,coefs2=c(-999)) {
   if (line == 'K') {
     axis(side=1, at=c(5:48))
     axis(side=2, at=seq(0, 0.6, by=0.1))
+    box()
   }
   if (line == 'L') {
     axis(side=1, at=c(25:85))
     axis(side=2, at=seq(0, 0.2, by=0.01))
+    box()
   }
   
   p <- polynomial(coefs1)

@@ -2,11 +2,9 @@ rm(list=ls())
 source("myfunctions/load.R")
 
 #### Testes
+detach("package:Hmisc", unload=TRUE) 
 base = read.csv('../../outputs/pmf_fa/RFsH.csv',row.names=1)
-base.principal<-principal(base,nfactors=5,rotate="varimax")
-base.principal = fa.sort(base.principal)
-print(base.principal$loadings,cutoff=4e-1)
-
+describe(base)
 ####
 
 

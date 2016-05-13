@@ -3,9 +3,68 @@ source("myfunctions/load.R")
 
 ####
 #TODO: Intercalibração com Pierre
-#read.csv('../../inputs/BlackCarbon/americo/Pierre_calib_TJQuadros.csv')
+dados=read.csv('../../inputs/BlackCarbon/americo/Pierre_calib_TJQuadros.csv')
+x = log10(dados$ref.policarbonado)
+y = dados$TOT_ug_cm2
+y_erro = dados$efetiva
 
-####
+# Ajuste polinomial, vou ajustar, mas vou mostrar o do Américo
+model <- lm(y ~ poly(x,1,raw=TRUE))
+coefs_thiago = model$coefficients
+coefs_thiago = as.vector(coefs_thiago)
+#coefs_akerr = c()
+coefs = coefs_thiago
+
+pdf('../../outputs/JQ_TOT_Refletancia.pdf')
+
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 3, 0, 0))
+
+plot(0,0,
+     xlim = c(0,2),
+     ylim = c(0,20),
+     type = "n",
+     xlab = 'log da refletância(%)',
+     ylab = expression('TOT ('~mu*g ~ cm^-2~')'),
+     axes=F)
+
+axis(side=1, at=seq(0, 2, by=0.2))
+axis(side=2, at=seq(0, 20, by=2))
+box()
+
+p <- polynomial(coefs)
+lines(p,xlim = c(0.4,2),col='red')
+
+errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
+
+# legenda R e p-value
+pvalue = signif(pvalue(model),3)
+rsquared = summary(model)$r.squared
+rsquared = signif(rsquared,2)
+
+rsquared = str_replace(rsquared,'\\.',',')
+code = paste0('expression(R^2~"= ',rsquared,'")') 
+l1 = eval(parse(text=code))
+
+pvalue = str_replace(pvalue,'\\.',',')
+code = paste0('expression(p < ~" ',pvalue,'")') 
+l2 = eval(parse(text=code))
+
+legend("bottom", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
+
+####  
+l1 = expression('ajuste linear: a + bx\n')
+
+l2 = paste(letters[1:2],format(coefs, scientific=F),sep=' = ')
+l2 = paste(l2,'\n',sep='')
+l2 = paste(l2,collapse=" ")
+l2 = gsub('\\.',',',l2)
+
+legend("topright", legend = paste(l1,l2),bty="n",cex=1.3)
+
+dev.off()
+
+#########################
 
 # Copiado do Américo
 dados = read.csv('../../inputs/BlackCarbon/americo/janio_quadros.csv')
@@ -34,22 +93,37 @@ plot(0,0,
 
 axis(side=1, at=seq(0, 60, by=10))
 axis(side=2, at=seq(0, 60, by=10))
+box()
 
 p <- polynomial(coefs_thiago)
 lines(p,xlim = c(0,60),col='red')
 
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
-# legenda
-legend("topleft", legend = expression(a + bx), cex=1.2, bty = "n")
+# legenda R e p-value
+pvalue = signif(pvalue(model),3)
+rsquared = summary(model)$r.squared
+rsquared = signif(rsquared,2)
 
-legenda = paste(letters[1:2],format(coefs_thiago, scientific=T),sep=' = ')
-legenda = paste(legenda,'\n',sep='')
-legenda = paste(legenda,collapse=" ")
-legenda = gsub('\\.',',',legenda)
-legenda = paste('\n Coeficientes do ajuste linear: \n\n',legenda)
+rsquared = str_replace(rsquared,'\\.',',')
+code = paste0('expression(R^2~"= ',rsquared,'")') 
+l1 = eval(parse(text=code))
 
-legend("topright", legend = legenda, col='red',inset=c(0,-0.1),pch = 15, cex=1.4, bty = "n")
+pvalue = str_replace(pvalue,'\\.',',')
+code = paste0('expression(p < ~" ',pvalue,'")') 
+l2 = eval(parse(text=code))
+
+legend("center", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
+
+#
+l1 = expression('ajuste linear: a + bx\n')
+l2 = paste(letters[1:2],format(coefs, scientific=F),sep=' = ')
+l2 = paste(l2,'\n',sep='')
+l2 = paste(l2,collapse=" ")
+l2 = gsub('\\.',',',l2)
+
+legend("topright", legend = paste(l1,l2),bty="n",cex=1.3)
+
 dev.off()
 
 # Exporta tabela para Latex

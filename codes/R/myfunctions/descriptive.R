@@ -59,16 +59,20 @@ massa_temporal <- function(sigla,moda='pm2.5') {
 
 #### 
 plot_epa <-function(x,y,elemento) {
+  #x = epa$Al
+  #y = iag$Al
+  #elemento = 'Al'
+  
   filepath = paste('../../outputs/','epa_iag_',elemento,'.pdf',sep='')
   pdf(filepath)
   maximo = max(c(x,y),na.rm = T)
   limite = round(1.1*maximo)
   reg <- lm(y ~ x)
   coefficients(reg)
-  #mar.default <- c(5,4,4,2) + 0.5
-  #par(mar = mar.default + c(0, 2, 0, 0))
+  mar.default <- c(5,4,4,2) + 0.5
+  par(mar = mar.default + c(0, 2, 0, 0))
   plot(x,y,
-  #     main = elemento,
+       main = elemento,
        xlim = c(0,limite),
        ylim = c(0,limite),
        pch=1,
@@ -76,6 +80,36 @@ plot_epa <-function(x,y,elemento) {
        ylab = expression("(EPA-US) " ~ n*g ~ cm^-2),
        xlab = expression("(LAPAt) " ~ n*g ~ cm^-2))
   abline(0, 1,col="red")
-  legend("topleft", legend = elemento,  pch = 15,cex=2)
+  
+  # ajuste
+  model <- lm(y ~ poly(x,1,raw=TRUE))
+  coefs = model$coefficients
+  p <- polynomial(coefs)
+  lines(p,col='blue')
+  
+  # legenda R e p-value
+  pvalue = signif(pvalue(model),3)
+  rsquared = summary(model)$r.squared
+  rsquared = signif(rsquared,2)
+  
+  rsquared = str_replace(rsquared,'\\.',',')
+  code = paste0('expression(R^2~"= ',rsquared,'")') 
+  l1 = eval(parse(text=code))
+  
+  pvalue = str_replace(pvalue,'\\.',',')
+  code = paste0('expression(p < ~" ',pvalue,'")') 
+  l2 = eval(parse(text=code))
+  
+  legend("bottomright", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
+  
+  ##
+  l1 = expression('a + bx: \n')
+  l2 = paste(letters[1:2],format(coefs, scientific=F),sep=' = ')
+  l2 = paste(l2,'\n',sep='')
+  l2 = paste(l2,collapse=" ")
+  l2 = gsub('\\.',',',l2)
+  
+  legend("topleft", legend = paste(l1,l2),bty="n",cex=1.3)
+  #legend("centerright", legend = elemento,  pch = 15,cex=2)
   dev.off()
 }

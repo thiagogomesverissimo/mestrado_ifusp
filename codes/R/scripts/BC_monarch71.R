@@ -29,6 +29,7 @@ plot(0,0,
 
 axis(side=1, at=seq(1, 2, by=0.05))
 axis(side=2, at=seq(0, 26, by=2))
+box()
 
 p <- polynomial(coefs_thiago)
 lines(p,xlim = c(1.5,2),col='red')
@@ -44,11 +45,26 @@ lines(p,xlim = c(1,1.5),col='blue',type="l", lty=2)
 
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
+# legenda R e p-value
+pvalue = signif(pvalue(model),3)
+rsquared = summary(model)$r.squared
+rsquared = signif(rsquared,2)
+
+rsquared = str_replace(rsquared,'\\.',',')
+code = paste0('expression(R^2~"= ',rsquared,'")') 
+l1 = eval(parse(text=code))
+
+pvalue = str_replace(pvalue,'\\.',',')
+code = paste0('expression(p < ~" ',pvalue,'")') 
+l2 = eval(parse(text=code))
+
+legend("bottomleft", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
+
 # legenda
 legend("top", legend = expression('ajuste polinomial: ' ~ a + bx + cx^2), cex=1.2, bty = "n",inset=c(-0.5,0))
 
 # Legenda Thiago
-legenda = paste(letters[1:2],format(coefs_thiago, scientific=T),sep=' = ')
+legenda = paste(letters[1:2],format(coefs_thiago, scientific=F),sep=' = ')
 legenda = paste(legenda,'\n',sep='')
 legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
@@ -56,7 +72,7 @@ legenda = paste('ajuste 1°: \n',legenda)
 legenda_thiago = legenda
 
 # Legenda Lapat
-legenda = paste(letters[1:3],format(coefs_lapat, scientific=T),sep=' = ')
+legenda = paste(letters[1:3],format(coefs_lapat, scientific=F),sep=' = ')
 legenda = paste(legenda,'\n',sep='')
 legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)

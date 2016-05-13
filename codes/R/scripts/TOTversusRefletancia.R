@@ -3,7 +3,6 @@ source("myfunctions/load.R")
 
 # Pontos experimentais
 dados = read.csv('../../inputs/BlackCarbon/americo/Gana_TOT_Refletancia.csv')
-dados = dados[-1,]
 x = log10(dados$refletancia)
 y = dados$tot.ugcm2
 y_erro = dados$Incerteza.efetiva
@@ -20,15 +19,16 @@ mar.default <- c(5,4,4,2) + 0.5
 par(mar = mar.default + c(0, 3, 0, 0))
 
 plot(0,0,
-     xlim = c(0.2,2),
+     xlim = c(0,2),
      ylim = c(0,50),
      type = "n",
-     xlab = 'Refletância (%)',
-     ylab = expression(TOT*(frac(mu*g,cm^2))),
+     xlab = 'log da refletância(%)',
+     ylab = expression('TOT ('~mu*g ~ cm^-2~')'),
      axes=F)
 
-axis(side=1, at=seq(0.2, 2, by=0.1))
+axis(side=1, at=seq(0, 2, by=0.1))
 axis(side=2, at=seq(0, 50, by=5))
+box()
 
 p <- polynomial(coefs_akerr)
 lines(p,xlim = c(0.4,2),col='red')
@@ -38,15 +38,13 @@ errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 # legenda
 legend("topleft", legend = expression(a + bx + cx^2 + dx^3 + ex^4), cex=1, bty = "n")
 
-legenda = paste(letters[1:5],format(coefs_akerr, scientific=T,digits=3,nsmall=3),sep=' = ')
+legenda = paste(letters[1:5],format(coefs_akerr, scientific=F),sep=' = ')
 legenda = paste(legenda,'\n',sep='')
 legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
-legenda = paste('\n Coeficientes do ajuste \n polinomial grau 4: \n\n',legenda)
-#legenda = c(legenda,'Medidas')
+legenda = paste('\n Coeficientes do ajuste \n polinomial de grau 4: \n\n',legenda)
 
-#legend("bottomright", legend = legenda, inset=c(-0.2,0), col=c('red','black'), pch = 15, cex=0.7, bty = "n")
-legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1),pch = 15, cex=1, bty = "n")
+legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1), cex=1.1, bty = "n")
 
 dev.off()
 
@@ -113,8 +111,8 @@ calibTOT = p[1] + p[2]*x + p[3]*x^2 + p[4]*x^3 + p[5]*x^4
 
 pdf('../../outputs/BC_compara_calibs.pdf')
 
-#mar.default <- c(5,4,4,2) + 0.5
-#par(mar = mar.default + c(0, 3, 0, 0))
+mar.default <- c(5,4,4,2) + 0.5
+par(mar = mar.default + c(0, 3, 0, 0))
 
 plot(0,0,
      xlim = c(0,100),
@@ -126,6 +124,7 @@ plot(0,0,
 
 axis(side=1, at=seq(0, 100, by=10))
 axis(side=2, at=seq(0.5,2.7, by=0.1))
+box()
 
 points(refletancias_nima[,2],calibM71_linear/calibTOT,col='blue')
 points(refletancias_nima[,2],calibM71_lapat/calibTOT,col='red')
@@ -163,6 +162,7 @@ plot(0,0,
 
 axis(side=1, at=seq(0, 100, by=10))
 axis(side=2, at=seq(0.5,2.7, by=0.1))
+box()
 
 #points(recife$refletancia,recife_lapat_linear/recife_TOT,col='blue')
 points(recife$refletancia,recife_lapat/recife_TOT,col='red')

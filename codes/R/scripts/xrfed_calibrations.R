@@ -67,7 +67,7 @@ y_erro = K$Uncert
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
 
-y_legenda = expression(frac(1,mu*A * s * frac(mu*g,cm^2)))
+y_legenda = expression( '[' ~ mu*A ~ s ~ '('*mu*g/cm^2 ~ ")]"^-1)
 plot(0,0,
      xlim = c(5,50),
      ylim = c(0,0.6),
@@ -78,6 +78,7 @@ plot(0,0,
 
 axis(side=1, at=c(5:48))
 axis(side=2, at=seq(0, 0.6, by=0.05))
+box()
 
 errbar(x,y, y + y_erro, y- y_erro ,pch=20, add=TRUE)
 dev.off()
@@ -93,7 +94,7 @@ y_erro = L$Uncert
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
 
-y_legenda = expression(frac(1,mu*A * s * frac(mu*g,cm^2)))
+y_legenda = expression( '[' ~ mu*A ~ s ~ '('*mu*g/cm^2 ~ ")]"^-1)
 plot(0,0,
      xlim = c(25,85),
      ylim = c(0,0.2),
@@ -104,6 +105,7 @@ plot(0,0,
 
 axis(side=1, at=c(25:85))
 axis(side=2, at=seq(0, 0.2, by=0.01))
+box()
 
 errbar(x,y, y + y_erro, y- y_erro ,pch=20, add=TRUE)
 

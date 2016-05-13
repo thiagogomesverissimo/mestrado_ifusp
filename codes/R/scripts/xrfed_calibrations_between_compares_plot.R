@@ -27,7 +27,7 @@ pdf('../../outputs/CalibrationKcomparacao.pdf')
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
 
-y_legenda = expression(frac(1,mu*A * s * frac(mu*g,cm^2)))
+y_legenda = expression( '[' ~ mu*A ~ s ~ '('*mu*g/cm^2 ~ ")]"^-1)
 plot(0,0,
      xlim = c(5,50),
      ylim = c(0,0.6),
@@ -37,6 +37,7 @@ plot(0,0,
      axes=F)
 axis(side=1, at=c(5:48))
 axis(side=2, at=seq(0, 0.6, by=0.1))
+box()
 
 lines(p1_maio2010,xlim = c(10,26),col=cores[1])
 lines(p1_nov2010,xlim = c(10,26),col=cores[2])
@@ -71,7 +72,7 @@ pdf('../../outputs/CalibrationLcomparacao.pdf')
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
 
-y_legenda = expression(frac(1,mu*A * s * frac(mu*g,cm^2)))
+y_legenda = expression( '[' ~ mu*A ~ s ~ '('*mu*g/cm^2 ~ ")]"^-1)
 plot(0,0,
      xlim = c(25,85),
      ylim = c(0,0.2),
@@ -81,6 +82,7 @@ plot(0,0,
      axes=F)
 axis(side=1, at=c(25:85))
 axis(side=2, at=seq(0, 0.2, by=0.01))
+box()
 
 lines(p1_maio2010,xlim = c(29,82),col=cores[1])
 lines(p1_nov2010,xlim = c(29,82),col=cores[2])
