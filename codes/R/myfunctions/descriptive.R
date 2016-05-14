@@ -100,7 +100,7 @@ plot_epa <-function(x,y,elemento) {
   code = paste0('expression(p < ~" ',pvalue,'")') 
   l2 = eval(parse(text=code))
   
-  legend("bottomright", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
+  legend("bottomright", legend = c(l1,l2), cex=1.4, bty = "n",horiz=T)
   
   ##
   l1 = expression('a + bx: \n')
@@ -109,7 +109,7 @@ plot_epa <-function(x,y,elemento) {
   l2 = paste(l2,collapse=" ")
   l2 = gsub('\\.',',',l2)
   
-  legend("topleft", legend = paste(l1,l2),bty="n",cex=1.3)
+  legend("topleft", legend = paste(l1,l2),bty="n",cex=1.4,pch=15,col='blue')
   #legend("centerright", legend = elemento,  pch = 15,cex=2)
   dev.off()
 }

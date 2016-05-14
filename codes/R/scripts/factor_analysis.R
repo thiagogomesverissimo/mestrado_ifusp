@@ -3,10 +3,9 @@ source("myfunctions/load.R")
 
 #### Testes
 detach("package:Hmisc", unload=TRUE) 
-base = read.csv('../../outputs/pmf_fa/RFsH.csv',row.names=1)
+base = read.csv('../../outputs/pmf_fa/RGsH.csv',row.names=1)
 describe(base)
 ####
-
 
 # Testes
 print(FactorAnalysis('RFsH',5)$loadings,cutoff=4e-1)

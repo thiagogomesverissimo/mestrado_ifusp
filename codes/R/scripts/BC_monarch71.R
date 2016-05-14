@@ -58,7 +58,7 @@ pvalue = str_replace(pvalue,'\\.',',')
 code = paste0('expression(p < ~" ',pvalue,'")') 
 l2 = eval(parse(text=code))
 
-legend("bottomleft", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
+legend("bottomleft", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T,pch=15,col='red')
 
 # legenda
 legend("top", legend = expression('ajuste polinomial: ' ~ a + bx + cx^2), cex=1.2, bty = "n",inset=c(-0.5,0))

@@ -38,7 +38,8 @@ lines(p,xlim = c(0.4,2),col='red')
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
 # legenda R e p-value
-pvalue = signif(pvalue(model),3)
+pv = pvalue(model)
+pv = signif(pv,3)
 rsquared = summary(model)$r.squared
 rsquared = signif(rsquared,2)
 
@@ -46,8 +47,8 @@ rsquared = str_replace(rsquared,'\\.',',')
 code = paste0('expression(R^2~"= ',rsquared,'")') 
 l1 = eval(parse(text=code))
 
-pvalue = str_replace(pvalue,'\\.',',')
-code = paste0('expression(p < ~" ',pvalue,'")') 
+pv = str_replace(pv,'\\.',',')
+code = paste0('expression(p < ~" ',pv,'")') 
 l2 = eval(parse(text=code))
 
 legend("bottom", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
@@ -78,6 +79,7 @@ y_erro = sqrt(dados$cetesb_incerteza^2 + dados$TOT_incerteza^2)
 model <- lm(y ~ poly(x,1,raw=TRUE))
 coefs_thiago = model$coefficients
 coefs_thiago = as.vector(coefs_thiago)
+coefs = coefs_thiago
 
 pdf('../../outputs/BC_janio_quadros.pdf')
 mar.default <- c(5,4,4,2) + 0.5
@@ -101,7 +103,8 @@ lines(p,xlim = c(0,60),col='red')
 errbar(x,y,y + y_erro, y - y_erro, pch=20, add=TRUE)
 
 # legenda R e p-value
-pvalue = signif(pvalue(model),3)
+pv = pvalue(model)
+pv = signif(pv,3)
 rsquared = summary(model)$r.squared
 rsquared = signif(rsquared,2)
 
@@ -109,8 +112,8 @@ rsquared = str_replace(rsquared,'\\.',',')
 code = paste0('expression(R^2~"= ',rsquared,'")') 
 l1 = eval(parse(text=code))
 
-pvalue = str_replace(pvalue,'\\.',',')
-code = paste0('expression(p < ~" ',pvalue,'")') 
+pv = str_replace(pv,'\\.',',')
+code = paste0('expression(p < ~" ',pv,'")') 
 l2 = eval(parse(text=code))
 
 legend("center", legend = c(l1,l2), cex=1.3, bty = "n",horiz=T)
@@ -152,3 +155,4 @@ print(xtable(tabela,align = rep('c',ncol(tabela)+1)),
       add.to.row = addtorow,
       sanitize.text.function = identity,
       file="../../outputs/BC_janio_quadros.tex")
+

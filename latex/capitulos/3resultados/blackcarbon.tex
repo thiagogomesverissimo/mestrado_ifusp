@@ -72,8 +72,25 @@ nebulização sobre a área total, sem controle do diâmetro de partícula.
 Os valores de refletância para esses filtros variaram de 3,1\% até 95,9\%, 
 mais um branco de 100\%, as respectivas massas foram medidas em microbalança 
 ($\pm$ 1 g). A seguir a correlação entre BC e o log da reflectância encontrado.
-As barras de erros no gráfico correspondem a coluna de erro efetivo na tabela, 
-que é a tranposição do erro da refletância (eixo x) na massa (eixo y). 
+As barras de erros no gráfico correspondem as incertezas efetivas, isto é, 
+a transposição da incerteza da refletância ($\sigma_x$) para a massa 
+(eixo $\sigma_y$), como a relação entre x e y é linear, a incerteza em y 
+devido a x pode ser escrita como:
+
+\begin{equation}
+  {\sigma_y}_x = \frac{\partial y}{\partial x} \cdot \sigma_x
+\end{equation} 
+
+Resultando na incerteza efetiva em y: 
+
+\begin{equation}
+  \sigma_{efetiva} = \sqrt{{\sigma_y}^2 + {{\sigma_y}_x}^2}
+\end{equation} 
+
+A incerteza na refletância foi estimada a partir do desvio padrão das medidas
+de sete amostra brancas, 0.957, corrigido pelo fator de 1,11, devido ao espaço
+amostral pequeno \citep{helene1981}, resultando em 1,06 \% de incerteza. 
+
 
 \newpage
 \begin{table}[H]
@@ -104,19 +121,18 @@ CETESB.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.5\linewidth]{../../outputs/JQ_TOT_Refletancia.pdf}
+  \includegraphics[width=0.5\linewidth]{../outputs/JQ_TOT_Refletancia.pdf}
   \caption{Intercalibração TOT e Reflêtancia para amostragem paralela no 
            túnel Jânio Quadros.}
-\end{figura}
-
+\end{figure}
 
 \begin{figure}[H]
   \centering
   \begin{minipage}[b]{0.5\linewidth}
     \includegraphics[width=\textwidth]{../outputs/BC_janio_quadros.pdf}
     \caption{Comparação da massa de BC das amostras do túnel Jânio Quadros 
-             calculada usando calibração por TOT(1) versus calibração a partir dos 
-             alvos produzidos na CETESB(2).}
+             calculada usando calibração por TOT versus calibração a partir dos 
+             alvos padrões produzidos na CETESB.}
   \end{minipage}%\hfill
   \hspace{0.5cm}
   \begin{minipage}[b]{0.45\linewidth}
@@ -124,8 +140,8 @@ CETESB.
       \input{../outputs/BC_janio_quadros.tex}
     \end{small}
     \captionof{table}{Comparação da massa de BC das amostras do túnel Jânio Quadros 
-             calculada usando calibração por TOT versus calibração a partir dos 
-             alvos produzidos na CETESB.}
+             calculada usando calibração por TOT(1) versus calibração a partir dos 
+             alvos padrões produzidos na CETESB(2).}
   \end{minipage}
 \end{figure}
 

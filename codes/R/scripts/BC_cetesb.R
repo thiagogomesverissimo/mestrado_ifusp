@@ -1,4 +1,4 @@
-#rm(list=ls())
+rm(list=ls())
 source("myfunctions/load.R")
 
 # Copiado do Américo
@@ -14,6 +14,7 @@ y_erro = dados$erro_massa
 model <- lm(y ~ poly(x,1,raw=TRUE))
 coefs_thiago = model$coefficients
 coefs_thiago = as.vector(coefs_thiago)
+coefs = coefs_thiago 
 
 pdf('../../outputs/BC_cetesb.pdf')
 mar.default <- c(5,4,4,2) + 0.5

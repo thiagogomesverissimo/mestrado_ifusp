@@ -51,13 +51,13 @@ edxCalibration = function(name,titulo,line,pontos,cores,coefs1,coefs2=c(-999)) {
   # legenda
   if (line=='K'){
     legend("bottomright", legend = expression('Ajuste polinomial: '  ~ a + bx + cx^2 + dx^3), cex=1.1, bty = "n")
-    legenda1 = paste(letters[1:4],format(coefs1, scientific=T),sep=' = ')
+    legenda1 = paste(letters[1:4],format(coefs1, scientific=F),sep=' = ')
     legenda1 = paste(legenda1,'\n',sep='')
     legenda1 = paste(legenda1,collapse=" ")
     legenda1 = gsub('\\.',',',legenda1)
     legenda1 = paste('\n Coeficientes 1° ajuste \n (Z de 11 até 26): \n ',legenda1)
   
-    legenda2 = paste(letters[1:4],format(coefs2, scientific=T),sep=' = ')
+    legenda2 = paste(letters[1:4],format(coefs2, scientific=F),sep=' = ')
     legenda2 = paste(legenda2,'\n',sep='')
     legenda2 = paste(legenda2,collapse=" ")
     legenda2 = gsub('\\.',',',legenda2)
@@ -67,7 +67,7 @@ edxCalibration = function(name,titulo,line,pontos,cores,coefs1,coefs2=c(-999)) {
   }
   if (line=='L') {
     legend("bottomright", legend = expression('Ajuste polinomial: ' ~a + bx + cx^2 + dx^3 + ex^4 + fx^5), cex=1.1, bty = "n")
-    legenda = paste(letters[1:6],format(coefs1, scientific=T),sep=' = ')
+    legenda = paste(letters[1:6],format(coefs1, scientific=F),sep=' = ')
     legenda = paste(legenda,'\n',sep='')
     legenda = paste(legenda,collapse=" ")
     legenda = gsub('\\.',',',legenda)
