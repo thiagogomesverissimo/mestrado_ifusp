@@ -19,7 +19,7 @@ pdf(file='../../outputs/limitDetectionK.pdf')
 
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
-y_legenda = expression(mu~g~m^-3)
+y_legenda = expression(n~g~m^-3)
 
 plot(ACC957Kout$Z,
      ACC957Kout$limite*1000,
@@ -51,7 +51,7 @@ pdf(file='../../outputs/limitDetectionL.pdf')
 
 mar.default <- c(5,4,4,2) + 0.1
 par(mar = mar.default + c(0, 3, 0, 0))
-y_legenda = expression(mu~g~m^-3)
+y_legenda = expression(n~g~m^-3)
 
 plot(ACC957Lout$Z,
      ACC957Lout$limite*1000,
@@ -87,19 +87,20 @@ pt = read.csv('../../inputs/constants/periodic_table.csv')
 # exporta latex ACC386(Branco)  ACC957(carregado)
 branco = rbind(ACC386Kout,ACC386Lout[ACC386Lout$Z>42,])
 row.names(branco) = as.character(pt[match(branco$Z, pt$Z),2])
-branco$limite = format(round(branco$limite,3),nsmall = 3,decimal.mark = ',')
+branco$limite = sprintf("%.2f",branco$limite*1000)
+branco$limite = str_replace_all(branco$limite,'\\.',',')
 
 carregado = rbind(ACC957Kout,ACC957Lout[ACC957Lout$Z>42,])
 row.names(carregado) = as.character(pt[match(carregado$Z, pt$Z),2])
-carregado$limite = format(round(carregado$limite,3),nsmall = 3,decimal.mark = ',')
+carregado$limite = sprintf("%.2f",carregado$limite*1000)
+carregado$limite = str_replace_all(carregado$limite,'\\.',',')
 
 tabela = cbind(row.names(carregado),branco$limite,carregado$limite)
-
 # DR: diferença relativa
 addtorow <- list()
 addtorow$pos <- list(0, 0)
 addtorow$command <- c('Elemento & Amostra branca & Amostra carregada \\\\\n',
-                      ' & \\multicolumn{2}{c}{$\\mu g / m^3$}        \\\\\n')
+                      ' & \\multicolumn{2}{c}{$n g / m^3$}        \\\\\n')
 
 print(xtable(tabela, align = rep('c',4)),
         type="latex", 
