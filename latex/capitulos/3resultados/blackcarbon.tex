@@ -1,33 +1,63 @@
 %%%%
 \section{Black Carbon}
 
+Medidas de BC pela técnica de refletância apresentam a vantagem de poderem ser 
+realizadas sobre os mesmos filtros empregados para análises gravimétricas, 
+XRF ou mesmo em técnicas destrutivas que posteriormente possam vir a ser 
+realizadas sobre eles, como cromatografia iônica ou espectroscopia de massa. 
+Isso promove a redução das incertezas provenientes de análises que pedem 
+diferentes amostradores coletando em paralelo. Também pode diminuir 
+significativamente a dimensão da instrumentação em uma pesquisa. Entretanto, 
+a refletância é uma medida indireta, cujo resultado depende das características 
+do aerossol amostrado. Utilizando o método absoluto TOT para algumas amostras, 
+foi possível intercalibrar as medidas de refletância com esse método absoluto, 
+permitindo a quantificação do BC nas demais amostras.
+
 %%%%
 \subsection{Calibração da refletância usando BC Monarch 71}
 
-Nas medidas de Black Carbon (BC), a técnica de refletância pode ser realizada nos mesmos filtros analisados por XRF, diminuindo significativamente os custos da pesquisa. Entretanto, a refletância apresentou problemas para filtros super carregados. Utilizando o método absoluto TOT para inter-calibrar as medidas de refletância, possibilitou a quantificação do BC em todas amostras.
+Alvos padrões produzidos no laboratório do antigo GEPA-IFUSP (Grupo de Estudos 
+de Poluição do Ar), hoje Laboratório de Física Atmosférica (LFA-IFUSP), 
+com concentrações conhecidas do BC de referência Monarch 71 (M71) 
+\citep{clarke1986}, foram usados por décadas em equipamentos de refletância 
+alocados nestes laboratórios e no LAPAt, para a calibração de refletância versus
+densidade superficial de BC em filtros que coletaram aerossol atmosférico.
 
-Alvos padrões comerciais com concentrações conhecidas de BC de referência 
-Monarch 71 (M71) suspendidos em $CH_2Cl_2$ \citep{clarke1986} são usados na 
-refletância do LAPAt para calibração entre as medidas em porcentagem e a massa.
-Na tabela \ref{table:monarch71} estão os valores de 3 medidas de refletância  
-realizadas nos alvos padrões Monarch 71 (M71) pertecentes ao IFUSP.
-Observa-se que os valores de refletância variam entre 30\% e 85\%, não cobrindo
-os extremos, ou seja, alvos carregados, refletâncias próximas de 0\%, e alvos
-pouco carregados, refletâncias próximas de 100\%.
+A tabela \ref{table:monarch71} mostra um conjunto de valores medidos em 2007 
+para estes padrões (com respectivas médias e incertezas), sobre os quais foi 
+feita uma calibração no Lapat, seguindo exatamente os mesmos procedimentos do 
+GEPA/LFA-IFUSP. As novos parâmetros então ajustados ofereciam resultados 
+apenas 2,3\% menores que a calibração anterior (1994), do GEPA/LFA-IFUSP. 
+Isso revela equipamentos uniformes e grande estabilidade destes padrões. 
+Entretanto, essa sistemática de calibração padecia de três problemas.
 
-O logarítmo da média das 3 medidas apresenta relação aproximadamente linear 
-com a densidade ($\mu g /cm^2$) informada pelo fabricante dos filtros 
-conforme pode ser verificado no gráfico da figura \ref{fig:monarch71}.
+O primeiro deles refere-se à estreita faixa de valores oferecidas por estes 
+padrões que, como pode ser visto na referida tabela, variam entre 30\% e 85\%, 
+não cobrindo a região acima de 85\% ou abaixo de 30\%, esta última onde 
+posicionam-se os filtros carregados que encontramos no experimento de Gana. 
+Mesmo assim, se fosse considerada a linearidade que predomina na relação 
+entre densidade de BC e log da refletância, equação \ref{m/a_2}, e acrescida 
+no ajuste a massa zero, para qual a refletância é 100\% ($log_{10}$100 = 2), 
+poder-se-ia estender o ajuste para uma faixa apreciável de valores.
+Mas a função adotada para os ajustes foi uma parábola. Esse foi um segundo 
+problema para esta calibração, como pode-se verificar na figura 
+\ref{fig:monarch71} essa função distancia-se bastante de um ajuste linear 
+conforme nos deslocamos em direção a $log_{10}$ 10, ponto em que a relação da 
+massa com o log da refletância começa a perder a linearidade. O gráfico da 
+figura \ref{fig:razaoTOTM71} mostra que a margem de erro em alvos carregados 
+cresce com o ajuste de 2$\degree$ grau, quando confrontado com a calibração 
+baseada em TOT, para filtros coletados em Gana. Note-se, entretanto, que na 
+zona de refletância onde havia alvos padrões, as diferenças com o método 
+absoluto, por óbvio, são semelhantes. 
 
-Ajustando-se equação do primeiro grau em \ref{fig:monarch71} obtém-se 
-$a + bx$, possibilitando o cálculo dos novos valores de densidade para os 
-alvos padrões a partir da calibração, apresentados na última coluna da tabela 
-\ref{table:monarch71}.
+A calibração do refletômetro do LAPAt para 2007 usando alvos padrões M71 com 
+ajuste de primeiro grau está no gráfico da figura \ref{fig:monarch71} com 
+respectivos dados apresentados na tabela \ref{table:monarch71}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{../outputs/BC_monarch71.pdf}
-  \caption{Calibração refletômetro do LAPAt usando alvos padrões Monarch 71.
+  \caption{Calibração do refletômetro do LAPAt em 2007 usando alvos padrões M71.
          \label{fig:monarch71}}
 \end{figure}
 
@@ -36,95 +66,108 @@ alvos padrões a partir da calibração, apresentados na última coluna da tabel
   \centering
   \small
     \input{../outputs/BC_monarch71.tex}
-    \caption{Reflêtancia de 2007 dos filtros padrões tipo Monarch 71 
-             do IFUSP usados na calibração do refletômetro do 
-             LAPAt.  \label{table:monarch71}}
+    \caption{Calibração do refletômetro do LAPAt em 2007 usando alvos padrões 
+             M71. \label{table:monarch71}}
+\end{table}
+
+Procuramos construir uma calibração mais consistente, produzindo alvos de 
+calibração que cobrissem toda a faixa de valores entre 0 a 100\% de refletância. 
+Mas não encontramos mais o BC M71 para comercializar, assim usamos o BC de 
+referência (ASTM-N762) do IPT com o qual produzimos 27 padrões depositados em 
+filtros de policarbonato (nuclepore fino de 37 mm, orifícios de 0,4 $\mu m$) 
+usando amostrador dicotômico (diâmetro de corte em 2,5 $\mu m$) na câmara de 
+ressuspensão do laboratórios da Divisão de Qualidade do Ar da CETESB.
+
+Os valores de refletância nesses filtros variaram de 3,1\% até 98,7\%, mais um 
+"zero" de massa teórico com refletância 100\%. As massas foram medidas em 
+microbalança analítica $\pm$ 1 g. A figura \ref{fig:bc_cetesb} mostra o ajuste 
+entre massa de BC depositada versus o log da refletância medida. Pode-se ver 
+que o ajuste linear foi excelente,
+indicando que a calibração deve perder linearidade apenas em refletâncias 
+inferiores a 5\%.
+
+\newpage
+\begin{table}[H]
+	\centering
+	\small
+	\input{../outputs/cetesb2012.tex}
+	\caption{Reflêtancia de filtros produzidos na cetesb. \label{table:bc_cetesb}}
 \end{table} 
 
-%%%%
-\subsection{Experiência nos túneis Jânio Quadros e Rodoanel}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{../outputs/BC_cetesb.pdf}
+	\caption{Reflêtancia de filtros produzidos na cetesb. \label{fig:bc_cetesb}}
+\end{figure}
 
-Em maio de 2011, simultaneamente ao período de análises das amostras de Gana,
-conduzia-se experimento para analisar as emissões veiculares na cidade de São 
-Paulo no interior dos túneis Jânio Quadros e Rodoanel, com as características
-de circulação de veículos leves e pesados, respectivamente. 
-
-Com amostragem simultâneas de $MP_{2,5}$ por amostrador MiniVol com 
-filtros de quartzo e por amostrador Partisol com filtros de policarbonato, 
-sendo o primeiro para medida de absoluta de BC por TOT e o segundo para medida
-relativa de BC por refletância.
-
-Tamanha a poluição dos caminhões que os filtros coletados no Rodoanel 
-foram saturado e impossibilitados de serem usados. No túnel Jânio Quadros
-as refletâncias variaram de 4,9 à 57,1\% e possibilitou comparação e o 
-ajuste dos dois métodos: TOT e refletância.
-
-Porém, a curva de calibração criada com alvos comerciais de BC Monarch 71
-do gráfico \ref{fig:mocarch21calib} não engloba valores de refletâncias 
-nos extremos.
-Assim, optou-se por produzir filtro padrões que abrangem-se os extremos.   
-Foi depositado então BC de referência (ASTM-N762) em 27 filtros de policarbonato
-(nuclepore fino de 37 mm (0,4 µm) usando amostrador dicotômico em câmara de 
-ressuspensão nos laboratórios da 
-Companhia Ambiental Do Estado De São Paulo (CETESB). A deposição foi feita por 
-nebulização sobre a área total, sem controle do diâmetro de partícula.
-
-Os valores de refletância para esses filtros variaram de 3,1\% até 95,9\%, 
-mais um branco de 100\%, as respectivas massas foram medidas em microbalança 
-($\pm$ 1 g). A seguir a correlação entre BC e o log da reflectância encontrado.
-As barras de erros no gráfico correspondem as incertezas efetivas, isto é, 
-a transposição da incerteza da refletância ($\sigma_x$) para a massa 
-(eixo $\sigma_y$), como a relação entre x e y é linear, a incerteza em y 
-devido a x pode ser escrita como:
+As barras de erros nas massas correspondem ao erro efetivo $\sigma_{efetivo}$, 
+o qual é a adição (soma dos quadrados) do erro propagado da refletância (eixo x)
+com o erro de medida da massa (eixo y). Como a relação entre x e y é linear, 
+a incerteza em y devido a x pode ser escrita como:
 
 \begin{equation}
   {\sigma_y}_x = \frac{\partial y}{\partial x} \cdot \sigma_x
 \end{equation} 
 
-Resultando na incerteza efetiva em y: 
+Usada na soma dos quadrados para calcular a incerteza efetiva em y, 
+$\sigma_{efetiva}$: 
 
 \begin{equation}
   \sigma_{efetiva} = \sqrt{{\sigma_y}^2 + {{\sigma_y}_x}^2}
 \end{equation} 
 
-A incerteza na refletância foi estimada a partir do desvio padrão das medidas
-de sete amostra brancas, 0.957, corrigido pelo fator de 1,11, devido ao espaço
-amostral pequeno \citep{helene1981}, resultando em 1,06 \% de incerteza. 
+Como a menor medida na leitura do aparelho digital de refletância é 0,1\%
+(o \% aqui é a unidade de medida para refletância) é muito baixa, estimamos 
+a incerteza na refletância a partir da oscilação na alvura do substrato de 
+amostragem calculando o desvio padrão para medidas refletância de sete amostra 
+brancas ($\sigma$=0,957 \%). Aplicamos correção de fator 1,11 devido ao 
+espaço amostral pequeno \citep{helene1981}, resultando em $\sigma$=1,06 \%.
+
+Infelizmente, como veremos a seguir, no confronto com TOT, o BC utilizado 
+mostrou ter características bastante diversas do BC encontrado regularmente 
+na atmosfera, introduzindo um erro sistemático da ordem de um fator 5.  
 
 
+%%%%
 \newpage
-\begin{table}[H]
-  \centering
-  \small
-    \input{../outputs/cetesb2012.tex}
-    \caption{Reflêtancia de filtros produzidos na cetesb}
-\end{table} 
+\subsection{Calibração com TOT - Experiência nos túneis Jânio Quadros e Rodoanel}
+
+Em maio de 2011, simultaneamente ao período de análises das amostras de Gana, 
+conduzia-se experimento para analisar as emissões veiculares na cidade de São 
+Paulo. As medidas foram feitas no interior dos túneis Jânio Quadros e Rodoanel,
+que têm características de circulação predominante de veículos leves e pesados 
+(ou diesel), respectivamente. 
+
+Tomou-se amostragens simultâneas de $MP_{2,5}$, por amostrador MiniVol com 
+filtros de quartzo e por amostrador Partisol com filtros de policarbonato, 
+sendo o primeiro para medida de absoluta de BC por TOT e o segundo para análises
+de XRF-ED, medida relativa de BC por refletância e para cromatografia iônica.
+
+Tamanha era a poluição dos caminhões, que os filtros coletados no Rodoanel 
+ficaram saturado para medidas de BC por refletância (valores próximos a zero), 
+o que impossibilitou usá-los para fins de calibração. No túnel Jânio Quadros as 
+refletâncias variaram de 4,9 à 57,1\%, permitindo a calibração da refletância 
+por TOT.
+
+A determinação BC por TOT nos filtros de quartzo foi conduzida pelo Dr. Pierre 
+Herckes, do Departamento de Química e Bioquímica da Universidade Estadual do 
+Arizona. Contou-se com 16 filtros coletados no túnel Jânio Quadros. 
+O gráfico da figura \ref{table:interJQ} apresenta a intercalibração com ajuste 
+linear entre as medidas de TOT nas amostras dos filtros de quartzo e a 
+refletância das amostras correspondentes nos filtros de policarbonato.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/BC_cetesb.pdf}
-  \caption{Reflêtancia de filtros produzidos na cetesb}
-\end{figure}
-\newpage
-
-Os filtros de quartzo coletados no túnel Jânio Quadros foram analisados usando
-método absoluto TOT e possibilitou a comparação com os filtros correspondente 
-de policarbonato analisados por refletância usando calibração dos filtros
-produzidos na CETESB. 
-
-A determinação BC por TOT nos filtros de quartzo foi conduzido pelo 
-Dr. Pierre Herckes, do Departamento de Química e Bioquímica da 
-Universidade Estadual do Arizona. A seguir, para os 16 filtros coletados no 
-túnel Jânio Quadros, foi realizado ajuste da regressão linear
-entre medidas de TOT e refletância usando calibração dos filtros produzidos na 
-CETESB.
-
-\begin{figure}
-  \centering
   \includegraphics[width=0.5\linewidth]{../outputs/JQ_TOT_Refletancia.pdf}
   \caption{Intercalibração TOT e Reflêtancia para amostragem paralela no 
-           túnel Jânio Quadros.}
+           túnel Jânio Quadros. \label{table:interJQ}}
 \end{figure}
+
+A tabela \ref{table:bc_cetesb} agrupa estes resultados, bem como a massa de BC 
+calculada com a calibração "CETESB" (tabela  e figura \ref{fig:bc_cetesb}). 
+A figura \ref{fig:bc_TOT} mostra a boa qualidade do ajuste linear de calibração 
+da densidade superficial de massa de BC versus o log da refletância 
+por TOT no túnel Jânio Quadros.    
 
 \begin{figure}[H]
   \centering
@@ -132,7 +175,7 @@ CETESB.
     \includegraphics[width=\textwidth]{../outputs/BC_janio_quadros.pdf}
     \caption{Comparação da massa de BC das amostras do túnel Jânio Quadros 
              calculada usando calibração por TOT versus calibração a partir dos 
-             alvos padrões produzidos na CETESB.}
+             alvos padrões produzidos na CETESB. \label{fig:JQ}}
   \end{minipage}%\hfill
   \hspace{0.5cm}
   \begin{minipage}[b]{0.45\linewidth}
@@ -144,6 +187,10 @@ CETESB.
              alvos padrões produzidos na CETESB(2).}
   \end{minipage}
 \end{figure}
+
+Buscou-se, também, confrontar o ajuste obtido com os alvos de BC comercial 
+elaborados no Laboratório da CETESB, com este obtido por TOT (figura 3.6). Apesar da excelente relação linear obtida na calibração com esses alvos, os valores de massa calculados a partir dela diferiram em aproximadamente um fator 5 em relação à calibração absoluta dada pelo TOT.
+Como já mencionamos, isso significa que o BC comercial (ASTM-N762) tem propriedades diferentes daquele BC que compõe o aerossol coletado no Túnel do Jânio. Provavelmente sua granulometria seria mais grossa, o que gera menos superfície de absorção por muito mais massa coletada. Neste sentido, ele não seria indicado para calibrações realistas de equipamentos de refletância.
 
 Percebe-se que apesar da calibração realizada nos filtros produdidos na CETESB
 ter relação linear entre o log da refletância e massa medida na balança, quando
@@ -210,9 +257,10 @@ utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
   \hspace{0.3cm}
   \begin{subfigure}[b]{0.45\linewidth}
     \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs.pdf}
-    \caption{Gana}
+    \caption{Acra \label{fig:razaoTOTM71}}
   \end{subfigure}
-  \caption{}
+  \caption{Razão dos valores de BC medidos por refletância e calibrados por 
+           TOT e M71 para Recife e Acra.}
 \end{figure}
 
 \newpage
