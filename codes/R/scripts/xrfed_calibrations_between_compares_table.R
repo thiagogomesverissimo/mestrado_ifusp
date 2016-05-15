@@ -57,7 +57,7 @@ addtorow$pos <- list(0, 0)
 addtorow$command <- c('
 & \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença relativa a Maio 2010} \\\\\n
 Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 2011 \\\\\n 
-\\hline \\multicolumn{7}{c}{$[\\mu A \\cdot s \\cdot (\\mu g/cm^2)]^{-1}$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+\\hline \\multicolumn{7}{c}{$10^3 \\cdot [\\mu A \\cdot s \\cdot (\\mu g/cm^2)]^{-1}$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
 ','
 \\endfirsthead
 \\multicolumn{9}{c}
@@ -66,7 +66,7 @@ Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 
 \\hline 
 & \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença relativa a Maio 2010} \\\\\n
 Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 2011 \\\\\n
-\\hline \\multicolumn{7}{c}{$\\frac{1}{\\mu A \\cdot s}$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+\\hline \\multicolumn{7}{c}{$10^3 \\cdot [\\mu A \\cdot s \\cdot (\\mu g/cm^2)]^{-1}$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
 \\hline 
 
 \\endhead
@@ -147,11 +147,19 @@ addtorow$command <- c('
 & \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença relativa a Maio 2010} \\\\\n
 Z & medido & ajustado & medido & ajustado & medido & ajustado  & Novembro 2010 & Abril 2011 \\\\\n',
 '
-\\hline \\multicolumn{7}{c}{$\\mu g / m^3$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+\\hline \\multicolumn{7}{c}{$10^3 \\cdot [\\mu A \\cdot s \\cdot (\\mu g/cm^2)]^{-1}$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
 \\endfirsthead
 \\multicolumn{9}{c}
 {{\\bfseries \\tablename\\ \\thetable{} -- Continuação da página anterior}} \\\\\n
+
+
 \\hline 
+& \\multicolumn{2}{c}{Maio 2010} & \\multicolumn{2}{c}{Novembro 2010} & \\multicolumn{2}{c}{Abril 2011} & \\multicolumn{2}{c}{Diferença relativa a Maio 2010} \\\\\n
+Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 2011 \\\\\n
+\\hline \\multicolumn{7}{c}{$10^3 \\cdot [\\mu A \\cdot s \\cdot (\\mu g/cm^2)]^{-1}$ (incerteza percentual \\%)} & \\multicolumn{2}{c}{\\%}  \\\\\n
+\\hline 
+
+
 \\endhead
 \\hline \\multicolumn{9}{|c|}{Continua na próxima paǵina} \\\\\n
 \\hline

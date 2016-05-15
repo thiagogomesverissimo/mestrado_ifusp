@@ -154,7 +154,9 @@ Herckes, do Departamento de Química e Bioquímica da Universidade Estadual do
 Arizona. Contou-se com 16 filtros coletados no túnel Jânio Quadros. 
 O gráfico da figura \ref{table:interJQ} apresenta a intercalibração com ajuste 
 linear entre as medidas de TOT nas amostras dos filtros de quartzo e a 
-refletância das amostras correspondentes nos filtros de policarbonato.
+refletância das 16 amostras correspondentes nos filtros de policarbonato.
+Nota-se a boa qualidade do ajuste linear de calibração da densidade superficial 
+de massa de BC versus o log da refletância por TOT no túnel Jânio Quadros. 
 
 \begin{figure}[H]
   \centering
@@ -163,11 +165,17 @@ refletância das amostras correspondentes nos filtros de policarbonato.
            túnel Jânio Quadros. \label{table:interJQ}}
 \end{figure}
 
-A tabela \ref{table:bc_cetesb} agrupa estes resultados, bem como a massa de BC 
-calculada com a calibração "CETESB" (tabela  e figura \ref{fig:bc_cetesb}). 
-A figura \ref{fig:bc_TOT} mostra a boa qualidade do ajuste linear de calibração 
-da densidade superficial de massa de BC versus o log da refletância 
-por TOT no túnel Jânio Quadros.    
+Buscou-se, também, confrontar a massa obtida pela calibração com os  
+alvos de BC comercial elaborados no laboratório da CETESB, com a massa 
+obitida pela calibração via TOT, gráfico da figura \ref{fig:JQ} e tabela
+\ref{table:JQ}. Apesar da excelente relação linear de ambas calibrações, os 
+valores de massa calculados diferiram em aproximadamente um fator 5, sendo as 
+massas calculadas com a cabibração da CETESB maiores que a por TOT.  
+Como já mencionamos, isso significa que o BC comercial (ASTM-N762) tem 
+propriedades diferentes daquele BC que compõe o aerossol coletado no túnel do 
+Jânio Quadros, provavelmente, sua granulometria seria mais grossa, o que gera 
+menos superfície de absorção por muito mais massa coletada. Neste sentido, ele 
+não seria indicado para calibrações realistas de equipamentos de refletância. 
 
 \begin{figure}[H]
   \centering
@@ -176,7 +184,7 @@ por TOT no túnel Jânio Quadros.
     \caption{Comparação da massa de BC das amostras do túnel Jânio Quadros 
              calculada usando calibração por TOT versus calibração a partir dos 
              alvos padrões produzidos na CETESB. \label{fig:JQ}}
-  \end{minipage}%\hfill
+  \end{minipage}
   \hspace{0.5cm}
   \begin{minipage}[b]{0.45\linewidth}
     \begin{small}
@@ -184,90 +192,45 @@ por TOT no túnel Jânio Quadros.
     \end{small}
     \captionof{table}{Comparação da massa de BC das amostras do túnel Jânio Quadros 
              calculada usando calibração por TOT(1) versus calibração a partir dos 
-             alvos padrões produzidos na CETESB(2).}
+             alvos padrões produzidos na CETESB(2). \label{table:JQ}}
   \end{minipage}
 \end{figure}
 
-Buscou-se, também, confrontar o ajuste obtido com os alvos de BC comercial 
-elaborados no Laboratório da CETESB, com este obtido por TOT (figura 3.6). Apesar da excelente relação linear obtida na calibração com esses alvos, os valores de massa calculados a partir dela diferiram em aproximadamente um fator 5 em relação à calibração absoluta dada pelo TOT.
-Como já mencionamos, isso significa que o BC comercial (ASTM-N762) tem propriedades diferentes daquele BC que compõe o aerossol coletado no Túnel do Jânio. Provavelmente sua granulometria seria mais grossa, o que gera menos superfície de absorção por muito mais massa coletada. Neste sentido, ele não seria indicado para calibrações realistas de equipamentos de refletância.
-
-Percebe-se que apesar da calibração realizada nos filtros produdidos na CETESB
-ter relação linear entre o log da refletância e massa medida na balança, quando
-confrontada com medidas abosolutas de TOT, os resultados são correlacionados, 
-entretanto diferem de até um fator 5. 
-
-O TOT e a refletancia estão correlacionados, mas os valores obtidos via 
-refletância é de 2 até 5 vezes maiores que TOT em alvos muitos carregados e 
-chegou até 18 vezes em alvos poucos carregados.
-
-\citet{taha2007} aponta que há uma limitação da técnica de refletância quando 
-filtros de teflon são usados, pois em altas concentrações (refletâncias
-inferiores a 20\%), ocorre saturação, e a relação exponencial da equação 
-\ref{eq:iso9835refletancia} passa a não valer mais. Assim, a técnica de
-refletância não é adequada para alvos muito carregados.
-
-Problemas com alvos padrões BC são conhecidos e neste caso, 
-provavelmente associado com diferentes distriições de tamanho das partículas.
-Possível causa para saturação pode estar relacionado a suferficie das partículas 
-de BC, pois BC de referência como o ASTM-N762 ou Monarch 71 contém partículas
-de BC mais grossas que as encontradas na atmosfera, o que influência a 
-absorção de luz, técnica usada na reflectância, pois a superficie de absorção
-de uma partícula grossa é menor do que a superficie de absorção de diversas
-particulas menores, mas de massa equivalente. Outra motivo é que a refletância
-mede outras coisas que não BC, pois se baseia na propriedade de abosorção de luz.
-Por fim, as caracteristicas de tamanho, forma geométrica e seção de choque
-de abosorção de luz das partículas de BC variam de região para região.
-Por esses motivos, é importante fazer a comparação de metodo indireto com 
-metodo direto \citep{quincey2007}.
-
 \newpage
 %%%%
-\subsection{Intercalibração entre TOT e refletância em Acra}
+\subsection{Intercalibração de TOT e refletância para Acra}
 
-Foram coletados 2898 filtros de teflon, analisados por refletância,
-sendo que destes, 52 tiveram medidas correspondentes em filtros de quartzo 
-para $MP_{2,5}$, analisados por TOT.
+Como discutido na descrição da metodologia analítica para BC, as características
+de tamanho, forma geométrica e seção de choque de abosorção de luz das 
+partículas de BC variam de região para região.
+Por esses motivos, é importante fazer a comparação de método indireto com método
+direto \citep{quincey2007}. \citet{taha2007} também aponta que há uma limitação 
+da técnica de refletância quando filtros de teflon são usados, pois em altas 
+concentrações (refletâncias inferiores a 20\%), ocorre saturação, e a 
+relação exponencial da equação \ref{eq:iso9835refletancia} passa a não valer 
+mais. 
 
-Assim como no experimento do túnel Janio Quadros, os filtros de teflon 
-coletados em Acra apresentaram refletância próximas de 0\%, pois além 
-da alta poluição atmosférica o tempo de amostragem de 48 horas contribuiu 
-para coleta de amostras muitos carregadas, nesta situação não é possível 
-utilizar curva de calibração com alvos BC de referência, pois
-não hã relação linear entre a massa e logarítimo da refletância.
+Dos 2898 filtros PTFE coletados no experimento de Gana, 52 tiveram medidas 
+paralelas em filtros de quartzo para $MP_{2,5}$, analisados por TOT.
+Os filtros coletados em Acra apresentaram refletância pequena, pois além da 
+alta poluição atmosférica o tempo de amostragem de 48 horas contribuiu para que
+as amostras ficassem muito carregadas. Buscou-se então proceder como no 
+experimento do túnel Jânio Quadros em São Paulo, intercalibrando a refletância 
+com as medidas de TOT disponíveis, de forma a estimar os valores de BC em todos 
+filtros PTFE de $MP_{2,5}$. O gráfico da figura \ref{fig:interGanaBC} e a 
+tabela \label{table:interGanaBC} mostram o ajuste realizado, já contabilizando 
+um ponto de massa zero no ajuste. A incerteza efetiva considera o erro do TOT 
+e da refletância, além dos 8\% de amostragem paralela. 
 
-Entretanto, como constatado, medidas de refletância e TOT são correlacionadas 
-a menos de um fator, assim optou-se por intercalibrar as medidas de 
-TOT e refletância, de forma a estimar os valores de BC em todos filtros
-de teflon. Curva mostrada na figura a seguir com imposição do ponto 0 no ajuste.
-A incerteza efetiva considera o erro do TOT e da refletância, além dos 8\% de 
-amostragem paralela. 
-
-Assumimos como incerteza para os valores de reflectância (medido em porcentagem)
+Assumimos como incerteza para os valores de refletância (medido em porcentagem)
 o desvio padrão corrigido das medições de 7 filtros em branco 
-(0,96\% x 1,11 = 1,06\%, corrigidos para as estatísticas de poucos dados, 
-utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
+(média = 0,96\% x 1,11 = 1,06\%), corrigidos para as estatísticas de poucos 
+dados, utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
 
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs_recife.pdf}
-    \caption{Recife}
-  \end{subfigure}%
-  \hspace{0.3cm}
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs.pdf}
-    \caption{Acra \label{fig:razaoTOTM71}}
-  \end{subfigure}
-  \caption{Razão dos valores de BC medidos por refletância e calibrados por 
-           TOT e M71 para Recife e Acra.}
-\end{figure}
-
-\newpage
 \begin{figure}[H]
 \begin{center}
   \includegraphics[width=0.5\textwidth]{../outputs/Gana_TOT_Refletancia.pdf}
-  \caption{Intercalibração entre TOT e refletância em Acra}
+  \caption{Intercalibração entre TOT e refletância em Acra. \label{fig:interGanaBC}}
 \end{center}
 \end{figure}
 
@@ -275,7 +238,39 @@ utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
   \centering
   \small
    \input{../outputs/Gana_TOT_Refletancia.tex}
-   \caption{Intercalibração entre TOT e refletância em Acra}
+   \caption{Intercalibração entre TOT e refletância em Acra. \label{table:interGanaBC}} 
 \end{table} 
 
 
+O gráfico da figura \ref{fig:razaoTOTM71} mostra a relação entre a calibração do 
+BC por TOT e o resultado que teríamos se empregássemos a calibração 
+tradicionalmente feita com M71. Neste último caso o ajuste foi feito com uma
+reta, como diz a relação derivada para absorção, e uma curva parabólica, 
+como usualmente empregada no laboratório. Na região onde existe alvos padrões, 
+os ajustes de primeiro e segundo grau apresentam concordância com os valores 
+obtidos por TOT, mas em altas concentrações, o ajuste linear proveria resultados
+mais próximos dequeles obtidos por calibração TOT, mesmo assim com diferenças 
+em torno de 25\%. 
+
+Fazendo-se a mesma comparação para filtros analisados em Recife \citep{santos2014},
+as diferenças oscilavam entre um fator 1,4 e 2,4 (figura \ref{fig:BC_compara_recife}).
+
+O uso de refletância mostrou-se bastante eficiente para determinação de BC, 
+sendo aconselhável, entretanto, prover a calibração de um conjunto de filtros 
+com um sistema de medida absoluto como o TOT.
+
+\begin{figure}[H]
+  \centering
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs.pdf}
+    \caption{Acra \label{fig:razaoTOTM71}}
+  \end{subfigure}
+
+  \begin{subfigure}[b]{0.45\linewidth}
+    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs_recife.pdf}
+    \caption{Recife \label{fig:BC_compara_recife}}
+  \end{subfigure}%
+  \hspace{0.3cm}
+  \caption{Razão dos valores de BC medidos por refletância e calibrados por 
+           TOT e M71 para Recife e Acra. \label{fig:BC_compara}}
+\end{figure}

@@ -2,8 +2,8 @@
 \section{Calibração da Fluorescência de Raiox X}
 
 Alvos padrões comerciais da Micromatter com incertezas de 5\% nas densidades 
-foram utilizados no ajuste funcional da calibração do sistema XRF-ED, 
-permitindo medição de elementos com alvos padrões inexistentes. Três
+superficiais foram utilizados no ajuste funcional da calibração do sistema XRF-ED, 
+permitindo medição mesmo de elementos com alvos padrões inexistentes. Três
 calibrações foram realizadas no período de análises, maio de 2010 até julho de 
 2011, sendo a primeira antes do início das irradiações, em maio de 2010, 
 uma intermediária, em novembro de 2010 e a última próximo do fim, em abril de 
@@ -12,64 +12,53 @@ uma intermediária, em novembro de 2010 e a última próximo do fim, em abril de
 Após irradiação dos alvos de calibração, calculou-se os fatores de respostas 
 correspondentes a partir da equação \ref{eq:fator_de_resposta}, bem como as 
 respectivas incertezas analíticas com a equação \ref{eq:erro_fator_de_resposta}.
-Um ajuste polinomial foi suficiente para descrever os pontos experimentais,
-sendo que na linha K foi necessário fazer dois ajustes de grau 3, de Z 
-(número atômico) 11 até 26 e de 22 até 42. Para linha L um polinômio de grau 
-5 foi suficiente para descrever todos pontos.
 
-Os fatores de resposta medidos para cada elemento com alvo padrão 
-correspondente, as respectivas incertezas propagadas para os mesmos, 
-os fatores de respostas calculados ajustados e as respectivas incertezas 
-ajustadas com MQM podem ser conferidos nos 
-gráficos da figura \ref{fig:edx_calib3} e nas tabelas 
-\ref{table:edxAllCalibrationK} e \ref{table:edxAllCalibrationL}, que 
-apresentam tmabém a incerteza percentual de cada medida. 
-Elementos com Z entre 29 e 42 apresentam picos no espectro tanto na linha K 
-quanto L, porém são mais intensos e melhores
-definidos na linha K e só foram incluídos nos gráficos da linha L no intuito de 
-aumentar a quantidade de pontos para o ajuste polinomial.
+Polinômios oferecem uma boa versatilidade para a realização de ajustes 
+funcionais empíricos a um conjunto de dados. Ao mesmo tempo facilitam a 
+utilização de MQM, que pondera o peso do dado experimental pelo inverso de sua 
+incerteza e permite obter incertezas confiáveis para os valores calculados. 
+Para a linha K obtivemos melhores resultados realizando dois ajustes de grau 3: 
+um de Z=11 até 26 e outro de Z=22 até 42 (figura \ref{fig:edx_calib3}). 
+Na zona de sobreposição entre estas duas curvas, empregou-se o valor médio como
+fator de resposta. Para a linha L, um polinômio de grau 5 ofereceu um bom 
+ajuste funcional para todos os pontos.
 
-A incerteza do ajuste foi estimada usando MQM e é dada pela diagonal da matriz 
-de covariância de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$, da equação 
-\ref{eq:matrizcovarianciaY}, onde [Y] são os fatores de respostas [R] e 
-[X] os números atômicos [Z]. 
+Os gráficos da figura \ref{fig:edx_calib3} e as tabelas \ref{table:edxAllCalibrationK} e 
+\ref{table:edxAllCalibrationL} apresentam os fatores de resposta medidos para 
+cada elemento com alvo padrão disponível, as respectivas incertezas propagadas,
+os ajustes funcionais, os correspondentes fatores de respostas calculados e 
+respectivas incertezas resultantes do ajuste por MQM.
 
-Mesmo para os elementos com alvo padrão correspondente, as incertezas 
-percentuais ajustadas com MQM foram em muitos casos, menores que a 
-do próprio fabricante, por exemplo, na linha K em maio de 2010 a 
-incerteza percentual para o Cálcio (20) no alvo padrão, depois de propagada,
-foi de 3,5\%, enquanto que a ajustada com MQM foi 1,4\%. Para o Ferro (26), os
-mesmo valores foram 5,0\% e 2,6\%, respectivamente. Elementos com número atômico
-muito baixos e portanto alto limite de detecção neste equipamento, a diferença 
-na incerteza percentual foi baixa, no caso do Sódio (11), aumento 0,1\% e no 
-do Magnésio (12), diminuiu 0,5\%. Esse padrão de comportamento foi repetido nas
-outras duas calibrações para linhas K e L. Uma vez que o PMF pondera sua 
-estimativa pelas incertezas das concentrações a
-qualidade das incertezas interfere na determinação da contribuição das fontes.
+Elementos com Z entre 29 e 42 apresentam picos no espectro tanto para linhas K 
+quanto L. Porém as linhas K são mais intensas e melhor definidas. Eles somente 
+foram incluídos nos gráficos da linha L no intuito de aumentar a quantidade de 
+pontos para o ajuste polinomial.
 
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationKcomparacao.pdf}
-    \caption{linha K}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.5\textwidth}
-    \includegraphics[width=\textwidth]{../outputs/CalibrationLcomparacao.pdf}
-    \caption{linha L}
-  \end{subfigure}
-  \caption{Comparação das calibrações da XRF-ED nos 3 períodos. 
-          \label{fig:compara_calibracao}}
-\end{figure}
+A incerteza do ajuste por MQM é dada pela diagonal da matriz de covariância de 
+$[\tilde{Y}]$, $[V_{\tilde{Y}}]$ (equação \ref{eq:matrizcovarianciaY}), onde 
+a matriz [Y] é a matriz dos fatores de respostas [R] e [X] são os números 
+atômicos [Z]. 
 
-Calibrações periódicas permitem identificar variações na eficiência 
-do equipamento ou mesmo possíveis avarias. Observou-se queda do desempenho da 
-XRF-ED durante esta análise como pode ser observado nos gráficos da figura 
-\ref{fig:compara_calibracao} que compara as três calibrações. 
-A diferença média no fator de resposta em relação a maio de 2010 foi de 
--4,41(0,43) para novembro 2010 e -9,22(0,36) para abril de 2011 na linha K, 
-e -2,02(0,22) e -7,48(0,18) na linha L, respectivamente. Desgaste no tubo 
-de Rh ou no detector são as possíveis causas na queda no fator de respota 
-e poderão ser confirmadas no futuro quando das trocas dessas peça e realização
-de nova curva de calibração.
+As incertezas percentuais ajustadas com MQM são tipicamente menores que aquelas 
+declaradas pelo fabricante dos alvos de calibração. Isso é uma consequência 
+natural de uma metodologia que busca os melhores valores a se ajustarem ao 
+conjunto dos pontos experimentais ao invés de focar cada ponto individualmente -
+o que demandaria um grande número de alvos para cada elemento a analisar. 
+Vejamos dois exemplos na calibração feita em maio de 2010: 
+1) para a linha K do Ca (Z=20), para o qual havia dois alvos de calibração, 
+obteve-se um R medido com incerteza de 3,5\%, contra 1,4\% para o valor ajustado; 
+2) para o Ferro (26), com um alvo de calibração, esses valores foram 5,0\% e 
+2,6\%, respectivamente. Apenas para o Na (Z=11), a incerteza do R ajustado foi 
+maior que o medido, porque trata-se de um ponto extremo da curva, e em uma 
+região onde o limite de detecção do sistema é muito alto. Por conseguinte, esse 
+padrão de comportamento repete-se nas outras duas calibrações para as linhas K 
+e L.
+Vê-se, portanto, que essa metodologia, ademais de fornecer a calibração mesmo 
+para alguns elementos para os quais não se dispõe de alvos de calibração, 
+permite uma significativa redução nas incertezas dos valores de concentração 
+calculados. Além do valor intrínseco que isso tem nestas determinações, 
+também tem papel importante para métodos estatísticos que em seus ajustes 
+usam ponderação pela incertezas, caso do PMF, utilizado neste trabalho.
 
 \begin{landscape}
 \begin{figure}
@@ -93,40 +82,70 @@ de nova curva de calibração.
   \input{../outputs/edxAllCalibrationL.tex}
 \end{landscape}
 
+Ressaltamos, ainda, que calibrações periódicas são necessãrias para atualizar os
+fatores de resposta devido às variações na eficiência do equipamento. Podem, 
+ainda, vir a sinalizar eventuais avarias no sistema.
+A figura \ref{fig:compara_calibracao} mostra uma gradual queda do desempenho 
+da XRF-ED durante esta análise, ao longo das três calibrações realizadas. 
+A diferença média no fator de resposta em relação a maio de 2010 foi de 
+-4,41 $\pm$ 0,43 para novembro 2010 e -9,22 $\pm$ 0,36 para abril de 2011, 
+na linha K, enquanto na linha L foi de -2,02 $\pm$ 0,22 e -7,48 $\pm$ 0,18, 
+respectivamente. Essa é uma tendência esperada, devido ao envelhecimento do tubo
+de raios X (alvo de Rh no nosso caso) e à perda de eficiência no detector. 
+Por conseguinte, a substituição de um destes componentes pede sempre uma 
+imediata recalibração do equipamento.
+
+\begin{figure}[H]
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/CalibrationKcomparacao.pdf}
+    \caption{linha K}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.5\textwidth}
+    \includegraphics[width=\textwidth]{../outputs/CalibrationLcomparacao.pdf}
+    \caption{linha L}
+  \end{subfigure}
+  \caption{Comparação das calibrações da XRF-ED nos 3 períodos. 
+          \label{fig:compara_calibracao}}
+\end{figure}
+
 %%%%
 \subsection{Comparação inter-laboratorial com a EPA-US}
 
-Entre as 2898 amostras enviadas para serem analisadas por XRF no LAPAt, 92 foram 
-previamente analisadas por XRF na EPA-US, sendo que o Prof. Dr. Majid Ezzati
-no intuito de fazer um teste a cegas das nossas medidas para verificação da 
-exatidão e precisão dos resultados, não nos passou tal informação. Só depois que
-enviamos os resultados das nossas análises de XRF, 
-nos foi informando, que parte das amostra já tinham sido analisadas no EPA-US. 
+Entre as 2898 amostras enviadas para serem analisadas por XRF no LAPAt, 
+92 foram previamente quantificadas por XRF na US-EPA.  O Prof. Dr. Majid Ezzati, 
+no intuito de fazer um teste cego sobre a qualidade das nossas medidas, 
+para verificação da exatidão e precisão dos resultados, não nos passou tal 
+informação. Somente depois que enviamos os resultados de um primeiro pacote de 
+análises, é que fomos chamados a discutir esta intercomparação, que mostrou uma 
+qualidade muito boa. 
 
-\citet{kang2014} coloca que a precisão de medidas elementares usando XRF 
-tornou-se importante nos últimos anos porque as concentrações de MP ambiente 
-estão diminuído, devido a leis mais rigorosas e desenvolvimento tecnológico, 
-chegando próximas aos limites de detecção, e sugere a inter-comparação com 
-outros laboratórios como medida necessária para avaliar a qualidade dos 
-resultados. Não só inter-comparação entre laboratórios que trabalham com XRF, 
-mas inter-comparação com equipamentos de outros laboratórios que funcionam com
-princípios físicos diferentes, caso de \citet{nejedly1998}, que encontrou 
-concordância entre medidas de XRF e PIXE (Particle-Induced X-ray Emission) 
-intra-laboratoriais.
+Esse tipo de procedimento representa uma boa prática analítica e tem sido 
+particularmente recomendada para pesquisas ambientais. \citet{kang2014} coloca 
+que a precisão de medidas elementares usando XRF tornou-se importante nos 
+últimos anos porque as concentrações de MP ambiente estão diminuído, devido a 
+leis mais rigorosas e ao desenvolvimento tecnológico, chegando próximas aos 
+limites de detecção para algumas cidades. Sugere a inter-comparação com outros 
+laboratórios como medida necessária para avaliar a qualidade dos resultados. 
+Considera necessário não apenas inter-comparação entre laboratórios que 
+trabalham com XRF, mas inter comparação com equipamentos de outros laboratórios 
+que funcionam com princípios físicos diferentes, caso de \citet{nejedly1998}, 
+que encontrou concordância entre medidas de XRF e PIXE 
+(Particle-Induced X-ray Emission) intra-laboratoriais.
 
-A inter-comparação dos resultados das medidas das 92 amostras da XRF do
-LAPAt e da XRF da EPA-US estão expostos nos gráficos da figura 
-\ref{fig:epa_lapat}. Os resultados da comparação inter-laboratorial demonstraram
-ótimas concordâncias para os 
-elementos com concentrações acimas do limite de detecção, pois quase todos
-os pontos estão praticamente sobre a linha 1:1, mostrando que as
-medidas foram bem próximas inclusive em valores absolutos, não apresentando
-nenhum tipo de variação sistemática. A concordância não foi boa para o vanádio 
-e fósfora, pois que tiveram medidas ambientais próximas ao limite de detecção, 
-além de estarem em uma região do espectro de díficil integração. 
-A comparação inter-laboratorial com a EPA-US possibilitou a 
-validação do método de calibração desenvolvido no LAPAt e descrito no capítulo
-da metodologia.
+A inter-comparação dos resultados das medidas das 92 amostras da XRF do LAPAt e 
+da XRF da EPA-US estão expostos nos gráficos da figura \ref{fig:epa_lapat}. 
+Verificamos que eles apresentaram boa concordância para os elementos com 
+concentrações adequadamente definidas acima do limite de detecção, caso do Si, 
+S, K, Ca, Ti, Fe, que na regressão linear apresentaram coeficientes angulares 
+próximos de um. Neste caso os pontos estão bem alinhados em relação à 
+linha 1:1 (linha vermelha), mostrando que as medidas estavam correlacionadas e 
+concordantes em valores absolutos.
+Os valores para V e P mostraram-se mais dispersos por estarem próximos aos 
+respectivos limites de detecção.
+ 
+Essa comparação inter-laboratorial possibilitou a validação do método de 
+calibração desenvolvido no LAPAt, em confronto com uma instituição com o nível 
+de reconhecimento da US-EPA.
 
 \newpage
 \begin{figure}[H]
