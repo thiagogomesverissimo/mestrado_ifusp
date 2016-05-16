@@ -24,11 +24,12 @@ plot(0,0,
      xlim = c(0.4,2.2),
      ylim = c(0,100),
      type = "n",
-     xlab = 'Log10 da refletância em %',
+     xlab = 'Refletância em %',
      ylab = expression(frac(mu*g,cm^2)),
      axes=F)
 
-axis(side=1, at=seq(0.4, 2.2, by=0.05))
+log10.axis(1, at=seq(0, 100, 1))
+#axis(side=1, at=seq(0.4, 2.2, by=0.05))
 axis(side=2, at=seq(0, 100, by=10))
 box()
 

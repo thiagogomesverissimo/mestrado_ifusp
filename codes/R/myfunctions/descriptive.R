@@ -23,6 +23,14 @@ descriptive2latex <- function(data,sigla){
       file=latex_file)
 }
 
+# http://stackoverflow.com/questions/6955440/displaying-minor-logarithmic-ticks-in-x-axis-in-r
+log10.axis <- function(side, at, ...) {
+  at.minor <- log10(outer(1:9, 10^(min(at):max(at))))
+  lab <- sapply(at, function(i) as.expression(bquote(10^ .(i))))
+  axis(side=side, at=at.minor, labels=NA, tcl=par("tcl")*0.5, ...)
+  axis(side=side, at=at, labels=lab, ...)
+}
+
 massa_temporal <- function(sigla,moda='pm2.5') {
   #sigla="RFcH"
   max_eixo_y = log10(4000)
@@ -35,23 +43,24 @@ massa_temporal <- function(sigla,moda='pm2.5') {
   par(mar = mar.default + c(0, 1, 0, 0))
   plot(data$Date, 
        log10(data$mass),
-       type="p",
-       ylab=expression("log("*mu*g/m^3*")"),
-       ylim = c(0,max_eixo_y),
+       #ylab=expression("log(" * mu*g/m^3*")"),
+       ylab=expression(mu~g~m^-3),
        xlab = 'Ano',
-       pch=16,
+       yaxt="n",
+       ylim = c(0,4),
        col="darkorange2")
+  log10.axis(2, at=seq(0, 8, 2))
   grid()
   if (moda=='pm2.5') {
     abline(h=log10(25),col='red') 
-    legend("bottom",c('OMS'),col=c('red'),bty = "n",pch = 15,cex=1.3)
+    legend("bottom",c('Padrão diário OMS'),col=c('red'),bty = "n",pch = 15,cex=1.3)
   }
   if (moda=='pm10') {
     abline(h=log10(150),col='blue')
     abline(h=log10(50),col='red')
-    legend("bottom",c('Média diária em Gana/Brasil (EPA-GH/CONAMA)',
-                      'Média diária da OMS'),
-           col=c('blue','red'),bty = "n",pch = 15,cex=1.25)
+    legend("bottom",c('Padrão diário EPA-GH/CONAMA',
+                      'Padrão diário OMS'),
+           col=c('blue','red'),bty = "n",pch = 15,cex=1.4)
   }
 
   dev.off()
