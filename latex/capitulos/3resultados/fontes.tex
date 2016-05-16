@@ -5,7 +5,7 @@
 Na aplicação de modelos receptores, os valores faltantes foram preenchidos com 
 o valor da metade do limite de detecção (LD/2), pois supõe-se que a concentração
 não detectada de um elemento que aparece frequentemente nas demais amostras 
-esteja entre 0 e o limite de detecção, com igual probabilidade de ocorrência 
+esteja entre 0 e o LD, com igual probabilidade de ocorrência 
 para cada valor. Assim, LD/2 seria a média e, portanto, o valor mais 
 provável entre estes valores não detectados. Para a incerteza das concentrações,
 usou-se sugestão proposta por \citet{polissar1998} de usar $(5 \cdot LD)/6$.
@@ -47,20 +47,31 @@ interpretações feitas nos primeiros artigos.
 %%%%
 \subsection{Material Particulado Fino ($MP_{2,5}$) \label{sec:pm2.5}}
 
-Os \textit{loadings} encontrados para Análise de Fatores de $MP_{2,5}$
-na área residencial estão na tabela \ref{table:AF_RFsH5} para 5 fatores retidos
-e 83,58 \% de variância total explicada em 123 amotras. 
+A poeira do deserto do Saara trazida pelo Harmatão faz aumentar as concentrações
+de partículas em mais de 400 \% para alguns dias do inverno, o que 
+além de ofuscar fontes poluídoras antropogênicas locais, prejudicam 
+análises estatísticas multivariadas, pois estas não realizam bem o ajuste 
+quando há presença de eventos extremos (\textit{outliers}). Estudos como 
+\citet{aboh2009}, \citet{ofosu2013} e \citet{ofosu2012} conduzidos em Gana 
+sugerem que, quando possível, isto é, com número de amostras suficientemente 
+grande, pode-se separar dias do Harmatão nas análises estatísticas multivariadas. 
+Caso contrário o fator representante do Harmatão ofusca os fatores 
+associados as fontes locais. 
+
+Os \textit{loadings} encontrados para AF de $MP_{2,5}$ na área residencial 
+estão na tabela \ref{table:AF_RFsH5} para 5 fatores retidos
+e 83,58 \% de variância total explicada em 123 amostras. 
 Houvéssemos incluindo os dias de Harmatão, contaríamos com 197 amostras e 
 explicaríamos 90,8 \% da variância, mas extraindo praticamente um único fator 
-englobando a maioria dos elementos. Sozinho explicaria mais que 57,9 \% da 
-variância (tabela \ref{table:AF_RFcH5} do apêndice II).
+englobando a maioria dos elementos que sozinho explicaria mais que 57,9 \% da 
+variância (tabela \ref{table:AF_RFcH5} do apêndice \ref{apendice:pmf_fa}).
 
 Com 5 fatores, na tabela \ref{table:AF_RFsH5}, apesar do primeiro fator 
-continuar preponderante, vemos uma melhor distribuição dos elementos e da 
+continuar preponderante, há uma melhor distribuição dos elementos e da 
 variância entre os fatores, permitindo associá-los a fontes regionais.
 A variabilidade dos elementos foi bem explicada, obtendo-se comunalidades 
 maiores que 0,7 para os elementos, a exceção do bromo (Br) e zinco (Zn) que 
-tiveram comunalidade de 0,52 e 0,46, respectivamente.
+tiveram comunalidade de 0,44 e 0,59, respectivamente.
 
 O fator predominante explica 43,78\% da variância, tem altos \textit{loadings} 
 para os metais (Al, Ti, V, Fe, Mn, Ca, Mg), Si e para a massa. Tais elementos 
@@ -73,7 +84,7 @@ indicando que de algum modo o V está incorporado a esta fonte.
 Ainda no primeiro fator, aparece secundariamente potássio (K), 
 que também pode estar presente em solos, especialmente se houver manipulação 
 de fertilizantes na região. Gana não produz nenhum tipo de fertilizantes,
-mas importa para uso em fazenda locais \citep{fianko2011}. 
+mas importa para uso em fazenda locais de pequeno porte \citep{fianko2011}. 
 
 As partículas que compõem poeira de solo estão em sua maioria na fração
 grossa do Material Particulado ($MP_{2,5-10}$), pois são geradas por processo 
@@ -432,6 +443,24 @@ reduziriam drasticamente os níveis de concentração do MP inalável local.
                 \label{table:TGsH_profiles4}}
     \end{minipage}
   \end{figure}
+\end{landscape}
+
+
+\begin{landscape}
+\begin{table}[H]
+  \centering
+  \input{../inputs/latex/fontes_fino.tex}
+  \caption{Síntese das associações dos fatores extraídos na AF e PMF com fontes 
+           poluidoras para $MP_{2,5}$. \label{sintese_fino}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \input{../inputs/latex/fontes_grosso.tex}
+  \caption{Síntese das associações dos fatores extraídos na AF e PMF com fontes 
+           poluidoras para $MP_{2,5-10}$. \label{sintese_grosso}}
+\end{table}
+
 \end{landscape}
 
 
