@@ -53,3 +53,10 @@ pvalue <- function (modelobject) {
   attributes(p) <- NULL
   return(p)
 }
+
+corrige_coluna = function(coluna){
+  #coluna = apply(coluna, 2, as.character)
+  coluna = as.character(coluna)
+  coluna = sprintf("%.2f",as.numeric(coluna))
+  str_replace_all(coluna,'\\.',',')
+}

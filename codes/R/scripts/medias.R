@@ -2,7 +2,7 @@ rm(list=ls())
 source("myfunctions/load.R")
 
 #### médias de MP2.5 para comparação com outras cidades
-tabela = cbind(c('área residencial','avenida','ambas'))
+tabela = cbind(c('residencial','avenida','ambas'))
 RFsH = read.csv('../../outputs/pmf_fa/RFsH.csv')
 TFsH = read.csv('../../outputs/pmf_fa/TFsH.csv')
 RFcH = read.csv('../../outputs/pmf_fa/RFcH.csv')
@@ -33,6 +33,16 @@ tabela = cbind(tabela,c(
   exp(mean(log(Fino_sH2007$mass)))))
 
 tabela = cbind(tabela,c(
+  sd(RFsH2007$mass),
+  sd(TFsH2007$mass),
+  sd(Fino_sH2007$mass)))
+
+tabela = cbind(tabela,c(
+  sd(RFsH2007$mass)/sqrt(nrow(RFsH)),
+  sd(TFsH2007$mass)/sqrt(nrow(TFsH)),
+  sd(Fino_sH2007$mass)/sqrt(nrow(Fino_sH))))
+
+tabela = cbind(tabela,c(
   nrow(RFcH2007),
   nrow(TFcH2007),
   nrow(Fino_cH2007)))
@@ -47,25 +57,40 @@ tabela = cbind(tabela,c(
   exp(mean(log(TFcH2007$mass))),
   exp(mean(log(Fino_cH2007$mass)))))
 
+tabela = cbind(tabela,c(
+  sd(RFcH2007$mass),
+  sd(TFcH2007$mass),
+  sd(Fino_cH2007$mass)))
+
+tabela = cbind(tabela,c(
+  sd(RFcH2007$mass)/sqrt(nrow(RFcH)),
+  sd(TFcH2007$mass)/sqrt(nrow(TFcH)),
+  sd(Fino_cH2007$mass)/sqrt(nrow(Fino_cH))))
+
+tabela = as.data.frame(tabela)
+colunas = c(3,4,5,6,8,9,10,11)
+tabela[,colunas] = apply(tabela[,colunas],2,corrige_coluna)
+
+
+tabela[,c(3)]
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('$ \\multicolumn{2}{c}{n} & \\multicolumn{2}{c}{Média Aritimética} & \\multicolumn{2}{c}{Média Geométrica} \\\\\n',
-                      '& sem Harmatão & com Harmatão & sem Harmatão & com Harmatão & sem Harmatão & com Harmatão \\\\\n
-                       & \\multicolumn{7}{c}{$\\mu g m^-3$} ')
+addtorow$command <- c('&  \\multicolumn{5}{c|}{com Harmatão} & \\multicolumn{5}{c}{sem Harmatão} \\\\\n',
+                      '& n & $\\overline{x}$ & $\\sqrt{x_1x_2...x_3}^n$ & $\\sigma$ & $\\overline{\\sigma} $
+                       & n & $\\overline{x}$ & $\\sqrt{x_1x_2...x_3}^n$ & $\\sigma$ & $\\overline{\\sigma} $ \\\\
+                       \\hline & \\multicolumn{10}{c}{$\\mu g \\cdot m^{-3}$} \\\\ ')
 
-
-print(xtable(tabela,align = rep('c',ncol(tabela)+1)),
+print(xtable(tabela,align = c("c","c","c","c","c","c","c|","c","c","c","c","c")),
         type="latex", 
         floating = FALSE,
         include.rownames = F,
         add.to.row = addtorow,
         include.colnames = F,
-        size="small",
         sanitize.text.function = identity,
         file='../../outputs/medias_fino.tex')
 
 #### médias de MP10 para comparação com outras cidades
-tabela = cbind(c('área residencial','avenida','ambas'))
+tabela = cbind(c('residencial','avenida','ambas'))
 RIsH = read.csv('../../outputs/pmf_fa/RIsH.csv')
 TIsH = read.csv('../../outputs/pmf_fa/TIsH.csv')
 RIcH = read.csv('../../outputs/pmf_fa/RIcH.csv')
@@ -81,14 +106,14 @@ Inalavel_sH2007 = Inalavel_sH[grepl('2007',Inalavel_sH$Date),]
 Inalavel_cH2007 = Inalavel_cH[grepl('2007',Inalavel_cH$Date),]
 
 tabela = cbind(tabela,c(
+  nrow(RIsH2007),
+  nrow(TIsH2007),
+  nrow(Inalavel_sH2007)))
+
+tabela = cbind(tabela,c(
   mean(RIsH2007$mass),
   mean(TIsH2007$mass),
   mean(Inalavel_sH2007$mass)))
-
-tabela = cbind(tabela,c(
-  mean(RIcH2007$mass),
-  mean(TIcH2007$mass),
-  mean(Inalavel_cH2007$mass)))
 
 tabela = cbind(tabela,c(
   exp(mean(log(RIsH2007$mass))),
@@ -96,25 +121,58 @@ tabela = cbind(tabela,c(
   exp(mean(log(Inalavel_sH2007$mass)))))
 
 tabela = cbind(tabela,c(
+  sd(RIsH2007$mass),
+  sd(TIsH2007$mass),
+  sd(Inalavel_sH2007$mass)))
+
+tabela = cbind(tabela,c(
+  sd(RIsH2007$mass)/sqrt(nrow(RIsH)),
+  sd(TIsH2007$mass)/sqrt(nrow(TIsH)),
+  sd(Inalavel_sH2007$mass)/sqrt(nrow(Inalavel_sH))))
+
+tabela = cbind(tabela,c(
+  nrow(RIcH2007),
+  nrow(TIcH2007),
+  nrow(Inalavel_cH2007)))
+
+tabela = cbind(tabela,c(
+  mean(RIcH2007$mass),
+  mean(TIcH2007$mass),
+  mean(Inalavel_cH2007$mass)))
+
+tabela = cbind(tabela,c(
   exp(mean(log(RIcH2007$mass))),
   exp(mean(log(TIcH2007$mass))),
   exp(mean(log(Inalavel_cH2007$mass)))))
 
-tabela = rbind(tabela,c('N',nrow(RIsH2007),nrow(RIcH2007),nrow(RIsH2007),nrow(RIcH2007)))
+tabela = cbind(tabela,c(
+  sd(RIcH2007$mass),
+  sd(TIcH2007$mass),
+  sd(Inalavel_cH2007$mass)))
 
+tabela = cbind(tabela,c(
+  sd(RIcH2007$mass)/sqrt(nrow(RIcH)),
+  sd(TIcH2007$mass)/sqrt(nrow(TIcH)),
+  sd(Inalavel_cH2007$mass)/sqrt(nrow(Inalavel_cH))))
+
+tabela = as.data.frame(tabela)
+colunas = c(3,4,5,6,8,9,10,11)
+tabela[,colunas] = apply(tabela[,colunas],2,corrige_coluna)
+
+
+tabela[,c(3)]
 addtorow <- list()
 addtorow$pos <- list(0, 0)
-addtorow$command <- c('& \\multicolumn{2}{c}{Média Aritimética} & \\multicolumn{2}{c}{Média Geométrica} \\\\\n',
-                      '& sem Harmatão & com Harmatão & sem Harmatão & com Harmatão \\\\\n
-                       & \\multicolumn{2}{c}{$\\mu g m^-3$} ')
+addtorow$command <- c('&  \\multicolumn{5}{c|}{com Harmatão} & \\multicolumn{5}{c}{sem Harmatão} \\\\\n',
+                      '& n & $\\overline{x}$ & $\\sqrt{x_1x_2...x_3}^n$ & $\\sigma$ & $\\overline{\\sigma} $
+                       & n & $\\overline{x}$ & $\\sqrt{x_1x_2...x_3}^n$ & $\\sigma$ & $\\overline{\\sigma} $ \\\\
+                       \\hline & \\multicolumn{10}{c}{$\\mu g \\cdot m^{-3}$} \\\\ ')
 
-
-print(xtable(tabela,align = rep('c',ncol(tabela)+1)),
+print(xtable(tabela,align = c("c","c","c","c","c","c","c|","c","c","c","c","c")),
       type="latex", 
-      floating = IALSE,
-      include.rownames = I,
+      floating = FALSE,
+      include.rownames = F,
       add.to.row = addtorow,
-      include.colnames = I,
-      size="small",
+      include.colnames = F,
       sanitize.text.function = identity,
-      file='../../outputs/medias_fino.tex')
+      file='../../outputs/medias_Inalavel.tex')
