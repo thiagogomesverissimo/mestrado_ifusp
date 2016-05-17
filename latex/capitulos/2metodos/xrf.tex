@@ -46,10 +46,10 @@ combinações de transições, sendo algumas delas proibidas, e outras
 com diferenças de energia indistinguíveis para os detectores utilizados 
 neste método analítico (XRF-ED).
 
-A notação desenvolvida por Siegbahn \citep{jenkins1991}, 
-com as principais transições possíveis sintetizada na figura \ref{fig:siegbahn},
-permite identificarmos melhor os subníveis de origen e destino, por exemplo, 
-a transição de $M_{IV}$ para $L_{III}$ é uma transição do tipo $L_{\beta_1}$,  . 
+As principais transições possíveis estão sintetizada na figura \ref{fig:siegbahn}, 
+segundo a notação desenvolvida por Siegbahn \citep{jenkins1991}. A referida 
+notação permite identificar melhor os subníveis de origem e destino, por exemplo, 
+a transição de $M_{IV}$ para $L_{III}$ é uma transição do tipo $L_{\beta_1}$. 
 
 \begin{figure}[H]
   \centering 
@@ -61,11 +61,10 @@ a transição de $M_{IV}$ para $L_{III}$ é uma transição do tipo $L_{\beta_1}
 Na prática, dependendo do modo de detecção dos raios-X, agrupa-se transições 
 dos subníveis e trabalha-se com as denominações de linhas K e L apenas. As linha
 $K_{\alpha}$ são as mais intensas, oferecendo melhor limite de detecção
-para um elemento. Mas elas também são as mais energéticas, podendo ultrapassar a
+para um elemento, mas quando muito energéticas, podem ultrapassar a
 faixa de sensibilidade do detector empregado. Nestes casos as linhas L passam a 
 ser analisadas. No modelo de XRF usado nesta pesquisa, analisou-se as linhas K, 
-desde o sódio (Na) até molibdênio (Mo), e as linha L, do molibdênio (Mo)
-até o chumbo (Pb).  
+desde o sódio (Na) até o nióbio (Nb), e as linha L, do molibdênio (Mo) até o chumbo (Pb).  
  
 %%%%
 \subsection{Tipos de XRF}
@@ -84,13 +83,13 @@ característicos dos elementos, segundo a lei de Bragg:
 	2d sen(\theta) = n \lambda
 \end{equation}
 
-Onde, $d$ a distância entre planos do cristal, $\theta$ o ângulo de incidência 
+Onde, $d$ é 1a distância entre planos do cristal, $\theta$ o ângulo de incidência 
 em relação ao plano considerado, $\lambda$ o comprimento de onda 
 (e, portanto, a energia) da radiação incidente e $n$ um inteiro.
 Esse tipo de equipamento permite uma grande resolução dos comprimentos de onda 
 (energia) característicos dos elementos, facilitando detectá-los e, geralmente, 
 com bom limite de detecção (LD).
-Entretanto apresentam diversos problemas práticos quando empregados em filtros 
+Entretanto, apresentam diversos problemas práticos quando empregados em filtros 
 de aerossol atmosférico. Em função disso há uma preferência pelos sistemas 
 dispersivos em energia nesse campo de análise. 
 
@@ -102,7 +101,7 @@ equipamento faz a conversão analógica-digital da intensidade do pulso,
 acumulando a contagem por energia em um multicanal. O detector mais empregado é 
 o de silício ativado com lítio Si(Li). 
 
-Neste sistema o LD das análises é particularmente limitado pelos raios-X de 
+Neste sistema, o LD das análises é particularmente limitado pelos raios-X de 
 excitação que sofrem reflexão na amostra e também chegam ao detector. 
 Formam assim uma contagem de fundo (\textit{background}) que concorre com 
 aquela proveniente dos picos característicos. 
@@ -111,14 +110,11 @@ reflexão total (XRF-T) são dois sistemas que têm sido empregados
 para reduzir o \textit{background} e melhorar significativamente o LD.
 
 Na XRF-EDP excita-se a amostra com raios X polarizados e se ajusta o ângulo 
-de detecção a 90 $\degree$ deste feixe \cite{dzubay1974}. Nesta direção a 
+de detecção a 90$\degree$ deste feixe \citep{dzubay1974}. Nesta direção a 
 reflexão do feixe incidente polarizado é pequena, obtendo-se grande redução 
-na intensidade do fundo e, consequentemente, no LD, tipicamente fator 2 a 10
+na intensidade do fundo e, consequentemente, no LD, tipicamente de fator 2 a 10
 dependendo do elemento e das condições de irradiação comparadas 
-(Meel K. V., 2009).
-
-%Meel, 2009
-%Meel, Katleen Van, 2009. Application of high-energy polarized-beam energy-dispersive X-ray fluorescence for industrial and environmental purposes. Doctoral Thesis, Universiteit Antwerpen, Faculteit Wetenschappen, Departement Chemie. Orientador: René Van Grieken; p. 154.  
+\citep{meel2009}.
 
 A XRF-T emprega a propriedade da radiação eletromagnética incidente abaixo do
 ângulo crítico sobre uma superfície. Incidindo-se um feixe que resvale a amostra
@@ -133,13 +129,13 @@ pela amostra e pouco fundo refletido no suporte, melhorando o LD
 
 Neste trabalho foi utilizado uma XRF-ED da marca Shimadzu modelo EDX 720HS, 
 apresentado na figura \ref{fig:xrfed_iag},
-pertencente ao Laboratório de Poluição atmosférica Experimental (LAPAE) 
+pertencente ao Laboratório de Poluição Atmosférica Experimental (LAPAE) 
 da Faculade de Medicina da USP e instalado no LAPAt. 
 
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/xrf-ed-IAG-USP.jpg}
-  \caption{ED-XRF Shimadzu modelo EDX 720HS - LAPAt \label{fig:xrfed_iag}}
+  \caption{XRF-ED Shimadzu modelo EDX 720HS - LAPAt \label{fig:xrfed_iag}}
 \end{figure}
 
 Um tubo de ródio (Rh) submetido a uma diferença de potencial 
@@ -163,14 +159,14 @@ máxima no tubo gerador de raios X era de 1000 $\mu A$.
 
 A figura \ref{fig:xrfed_software} foi extraída do software que acompanha o 
 equipamento da Shimadzu e permite verificar em tempo real características
-da análise como a voltagem e corrente no tubo, se há filtro e qual, 
-informação sobre o vácuo na câmera, dentre outros dados que ajudam a conferir se 
-a análise está sendo realizada como planejado. 
+da análise como a voltagem e corrente no tubo, presença e tipo de filtro, 
+informação sobre o vácuo na câmera, dentre outros dados que ajudam no 
+acompanhamento da análise. 
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.4]{../inputs/images/edx_iag_monitor.png}
-  \caption{Software da ED-XRF Shimadzu 720HS, tela de verificação 
+  \caption{Software da XRF-ED Shimadzu 720HS, tela de verificação 
            do estado do equipamento. \label{fig:xrfed_software}}
 \end{figure}
 
@@ -190,7 +186,7 @@ como os de policarbonatos (figura \ref{fig:carrossel8}).
 Para eliminar as ondulações típicas que ocorrem nos filtros de PTFE, 
 projetou-se um suporte de aço inox que comprimia sua moldura, mantendo plana 
 a superfície a ser analisada. Ao mesmo tempo, o peso deste suporte impedia que 
-o filtro "voasse" quando era feito ou quebrado o vácuo na câmera 
+o filtro voasse quando era feito ou quebrado o vácuo na câmera 
 (figura \ref{fig:suporte8}).
 
 \begin{figure}[H]
@@ -202,7 +198,7 @@ o filtro "voasse" quando era feito ou quebrado o vácuo na câmera
 \end{figure}
 
 %%%%
-\subsection{Calibração do ED-XRF}
+\subsection{Calibração do XRF-ED}
 
 A massa por unidade de área, depositada sobre os filtros tipicamente usados em 
 pesquisas de aerosol atmosférico, permite tratá-los como amostras finas,
@@ -220,9 +216,9 @@ presente no espectro obtido, com a sua massa na amostra irradiada:
 
 Onde R(Z) é chamado de fator de resposta, I é a corrente de excitação do tubo 
 de raios X, determinando, portanto, o fluxo de raios X que chegam à amostra, 
-$\Delta t$ é o tempo vivo de irradiação e m(Z)/A é a densidade 
+$\Delta t$ é o tempo vivo de irradiação e m(Z)/A é a densidade superficial
 (massa por unidade de área) dos elementos Z presentas na amostra. 
-Nota-se pressupõe-se distribuição uniforme da massa na superfície do filtro.
+Pressupõe-se distribuição uniforme da massa na superfície do filtro.
 
 O termo R(Z) depende da seção de choque de cada elemento com o feixe de 
 raios X incidente (incluindo modificações por eventuais filtros moduladores 
@@ -277,18 +273,18 @@ com densidade elementar conhecida, podem ser comprados ou produzidos, dependendo
 da precisão desejada. Neste projeto foram adquiridos alvos padrões da 
 Micromatter, com incerteza nominal de 5\%. Mas esta empresa não produz alvos 
 com proporção estequiométrica quantificada para todas espécies químicas.
-Assim, trouxemos para a XRF-ED o conceito proposto por \citep{tabacniks2000}
-para o sistema PIXE (Particle Induced X-Ray Emission) que permite obter uma 
+Assim, trouxemos para a XRF-ED o conceito proposto por \citet{tabacniks2000}
+implementado no sistema PIXE (Particle Induced X-Ray Emission) do IFUSP que permite obter uma 
 calibração abrangendo elementos de número atômico no intervalo 10 < Z < 83. 
  
 Empregou-se, ainda, uma metodologia estatística robusta para estimativa das 
-incertezas para a calibração usando MQM. Essa preocupação em definir 
+incertezas da calibração usando MQM. Essa preocupação em definir 
 adequadamente as incertezas deve-se, particularmente, ao fato de que elas 
 ponderam o peso das variáveis na modelagem por PMF.
 
 Como exemplo para conhecer o forma da curva de calibração, o gráfico da figura 
 \ref{fg:edxrfcalib} apresenta os R(Z) dos alvos padrões da Micromatter 
-irradiados em Maio de 2010. 
+irradiados em maio de 2010. 
 
 \begin{figure}[H]
   \begin{subfigure}[b]{0.45\textwidth}
@@ -299,7 +295,7 @@ irradiados em Maio de 2010.
     \includegraphics[width=\textwidth]{../outputs/plot_R_maio2010L.pdf}
     \caption{linha L}
   \end{subfigure}
-  \caption{Fatores de respostas (R(Z)) dos para alvos padrões da 
+  \caption{Fatores de respostas, R(Z), para alvos padrões da 
            Micromatter irradiados em maio de 2010. 
            \label{fg:edxrfcalib}}
 \end{figure}
@@ -308,14 +304,14 @@ Nota-se que é possível fazer um ajuste polinomial sobre esses dados,
 o que tanto melhora a precisão para todos os R(Z), quanto fornece seu valor
 para elementos que não possuem alvos padrões. Como o fator de resposta reflete 
 o arranjo experimental, mudanças físicas
-nesse arranjo alteram o valor de R(Z), assim como a progresiva fadiga do detector
+nesse arranjo alteram o valor de R(Z), assim como a progressiva fadiga do detector
 ou do tubo. Portanto, a calibração deve ser realizada periodicamente.
 
 %%%%
 \subsection{Incertezas dos ajustes com Mínimos Quadrados Matricial}
 
 As incertezas dos ajustes polinomiais das calibrações do XRF-ED e da 
-intercalibração de TOT e refletância de BC foram estimadas usando o ajuste de 
+intercalibração de TOT e refletância de BC foram estimadas com o método 
 Mínimos Quadrados Matricial (MQM) desenvolvida por \citet{helene2006}
 e parcialmente reproduzida a seguir (com adaptações).
 
@@ -330,14 +326,14 @@ Dada as variáveis $Y_i$ e $X_i$ relacionadas polinomialmente:
   \end{split}
 \end{equation}
 
-A representação matricial da equação \ref{eq:polinomio} pode ser escrita como:
+ou na forma matricial:
 
 \begin{equation}
   \label{eq:polinomioMatriz}
   [Y] = [A][X]
 \end{equation}
 
-Os coeficientes ajustados [Ã] são dados pela equação por:
+Os coeficientes ajustados [Ã] são dados por:
 
 \begin{equation}
   \label{eq:coeficientesajustados}
@@ -359,8 +355,8 @@ pode-se calcular os $[\tilde{Y}]$ ajustados,
   [\tilde{Y}] = [Ã][X]
 \end{equation}
 
-Por fim, a incerteza dos valores ajustados é dada pela diagonal da matriz de 
-covariância de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$:
+A diagonal da matriz de covariância de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$, 
+representa a incerteza dos valores ajustados:
 
 \begin{equation}
   \label{eq:matrizcovarianciaY}
@@ -381,47 +377,45 @@ A massa depositada no filtro amostrado $m(Z)_{medido}$ para um certo elemento Z,
 é composta pela massa coletada na amostragem m(Z) mais a massa do filtro 
 branco $m_{B}(Z)$.
 
-Um conjunto de 10 amostras brancas (campo e laboratório) foram analisadas, 
+Um conjunto de 10 amostras brancas (entre campo e laboratório) foram analisadas, 
 para eliminação da contaminação dos próprios filtros, assim como de 
 transporte e manipulação.
 
-A equação \ref{eq:contagem} pode ser escrita para representar essa situação
-\ref{eq:contagem_medida}. 
+A seguir, a equação \ref{eq:contagem} está escrita para representar o número de contagens de alvos amostrados, isto é, com sobreposição da massa coletada na amostragem $m(Z)$ e a massa do branco $m_B(Z)$: 
 
 \begin{equation}
   \label{eq:contagem_medida}
-  N(Z)_{medido} = R(Z) I\Delta t \left( \frac{m(Z)}{A} + \frac{m_B(Z)}{A} \right)
+  N(Z)_{medido} = R(Z) \cdot I \cdot \Delta t \cdot \left( \frac{m(Z)}{A} + \frac{m_B(Z)}{A} \right)
 \end{equation}  
 
-Escrevendo a equação \ref{eq:contagem} para os brancos temos \ref{eq:contagembranco}:
+Quando as amostras brancas são irradiadas separadamente, o número de contagens é dado por:
 
 \begin{equation}
   \label{eq:contagembranco}
-  N_B(Z) = R(Z) I_B\Delta t_B \frac{m_B(Z)}{A}
+  N_B(Z) = R(Z) \cdot I_B \cdot \Delta t_B \cdot \frac{m_B(Z)}{A}
 \end{equation}
 
 Isolando-se $m_B(Z)$ em \ref{eq:contagembranco} e substituindo em 
-\ref{eq:contagem_medida}, encontramos \ref{eq:contagemcorrigida}:
+\ref{eq:contagem_medida}, encontramos o número de contagens corrigido nos alvos amostrados
+(isto é, excluindo a contaminação das amostras brancas):
  
 \begin{equation}
   \label{eq:contagemcorrigida}
-  N(Z) = N(Z)_{medido} - I\Delta t \left( \frac{N_B}{I_B \Delta t_B} \right)
+  N(Z) = N(Z)_{medido} - I \cdot \Delta t \cdot \left( \frac{N_B}{I_B \cdot \Delta t_B}  \right)
 \end{equation}
 
-A incerteza da contagem corrigida \ref{eq:contagemcorrigida}, 
-usando-se propagação de erros para variáveis independentes fica
-\ref{eq:erro_contagemcorrigida}.
+A incerteza da contagem corrigida (equação \ref{eq:contagemcorrigida}) é dada por:
 
 \begin{equation}
   \label{eq:erro_contagemcorrigida}
-  \sigma_{N(Z)}^2 = \sigma_{N(Z)_{medido}}^2 + \left( \frac{I \Delta t}{I_B \Delta t_B} \right)^2 \sigma_{N_B}^2
+  \sigma_{N(Z)}^2 = \sigma_{N(Z)_{medido}}^2 + \left( \frac{I \cdot \Delta t}{I_B \cdot \Delta t_B} \right)^2 \cdot \sigma_{N_B}^2
 \end{equation}
 
-Usa-se a média da razão $\frac{N_B}{I_B \Delta t_B}$ dos $n$ alvos brancos
-selecionados para o experimento. 
+Calcula-se a razão $N_B/(I_B \cdot \Delta t_B)$ para um conjunto de alvos brancos para 
+posterior inserção na equação \ref{eq:contagemcorrigida}.
 
-Por fim, foi criado colaborativamente por pesquisadores do LAPAt um programa 
-em liguagem C que implementa o cálculo teórico de concentrações apresentado, 
+Foi criado colaborativamente por pesquisadores do LAPAt um programa 
+em liguagem C que automatiza o cálculo teórico de concentrações apresentado, 
 com as devidas correções de branco e propagações de incertezas \footnote{
 O código está disponível no repositório de versionamento git da USP 
 e pode ser acessado pelo endereço: 
@@ -450,10 +444,10 @@ e de um termo (FANO), dado pela relação:
 
 Os parâmetros iniciais foram determinados a partir de espectros com picos 
 bem definidos, como o Ferro, que teve largura à meia altura (FWHM) para 
-$K\alpha$ de 138,32 eV ou o cálcio com 129,14 eV.
+$K\alpha$ de 138,32 eV ou o Cálcio com 129,14 eV.
 
-Na figura \ref{fig:winqxas} há dois exemplos de espectros abertos no WinQxas, 
-um de uma amostra branca e outro de uma amostra carregada. Os picos 
+Na figura \ref{fig:winqxas} há dois exemplos de espectros abertos no WinQxas
+para amostras de Nima, sendo um de uma amostra branca e a outra carregada. Os picos 
 característicos de elementos químicos encontrados estão indicados na figura.
 
 \begin{figure}[H]
@@ -466,11 +460,11 @@ característicos de elementos químicos encontrados estão indicados na figura.
     \includegraphics[width=\textwidth]{../inputs/images/winqxas/GPE770editado.pdf}
      \caption{Espectro de amostra branca (GPE770)- Acra Nima}
   \end{subfigure}
-  \caption{Espectros amostra branca e carregada \label{fig:winqxas}}
+  \caption{Espectros para amostra branca e carregada de Nima. \label{fig:winqxas}}
 \end{figure}
 
-Na análise feita nos espectros, pico a pico, deve-se ter atenção 
-para identificação e correção dos seguintes eventos quando há picos com 
+Na integração dos espectros, pico a pico, deve-se ter atenção 
+para identificação e correção dos seguintes eventos em picos com 
 muitas contagens: 
 
 \begin{itemize}
@@ -484,8 +478,7 @@ muitas contagens:
 \end{itemize}
 
 A seguir, apresenta-se a calibração do multicanal, ajuste linear entre canal 
-e energia encontrado a partir de pelo menos dois elemento conhecidos do 
-espectros:
+e energia encontrado a partir do Fe e Ca:
 
 \begin{equation}
   E = 0,0101 \cdot Canal - 0,1335 (keV)
@@ -501,12 +494,12 @@ medidas ($N_{fundo}$) sob o pico (fundo do espectro) de cada um dos elementos
 medidos.
 As contagens de fundo do espectro seguem uma distribuição de Poisson e portanto 
 a incerteza para o valor de N contagens é $\sqrt{N}$.
-Desta forma, adota-se como LD para um elemento, que as contagens de seu pico 
+Desta forma, adota-se como LD para um elemento, a condição de que as contagens de seu pico 
 característico seja pelo menos três vezes a incerteza na contagem de fundo:
 
 \begin{equation}
   \label{eq:limitedeteccao}
-  N_{LD} = 3 \sqrt{N_{fundo}}
+  N_{LD} = 3 \cdot \sqrt{N_{fundo}}
 \end{equation}
 
 Pode-se calcular o LD em termos da massa elementar com a 

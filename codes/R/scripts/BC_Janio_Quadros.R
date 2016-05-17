@@ -91,7 +91,7 @@ plot(0,0,
      ylim = c(0,60),
      type = "n",
      xlab = expression('Massa calculada com alvos padrões produzidos na CETESB (' ~ mu*g ~cm^-2 ~')' ),
-     ylab = expression('Alvos paralelos quartzo TOT (' ~ mu*g ~cm^-2 ~ ')'),
+     ylab = expression('Massa calculada pela intercalibração com TOT (' ~ mu*g ~cm^-2 ~ ')'),
      axes=F)
 
 axis(side=1, at=seq(0, 60, by=10))

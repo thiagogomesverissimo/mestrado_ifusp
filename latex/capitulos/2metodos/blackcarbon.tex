@@ -20,7 +20,7 @@ outro solventes. O trabalho de análise e revisão organizado pela OMS,
 de processos de pirólise (como na queima de biomassa), tendo cor mais próxima do
 castanho - ou fuligem, de cor negra e formada sob combustão em altas 
 temperaturas, como ocorre nos motores diesel. A análise TOT consegue 
-diferenciá-los. A EPA-US também gerou um relatório sobre BC \citep{epa2012} com
+diferenciá-los. A US-EPA também gerou um relatório sobre BC \citep{epa2012} com
 a contribuição de algumas dezenas de autores. Realizou uma ampla revisão e 
 discussão sobre BC, caracterizando-o extensivamente e tratando de seus efeitos 
 na saúde e o meio ambiente, particularmente no que diz respeito ao clima, 
@@ -86,7 +86,7 @@ sendo o decaimento diretamente proporcional a I:
 
 \begin{equation}
   \label{eq:dIdx}
-   \frac{dI}{dx} = -\alpha I
+   \frac{dI}{dx} = -\alpha \cdot I
 \end{equation}
 
 fazendo-se a separação das variáveis, pode-se integrar os dois lados da equação:
@@ -101,14 +101,14 @@ em função da espessura (D) da amostra:
 
 \begin{equation}
   \label{eq:I_BC}
-  I = I_0 \cdot exp(-\alpha D)
+  I = I_0 \cdot exp(-\alpha \cdot D)
 \end{equation}
 
 No caso da refletância o feixe de luz vai e volta pela amostra, ficando:
 
 \begin{equation}
   \label{eq:I_BC2}
-  I = I_0 \cdot exp(-\alpha 2D)
+  I = I_0 \cdot exp(-\alpha \cdot 2 \cdot D)
 \end{equation}
 
 O detector opera sobre uma área fixa e, assim, a medida que nos interessa é a 
@@ -120,7 +120,7 @@ ficando:
 
 \begin{equation}
   \label{m/a}
-  I = I_0 \cdot exp \left( -\frac{2\alpha}{\rho}.\frac{m}{A} \right)
+  I = I_0 \cdot exp \left( -\frac{2 \cdot \alpha}{\rho}.\frac{m}{A} \right)
 \end{equation}
 
 Aplicando-se logarítimo nos dois lados da equação e rearranjando os termos, 

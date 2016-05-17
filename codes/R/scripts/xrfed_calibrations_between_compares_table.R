@@ -169,7 +169,7 @@ Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 
 ')
 
 legenda = 'Calibração da Fluorescência de Raiox X  linha L'
-print(xtable(tabela,caption =legenda,align = rep('c',10)),
+print(xtable(tabela,caption =legenda,align = rep('c',10),label='table:edxAllCalibrationL'),
       type="latex", 
       floating = FALSE,
       include.rownames = F,
