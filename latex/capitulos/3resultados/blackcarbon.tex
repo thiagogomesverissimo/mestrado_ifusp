@@ -227,21 +227,6 @@ o desvio padrão corrigido das medições de 7 filtros em branco
 (média = 0,96\% x 1,11 = 1,06\%), corrigidos para as estatísticas de poucos 
 dados, utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
 
-\begin{figure}[H]
-\begin{center}
-  \includegraphics[width=0.5\textwidth]{../outputs/Gana_TOT_Refletancia.pdf}
-  \caption{Intercalibração entre TOT e refletância em Acra. \label{fig:interGanaBC}}
-\end{center}
-\end{figure}
-
-\begin{table}[H]
-  \centering
-  \small
-   \input{../outputs/Gana_TOT_Refletancia.tex}
-   \caption{Intercalibração entre TOT e refletância em Acra. \label{table:interGanaBC}} 
-\end{table} 
-
-
 O gráfico da figura \ref{fig:razaoTOTM71} mostra a relação entre a calibração do 
 BC por TOT e o resultado que teríamos se empregássemos a calibração 
 tradicionalmente feita com M71. Neste último caso o ajuste foi feito com uma
@@ -259,18 +244,35 @@ O uso de refletância mostrou-se bastante eficiente para determinação de BC,
 sendo aconselhável, entretanto, prover a calibração de um conjunto de filtros 
 com um sistema de medida absoluto como o TOT.
 
-\begin{figure}[H]
-  \centering
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs.pdf}
-    \caption{Acra \label{fig:razaoTOTM71}}
-  \end{subfigure}
 
-  \begin{subfigure}[b]{0.45\linewidth}
-    \includegraphics[width=\linewidth]{../outputs/BC_compara_calibs_recife.pdf}
-    \caption{Recife \label{fig:BC_compara_recife}}
-  \end{subfigure}%
-  \hspace{0.3cm}
-  \caption{Razão dos valores de BC medidos por refletância e calibrados por 
-           TOT e M71 para Recife e Acra. \label{fig:BC_compara}}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=0.9\textwidth]{../outputs/Gana_TOT_Refletancia.pdf}
+		\caption{Intercalibração entre TOT e refletância em Acra. \label{fig:interGanaBC}}
+	\end{center}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.43\linewidth}
+		\includegraphics[width=\linewidth]{../outputs/BC_compara_calibs.pdf}
+		\caption{Acra \label{fig:razaoTOTM71}}
+	\end{subfigure}
+		\hspace{0.3cm}
+	\begin{subfigure}[b]{0.43\linewidth}
+		\includegraphics[width=\linewidth]{../outputs/BC_compara_calibs_recife.pdf}
+		\caption{Recife \label{fig:BC_compara_recife}}
+	\end{subfigure}%
+
+	\caption{Razão dos valores de BC medidos por refletância e calibrados por 
+		TOT e M71 para Recife e Acra. \label{fig:BC_compara}}
+\end{figure}
+
+\begin{table}[H]
+	\centering
+	\small
+	\input{../outputs/Gana_TOT_Refletancia.tex}
+	\caption{Intercalibração entre TOT e refletância em Acra. \label{table:interGanaBC}} 
+\end{table} 
+
+
