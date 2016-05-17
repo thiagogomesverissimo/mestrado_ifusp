@@ -2,9 +2,9 @@ rm(list=ls())
 source("myfunctions/load.R")
 
 #### Testes
-detach("package:Hmisc", unload=TRUE) 
-base = read.csv('../../outputs/pmf_fa/RGsH.csv',row.names=1)
-describe(base)
+#detach("package:Hmisc", unload=TRUE) 
+#base = read.csv('../../outputs/pmf_fa/RFeH.csv',row.names=1)
+#describe(base)
 ####
 
 # Testes
