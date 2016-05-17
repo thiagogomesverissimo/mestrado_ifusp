@@ -1,6 +1,11 @@
 ## Trechos que podem ser úteis
 
 
+%
+%Os níveis de concentração indicam a necessidade de se adotar providências de controle.
+%Os modelos receptores são usados para identificar responsabilidades de fontes por uma dada situação ambiental. Isso orienta providências de controle que devem ser adotadas para mitigar problemas ambientais.  Em áreas remotas, os modelos receptores permitem conhecer o papel que diferentes fontes têm na composição do aerossol atmosférico, que por sua vez também participa de ciclos naturais (chuvas, transferência de nutrientes, fecundação de vegetais etc).
+%
+
 %O filtro não é fino! Você analisa o que está depositado sobre ele, que é a poluição do ar! Essa é a matriz. Por isso você coloca a face amostrada do filtro voltada para o feixe e para o detector. Se colocar o filtro voltado para baixo, vai haver absorção de fotons pelo PTFE. Mas ele em si é uma matriz composta por C e F, que absorvem pouco e geram fótons de energia baixa, entrando pouco no detector, pois são barrados pela janela de Be. É a massa de aerossol depositada que representa alvo espesso ou fino. Alvos muito grossos (muita massa) provavelmente pediriam uma correção pequena de matriz, para os elementos leves - baixo Z - cuja energia é menor e são mais absorvidos pela matriz do aerossol amostrado. A tese que coloquei acima, sobre ED-XRF polarizada discute esse problema. 
 %Neste caso, não há o que discutir sobre PTFE. Por isso podemos usar filtros de calibração depositados sobre policarbonato ou mylar. Não se deve usar filtro de quartzo no EDX porque tem Si e aí explode as contagens dele, que tem energia dentro da faixa de elementos que medimos - o próprio Si. 
 
