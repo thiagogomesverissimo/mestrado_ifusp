@@ -1,18 +1,18 @@
 Neste capítulo apresenta-se os métodos experimentais utilizados para 
 quantificação das concentrações de massa total, das espécies químicas e 
 do Black Carbon nas amostras. Empregou-se, respectivamente:
-Análise gravimétrica, Fluorescência de raios X (XRF),
-Thermal/Optical Transmittance (TOT) e Refletância.
+análise gravimétrica, fluorescência de raios X (XRF),
+Thermal/Optical Transmittance (TOT) e refletância.
 Apresenta-se sinteticamente o desenvolvimento teórico de cada método, bem como 
 as condições de uso, procedimentos de calibração, cálculo das incertezas, 
 vantagens e desvantagens, entre outros.
 
 Para resolução dos modelos receptores, expõe-se também os métodos 
-estatísticos Análise de Fatores e Positive Matrix Factorizarion (PMF) 
+estatísticos Análise de Fatores (AF) e Positive Matrix Factorizarion (PMF) 
 usados na identificação dos perfis de fontes. 
 
 Desensolve-se ainda, uma metodologia para estimativa das incertezas
-da calibração da XRF e Refletância, fundamentais para análises de PMF,
+da calibração da XRF e refletância, fundamentais para análises de PMF,
 cuja metodologia emprega a ponderação pelas incertezas.
 
 %%%%
@@ -35,15 +35,11 @@ A localização geográfica dos dois pontos de medição, distantes entre si 330
 metros, é apresentada na figura
 \ref{fig:nima_mapa}, sendo NM-1 na rua \textit{Sam Road}, quarteirão residencial,
 e NM-2 na \textit{Nima Road}, via arterial de 2,8 km na direção norte-sul, 
-direciona o tráfego de pequenas vias locais para o centro, atravessando áreas de 
-comércio variado. 
-
-Aproveitamos aqui para caracterizar também as fontes neste entorno dos pontos de
-amostragem, o que acreditamos facilitar a posterior discussão dos resultados de 
-modelos receptores.
+que direciona o tráfego de pequenas vias locais para o centro, atravessando áreas de 
+comércios variados. 
 
 A figura \ref{fig:nima_mapa} permite ter uma ideia de duas fontes importantes de 
-MP na área de amostragem. Primeiramente o sistema viário que circunda as 
+MP na área de amostragem. Primeiramente, o sistema viário que circunda as 
 estações, sendo que boa parte das vias secundárias não são pavimentadas. 
 Oferece, ainda, a densidade de uso de biomassa para cozimento de alimentos 
 nas residências, baseando-se nos dados do censo de 2000. A tabela 
@@ -56,13 +52,13 @@ vegetal e biomassa crua reduziu-se em 21\%, mas representando, ainda, 49\% do
 total. Permanece, portanto, sendo o principal combustível utilizado no preparo 
 de alimentos.
 
-No mapa da figura \ref{fg:acrasources} identificou-se outras fontes locais 
-que teriam potencial para atingir as amostragens.
+Aproveitamos aqui para caracterizar também as fontes neste entorno dos pontos de
+amostragem, identificados no mapa da figura \ref{fg:acrasources}, o que acreditamos facilitar a posterior discussão dos resultados de modelos receptores.
 
 \begin{figure}[H]
   \centering	
   \includegraphics[width=0.9\textwidth]{../outputs/accra_sources.pdf}
-  \caption{Levantamento de algumas fontes poluídora de Acra.
+  \caption{Levantamento de algumas fontes poluidora de Acra.
            \label{fg:acrasources}}
 \end{figure}
 
@@ -90,25 +86,25 @@ foi calculada medindo-se a mancha de deposição com um leitor de espectros
 Para coleta do MP utilizou-se amostradores Harvard, descritos por 
 \citet{marple1987}. Neste equipamento a seleção do diâmetro das partículas 
 admitidas no amostrador é feita por impactação inercial. 
-Para coleta de $MP_{10}$ o $D_{50}$ do sistema era de $10 \mu m$, 
-com fluxo de 4,0 $L.min^{-1}$, enquanto que para $MP_{2,5}$ o $D_{50}$ 
-era de $2,5 \mu m$, com fluxo de 5,0 $L.min^{-1}$, medido com 10\% de precisão. 
+Para coleta de $MP_{10}$ o $D_{50}$ do sistema era de 10 $\mu m$, 
+com fluxo de 4,0 L/min, enquanto que para $MP_{2,5}$ o $D_{50}$ 
+era de 2,5 $\mu m$, com fluxo de 5,0 L/min, medido com 10\% de precisão. 
 
 Filtros brancos de campo e de laboratórios foram separados para avaliar 
 possíveis contaminações de fábrica ou de manipulação das amostras. 
 
-Os filtros foram pesados no laboratório da HSPH, usando uma balança
+Os filtros foram pesados no laboratório da HSPH em balança
 microanalítica (Mettler Toledo MT5) com precisão de $\pm 1 \mu g$, 
-em ambiente controlado [umidade ($39 \pm 2 \%$), 
+e ambiente controlado [umidade ($39 \pm 2 \%$), 
 temperatura ($20,5 \pm 0,2 ^{\circ} C$) e eliminação de cargas eletrostáticas 
 com fonte de polônio]. Os filtros permaneciam ao menos 24 h na sala, 
 antes da pesagem, calculando-se a média de duas pesagens que não diferissem 
-por mais que $5 \mu g$.
+por mais que 5 $\mu g$.
 
 \begin{table}[H]
 	\centering
 	\input{../inputs/latex/energia.tex}
-	\caption{Percentual relativo do uso de fontes de energia para cozimento 
-		de alimentos em Gana. \citep{ghanacensus2013} 
+	\caption{Percentual relativo dos tipos de fontes de energia usadas para preparação 
+		    de alimentos em Gana \citeyearpar{ghanacensus2013}. 
 		\label{table:cookfuel}}
 \end{table}
