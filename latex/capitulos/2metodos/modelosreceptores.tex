@@ -9,18 +9,18 @@ permitem a identificação de fontes quando os seus perfis são desconhecidos.
 
 Outro modelo receptor é Balanço Químico de Massa (CMB), usado quando se conhece 
 o perfil das fontes locais e permite verificar o impacto das fontes 
-nas concetrações medidas no amostrador. O CMB não foi usado nesta pesquisa, 
+nas concentrações medidas no amostrador. O CMB não foi usado nesta pesquisa, 
 por falta de perfis de fontes adequados para a região.
 
 A análise multivariada é uma técnica estatística utilizada para 
 reduzir a dimensão de dados matriciais e permite manter a quantidade de 
 informação contida inicialmente nos dados, armazenada na variância e covariância. 
-Dâ-se o nome de fator às novas variáveis reduzidas, que são ortogonais entre si,  
+Dá-se o nome de fator às novas variáveis reduzidas, que são ortogonais entre si,  
 sendo o fator uma variável latente, pois não é uma grandeza diretamente
 medida, mas sim obtida a partir de outras variáveis observáveis. 
 
 As dimensões (variáveis) reduzidas de um conjunto de dados analíticos 
-complexos podem ser interpretados como fonte(s) poluídora(s) como detalhado por
+complexos podem ser interpretados como fonte(s) poluidora(s), como detalhado por
 \citet{wang2012} e \citet{mansha2012}, em que o número de fatores extraídos 
 dependerá dos limites de detecção dos equipamentos usados, número de amostras, 
 resolução da amostragem, espécies medidas, entre outros, sendo o conhecimento 
@@ -29,9 +29,9 @@ próximas ao ponto receptor, dados meteorológicos do período de coleta,
 inventário de emissões e outras informações imprescindíveis para fazer a
 associação fator-fonte(s). 
 
-Assim, o principal desafio em análises multivariada 
-é identificar se o fator de fato existe e tem significado físico 
-enquanto fonte(s) poluídora(s) ou não, sendo que número reduzido de amostras, 
+Assim, o principal desafio em análises multivariadas
+é identificar se o fator de fato existe e se tem significado físico 
+enquanto fonte(s) poluidora(s), sendo que número reduzido de amostras, 
 baixa resolução da amostragem e \textbf{outliers} 
 (eventos infrequentes de curta duração e com alta concentração) representam 
 um desafio para modelos multivariados.
@@ -63,10 +63,10 @@ sendo,
 \subsection{Análise de Fatores}
 
 A técnica estatística de Análise de Fatores (AF) foi popularizada em diversas 
-áreas das ciências após publicação do trabalho de Lourenz em 1956, que chamou 
-a técnica de Análise de Funções Ortogonais Empíricas, 55 anos após a 
+áreas das ciências após publicação do trabalho de Lourenz em 1956, que a nomeou
+de Análise de Funções Ortogonais Empíricas, 55 anos após a 
 descoberta da mesma por Karl Pearson \citep{bartholomew2011}. Consiste 
-conceitualmente na redução da dimensionalidade dos dados, para uma nova base 
+conceitualmente na redução da dimensionalidade dos dados para uma nova base 
 contendo a menor dimensão possível relativamente à dimensão dos dados originais, 
 baseando-se na decomposição da matriz de correlação ou covariância em 
 autovalores e autovetores, de forma que as novas variáveis (fatores) sejam 
@@ -139,16 +139,16 @@ Onde,
 	\item $c_{ij}$: Matriz de concentração;
 	\item $u_{ij}$: Matriz de incertezas (experimentais e analíticas);
 	\item $p$: Número de fatores informado pelo usuário;
-	\item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Score};
+	\item $g_{ik}$: Contribuição dos fatores nas amostras (\textit{Factor Score});
 	\item $f_{kj}$: Perfil da fonte ou assinatura da fonte (\textit{Factor Loadings});
-	\item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas;
+	\item $e_{ij}$: Matriz dos resíduos escalados pelas incertezas.
   \end{spacing}
 \end{itemize}
 
 O método PMF tem sido muito utilizado em pesquisas de poluição 
 atmosférica, pois inclui algoritmo robusto e estável desenvolvido por 
 \citet{paatero1994} que impede o aparecimento de valores negativos no 
-perfil e na contribuição de fontes e diferentemente da AF, pondera o ajuste 
+perfil e na contribuição de fontes e, diferentemente da AF, pondera o ajuste 
 pelo inverso das incertezas nas concentrações, diminuindo assim, o peso de 
 espécies com incertezas altas (equação \ref{eq:pmfobject}).
 Daí a importância de uma adequada definição para as incertezas dos parâmetros 
