@@ -114,13 +114,13 @@ No caso da refletância o feixe de luz vai e volta pela amostra, ficando:
 O detector opera sobre uma área fixa e, assim, a medida que nos interessa é a 
 massa por unidade de área (A). Ao ser multiplicada pela área total de amostragem
 no filtro ela fornece a massa total coletada. A massa $m$ que o detetor observa 
-é $m = \rho \cdot V = \rho \cdot D \dot A$, onde $\rho$ é a densidade da amostra. 
+é $m = \rho \cdot V = \rho \cdot D \cdot A$, onde $\rho$ é a densidade da amostra. 
 Podemos usar esta relação para substituir $D$ na equação \ref{eq:I_BC2}, 
 ficando:
 
 \begin{equation}
   \label{m/a}
-  I = I_0 \cdot exp \left( -\frac{2 \cdot \alpha}{\rho}.\frac{m}{A} \right)
+  I = I_0 \cdot exp \left( -\frac{2 \cdot \alpha}{\rho} \cdot \frac{m}{A} \right)
 \end{equation}
 
 Aplicando-se logarítimo nos dois lados da equação e rearranjando os termos, 
@@ -131,10 +131,10 @@ obtemos:
   \frac{m}{A} = K \cdot (2-logI) 
 \end{equation}
 
-onde $\frac{1}{K} = 2 \cdot \frac{\alpha}{\rho} \cdot log(e)$
-é uma constante e usou-se que $I_0$=100\%, sendo $log 100$ = 2.
+onde o termo K é uma constante dada por $K = [2 \cdot ({\alpha}/{\rho}) \cdot log(e)]^{-1}$ e
+a condição de $I_0$ = 100\% foi imposta (lembrando que log 100 = 2).
 
-A relação linear entre $\frac{m}{A}$ e log($I$) oferece bom ajuste empírico 
+A relação linear entre m/A e log($I$) oferece bom ajuste empírico 
 quando se trabalha com BC, permitindo a calibração do equipamento. 
 Ressalve-se haver uma perda de linearidade para valores muito baixos de 
 refletância (amostras muito carregadas).  

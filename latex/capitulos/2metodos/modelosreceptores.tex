@@ -167,9 +167,8 @@ pode ser substítuida em \ref{eq:pmfobject} obtendo-se:
   \label{eq:pmfobjectfull}
 \end{equation}
 
-A solução para \ref{eq:pmfobjectfull} foi inicialmente implementada usando 
+A solução para equação \ref{eq:pmfobjectfull} foi inicialmente implementada usando 
 o método de Gauss-Newton \citep{paatero1994}, mas na versão atual do software 
 (PMF EPA 5.0) é usado o Método do Gradiente Conjugado \citep{norris2014}, 
-cujo inicia $g_{ik}$ e $f_{kj}$ randomicamente os ajustando até se chegar no 
-menor $Q$ possível.
+o qual inicia $g_{ik}$ e $f_{kj}$ randomicamente, ajustando-os iterativamente até alcançarem o menor $Q$ possível.
 
