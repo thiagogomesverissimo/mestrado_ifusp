@@ -45,7 +45,8 @@ legenda = paste(legenda,collapse=" ")
 legenda = gsub('\\.',',',legenda)
 legenda = paste('\n Coeficientes do ajuste \n polinomial de grau 4: \n\n',legenda)
 
-legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1), cex=1.1, bty = "n")
+#legend("topright", legend = legenda, col='red',inset=c(0.1,-0.1), cex=1.1, bty = "n")
+legend("topright", legend = legenda, col='red', cex=1.1, bty = "n")
 
 dev.off()
 
@@ -54,23 +55,40 @@ x = log10(dados$refletancia)
 ajuste_thiago = p[1] + p[2]*x + p[3]*x^2 + p[4]*x^3 + p[5]*x^4
 dados = cbind(dados,ajuste_thiago)
 
-# Exporta tabela para Latex
-dados[,3:9] = format(dados[,3:9],digits=2,nsmall=2)
+#### Exporta tabela para Latex
 
+# manobra para corrigir os significativos da incerteza efetiva
+dados = cbind(dados,dados[,3])
+dados[,c(10,5)] = fix_significativos(dados[,c(10,5)])
+
+# TOT
+dados[,3:4] = fix_significativos(dados[,3:4])
 tot = paste(dados$tot.ugcm2,dados$Tot.incerteza,sep='$\\pm$')
 dados = cbind(dados,tot)
 
+# ajuste
+dados[,c(9,8)] = fix_significativos(dados[,c(9,8)])
 ajuste_thiago = paste(dados$ajuste_thiago,dados$ajuste.incerteza,sep='$\\pm$')
 dados = cbind(dados,ajuste_thiago)
 
-tabela = dados[,c(1,2,6,10,8,11)]
+tabela = dados[,c(1,2,6,11,5,12)]
 
-colnames(tabela)<- c('quartzo','teflon','refletancia','tot','efetiva','ajuste')
+tabela[,3] = str_replace_all(tabela[,3],'\\.',',') #refletancia
+tabela[,4] = str_replace_all(tabela[,4],'\\.',',') #tot 
+tabela[,5] = str_replace_all(tabela[,5],'\\.',',') # efetiva
+tabela[,6] = str_replace_all(tabela[,6],'\\.',',') #ajuste
+ 
+addtorow <- list()
+addtorow$pos <- list(0, 0)
+addtorow$command <- c('ID-Quartzo & ID-PTFE & refletância (\\%) & TOT  & $\\sigma_{efetivo}$ & Ajustado   \\\\\n',
+                      '\\hline & & \\multicolumn{1}{c}{  $\\pm$ 1,1\\% } & \\multicolumn{3}{c}{$\\mu g/cm^2$ }  \\\\\n')
 
-print(xtable(tabela),
+print(xtable(tabela,align = rep('c',ncol(tabela)+1)),
       type="latex", 
       floating = FALSE,
       include.rownames = F, 
+      include.colnames = F,
+      add.to.row = addtorow,
       sanitize.text.function = identity,
       file="../../outputs/Gana_TOT_Refletancia.tex")
 

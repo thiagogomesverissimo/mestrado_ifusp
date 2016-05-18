@@ -142,6 +142,8 @@ cetesb = paste(dados$cetesb,dados$cetesb_incerteza,sep='$\\pm$')
 dados = cbind(dados,cetesb)
 
 tabela = dados[,c(1,6,7)]
+tabela[,3] = str_replace_all(tabela[,3],'\\.',',')
+tabela[,2] = str_replace_all(tabela[,2],'\\.',',')
 
 addtorow <- list()
 addtorow$pos <- list(0, 0)

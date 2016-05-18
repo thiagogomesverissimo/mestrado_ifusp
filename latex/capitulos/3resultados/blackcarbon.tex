@@ -56,7 +56,7 @@ respectivos dados apresentados na tabela \ref{table:monarch71}.
 
 \begin{figure}[H]
   \centering
-  \includegraphics[width=0.5\textwidth]{../outputs/BC_monarch71.pdf}
+  \includegraphics[width=0.9\textwidth]{../outputs/BC_monarch71.pdf}
   \caption{Calibração do refletômetro do LAPAt em 2007 usando alvos padrões M71.
          \label{fig:monarch71}}
 \end{figure}
@@ -70,6 +70,7 @@ respectivos dados apresentados na tabela \ref{table:monarch71}.
              M71. \label{table:monarch71}}
 \end{table}
 
+\newpage
 Procuramos construir uma calibração mais consistente, produzindo alvos de 
 calibração que cobrissem toda a faixa de valores entre 0 a 100\% de refletância. 
 Mas não encontramos mais o BC M71 para comercializar, assim usamos o BC de 
@@ -86,19 +87,23 @@ que o ajuste linear foi excelente,
 indicando que a calibração deve perder linearidade apenas em refletâncias 
 inferiores a 5\%.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../outputs/BC_cetesb.pdf}
+	\caption{Reflêtancia e pesagem dos padrões produzidos na CETESB com BC 
+                 de referência ASTM-N762. \label{fig:bc_cetesb}}
+\end{figure}
+
 \newpage
 \begin{table}[H]
 	\centering
 	\small
 	\input{../outputs/cetesb2012.tex}
-	\caption{Reflêtancia de filtros produzidos na cetesb. \label{table:bc_cetesb}}
+	\caption{Reflêtancia e pesagem dos padrões produzidos na CETESB com BC 
+                 de referência ASTM-N762. \label{table:bc_cetesb}}
 \end{table} 
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\linewidth]{../outputs/BC_cetesb.pdf}
-	\caption{Reflêtancia de filtros produzidos na cetesb. \label{fig:bc_cetesb}}
-\end{figure}
+
 
 As barras de erros nas massas correspondem ao erro efetivo $\sigma_{efetivo}$, 
 o qual é a adição (soma dos quadrados) do erro propagado da refletância (eixo x)
@@ -225,7 +230,7 @@ e da refletância, além dos 8\% de amostragem paralela.
 Assumimos como incerteza para os valores de refletância (medido em porcentagem)
 o desvio padrão corrigido das medições de 7 filtros em branco 
 (média = 0,96\% x 1,11 = 1,06\%), corrigidos para as estatísticas de poucos 
-dados, utilizando 7 valores). A incerteza em massa acumulada foi de $sqrt(2)$.
+dados, utilizando 7 valores). %A incerteza em massa acumulada foi de $\sqrt{2}$.
 
 O gráfico da figura \ref{fig:razaoTOTM71} mostra a relação entre a calibração do 
 BC por TOT e o resultado que teríamos se empregássemos a calibração 
@@ -268,11 +273,13 @@ com um sistema de medida absoluto como o TOT.
 		TOT e M71 para Recife e Acra. \label{fig:BC_compara}}
 \end{figure}
 
+\newpage
 \begin{table}[H]
 	\centering
-	\small
+	\footnotesize 
 	\input{../outputs/Gana_TOT_Refletancia.tex}
-	\caption{Intercalibração entre TOT e refletância em Acra. \label{table:interGanaBC}} 
+	\caption{Intercalibração entre TOT e refletância para Acra. \label{table:interGanaBC}} 
 \end{table} 
+\newpage
 
 
