@@ -93,7 +93,7 @@ extraídos e um que foi completamente explicada.
 O quanto da variabilidade global dos dados iniciais foi explica pelo modelo está 
 contida na variância total explicada, sendo que os ajustes com valores 
 acima de 80\% são considerados bons. 
-Reteu-se ainda fatores com autovalores maiores que um e não degenerados 
+Retem-se ainda fatores com autovalores maiores que um e não degenerados 
 (o gráfico \textit{scree} facilita a investigação para identificação de fatores 
 degenerados, pois exibe os autovalores associados aos fatores). 
 
@@ -105,13 +105,13 @@ as variâncias \citep{kaiser1958}.
 \subsection{Positive Matrix Factorizarion}
 
 Positive Matrix Factorizarion (PMF) é outro método multivariado usado
-em modelos receptores e permite determinar um conjunto de fatores $p$, 
+em modelos receptores e permite determinar para conjunto de fatores $p$, 
 o perfil $f$ das espécies de cada fonte e a contribuição da massa $g$ 
 de cada fator para cada amostra individual \citep{norris2014}. 
 
 O PMF resolve a equação de conservação de massa usando mínimos 
-quadrados, diferentemente da AF, que reduz a dimensão dos 
-dados decompondo a matriz de correlação em autovalores e autovetores e 
+quadrados (diferentemente da AF, que reduz a dimensão dos 
+dados decompondo a matriz de correlação em autovalores e autovetores) e 
 tentará encontrar solução matemática para qualquer número de fatores, tendo
 eles significado físico ou não. 
 
@@ -119,7 +119,7 @@ Supondo uma campanha da amostragem com $i$ amostras válidas e
 $j$ espécies medidas, a matriz das concentrações $c_{ij}$ 
 pode ser decomposta em $g_{ik}$ e $f_{kj}$ conforme \ref{eq:pmf}. 
 O PMF procura um par das matrizes $g_{ik}$ e $f_{kj}$ que
-minimizam a função objeto $Q$ dada pela equação \ref{eq:pmfobject}. 
+minimizem a função objeto $Q$ dada pela equação \ref{eq:pmfobject}. 
 
 \begin{equation}
   c_{ij} = \sum_{k=i}^p g_{ik}f_{kj} + e_{ij}
