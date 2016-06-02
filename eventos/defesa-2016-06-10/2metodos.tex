@@ -1,23 +1,22 @@
-\section{Experimento}
+\section{Metodologia}
 
 \begin{frame}
   \frametitle{Amostragem}
   Pontos de amostragem em Nima.
   \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.35]{../../../inputs/images/zheng/nima_mapa.pdf}
+    \includegraphics[scale=0.35]{../../inputs/images/zheng/nima_mapa.pdf}
   \end{figure}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Meteorologia}
-  Distribuição das frequências de direção dos ventos, dados da NOAA.
+  \frametitle{Amostragem}
   \begin{figure}[H]
-    \centering
-      \includegraphics[scale=0.3]{../../../outputs/ventos_dir.pdf}
-      \includegraphics[scale=0.3]{../../../outputs/harmattan2007_2008.pdf}
-      \includegraphics[width=1cm]{../../../inputs/images/rosa_ventos}
-  \end{figure}
+  \centering	
+  \includegraphics[width=0.7\textwidth]{../../outputs/accra_sources.pdf}
+  \caption{Levantamento de algumas fontes poluidora de Acra.
+           \label{fg:acrasources}}
+ \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -30,10 +29,52 @@
 \end{frame}
 
 \begin{frame}
+  \frametitle{}
+  \begin{table}[H]
+  	\centering
+  	\input{../../inputs/latex/energia.tex}
+  	\caption{Percentual relativo dos tipos de fontes de energia usadas para preparação 
+  		    de alimentos em Gana. 
+  		\label{table:cookfuel}}
+  \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../../inputs/images/shimadzu_atomo.jpg}
+    \caption{Ilustração clássica do fenômeno de fluorescência de raios X no átomo. 
+             Figura que acompanha o manual da Shimadzu da série de equipamentos
+             EDX 700. \label{fig:shimadzu_atomo}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+  \begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.5\textwidth]{../../inputs/images/Siegbahn.jpg}
+    \caption{Transições de elétrons entre os subníveis das camadas K, L e M. 
+             Figura extraída de. \label{fig:siegbahn}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+\end{frame}
+
+\begin{frame}
   \frametitle{Fluorescência de Raios X - \textit{ED-XRF}}
   Modelamento matemático usado na \textit{ED-XRF}:
   \begin{equation}
-	  N_{ij} \propto \frac{m_{ij}}{A_i}I_i{\Delta}t_{i}
+    \label{eq:contagem}
+    N(Z) = R(Z) \cdot I \cdot \Delta t  \cdot \frac{m(Z)}{A}
   \end{equation}
   Onde,  
   \begin{itemize}
@@ -48,19 +89,27 @@
 \begin{frame}
   \frametitle{Calibração: Ajuste do Fator de Resposta}
   Constante de proporcionalidade: Fator de Resposta:
-  \begin{equation}
-    R_j = \frac{A_i}{m_{ij}} \frac{N_{ij}}{I_i \Delta t_i}
-  \end{equation}
-  \begin{figure}[H]
-  \centering
-    \begin{minipage}[b]{0.40\linewidth}
-      \includegraphics[scale=0.25]{../../../outputs/K2014abril}
-    \end{minipage}
-    \quad
-    \begin{minipage}[b]{0.40\linewidth}
-      \includegraphics[scale=0.25]{../../../outputs/L2014abril.png}
-    \end{minipage}
-  \end{figure}
+\begin{equation}
+  \label{eq:fator_de_resposta}
+  R(Z) = \frac{N(Z)}{d(Z) \cdot I \cdot \Delta t}
+\end{equation}
+
+\begin{equation}
+  \label{eq:erro_fator_de_resposta}
+  \sigma_{R(Z)}^2 = {R(Z)}^2 \cdot \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                      \left(\frac{\sigma_{d(Z)}}{d(Z)}\right)^2 
+                                   \right)
+\end{equation}
+%  \begin{figure}[H]
+%  \centering
+%    \begin{minipage}[b]{0.40\linewidth}
+%      \includegraphics[scale=0.25]{../../outputs/K2014abril}
+%    \end{minipage}
+%    \quad
+%    \begin{minipage}[b]{0.40\linewidth}
+%      \includegraphics[scale=0.25]{../../outputs/L2014abril.png}
+%    \end{minipage}
+%  \end{figure}
 \end{frame}
 
 \begin{frame}
@@ -94,7 +143,7 @@
   \frametitle{Comparação das análises com a da \textbf{EPA}}
   \begin{figure}[H]
    \centering
-    \includegraphics[scale=0.42]{../../../inputs/images/zheng/epa_short_example.PDF}
+    \includegraphics[scale=0.42]{../../inputs/images/zheng/epa_short_example.PDF}
   \end{figure}
   \begin{tiny}
     2900 amostras - \textbf{USP}. 
@@ -155,4 +204,8 @@
   \end{equation}
 
   Diferente da Análise de Fatores, no PMF, a incerteza ($u_{ij}$) entra na conta.
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
 \end{frame}
