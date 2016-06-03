@@ -34,137 +34,124 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Análises}
-  \begin{itemize}
-    \item Gravimétrica (determinação da massa);  
-    \item Refletância (determinação do Black Carbon);
-    \item Fluorescência de Raios X (determinação da composição química inorgânica);
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
+  \frametitle{Censo populacional}
+\begin{center}
+  Fonte de energia na preparação alimentos em Gana:
+\end{center}
   \begin{table}[H]
   	\centering
   	\input{../../inputs/latex/energia.tex}
-  	\caption{Percentual relativo dos tipos de fontes de energia usadas para preparação 
-  		    de alimentos em Gana. 
-  		\label{table:cookfuel}}
   \end{table}
 \end{frame}
 
 \begin{frame}
   \frametitle{}
+  Ilustração clássica do fenômeno de fluorescência de raios X no átomo.\\
+  Transições de elétrons entre os subníveis das camadas K, L e M. 
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{../../inputs/images/shimadzu_atomo.jpg}
-    \caption{Ilustração clássica do fenômeno de fluorescência de raios X no átomo. 
-             Figura que acompanha o manual da Shimadzu da série de equipamentos
-             EDX 700. \label{fig:shimadzu_atomo}}
+    \includegraphics[width=0.4\textwidth]{../../inputs/images/shimadzu_atomo.jpg}
+    \hspace{1cm}
+    \includegraphics[width=0.4\textwidth]{../../inputs/images/Siegbahn.jpg}
   \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-  \begin{figure}[H]
-    \centering 
-    \includegraphics[width=0.5\textwidth]{../../inputs/images/Siegbahn.jpg}
-    \caption{Transições de elétrons entre os subníveis das camadas K, L e M. 
-             Figura extraída de. \label{fig:siegbahn}}
-  \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
-
-\end{frame}
-
-\begin{frame}
-  \frametitle{}
 \end{frame}
 
 \begin{frame}
   \frametitle{Fluorescência de Raios X - \textit{ED-XRF}}
   Modelamento matemático usado na \textit{ED-XRF}:
-  \begin{equation}
+  \begin{equation*}
     \label{eq:contagem}
     N(Z) = R(Z) \cdot I \cdot \Delta t  \cdot \frac{m(Z)}{A}
-  \end{equation}
+  \end{equation*}
   Onde,  
   \begin{itemize}
-    \item $N_{ij}$ = Contagem de fótons na amostra i para o elemento químico j;
-    \item $I_{i}$ = Corrente (ampère) na amostra i;
-    \item $\Delta t_i$ = Tempo vivo (segundos) que a amostra i foi irradiada;
-    \item \textcolor{red}{$m_{ij}$} = Massa (grama) na amostra i para o elemento químico j;
-    \item $A_i$ = Área ($cm^2$)irradiada da amostra i.
+    \item N(Z) = Contagem de fótons na amostra para o elemento químico Z;
+    \item I = Corrente (ampère) na amostra;
+    \item $\Delta t$ = Tempo vivo (segundos) que a amostra foi irradiada;
+    \item m(Z) = Massa na amostra para o elemento químico Z;
+    \item A = Área amostrada do filtro.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
   \frametitle{Calibração: Ajuste do Fator de Resposta}
   Constante de proporcionalidade: Fator de Resposta:
-\begin{equation}
+\begin{equation*}
   \label{eq:fator_de_resposta}
   R(Z) = \frac{N(Z)}{d(Z) \cdot I \cdot \Delta t}
-\end{equation}
+\end{equation*}
 
-\begin{equation}
+\begin{equation*}
   \label{eq:erro_fator_de_resposta}
-  \sigma_{R(Z)}^2 = {R(Z)}^2 \cdot \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+  \sigma_{R(Z)}^2 = {R(Z)}^2 \cdot \left[ \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
                                       \left(\frac{\sigma_{d(Z)}}{d(Z)}\right)^2 
-                                   \right)
-\end{equation}
-%  \begin{figure}[H]
-%  \centering
-%    \begin{minipage}[b]{0.40\linewidth}
-%      \includegraphics[scale=0.25]{../../outputs/K2014abril}
-%    \end{minipage}
-%    \quad
-%    \begin{minipage}[b]{0.40\linewidth}
-%      \includegraphics[scale=0.25]{../../outputs/L2014abril.png}
-%    \end{minipage}
-%  \end{figure}
+                                   \right]
+\end{equation*}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Erro no Ajuste - Abordagem matricial mínimos quadrados}
-   \begin{equation}
-     [R] = A[Z]
-   \end{equation}
-   
-   Sendo $\alpha$ o A ajustado, a covariância dos coeficientes $V_{\alpha}$:
-   \begin{equation}
-     V_{\alpha} = (Z^t V_R^{-1} Z)^{-1}
-   \end{equation}
+  \frametitle{Calibração: Ajuste do Fator de Resposta}
+  Constante de proporcionalidade: Fator de Resposta:
+\begin{equation*}
+  \label{eq:xrfedmassa}
+  m(Z) = \frac{N(Z) \cdot A}{ R(Z) \cdot I \cdot \Delta t}
+\end{equation*}
 
-   O ajuste de A fica:
-   \begin{equation}
-     \alpha = V_{\alpha} Z^t V_R^{-1} R
-   \end{equation}
-
-    Calculando-se os novos valores de R a partir de $V_{\alpha}$:
-   \begin{equation}
-     [R_{adjusted}] = \alpha[Z]
-   \end{equation} 
-
-    A incerteza do ajuste é a raiz quadrada da diagonal da matriz de covariância de $R_{adjusted}$:
-   \begin{equation}
-     COV_{R_{adjusted}} = Z V_{\alpha} Z^t
-   \end{equation} 
+\begin{equation*}
+  \label{eq:erro_massa}
+  \sigma_{m(Z)}^2 = {m(Z)}^2 \left[ \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+                                  \left(\frac{\sigma_A}{A}\right)^2 + 
+                                  \left(\frac{\sigma_{R(Z)}}{R(Z)}\right)^2 
+                             \right]
+\end{equation*}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Comparação das análises com a da \textbf{EPA}}
-  \begin{figure}[H]
-   \centering
-    \includegraphics[scale=0.42]{../../inputs/images/zheng/epa_short_example.PDF}
-  \end{figure}
-  \begin{tiny}
-    2900 amostras - \textbf{USP}. 
-    95 de controle pela \textbf{EPA} (US Environmental Protection Agency).
-  \end{tiny}
+  \frametitle{Mínimos Quadrados Matricial}
+\begin{equation*}
+  \label{eq:polinomio}
+  \begin{split}
+    y_1 = a + b x_1 + c{x_1}^2 + d{x_1}^3 + ...\\
+    y_2 = a + b x_2 + c{x_2}^2 + d{x_2}^3 + ... \\
+    ...
+  \end{split}
+\end{equation*}
+
+\begin{equation*}
+  \label{eq:polinomioMatriz}
+  [Y] = [A] \cdot [X]
+\end{equation*}
+
+Os coeficientes ajustados [Ã] são dados por:
+\begin{equation*}
+  [\tilde{A}] = [V_{\tilde{A}}] \cdot ([X]^T \cdot {[V_Y]}^{-1} \cdot [Y])
+\end{equation*}
+
+Sendo $[V_{\tilde{A}}]$ a matriz de covariância dos coeficientes, dada por:
+\begin{equation*}
+  [V_{\tilde{A}}] = ([X]^T [V_Y]^{-1} [X])^{-1}
+\end{equation*}
 \end{frame}
-\section{Metodologia}
+
+\begin{frame}
+  \frametitle{Mínimos Quadrados Matricial}
+A partir dos coeficientes ajustados [Ã] na equação \ref{eq:coeficientesajustados},
+pode-se calcular os $[\tilde{Y}]$ ajustados,
+
+\begin{equation*}
+  \label{eq:polinomioajustado}
+  [\tilde{Y}] = [\tilde{A}]\cdot[X]
+\end{equation*}
+
+A diagonal da matriz de covariância de $[\tilde{Y}]$, $[V_{\tilde{Y}}]$, 
+representa a incerteza dos valores ajustados:
+
+\begin{equation*}
+  \label{eq:matrizcovarianciaY}
+  [V_{\tilde{Y}}] = [X] \cdot [V_{\tilde{A}}]^{-1} \cdot [X]^{-1}
+\end{equation*}
+
+\end{frame}
 
 \begin{frame}
   \frametitle{Modelo receptor}
@@ -179,9 +166,9 @@
   \frametitle{Conservação de massa}
   Fundamentação do modelo receptor: Conservação de massa. \\
   Todos modelos resolvem a mesma equação: 
-  \begin{equation}
+  \begin{equation*}
     x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} + \epsilon_{ij}
-  \end{equation} 
+  \end{equation*} 
  
   \begin{itemize}
     \item $x_{ij}$ = concentração na amostra i da espécie j;
@@ -194,16 +181,16 @@
 
 \begin{frame}
   \frametitle{Análise de Fatores}
-  \begin{equation}
+  \begin{equation*}
     z_{j} = l_{j1}F_1 + l_{j2}F_2 + l_{j3}F_3 + ... + \epsilon_{ij}
-  \end{equation}
-  \begin{enumerate}
+  \end{equation*}
+  \begin{itemize}
     \item $z_{j}$ = concentração da espécie j normalizada;
     \item Cálculo da matriz de correlação/covariância
     \item Extração de autovalores e autovetores (ortogonais). 
     \item Transformada Linear nos novos eixos
     \item $l_{jk}$ = contribuição da Fonte $F_k$
-  \end{enumerate}
+  \end{itemize}
 
 \end{frame}
 
@@ -213,13 +200,10 @@
 
   Função objeto - Q -  é uma função que precisa ser minimizada. 
  
-  \begin{equation}
+  \begin{equation*}
     Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{ x_{ij} - \sum_{p=1}^{P} g_{ip}f_{pj}} {u_{ij}} \right] ^2
-  \end{equation}
+  \end{equation*}
 
   Diferente da Análise de Fatores, no PMF, a incerteza ($u_{ij}$) entra na conta.
 \end{frame}
 
-\begin{frame}
-  \frametitle{}
-\end{frame}

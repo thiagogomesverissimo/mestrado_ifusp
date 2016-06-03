@@ -239,9 +239,9 @@ pode ser calculada por propagação de erro destas variáveis:
 
 \begin{equation}
   \label{eq:erro_fator_de_resposta}
-  \sigma_{R(Z)}^2 = {R(Z)}^2 \cdot \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+  \sigma_{R(Z)}^2 = {R(Z)}^2 \cdot \left[ \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
                                       \left(\frac{\sigma_{d(Z)}}{d(Z)}\right)^2 
-                                   \right)
+                                   \right]
 \end{equation}
 
 Dados ambientais são reportados em medidas de concentração ($\mu g/m^3$),
@@ -260,10 +260,10 @@ independentes, a incerteza na massa será:
 
 \begin{equation}
   \label{eq:erro_massa}
-  \sigma_{m(Z)}^2 = {m(Z)}^2 \left( \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
+  \sigma_{m(Z)}^2 = {m(Z)}^2 \left[ \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
                                   \left(\frac{\sigma_A}{A}\right)^2 + 
                                   \left(\frac{\sigma_{R(Z)}}{R(Z)}\right)^2 
-                             \right)
+                             \right]
 \end{equation}
 
 
@@ -337,7 +337,7 @@ Os coeficientes ajustados [Ã] são dados por:
 
 \begin{equation}
   \label{eq:coeficientesajustados}
-  [Ã] = [V_{Ã}] ([X]^T {[V_Y]}^{-1} [Y])
+  [Ã] = [V_{Ã}] \cdot ([X]^T {[V_Y]}^{-1} [Y])
 \end{equation}
 
 Sendo $[V_{Ã}]$ a matriz de covariância dos coeficientes, dada por:

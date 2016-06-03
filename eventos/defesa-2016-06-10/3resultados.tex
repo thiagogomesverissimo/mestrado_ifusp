@@ -1,106 +1,55 @@
 \section{Resultados}
 
-\begin{frame}
-  \frametitle{}
-%  \begin{table}
-%   \input{../../outputs/tabela_descritiva_com_harmatan.tex}
-%  \end{table}
-   Diretrizes da Organização Mundial de Saúde (OMS):
-  \begin{itemize}
-    \item Média diária $MP_{2.5}$: só 1\% dos dias pode ultrapassar 25 $ug/m^3$;
-    \item Média anual $MP_{2.5}$: 10 $ug/m^3$;
-    \item Média diária $MP_{10}$: só 1\%  pode ultrapassar 50 $ug/m^3$;
-    \item Média anual $MP_{10}$: 20 $ug/m^3$.
-  \end{itemize}
-\end{frame}
+\subsection{Calibração da XRF}
 
 \begin{frame}
   \frametitle{}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{../../outputs/windRose2007.pdf}
-    \caption{Rosa do ventos para Acra/2007. \label{fg:rosaCompleta}}
+  \begin{figure}
+      \centering
+      \includegraphics[width=0.5\linewidth]{../../outputs/CalibrationK2010MaiAkerr.pdf}
+      \includegraphics[width=0.5\linewidth]{../../outputs/CalibrationL2010MaiAkerr.pdf}
   \end{figure}
 \end{frame}
 
-
 \begin{frame}
   \frametitle{}
+  Comparação das calibrações da XRF-ED nos 3 períodos.
   \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{../../outputs/windRose_horaria.pdf}
-    \caption{Rosa do ventos horária para Acra/2007. \label{fig:windRose_horaria}}
-  \end{figure}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\linewidth]{../../outputs/windRose_mensal.pdf}
-    \caption{Rosa do ventos mensal para Acra/2007. \label{fig:windRose_mensal}}
-  \end{figure}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{}
-  \begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.5\linewidth}
-      \includegraphics[width=\linewidth]{../../inputs/grads/gimp/875hPa/DEZ_2007.pdf}
-      \caption{Dezembro de 2007}
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=\textwidth]{../../outputs/CalibrationKcomparacao.pdf}
+      \caption{linha K}
     \end{subfigure}%
-  %  \hspace{0.5cm}
-    \begin{subfigure}[b]{0.5\linewidth}
-      \includegraphics[width=\linewidth]{../../inputs/grads/gimp/875hPa/JAN_2008.pdf}
-      \caption{Janeiro de 2008}
+    \begin{subfigure}[b]{0.5\textwidth}
+      \includegraphics[width=\textwidth]{../../outputs/CalibrationLcomparacao.pdf}
+      \caption{linha L}
     \end{subfigure}
-    \caption{Intensidade e direção do vento médio na altitude de 1000 metros 
-             sobre o continente Africano. \label{fig:ECMWF1000}}
   \end{figure}
 \end{frame}
 
-%\begin{frame}
-%  \frametitle{}
-%    \input{../../outputs/loadings_RFsH.tex}
-%\end{frame}
 
-%\begin{frame}
-%  \frametitle{}
-%    \input{../../outputs/loadings_TFsH.tex}
-%\end{frame}
-
-%\begin{frame}
-%  \frametitle{Impacto do Harmatã}
-%  \begin{figure}[H]
-%   \centering
-%   \includegraphics[scale=0.30]{../../outputs/score_TIcH1.pdf}
-%    \includegraphics[scale=0.30]{../../../outputs/score_TIcH3.pdf}
-%  \end{figure}
-%   Score para fator que representa \textcolor{red}{solo/Harmatã} 
-%   e \textcolor{red}{Queima de Biomassa}, respectivamente.
-%\end{frame}
-
-%\begin{frame}
-%    Perfil e Contribuição das fontes(\%) no bairro para $MP_{2.5}$:
-%    \begin{tiny}
-%      \input{../../outputs/RFsH_profiles_percent_species.tex}
-%      \input{../../outputs/RFsH_contribution.tex}
-%    \end{tiny}
-%\end{frame}
-
-%\begin{frame}
-%    Perfil e Contribuição das fontes(\%) na Avenida para $MP_{2.5}$:
-%    \begin{tiny}
-%      \input{../../outputs/TFsH_profiles_percent_species.tex}
-%      \input{../../outputs/TFsH_contribution.tex}
-%    \end{tiny}
-%\end{frame}
+\begin{frame}
+  \frametitle{}
+  Comparação das análises de XRF no LAPAt e na US-EPA. 
+  \begin{figure}[H]
+    \centering
+      \includegraphics[width=0.3\textwidth]{../../outputs/epa_iag_S.pdf}
+      \includegraphics[width=0.3\textwidth]{../../outputs/epa_iag_K.pdf}
+      \includegraphics[width=0.3\textwidth]{../../outputs/epa_iag_Ca.pdf}
+  \end{figure}
+\end{frame}
 
 
+\begin{frame}
+  \frametitle{}
+  \begin{figure}[H]
+    \centering
+      \includegraphics[width=0.3\textwidth]{../../outputs/epa_iag_P.pdf}
+      \includegraphics[width=0.3\textwidth]{../../outputs/epa_iag_Cl.pdf}
+      \includegraphics[width=0.3\textwidth]{../../outputs/epa_iag_V.pdf}
+  \end{figure}
+\end{frame}
+
+\subsection{Black Carbon}
 \begin{frame}
   \frametitle{}
   \begin{figure}[H]
@@ -136,23 +85,13 @@
 
 \begin{frame}
   \frametitle{}
+  Comparação da massa de BC das amostras do túnel Jânio Quadros 
+                 calculada usando calibração por TOT(1) versus calibração a partir dos 
+                 alvos padrões produzidos na CETESB(2)
   \begin{figure}[H]
     \centering
-    \begin{minipage}[b]{0.5\linewidth}
-      \includegraphics[width=\textwidth]{../../outputs/BC_janio_quadros.pdf}
-      \caption{Comparação da massa de BC das amostras do túnel Jânio Quadros 
-               calculada usando calibração por TOT versus calibração a partir dos 
-               alvos padrões produzidos na CETESB. \label{fig:JQ}}
-    \end{minipage}
-    \hspace{0.5cm}
-    \begin{minipage}[b]{0.45\linewidth}
-      \begin{small}
-        \input{../../outputs/BC_janio_quadros.tex}
-      \end{small}
-      \captionof{table}{Comparação da massa de BC das amostras do túnel Jânio Quadros 
-               calculada usando calibração por TOT(1) versus calibração a partir dos 
-               alvos padrões produzidos na CETESB(2). \label{table:JQ}}
-    \end{minipage}
+      \includegraphics[width=0.6\linewidth]{../../outputs/BC_janio_quadros.pdf}
+
   \end{figure}
 \end{frame}
 
@@ -169,6 +108,8 @@
 
 \begin{frame}
   \frametitle{}
+  Razão dos valores de BC medidos por refletância e calibrados por 
+  TOT e M71 para Recife e Acra.
   \begin{figure}[H]
   	\centering
   	\begin{subfigure}[b]{0.43\linewidth}
@@ -180,15 +121,162 @@
   		\includegraphics[width=\linewidth]{../../outputs/BC_compara_calibs_recife.pdf}
   		\caption{Recife \label{fig:BC_compara_recife}}
   	\end{subfigure}%
+   \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+ % Padrões de Qualidade do Ar para $MP_{10}$ Ambiental em Gana
+  \begin{table}[H]
+  \centering
+  \tiny 
+    \input{../../inputs/latex/gana_standards.tex}
+  \end{table}
   
-  	\caption{Razão dos valores de BC medidos por refletância e calibrados por 
-  		TOT e M71 para Recife e Acra. \label{fig:BC_compara}}
+ %Padrões para média anual de $MP_{10}$ no Brasil 
+  \begin{table}[H]
+  \centering
+  \tiny 
+    \input{../../inputs/latex/mp_standards.tex}
+  \end{table}
+  %Médias de $MP_{10}$ para o ano de 2007
+    \begin{table}[H]
+      \centering
+      \tiny 
+      \input{../../inputs/latex/medias_inalavel.tex}
+
+    \end{table}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{../../outputs/massa_temporal_RIcH.pdf}
+      \caption{Área residencial (Sam Road)}
+    \end{subfigure}%
+    \begin{subfigure}[b]{0.45\textwidth}
+      \includegraphics[width=\textwidth]{../../outputs/massa_temporal_TIcH.pdf}
+      \caption{Avenida (Nima Road)}
+    \end{subfigure}
+    \caption{Concentrações de $MP_{10}$ ao longo da campanha de amostragem.
+             \label{fig:massa_temporal_mp10}}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{gg}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../../outputs/windRose2007.pdf}
+    \caption{Rosa do ventos para Acra/2007. \label{fg:rosaCompleta}}
   \end{figure}
 \end{frame}
 
 
 \begin{frame}
   \frametitle{}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../../outputs/windRose_horaria.pdf}
+    \caption{Rosa do ventos horária para Acra/2007. \label{fig:windRose_horaria}}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{../../outputs/windRose_mensal.pdf}
+    \caption{Rosa do ventos mensal para Acra/2007. \label{fig:windRose_mensal}}
+  \end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{}
+  Intensidade e direção do vento médio na altitude de 1000 metros 
+               sobre o continente Africano.
+  \begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.5\linewidth}
+    \includegraphics[width=\linewidth]{../../inputs/grads/gimp/1000hPa/JAN_2008.pdf}
+      \caption{10 metros}
+    \end{subfigure}%
+  %  \hspace{0.5cm}
+    \begin{subfigure}[b]{0.5\linewidth}
+      \includegraphics[width=\linewidth]{../../inputs/grads/gimp/875hPa/JAN_2008.pdf}
+      \caption{1000 metros}
+    \end{subfigure}
+  \end{figure}
+\end{frame}
+
+\subsection{Identificaçao das fontes}
+
+
+
+\begin{frame}
+  \frametitle{}
+  Análise de Fatores na área residencial para $MP_{2,5}$
+               excluindo dias de ocorrência de vento Harmatão. n = 123.          
+  \begin{table}[H]
+    \centering
+    \tiny
+    \input{../../outputs/beautifulFAdisplay_RFsH5.tex}
+  \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{}
+Análise de Fatores na avenida para $MP_{2,5}$
+           excluindo dias de ocorrência de vento Harmatão. n = 122.         
+  \begin{table}[H]
+    \centering
+    \tiny
+    \input{../../outputs/beautifulFAdisplay_TFsH5.tex}
+  \end{table}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{}
+    \begin{figure}
+      \centering
+            \begin{minipage}[b]{0.4\linewidth}
+              \tiny
+              \input{../../outputs/RFsH_profiles_percent_species5.tex}
+      
+            \end{minipage}
+                  \hspace{3cm}
+      \begin{minipage}[b]{0.3\linewidth}
+        \includegraphics[width=\linewidth]{../../outputs/RFsH_pmf_contribution_pizza5.pdf}
+
+      \end{minipage}%\hfill
+
+
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
+  \begin{table}[H]
+    \centering
+    \tiny
+    \input{../../inputs/latex/fontes_fino.tex}
+    \caption{Síntese das associações dos fatores extraídos na AF e PMF com fontes 
+             poluidoras para $MP_{2,5}$. \label{sintese_fino}}
+  \end{table}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{}
 \end{frame}
 
 
@@ -203,29 +291,10 @@
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{}
-\end{frame}
-
-
 
 \begin{frame}
   \frametitle{}
 \end{frame}
 
 
-\begin{frame}
-  \frametitle{}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{}
-\end{frame}
 
