@@ -12,7 +12,7 @@ mar.default <- c(5,4,4,2)
 par(mar = mar.default + c(0, 1, 0, 0))
 plot(PIB[,1],PIB$Brazil,type='n',
      xlab = 'Ano',
-     ylab = 'Milhões de $ USD')
+     ylab = '$ 1000 USD')
 lines(PIB[,1],PIB$Brazil,col='red')
 lines(PIB[,1],PIB$Ghana,col='blue')
 
