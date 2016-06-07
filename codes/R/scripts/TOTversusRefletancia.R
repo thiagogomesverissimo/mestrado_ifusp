@@ -143,6 +143,7 @@ plot(0,0,
 
 axis(side=1, at=seq(0, 100, by=10))
 axis(side=2, at=seq(0.5,2.7, by=0.1))
+abline(h=1,col='grey')
 box()
 
 points(refletancias_nima[,2],calibM71_linear/calibTOT,col='blue')
@@ -187,5 +188,6 @@ box()
 points(recife$refletancia,recife_lapat/recife_TOT,col='red')
 legenda=c('M71 com ajuste de 2° Grau')
 legend('topright',legenda, ncol=1,col=c('red'),bty='n',pch = 15, cex=1)
+abline(h=1,col='grey')
 
 dev.off()
