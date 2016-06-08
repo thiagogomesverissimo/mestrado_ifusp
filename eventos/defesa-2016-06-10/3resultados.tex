@@ -3,7 +3,7 @@
 \subsection{Calibração da XRF}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Calibração da XRF}
   \begin{figure}
       \centering
       \includegraphics[width=0.5\linewidth]{../../outputs/CalibrationK2010MaiAkerr.pdf}
@@ -12,7 +12,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
+  \frametitle{Perda de eficiência XRF}
   Comparação das calibrações da XRF-ED nos 3 períodos.
   \begin{figure}[H]
     \begin{subfigure}[b]{0.5\textwidth}
@@ -86,9 +86,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-  Razão dos valores de BC medidos por refletância e calibrados por 
-  TOT e M71 para Recife e Acra.
+  \frametitle{Razão dos valores de BC pelas diferentes calibrações}
   \begin{figure}[H]
   	\centering
   	\begin{subfigure}[b]{0.44\linewidth}
@@ -104,7 +102,6 @@
 \end{frame}
 
 \subsection{Meteorologia}
-
 \begin{frame}
 	\frametitle{}
 	\begin{figure}[H]
@@ -124,8 +121,8 @@
 
 \begin{frame}
 \frametitle{}
-					Intensidade e direção do vento médio na altitude de 1000 metros 
-					sobre o continente Africano.
+Intensidade e direção do vento médio na altitude de 
+10 e 1000 metros sobre o continente africano.
 \begin{figure}[H]
 \centering
   \begin{subfigure}[b]{0.5\linewidth}
@@ -143,32 +140,29 @@
 \subsection{Concentrações Ambientais}
 \begin{frame}
   \frametitle{Concentrações Ambientais}
-  Padrões de Qualidade do Ar para $MP_{10}$ inalável em Gana:
+  No Brasil, o padrão anual de $MP_{10}$ é 50 $\mu g/m^3$ e na OMS 20 $\mu g/m^3$. Em Gana, segue legislação vigente:
   \begin{table}[H]
   \centering
   \tiny 
     \input{../../inputs/latex/gana_standards.tex}
   \end{table}
-  
- Padrões de $MP_{10}$ no Brasil, OMS e Gana:
-  \begin{table}[H]
-  \centering
-  \tiny 
-    \input{../../inputs/latex/mp_standards.tex}
-  \end{table}
-  
+%  \begin{table}[H]
+%  \centering
+%  \tiny 
+%    \input{../../inputs/latex/mp_standards.tex}
+%  \end{table}
 Médias de $MP_{10}$ para o ano de 2007:
-    \begin{table}[H]
-      \centering
-      \tiny 
-      \input{../../inputs/latex/medias_inalavel.tex}
-
-    \end{table}
+  \begin{table}[H]
+    \centering
+    \tiny 
+    \input{../../inputs/latex/medias_inalavel.tex}
+  \end{table}
 \end{frame}
 
-
 \begin{frame}
-  \frametitle{}
+  \frametitle{Padrão Diário}
+    No Brasil, o padrão diário é
+    150 $\mu g/m^3$ e na OMS 50 $\mu g/m^3$.
   \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
@@ -179,30 +173,21 @@ Médias de $MP_{10}$ para o ano de 2007:
       \includegraphics[width=\textwidth]{../../outputs/massa_temporal_TIcH.pdf}
       \caption{Avenida (Nima Road)}
     \end{subfigure}
-    \caption{Concentrações de $MP_{10}$ ao longo da campanha de amostragem.
-             \label{fig:massa_temporal_mp10}}
   \end{figure}
 \end{frame}
-
-\begin{frame}
-  \frametitle{gg}
-  \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{../../outputs/windRose2007.pdf}
-    \caption{Rosa do ventos para Acra/2007. \label{fg:rosaCompleta}}
-  \end{figure}
-\end{frame}
-
-
 
 \subsection{Identificaçao das fontes}
-
-
+\begin{frame}
+  \frametitle{Identificaçao das fontes}
+  
+\begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,title=Harmatão]
+  Critério para identificação dos dias de ocorrência do Harmatão:
+  concentrações de silício no $MP_{10}$ maiores que 10 $\mu g/m^3$ nos  meses de novembro à março. 
+\end{tcolorbox}
+\end{frame}
 
 \begin{frame}
-  \frametitle{}
-  Análise de Fatores na área residencial para $MP_{2,5}$
-               excluindo dias de ocorrência de vento Harmatão. n = 123.          
+  \frametitle{Análise de Fatores - Residencial $MP_{2,5}$}        
   \begin{table}[H]
     \centering
     \tiny
@@ -211,9 +196,7 @@ Médias de $MP_{10}$ para o ano de 2007:
 \end{frame}
 
 \begin{frame}
-  \frametitle{}
-Análise de Fatores na avenida para $MP_{2,5}$
-           excluindo dias de ocorrência de vento Harmatão. n = 122.         
+  \frametitle{Análise de Fatores - Avenida $MP_{2,5}$}    
   \begin{table}[H]
     \centering
     \tiny
@@ -221,32 +204,41 @@ Análise de Fatores na avenida para $MP_{2,5}$
   \end{table}
 \end{frame}
 
-
-
 \begin{frame}
-  \frametitle{}
+  \frametitle{PMF - Residencial $MP_{2,5}$}
+  Perfil dos fatores em \% e contribuição na massa:
     \begin{figure}
       \centering
             \begin{minipage}[b]{0.4\linewidth}
               \tiny
               \input{../../outputs/RFsH_profiles_percent_species5.tex}
-      
             \end{minipage}
                   \hspace{3cm}
       \begin{minipage}[b]{0.3\linewidth}
         \includegraphics[width=\linewidth]{../../outputs/RFsH_pmf_contribution_pizza5.pdf}
 
       \end{minipage}%\hfill
-
-
     \end{figure}
 \end{frame}
 
+\begin{frame}
+  \frametitle{PMF - Avenida $MP_{2,5}$}
+  Perfil dos fatores em \% e contribuição na massa:
+    \begin{figure}
+      \centering
+            \begin{minipage}[b]{0.4\linewidth}
+              \tiny
+              \input{../../outputs/TFsH_profiles_percent_species5.tex}
+            \end{minipage}
+                  \hspace{3cm}
+      \begin{minipage}[b]{0.3\linewidth}
+        \includegraphics[width=\linewidth]{../../outputs/TFsH_pmf_contribution_pizza5.pdf}
+      \end{minipage}%\hfill
+    \end{figure}
+\end{frame}
 
 \begin{frame}
-  \frametitle{}
-  Síntese das associações dos fatores extraídos na AF e PMF com fontes 
-  poluidoras para $MP_{2,5}$.
+  \frametitle{Síntese dos fatores extraídos para $MP_{2,5}$}
   \begin{table}[H]
     \centering
     \tiny
@@ -260,11 +252,58 @@ Análise de Fatores na avenida para $MP_{2,5}$
     \end{table}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Análise de Fatores - Residencial $MP_{2,5-10}$}        
+  \begin{table}[H]
+    \centering
+    \tiny
+    \input{../../outputs/beautifulFAdisplay_RGsH4.tex}
+  \end{table}
+\end{frame}
 
 \begin{frame}
-	\frametitle{}
-	Síntese das associações dos fatores extraídos na AF e PMF com fontes 
-	poluidoras para $MP_{2,5-10}$.
+  \frametitle{Análise de Fatores - Avenida $MP_{2,5-10}$}    
+  \begin{table}[H]
+    \centering
+    \tiny
+    \input{../../outputs/beautifulFAdisplay_TGsH4.tex}
+  \end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{PMF - Residencial $MP_{2,5-10}$}
+  Perfil dos fatores em \% e contribuição na massa:
+    \begin{figure}
+      \centering
+            \begin{minipage}[b]{0.4\linewidth}
+              \tiny
+              \input{../../outputs/RGsH_profiles_percent_species4.tex}
+            \end{minipage}
+                  \hspace{3cm}
+      \begin{minipage}[b]{0.3\linewidth}
+        \includegraphics[width=\linewidth]{../../outputs/RGsH_pmf_contribution_pizza4.pdf}
+      \end{minipage}%\hfill
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{PMF - Avenida $MP_{2,5}$}
+  Perfil dos fatores em \% e contribuição na massa:
+    \begin{figure}
+      \centering
+            \begin{minipage}[b]{0.4\linewidth}
+              \tiny
+              \input{../../outputs/TGsH_profiles_percent_species4.tex}
+            \end{minipage}
+                  \hspace{3cm}
+      \begin{minipage}[b]{0.3\linewidth}
+        \includegraphics[width=\linewidth]{../../outputs/TGsH_pmf_contribution_pizza4.pdf}
+      \end{minipage}%\hfill
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Síntese dos fatores extraídos para $MP_{2,5-10}$}
 	\begin{table}[H]
 		\centering
 		\tiny
@@ -276,28 +315,4 @@ Análise de Fatores na avenida para $MP_{2,5}$
 		\tiny
 		\input{../../inputs/latex/fontes_grosso_avenida.tex}
 	\end{table}
-	
 \end{frame}
-
-
-
-
-
-
-\begin{frame}
-  \frametitle{}
-\end{frame}
-
-
-\begin{frame}
-  \frametitle{}
-\end{frame}
-
-
-
-\begin{frame}
-  \frametitle{}
-\end{frame}
-
-
-

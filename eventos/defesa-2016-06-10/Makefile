@@ -3,7 +3,6 @@
 main.pdf: defesa.tex
 	pdflatex -interaction=nonstopmode -halt-on-error defesa.tex 
 	pdflatex -interaction=nonstopmode -halt-on-error defesa.tex 
-	pdflatex -interaction=nonstopmode -halt-on-error defesa.tex 
 	make clean
 
 clean:

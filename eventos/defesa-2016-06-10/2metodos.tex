@@ -8,7 +8,7 @@
 		\item Medidas de 48 horas;
 		\item As amostras foram coletadas em filtro de composição de politetrafluoretileno
 		(PTFE);
-		\item amostradores tipo Harvard (seleção do diâmetro por impactação inercial);
+		\item Amostradores tipo Harvard (seleção do diâmetro por impactação inercial);
 		\item 2898 amostras coletadas de $MP_{10}$ e $MP_{2,5}$ no projeto global e 879 amostras no bairro de Nima;
 		\item Onze sítios localizados em quatro bairros diferentes;
 		\item Em Nima, dois pontos de amostragem: residencial e avenida;
@@ -182,7 +182,18 @@ A incerteza é dada pela diagonal da matriz de covariância de $[\tilde{Y}]$:
 
 \subsection{Black Carbon}
 \begin{frame}
-  \frametitle{Refletância}
+  \frametitle{Black Carbon}
+% Onde, $K = [2 \cdot ({\alpha}/{\rho}) \cdot log(e)]^{-1}$ e $I_0$ = 100\%.
+ 
+Medidas de carbono elementar foram realizadas pelo método absoluto Thermal
+Optical Transmittance (TOT). E medidas relativas por refletância 
+(\textit{Diffusion System} modelo ELL43D).
+
+  \begin{figure}[H]
+  	\centering
+  	\includegraphics[width=0.38\linewidth]{../../inputs/images/refletometro.jpg}
+  \end{figure}
+
   \begin{equation*}
   \label{eq:dIdx}
   \frac{dI}{dx} = -\alpha \cdot I
@@ -192,16 +203,6 @@ A incerteza é dada pela diagonal da matriz de covariância de $[\tilde{Y}]$:
   \label{m/a_2}
   \frac{m}{A} = K \cdot (2-logI) 
   \end{equation*}
-  
-% Onde, $K = [2 \cdot ({\alpha}/{\rho}) \cdot log(e)]^{-1}$ e $I_0$ = 100\%.
- 
-\begin{center}
-	 Refletômetro da \textit{Diffusion System} modelo ELL43D:
-\end{center}
-  \begin{figure}[H]
-  	\centering
-  	\includegraphics[width=0.38\linewidth]{../../inputs/images/refletometro.jpg}
-  \end{figure}
 \end{frame}
 
 \subsection{Modelo receptor}
