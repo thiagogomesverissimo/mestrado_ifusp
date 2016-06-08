@@ -2,20 +2,6 @@
 
 \subsection{Amostragem}
 \begin{frame}
-	\frametitle{Dados da amostragem}
-	\begin{itemize}
-		\item De 11 de novembro de 2006 à 15 de agosto de 2008;
-		\item Medidas de 48 horas;
-		\item As amostras foram coletadas em filtro de composição de politetrafluoretileno
-		(PTFE);
-		\item Amostradores tipo Harvard (seleção do diâmetro por impactação inercial);
-		\item 2898 amostras coletadas de $MP_{10}$ e $MP_{2,5}$ no projeto global e 879 amostras no bairro de Nima;
-		\item Onze sítios localizados em quatro bairros diferentes;
-		\item Em Nima, dois pontos de amostragem: residencial e avenida;
-	\end{itemize}
-\end{frame}
-
-\begin{frame}
   \frametitle{Amostragem}
  \begin{center}
   Pontos de amostragem em Nima:
@@ -27,16 +13,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Amostragem}
-  \begin{figure}[H]
-  \centering	
-  \includegraphics[width=0.7\textwidth]{../../outputs/accra_sources.pdf}
-  \caption{Levantamento de algumas fontes poluidora de Acra.
-           \label{fg:acrasources}}
- \end{figure}
-\end{frame}
-
-\begin{frame}
   \frametitle{Censo populacional}
 \begin{center}
   Fonte de energia na preparação alimentos em Gana:
@@ -45,6 +21,20 @@
   	\centering
   	\input{../../inputs/latex/energia.tex}
   \end{table}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Dados da amostragem}
+	\begin{itemize}
+		\item De 11 de novembro de 2006 à 15 de agosto de 2008;
+		\item Medidas de 48 horas;
+		\item As amostras foram coletadas em filtro de composição de politetrafluoretileno
+		(PTFE);
+		\item Amostradores tipo Harvard (seleção do diâmetro por impactação inercial);
+		\item 2898 amostras coletadas de $MP_{10}$ e $MP_{2,5}$ no projeto global e 879 amostras no bairro de Nima;
+		\item Onze sítios localizados em quatro bairros diferentes;
+		\item Em Nima, dois pontos de amostragem: residencial e avenida;
+	\end{itemize}
 \end{frame}
 
 \subsection{Fluorescência de raios X}
@@ -133,22 +123,6 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Massa Elementar}
-\begin{equation*}
-  \label{eq:xrfedmassa}
-  m(Z) = \frac{N(Z) \cdot A}{ R(Z) \cdot I \cdot \Delta t}
-\end{equation*}
-
-\begin{equation*}
-  \label{eq:erro_massa}
-  \sigma_{m(Z)}^2 = {m(Z)}^2 \left[ \left(\frac{\sigma_{N(Z)}}{N(Z)}\right)^2 + 
-                                  \left(\frac{\sigma_A}{A}\right)^2 + 
-                                  \left(\frac{\sigma_{R(Z)}}{R(Z)}\right)^2 
-                             \right]
-\end{equation*}
-\end{frame}
-
-\begin{frame}
   \frametitle{Mínimos Quadrados Matricial} 
 \begin{equation*}
   \label{eq:polinomio}
@@ -216,7 +190,7 @@ Optical Transmittance (TOT). E medidas relativas por refletância
    	\textbf{Conservação da massa}
    \end{center}
      \begin{equation*}
-     x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} + \epsilon_{ij}
+     x_{ij} = \sum_{p=1}^{P} g_{ip}f_{pj} %+ \epsilon_{ij}
      \end{equation*} 
      \begin{footnotesize}
     
@@ -225,7 +199,7 @@ Optical Transmittance (TOT). E medidas relativas por refletância
      	\item $f_{pj}$ = fração da espécie j emitida na fonte/fator p 
      	(perfil da fonte, assinatura da fonte ou \textit{Factor Loadings}); 
      	\item $g_{ip}$ = contribuição da fonte/fator p para amostra i (\textit{Factor Score});
-     	\item $\epsilon_{ij}$ = Resíduo, depende do modelo empregado.
+     %	\item $\epsilon_{ij}$ = Resíduo, depende do modelo empregado.
      \end{itemize}
          \end{footnotesize}
 \end{frame}
