@@ -3,6 +3,14 @@
 \subsection{Calibração da XRF}
 
 \begin{frame}
+	\frametitle{Resultados}
+	\begin{center}
+		\Huge
+		Resultados
+	\end{center}
+\end{frame}
+
+\begin{frame}
   \frametitle{Calibração da XRF}
   \begin{figure}
       \centering
@@ -17,11 +25,11 @@
   \begin{figure}[H]
     \begin{subfigure}[b]{0.5\textwidth}
       \includegraphics[width=\textwidth]{../../outputs/CalibrationKcomparacao.pdf}
-      \caption{linha K}
+      \caption{linha K (9\%)}
     \end{subfigure}%
     \begin{subfigure}[b]{0.5\textwidth}
       \includegraphics[width=\textwidth]{../../outputs/CalibrationLcomparacao.pdf}
-      \caption{linha L}
+      \caption{linha L (7\%)}
     \end{subfigure}
   \end{figure}
 \end{frame}
@@ -43,12 +51,15 @@
     \end{figure}
 \end{frame}
 
-\subsection{Calibraçaõ do Black Carbon}
+\subsection{Calibração do Black Carbon}
 \begin{frame}
   \frametitle{Calibração do refletômetro usando alvos padrões M71}
+  %  \begin{equation*}
+	Lembrando que: $ \frac{m}{A} = K \cdot (2-logI) $
+ %   \end{equation*}
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{../../outputs/BC_monarch71.pdf}
+    \includegraphics[width=0.6\textwidth]{../../outputs/BC_monarch71.pdf}
   \end{figure}
 \end{frame}
 
@@ -105,42 +116,46 @@
 
 \begin{frame}
 	\frametitle{}
+NOAA (aeroporto de Acra) para 2007. Rosa dos ventos horária: 
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.8\linewidth]{../../outputs/windRose_horaria.pdf}
+		\includegraphics[width=0.75\linewidth]{../../outputs/windRose_horaria.pdf}
 	\end{figure}
 \end{frame}
 
 \begin{frame}
 	\frametitle{}
+	NOAA (aeroporto de Acra) para 2007. Rosa dos ventos sazonal: 
 	\begin{figure}[H]
 	\centering
-		\includegraphics[width=0.8\linewidth]{../../outputs/windRose_mensal.pdf}
+		\includegraphics[width=0.75\linewidth]{../../outputs/windRose_mensal.pdf}
     \end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{}
-Intensidade e direção do vento médio na altitude de 
-10 e 1000 metros sobre o continente africano em Janeiro de 2007.
+Vento médio sobre o continente africano em Janeiro de 2007
+(European Centre for Medium-Range Weather Forecasts, ECMWF):
 \begin{figure}[H]
 \centering
-  \begin{subfigure}[b]{0.5\linewidth}
+  \begin{subfigure}[b]{0.45\linewidth}
+  	\includegraphics[width=1.3\linewidth]{../../inputs/grads/gimp/875hPa/JAN_2008.pdf}
+  	\caption{1000 metros}
+  \end{subfigure}
+  \begin{subfigure}[b]{0.45\linewidth}
     \includegraphics[width=1.3\linewidth]{../../inputs/grads/gimp/1000hPa/JAN_2008.pdf}
     \caption{10 metros}
   \end{subfigure}%
   %  \hspace{0.5cm}
-  \begin{subfigure}[b]{0.5\linewidth}
-    \includegraphics[width=1.3\linewidth]{../../inputs/grads/gimp/875hPa/JAN_2008.pdf}
-    \caption{1000 metros}
-  \end{subfigure}
 \end{figure}
 \end{frame}
 
 \subsection{Concentrações Ambientais}
 \begin{frame}
   \frametitle{Concentrações Ambientais}
-  No Brasil, o padrão anual de $MP_{10}$ é 50 $\mu g/m^3$ e na OMS 20 $\mu g/m^3$. Em Gana, segue legislação vigente:
+ 
+  
+  Legislação de Gana para $MP_{10}$:
   \begin{table}[H]
   \centering
   \tiny 
@@ -151,27 +166,33 @@ Intensidade e direção do vento médio na altitude de
 %  \tiny 
 %    \input{../../inputs/latex/mp_standards.tex}
 %  \end{table}
-Médias de $MP_{10}$ para o ano de 2007:
-  \begin{table}[H]
-    \centering
-    \tiny 
-    \input{../../inputs/latex/medias_inalavel.tex}
-  \end{table}
+Média anual de $MP_{10}$ de Acra para 2007:
+\begin{itemize}
+	\item sem Harmatão: 53,3 e \textcolor{red}{51,21} $\mu g /m^3$ (aritmética e geométrica)	
+	\item com Harmatão: 123,4 e \textcolor{red}{77,7} $\mu g /m^3$ (aritmética e geométrica)
+\end{itemize}
+
+Padrão anual no Brasil: 50 $\mu g/m^3$. Padrão anual OMS: 20 $\mu g/m^3$.
+%  \begin{table}[H]
+%    \centering
+%    \tiny 
+%    \input{../../inputs/latex/medias_inalavel.tex}
+%  \end{table}
 \end{frame}
 
 \begin{frame}
   \frametitle{Padrão Diário}
-    No Brasil, o padrão diário é
-    150 $\mu g/m^3$ e na OMS 50 $\mu g/m^3$.
+    Padrão diário. Brasil: 150 $\mu g/m^3$; OMS: 50 $\mu g/m^3$.
+  %16 \% dos dias na área residencial e 19 \% na avenida. Na OMS, 59 \% e 90 \%, respectivamente;
   \begin{figure}[H]
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
       \includegraphics[width=\textwidth]{../../outputs/massa_temporal_RIcH.pdf}
-      \caption{Área residencial (Sam Road)}
+      \caption{Área residencial: 16\% (Gana) e 59\% (OMS).}
     \end{subfigure}%
     \begin{subfigure}[b]{0.45\textwidth}
       \includegraphics[width=\textwidth]{../../outputs/massa_temporal_TIcH.pdf}
-      \caption{Avenida (Nima Road)}
+      \caption{Avenida: 59\% (Gana) e \textcolor{red}{90\%} (OMS).}
     \end{subfigure}
   \end{figure}
 \end{frame}
@@ -181,8 +202,7 @@ Médias de $MP_{10}$ para o ano de 2007:
   \frametitle{Identificaçao das fontes}
   
 \begin{tcolorbox}[colback=blue!5,colframe=blue!40!black,title=Harmatão]
-  Critério para identificação dos dias de ocorrência do Harmatão:
-  concentrações de silício no $MP_{10}$ maiores que 10 $\mu g/m^3$ nos  meses de novembro à março. 
+  Silício no $MP_{10}$ > 10 $\mu g/m^3$.
 \end{tcolorbox}
 \end{frame}
 
@@ -193,49 +213,22 @@ Médias de $MP_{10}$ para o ano de 2007:
     \tiny
     \input{../../outputs/beautifulFAdisplay_RFsH5.tex}
   \end{table}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Análise de Fatores - Avenida $MP_{2,5}$}    
-  \begin{table}[H]
-    \centering
-    \tiny
-    \input{../../outputs/beautifulFAdisplay_TFsH5.tex}
-  \end{table}
+  \textcolor{red}{1-solo, 2-queima de biomassa, 3-veículo, 4-mar e 5-queima de lixo}. 
 \end{frame}
 
 \begin{frame}
   \frametitle{PMF - Residencial $MP_{2,5}$}
   Perfil dos fatores em \% e contribuição na massa:
-    \begin{figure}
-      \centering
-            \begin{minipage}[b]{0.4\linewidth}
-              \tiny
+  
+    \begin{table}[H]
+    	\centering
+    	\tiny  
               \input{../../outputs/RFsH_profiles_percent_species5.tex}
-            \end{minipage}
-                  \hspace{3cm}
-      \begin{minipage}[b]{0.3\linewidth}
-        \includegraphics[width=\linewidth]{../../outputs/RFsH_pmf_contribution_pizza5.pdf}
-
-      \end{minipage}%\hfill
-    \end{figure}
+    \end{table}
+      
+      \textcolor{blue}{1-veículo, 2-queima de lixo, 3-solo, 4-mar e 5-queima de biomassa}. 
 \end{frame}
 
-\begin{frame}
-  \frametitle{PMF - Avenida $MP_{2,5}$}
-  Perfil dos fatores em \% e contribuição na massa:
-    \begin{figure}
-      \centering
-            \begin{minipage}[b]{0.4\linewidth}
-              \tiny
-              \input{../../outputs/TFsH_profiles_percent_species5.tex}
-            \end{minipage}
-                  \hspace{3cm}
-      \begin{minipage}[b]{0.3\linewidth}
-        \includegraphics[width=\linewidth]{../../outputs/TFsH_pmf_contribution_pizza5.pdf}
-      \end{minipage}%\hfill
-    \end{figure}
-\end{frame}
 
 \begin{frame}
   \frametitle{Síntese dos fatores extraídos para $MP_{2,5}$}
@@ -259,47 +252,20 @@ Médias de $MP_{10}$ para o ano de 2007:
     \tiny
     \input{../../outputs/beautifulFAdisplay_RGsH4.tex}
   \end{table}
+        \textcolor{red}{1-solo}, 2-``indefinido(Pb,Br,Zn,S)``, \textcolor{red}{3-mar} e 4-``indefinido(Zn)``.
 \end{frame}
 
-\begin{frame}
-  \frametitle{Análise de Fatores - Avenida $MP_{2,5-10}$}    
-  \begin{table}[H]
-    \centering
-    \tiny
-    \input{../../outputs/beautifulFAdisplay_TGsH4.tex}
-  \end{table}
-\end{frame}
 
 \begin{frame}
   \frametitle{PMF - Residencial $MP_{2,5-10}$}
-  Perfil dos fatores em \% e contribuição na massa:
-    \begin{figure}
-      \centering
-            \begin{minipage}[b]{0.4\linewidth}
-              \tiny
+  Perfil dos fatores em \% e contribuição na massa:      
+	\begin{table}[H]
+		\centering
+		\tiny
               \input{../../outputs/RGsH_profiles_percent_species4.tex}
-            \end{minipage}
-                  \hspace{3cm}
-      \begin{minipage}[b]{0.3\linewidth}
-        \includegraphics[width=\linewidth]{../../outputs/RGsH_pmf_contribution_pizza4.pdf}
-      \end{minipage}%\hfill
-    \end{figure}
-\end{frame}
-
-\begin{frame}
-  \frametitle{PMF - Avenida $MP_{2,5-10}$}
-  Perfil dos fatores em \% e contribuição na massa:
-    \begin{figure}
-      \centering
-            \begin{minipage}[b]{0.4\linewidth}
-              \tiny
-              \input{../../outputs/TGsH_profiles_percent_species4.tex}
-            \end{minipage}
-                  \hspace{3cm}
-      \begin{minipage}[b]{0.3\linewidth}
-        \includegraphics[width=\linewidth]{../../outputs/TGsH_pmf_contribution_pizza4.pdf}
-      \end{minipage}%\hfill
-    \end{figure}
+	\end{table}
+	\textcolor{blue}{1-solo}, \textcolor{red}{2-solo+Zn+Pb}, \textcolor{blue}{3-mar},
+	\textcolor{red}{4-partículas envelhecidas de veículos e queima biomassa/lixo}.
 \end{frame}
 
 \begin{frame}

@@ -1,10 +1,19 @@
 \section{Metodologia}
 
 \subsection{Amostragem}
+
+\begin{frame}
+	\frametitle{Metodologia}
+	\begin{center}
+		\Huge
+		Metodologia
+	\end{center}
+\end{frame}
+
 \begin{frame}
   \frametitle{Amostragem}
  \begin{center}
-  Pontos de amostragem em Nima:
+  Pontos de amostragem em Nima (Censo de 2000):
  \end{center}
   \begin{figure}[H]
     \centering
@@ -26,14 +35,12 @@
 \begin{frame}
 	\frametitle{Dados da amostragem}
 	\begin{itemize}
-		\item De 11 de novembro de 2006 à 15 de agosto de 2008;
-		\item Medidas de 48 horas;
-		\item As amostras foram coletadas em filtro de composição de politetrafluoretileno
-		(PTFE);
+		\item De novembro/2006 à agosto/2008;
+		\item Resolução 48 horas;
+		\item Filtro de politetrafluoretileno (PTFE);
 		\item Amostradores tipo Harvard (seleção do diâmetro por impactação inercial);
-		\item 2898 amostras coletadas de $MP_{10}$ e $MP_{2,5}$ no projeto global e 879 amostras no bairro de Nima;
-		\item Onze sítios localizados em quatro bairros diferentes;
-		\item Em Nima, dois pontos de amostragem: residencial e avenida;
+		\item 2898 amostras coletadas de $MP_{10}$ e $MP_{2,5}$ (879 amostras no bairro de Nima);
+		\item Onze pontos de amostragem, sendo dois em Nima.
 	\end{itemize}
 \end{frame}
 
@@ -158,34 +165,28 @@ A incerteza é dada pela diagonal da matriz de covariância de $[\tilde{Y}]$:
 \begin{frame}
   \frametitle{Black Carbon}
 % Onde, $K = [2 \cdot ({\alpha}/{\rho}) \cdot log(e)]^{-1}$ e $I_0$ = 100\%.
- 
-Medidas de carbono elementar foram realizadas pelo método absoluto Thermal
-Optical Transmittance (TOT). E medidas relativas por refletância 
-(\textit{Diffusion System} modelo ELL43D).
 
+\begin{itemize}
+	\item Carbono elementar medido pelo método absoluto Thermal Optical Transmittance (TOT);
+	\item Refletância por refletômetro \textit{Diffusion System} modelo ELL43D.
+\end{itemize}
+ 
   \begin{figure}[H]
   	\centering
   	\includegraphics[width=0.38\linewidth]{../../inputs/images/refletometro.jpg}
   \end{figure}
 
   \begin{equation*}
-  \label{eq:dIdx}
   \frac{dI}{dx} = -\alpha \cdot I
-  \end{equation*}
- 
-  \begin{equation*}
-  \label{m/a_2}
-  \frac{m}{A} = K \cdot (2-logI) 
+  \implies 	 \frac{m}{A} = K \cdot (2-logI)
   \end{equation*}
 \end{frame}
 
 \subsection{Modelo receptor}
 \begin{frame}
   \frametitle{Modelo receptor}
-  \textbf{Modelo Receptor} é uma abordagem matemática para quantificar o efeito das fontes 
-  nas amostras. Determinar as fontes a partir do receptor. \\
-  \textbf{Análise Multivariada} reduz as dimensões (variáveis) de um conjunto de dados 
-   analítico complexo que poderão ser interpretados como tipo de fontes. 
+  \textbf{Modelo Receptor}: Quantificação dos efeitos das fontes nas amostras.
+  
    \begin{center}
    	\textbf{Conservação da massa}
    \end{center}
@@ -206,6 +207,7 @@ Optical Transmittance (TOT). E medidas relativas por refletância
 
 \begin{frame}
   \frametitle{Análise de Fatores}
+  Solução pela decomposição da matriz de correlação. 
 \begin{equation*}
 \label{eq:af}
 x_i-\mu_i = l_{i1} F_1 + \cdots + l_{ip} F_p + \varepsilon_i 
@@ -222,15 +224,13 @@ x_i-\mu_i = l_{i1} F_1 + \cdots + l_{ip} F_p + \varepsilon_i
 % falar:   Função objeto - Q -  é uma função que precisa ser minimizada. 
 \begin{frame}
 	\frametitle{Positive Matrix Factorization}
+Solução por mínimos quadrados. 
 \begin{equation*}
-c_{ij} = \sum_{k=i}^p g_{ik}f_{kj} + e_{ij}
-\label{eq:pmf}
+c_{ij} = \sum_{k=i}^p g_{ik}f_{kj} + e_{ij},
+\qquad
+Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{c_{ij} - \sum_{k=i}^p g_{ik}f_{kj}} {u_{ij}} \right] ^2
 \end{equation*}
 
-\begin{equation*}
-Q = \sum_{i=1}^n \sum_{j=1}^m  \left[ \frac{c_{ij} - \sum_{k=i}^p g_{ik}f_{kj}} {u_{ij}} \right] ^2
-\label{eq:pmfobjectfull}
-\end{equation*}
 
 \begin{itemize}
 		\item $c_{ij}$: Matriz de concentração;
