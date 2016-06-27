@@ -227,7 +227,8 @@ pmf_contributions_latex <- function(path,sigla,colors,nfactors) {
   pizza_name = paste('../../outputs/',sigla,'_pmf_contribution_pizza',nfactors,'.pdf',sep="")
   pdf(file=pizza_name) 
     pieval<-contribution2latex[,1]
-    legenda<-paste(rownames(contribution2latex),' = ',contribution2latex[,1],'(', contribution2latex[,2],') %', sep='')
+    contribution2latex[,1:2] = fix_significativos(contribution2latex[,1:2])
+    legenda<-paste(rownames(contribution2latex),' = ',contribution2latex[,1],'\u00b1', contribution2latex[,2],' %', sep='')
     legenda = gsub('\\.',',',legenda)
     porcentagens <- paste(pieval,'%')
     porcentagens = gsub('\\.',',',porcentagens)
