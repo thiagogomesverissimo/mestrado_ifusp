@@ -150,7 +150,8 @@ dos elementos com energia igual ou menor que 2,6 keV. O diâmetro do feixe de
 raios X é definido por um colimador de 10 mm, garantindo a irradiação de uma 
 área representativa e homogênea da amostra. 
 
-O tempo vivo de irradiação de cada amostra foi $\pm$ 960 minutos, ajustando-se 
+O tempo vivo, quando o detector está de fato contando os fotóns incidentes, 
+foi cerca de 960 minutos, ajustou-se 
 a corrente para manter o tempo morto em 20\%. Desejava-se desta forma fixar a 
 taxa de contagem, obtendo-se ao final o mesmo número total de fótons contados 
 em cada espectro. Esse mecanismo permite melhorar o LD dos elementos presentes 
@@ -174,7 +175,8 @@ O EDX 720HS permite análise automática de amostras encaixadas em carrosséis
 de 8 ou 16 posições. O LAPAt contava então apenas com o carrossel de 16 
 posições. Foi necessário adquirir um com 8 posições, cujos receptáculos admitiam
 o maior diâmetro dos filtros de PTFE, que não podem ser cortados e remontados 
-como os de policarbonatos (figura \ref{fig:carrossel8}).
+como os de policarbonatos (figura \ref{fig:carrossel8}). A troca do carrossel
+implicou na necessidade de se realizar nova curva de calibração no XRF-ED. 
 
 \begin{figure}[H]
   \centering
@@ -193,7 +195,7 @@ o filtro voasse quando era feito ou quebrado o vácuo na câmera
   \centering
   \includegraphics[width=0.5\textwidth]{../inputs/images/suporte8.jpg}
   \caption{Suporte para filtros de PTFE, projetado no LAPAt para carrossel de 
-           8 posições e produzido pela oficina da FAP no 
+           8 posições e produzido pela oficina do Departamento de Física Aplicada do 
            Instituto de Física da USP. \label{fig:suporte8}}
 \end{figure}
 
@@ -273,16 +275,17 @@ com densidade elementar conhecida, podem ser comprados ou produzidos, dependendo
 da precisão desejada. Neste projeto foram adquiridos alvos padrões da 
 Micromatter, com incerteza nominal de 5\%. Mas esta empresa não produz alvos 
 com proporção estequiométrica quantificada para todas espécies químicas.
-Assim, trouxemos para a XRF-ED o conceito proposto por \citet{tabacniks2000}
-implementado no sistema PIXE (Particle Induced X-Ray Emission) do IFUSP que permite obter uma 
-calibração abrangendo elementos de número atômico no intervalo 10 < Z < 83. 
+Assim, trouxemos para a XRF-ED a metodologia usado por \citet{tabacniks2000}
+no sistema PIXE (Particle Induced X-Ray Emission) do IFUSP, na qual levanta-se 
+uma curva de calibração a partir de fatores de respostas medidos com 
+alvos padrões. 
  
 Adotou-se, ainda, uma metodologia estatística robusta para estimativa das 
 incertezas da calibração usando MQM. Essa preocupação em definir 
 adequadamente as incertezas deve-se, particularmente, ao fato de que elas 
 ponderam o peso das variáveis na modelagem por PMF.
 
-Como exemplo para conhecer o forma da curva de calibração, o gráfico da figura 
+Como exemplo para conhecer a forma da curva de calibração, o gráfico da figura 
 \ref{fg:edxrfcalib} apresenta os R(Z) dos alvos padrões da Micromatter 
 irradiados em maio de 2010. 
 
@@ -333,7 +336,7 @@ ou na forma matricial:
   [Y] = [A][X]
 \end{equation}
 
-Os coeficientes ajustados [Ã] são dados por:
+Os coeficientes [A] ajustados, identificados por [Ã], são dados por:
 
 \begin{equation}
   \label{eq:coeficientesajustados}
@@ -371,15 +374,15 @@ qualidade do ajuste que determinam a incerteza ajustada, oferecendo uma
 melhora significativa na precisão e na exatidão dos R(Z).
 
 %%%%
-\subsection{Fontes de erro no branco}
+\subsection{Fontes de erro no branco (amostras de controle)}
+
+Um conjunto de 10 amostras brancas de controle (entre campo e laboratório) 
+foram analisadas para eliminação da contaminação dos próprios filtros, assim como de 
+transporte e manipulação.
 
 A massa depositada no filtro amostrado $m(Z)_{medido}$ para um certo elemento Z
 é composta pela massa coletada na amostragem m(Z) mais a massa do filtro 
 branco $m_{B}(Z)$.
-
-Um conjunto de 10 amostras brancas (entre campo e laboratório) foram analisadas, 
-para eliminação da contaminação dos próprios filtros, assim como de 
-transporte e manipulação.
 
 A seguir, a equação \ref{eq:contagem} está escrita para representar o número de contagens de alvos amostrados, isto é, com sobreposição da massa coletada na amostragem $m(Z)$ e a massa do branco $m_B(Z)$: 
 
@@ -532,7 +535,7 @@ dificultando a detecção desses elementos, mas melhora com o aumento de Z.
 \newpage
 \begin{table}[H]
   \centering
-  \input{../outputs/LD.tex}
   \caption{Limite de detecção para XRF-ED em termos de concentrações típicas 
            para amostra branca e carregada. \label{table:LD}}
+  \input{../outputs/LD.tex}
 \end{table}

@@ -81,6 +81,7 @@ legenda = 'Calibração da Fluorescência de Raiox X linha K'
 
 print(xtable(tabela, caption=legenda,align = rep('c',10),label='table:edxAllCalibrationK'),
         type="latex", 
+        caption.placement='top',
         floating = FALSE,
         include.rownames = F,
         tabular.environment = 'longtable',
@@ -171,6 +172,7 @@ Z & medido & ajustado & medido & ajustado & medido & ajustado  & Nov 2010 & Abr 
 legenda = 'Calibração da Fluorescência de Raiox X  linha L'
 print(xtable(tabela,caption =legenda,align = rep('c',10),label='table:edxAllCalibrationL'),
       type="latex", 
+      caption.placement='top',
       floating = FALSE,
       include.rownames = F,
       tabular.environment = 'longtable',

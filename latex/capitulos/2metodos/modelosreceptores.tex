@@ -37,7 +37,7 @@ baixa resolução da amostragem e \textit{outliers}
 um desafio para modelos multivariados.
 
 %%%%
-\subsection{Conservação da massa}
+%\subsection{Conservação da massa}
 
 O princípio de conservação da massa é usado no modelo receptor, pois os 
 poluentes emitidos pelas fontes em uma bacia aérea devem chegar no 
@@ -78,7 +78,7 @@ respectivas médias $\mu_1,\dots,\mu_j$ a equação da AF pode ser escritas como
  
 \begin{equation}
   \label{eq:af}
-  x_i-\mu_i = l_{i1} F_1 + \cdots + l_{ip} F_p + \varepsilon_i 
+  \frac{x_i-\mu_i}{\sigma_i} = l_{i1} F_1 + \cdots + l_{ip} F_p + \varepsilon_i 
 \end{equation}
 
 Sendo F os fatores extraídos e $l_{ip}$ o peso (ou \textit{loading})
@@ -99,7 +99,7 @@ degenerados, pois exibe os autovalores associados aos fatores).
 
 Para melhor interpretação dos resultados da AF, aplicou-se a rotação do tipo 
 Varimax, que projeta os fatores em um novo sistema de eixos maximizando 
-as variâncias \citep{kaiser1958}.
+as variâncias e portanto alterando os autovalores \citep{kaiser1958}.
 
 %%%%
 \subsection{Positive Matrix Factorizarion}
