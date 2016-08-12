@@ -6,7 +6,7 @@
 # Configurando ambiente para deploy (testado em debian 8):
 
     apt-get update
-    apt-get install r-base r-base-dev 'r-cran-*' 'r-base-dev' texlive-full
+    apt-get install r-base r-base-dev 'r-cran-*' texlive-full
 
 # resumo em pt-br
 
