@@ -1,5 +1,7 @@
 codes/R/Rplots.pdf
 
+.vagrant
+
 *.swp*
 
 # Não versionar arquivos que podem ser recriados no projeto:

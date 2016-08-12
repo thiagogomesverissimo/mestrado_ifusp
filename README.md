@@ -1,6 +1,14 @@
 # Mestrado realizado no IFUSP 2010-2016 (com break no meio).
 
-## resumo em pt-br
+ - Versão em PDF publicada pela USP: http://www.teses.usp.br/teses/disponiveis/43/43134/tde-20072016-161023/
+ - Repositório original: https://git.uspdigital.usp.br/5385361/mestrado_ifusp
+
+# Configurando ambiente para deploy (testado em debian 8):
+
+    apt-get update
+    apt-get install r-base r-base-dev 'r-cran-*' 'r-base-dev' texlive-full
+
+# resumo em pt-br
 
 Cidades dos países da África Subsariana (SSA) têm passado por um 
 intenso processo de urbanização, implicando em crescimento das atividades 
@@ -76,68 +84,3 @@ aos impactos nas comunidades pobres.
 Medidas como pavimentação das vias, cobertura do solo com vegetação, 
 incentivo ao uso de gás de cozinha e incentivo ao transporte público, 
 ajudariam a diminuir os altos índices de poluição do ar ambiental nessas cidades.
-
-## resumo em EN
-
-Sub-Saharan Africa (SSA) cities have been intense developing process, 
-resulting in generalized economical activities growing, 
-specially industrial, as well as increase in the vehicular traffic 
-and waste generation, among other changes directly affecting the environment 
-and public health. 
-Therefore, identifying the air pollution sources is an essential issue 
-for public decisions to assure people rights to healthy life.
-
-This Master work has been integrated to an international project 
-called Energy, air pollution, and health in developing countries, 
-under coordination of Dr. Majid Ezzati, then at the 
-Harvard School of Public Health, grouping also researchers 
-from the University of Ghana. 
-The aims of this project were to evaluate the air pollution level 
-at some developing countries, by this time devoted to Accra 
-(the capital of Ghana and the main city of SSA), 
-and two other cities of Gambia. Since then, no substantive 
-study was performed there, connecting air pollution to the regional 
-social-economical levels.
-
-This Master project, provided the XRF and Black Carbon determination for all samples of the main project, and gave, else, support for meteorological and receptor modeling issues. But concerning the improving of the study of air quality and sources impact, the work focus Nima town, at Accra, the Ghana Capital. The characterization of species in the local atmospheric aerosol was used in Receptor Models to make factor to sources profile association, and respective apportionment in the local PM2.5 and PM10.
-
-Between November/2006 and August/2008, 791 filters (sampled for 48 h) collected the local atmospheric aerosol, in two sites separated by 250 m. One was at the main avenue (Nima Road) and other in a residential street (Sam Road).
-
-The PM2.5 annual average concentration to 2007 was 61,6 (1,0) ug/m3 near to the 
-avenue and 44,9 (1,1) ug/m3 in the residential area, surpassing 5 times the Word 
-Health Organization (WHO) guidelines to annual mean (10 ug/m3). 
-Another WHO guideline is not surpass 25 ug/m3 in more than 1% of the samples 
-collected in one year - in each of these sites, 66,5% and 92% of the samples 
-are above this limit.
-
-
-X-Ray Fluorescence (XRF) provided the elemental concentrations, while 
-reflectance, inter calibrated by Thermal Optical Transmittance (TOT), gave the Black 
-Carbon (BC) levels. 
-
-In this work we performed a methodology for the XRF calibration and for 
-the inter calibration between TOT and reflectance, using Matrix Least Square Fitting that gives the uncertainties of 
-fitted data and improves the precision of the adjusted values.
-
-Factor Analysis (FA) and Positive Matrix Factorization (PMF) 
-enabled the association between source and the determined factors, 
-as well as, estimated the sources profile. Local meteorological data, like wind intensity and direction, 
-and the identification of some heavy MP emission sources, 
-helped the process of factors to sources association. 
-
-During the winter period (January-March), Accra received the 
-Harmattan wind, blowing from Sahara deserts, that increased
-the concentrations from soil in 10 times. Therefore, the samples from 
-this period were separately analyzed, providing better detection 
-of the other source by PMF and FA.
-
-The local main source detected by both methods showed coherency: 
-sea salt (Na, Cl), soil (Fe, Ti, Mn, Si, Al, Ca, Mg), 
-vehicular emissions (BC, Pb, Zn, K) and biomass burning (K, P, S, BC).
-
-Reduction of air pollution levels in SSA cities, like Accra, 
-requires public actions providing clean energy sources, health care, 
-public transportation, urban planing and attention to they impact for 
-the poor communities. Relatively simple providences, like roads paving, vegetation 
-covering of the land, use of gas for cooking, public transportation, 
-should decrease the high air pollution level in those cities.
