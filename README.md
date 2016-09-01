@@ -55,7 +55,7 @@ Instalar pacotes do github:
 
 Clone o repositório e rode o deploy:
 
-    git clone http://git.uspdigital.usp.br/5385361/mestrado_ifusp.git
+    git clone https://github.com/thiagogomesverissimo/mestrado_ifusp.git
     cd mestrado_ifusp
     ./deploy
 
