@@ -16,8 +16,6 @@ debug = FALSE
 
 load<-function()
 {  
-  source('myfunctions/third_libraries.R')
-
   #Load the functions created for this project
   source("myfunctions/TrataID.R")
   source("myfunctions/na2media.R")
@@ -36,3 +34,24 @@ load<-function()
 
 # Call the load function
 load()
+
+require("GPArotation")
+require("lubridate")
+require("psych")
+require("MASS")
+require("xtable")
+require("lattice")
+require("nFactors")
+require("ggmap")
+require("corrplot")
+require("plotrix")
+require("fBasics")
+require("stringr")
+require("devtools")
+require("Rcpp")
+require("polynom")
+require("Hmisc")
+require("dplyr")
+require("openair")
+require("devtools")
+require("ggplot2")

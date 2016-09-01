@@ -10,8 +10,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Configurações no Virtualbox
   config.vm.provider :virtualbox do |v|
     v.name = "deploythiago"
-    v.memory = 512
-    v.cpus = 1
+    v.memory = 2048
+    v.cpus = 2
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end

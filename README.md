@@ -1,12 +1,63 @@
-# Mestrado realizado no IFUSP 2010-2016 (com break no meio).
+# Mestrado realizado no IFUSP, finalizado em 2016
 
  - Versão em PDF publicada pela USP: http://www.teses.usp.br/teses/disponiveis/43/43134/tde-20072016-161023/
  - Repositório original: https://git.uspdigital.usp.br/5385361/mestrado_ifusp
 
 # Configurando ambiente para deploy (testado em debian 8):
 
+Inserir repositório rstudio para usar a última versão do R:
+
+    # /etc/apt/sources.list
+    deb http://cran.rstudio.com/bin/linux/debian jessie-cran3/
+    apt-key adv --keyserver keys.gnupg.net --recv-key 381BA480
     apt-get update
-    apt-get install r-base r-base-dev 'r-cran-*' texlive-full
+
+Instalação de pacotes no debian:
+
+    apt-get update
+    apt-get install r-base 
+    apt-get install texlive-full
+
+Dependências para compilação de algumas bibliotecas:
+
+    apt-get install curl git libssl1.0.0
+
+Bibliotecas R que deverão ser instaladas antes da compilação
+(talvez o install_third_libraries.R possa ajudar):
+
+    # Primeiramente, instale via apt-get install r-cran-NOME_DA_LIB, 
+    (ou apt-get install r-cran-*):
+    lattice
+    MASS
+    ggplot2
+    stringr
+    rcpp
+    
+    # via R, install.packages('NOME_DA_LIB')
+    GPArotation
+    lubridate
+    psych
+    xtable
+    nFactors
+    ggmap
+    corrplot
+    plotrix
+    fBasics
+    polynom
+    Hmisc
+    dplyr
+    devtools
+   
+Instalar pacotes do github:
+
+    library("devtools")
+    install_github('davidcarslaw/openair')
+
+Clone o repositório e rode o deploy:
+
+    git clone http://git.uspdigital.usp.br/5385361/mestrado_ifusp.git
+    cd mestrado_ifusp
+    ./deploy
 
 # resumo em pt-br
 
