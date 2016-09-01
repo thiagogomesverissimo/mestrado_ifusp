@@ -5,6 +5,13 @@
 
 # Configurando ambiente para deploy (testado em debian 8):
 
+
+Adicionando locale em en_US.UTF-8:
+
+    sudo locale-gen en_US.UTF-8
+    sudo update-locale 
+    dpkg-reconfigure locales
+
 Inserir repositório rstudio para usar a última versão do R:
 
     # /etc/apt/sources.list
@@ -38,7 +45,6 @@ Bibliotecas R que deverão ser instaladas antes da compilação
     lubridate
     psych
     xtable
-    nFactors
     ggmap
     corrplot
     plotrix
