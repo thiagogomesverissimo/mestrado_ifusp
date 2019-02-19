@@ -1,7 +1,6 @@
 # Mestrado realizado no IFUSP, finalizado em 2016
 
  - Versão em PDF publicada pela USP: http://www.teses.usp.br/teses/disponiveis/43/43134/tde-20072016-161023/
- - Repositório original: https://git.uspdigital.usp.br/5385361/mestrado_ifusp
 
 # Configurando ambiente para deploy (testado em debian 8):
 
